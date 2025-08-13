@@ -1,7 +1,5 @@
 import { defineConfig } from "vitepress";
-
-let GTAG_ID = "G-TBCY5W7YVR";
-
+const fileAndStyles: Record<string, string> = {}
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ME-Frp第三方客户端联盟",
@@ -60,13 +58,13 @@ export default defineConfig({
       "/": [
         {
           text: "介绍",
-          link: "/intro",
+          link: "/",
           items: [
             { text: "客户端",
               items: [
-                { text: "Yealqp版", link: "/client/yealqp" },
-                { text: "灵弦MuaMua版", link: "/client/lingxuan" },
-                { text: "qyf版", link: "/client/qyf" },
+                { text: "Yealqp版", link: "/client/XL" },
+                { text: "灵弦MuaMua版", link: "/client/LX" },
+                { text: "qyf版", link: "/client/QYF" },
               ]
              },
           ],
@@ -80,9 +78,11 @@ export default defineConfig({
     },
     ssr: {
       noExternal: [
-        // If there are other packages that need to be processed by Vite, you can add them here.
-        "@nolebase/vitepress-plugin-enhanced-readabilities",
-        "@nolebase/vitepress-plugin-highlight-targeted-heading",
+        'naive-ui',
+        'date-fns',
+        'vueuc',
+        '@nolebase/vitepress-plugin-enhanced-readabilities',
+        '@nolebase/vitepress-plugin-highlight-targeted-heading',
       ],
     },
     server: {
@@ -90,4 +90,25 @@ export default defineConfig({
     allowedHosts: ['mefrp.yealqp.fun'],
   },
   },
+  postRender(context) {
+    const styleRegex = /<css-render-style>((.|\s)+)<\/css-render-style>/
+    const vitepressPathRegex = /<vitepress-path>(.+)<\/vitepress-path>/
+    const style = styleRegex.exec(context.content)?.[1]
+    const vitepressPath = vitepressPathRegex.exec(context.content)?.[1]
+    if (vitepressPath && style) {
+      fileAndStyles[vitepressPath] = style
+    }
+    context.content = context.content.replace(styleRegex, '')
+    context.content = context.content.replace(vitepressPathRegex, '')
+  },
+  transformHtml(code, id) {
+    const html = id.split('/').pop()
+    if (!html)
+      return
+    const style = fileAndStyles[`/${html}`]
+    if (style) {
+      return code.replace(/<\/head>/, `${style}</head>`)
+    }
+  }
 });
+

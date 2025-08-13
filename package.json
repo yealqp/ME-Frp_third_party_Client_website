@@ -5,10 +5,11 @@
     "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.1",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.1",
     "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.1",
-    "vitepress": "^2.0.0-alpha.10",
-    "vue-echarts": "^7.0.3",
     "axios": "^1.11.0",
-    "vue-data-ui": "^2.17.11"
+    "naive-ui": "^2.42.0",
+    "vitepress": "^2.0.0-alpha.10",
+    "vue-data-ui": "^2.17.11",
+    "vue-echarts": "^7.0.3"
   },
   "scripts": {
     "dev": "vitepress dev docs",
@@ -16,6 +17,7 @@
     "preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.14",
     "axios": "^1.11.0",
     "sass-embedded": "^1.90.0"
   }
