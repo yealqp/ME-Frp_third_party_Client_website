@@ -2,7 +2,7 @@
 import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 </script>
 
-# XL-ME-Frp-Luncher
+# LX-ME-Frp-Luncher
 
 > <NSpace>
 > <NTag :bordered="false" type="success">易语言</NTag>
