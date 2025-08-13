@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/vue-fontawesome": "^3.1.1",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.1",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.1",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.1",
+    "vitepress": "^2.0.0-alpha.9",
+    "vue-echarts": "^7.0.3",
+    "axios": "^1.11.0",
+    "vue-data-ui": "^2.17.7"
+  },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "sass-embedded": "^1.89.2"
+  }
+}
