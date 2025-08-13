@@ -50,7 +50,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
     >
 </NCarousel>
 
-## 下载地址
+## 下载
  下载方式 [蓝奏云](https://wwms.lanzouo.com/iu7tR32rucid) 
 
 > [!WARNING]
