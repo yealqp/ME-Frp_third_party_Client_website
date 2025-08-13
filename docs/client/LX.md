@@ -25,7 +25,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/creat.png"
+      src="/Lx_MuaMua/create.png"
     >
     <img
       class="carousel-img"

@@ -15,11 +15,9 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 ## 简介
 
-本客户端由 yealqp 使用 Tauri 框架开发，仅支持 Windows amd64 架构 (我没有其他开发环境)
-
-界面高防官网样式 较为美观
-
-提供了官网没有的启停隧道的功能
+- 本客户端由 yealqp 使用 Tauri 框架开发，仅支持 Windows amd64 架构。
+- 界面高仿官网样式，是目前收录的三个客户端中最美观的一个，也是包体最小的一个。
+- 提供了官网没有的启停隧道的功能。
 
 ## 预览图
 
@@ -38,7 +36,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
     >
     <img
       class="carousel-img"
-      src="/yealqp/creat.png"
+      src="/yealqp/create.png"
     >
     <img
       class="carousel-img"
