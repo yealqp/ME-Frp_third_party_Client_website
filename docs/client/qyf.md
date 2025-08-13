@@ -13,13 +13,82 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 > 命名灵感来源: PCL Ⅱ
 
 ## 简介
-Plain ME Frp Luncher 是一个基于 WPF 的客户端，用于连接到 Plain ME Frp 服务端。它使用 HandyControl 库进行界面设计，并使用 .NET 8.0 进行开发。
+Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了简单便捷的操作，可以快速启动实例/隧道。
+
+## 预览
+<NCarousel show-arrow autoplay>
+    <img
+      class="carousel-img"
+      src="/rycb/login.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/home.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/create.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/manage.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/monitor.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/about.png"
+    >
+    <img
+      class="carousel-img"
+      src="/rycb/terminal.png"
+    >
+</NCarousel>
 
 ## 功能
-- 连接到 Plain ME Frp 服务端
+- 连接到 ME Frp 服务端
 - 显示连接状态
 - 显示连接信息
 - 支持断开连接
+
+## 下载地址
+> [!INFO]
+> Plain ME Frp Launcher依赖于[.NET 8.0桌面运行时(Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
+> 若您仍不知道如何下载，请点击该[直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本8.0.18)下载。
+
+官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码:2Hxf
+
+官方 [百度云](https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb) 密码:rycb
+
+官方 [易云分流](https://share.asytech.cn/s/95b2yoQjK6wJMk5)
+
+官方 [蓝奏云](https://rycbstudio.lanzoue.com/ibcLg33fs6qh) 密码:fx7q
+
+备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
+
+> [!WARNING]
+> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)  
+> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
+> 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
+> [!INFO]
+> 需要更多功能或报告Bug 请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
+
+## 更新日志
+### v1.1.0
+- 优化主页面框架的菜单栏显示
+- 完善用户中心
+- 可以后台运行
+- 增加设置项: `HideInsteadOfClose` - 是否在关闭窗口时隐藏窗口
+### v1.0.1
+- 修复了连接状态显示错误的问题
+- 修复了无法从控制台启动mefrpc的问题
+- 增加设置项: `KickWithoutDisable` - 是否在断开连接时禁用隧道
+- 增加设置项: `ParallelDownload` - 是否在下载文件时多线程下载
+- 增加设置项: `ParallelCount` - 多线程下载的线程数量
+### v1.0.0
+- 发布
 
 ## 使用方法
 1. 下载并安装 .NET 8.0
