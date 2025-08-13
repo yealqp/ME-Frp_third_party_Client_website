@@ -49,6 +49,10 @@ export default defineConfig({
     outline: {
       label: "在此页面上的内容",
     },
+    editLink: {
+      pattern: "https://github.com/yealqp/ME-Frp_third_party_Client_website",
+      text: "帮助我们完善这个页面",
+    },
     sidebar: {
       "/": [
         {
@@ -60,13 +64,16 @@ export default defineConfig({
               items: [
                 { text: "XL-ME-Frp-Luncher", link: "/client/XL" },
                 { text: "LX-ME-Frp-Luncher", link: "/client/LX" },
-                { text: "Plain ME Frp Launcher", link: "/client/QYF" },
+                { text: "Plain ME Frp Launcher", link: "/client/qyf" },
               ],
             },
           ],
         },
       ],
     },
+    socialLinks: [
+      { icon: "github", link: "https://github.com/yealqp/ME-Frp_third_party_Client_website" },
+    ],
   },
   vite: {
     optimizeDeps: {
