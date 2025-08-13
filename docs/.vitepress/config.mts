@@ -62,9 +62,9 @@ export default defineConfig({
           items: [
             { text: "客户端",
               items: [
-                { text: "Yealqp版", link: "/client/XL" },
-                { text: "灵弦MuaMua版", link: "/client/LX" },
-                { text: "qyf版", link: "/client/QYF" },
+                { text: "XL-ME-Frp-Luncher", link: "/client/XL" },
+                { text: "LX-ME-Frp-Luncher", link: "/client/LX" },
+                { text: "QYF-ME-Frp-Luncher", link: "/client/QYF" },
               ]
              },
           ],
