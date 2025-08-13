@@ -1,18 +1,14 @@
 import { defineConfig } from "vitepress";
-const fileAndStyles: Record<string, string> = {}
+const fileAndStyles: Record<string, string> = {};
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/ME-Frp_third_party_Client_website/",
   title: "ME-Frp第三方客户端联盟",
   description: "收录ME-Frp的第三方客户端",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }]
-  ],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
 
   lastUpdated: true,
   sitemap: {
     hostname: "https://mefrp.yealqp.fun",
-
   },
 
   lang: "zh",
@@ -34,9 +30,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: "/favicon.ico",
-    nav: [
-      { text: "ME-Frp主站", link: "https://www.mefrp.com/" },
-    ],
+    nav: [{ text: "ME-Frp主站", link: "https://www.mefrp.com/" }],
 
     docFooter: {
       prev: "上一页",
@@ -61,13 +55,14 @@ export default defineConfig({
           text: "介绍",
           link: "/",
           items: [
-            { text: "客户端",
+            {
+              text: "客户端",
               items: [
                 { text: "XL-ME-Frp-Luncher", link: "/client/XL" },
                 { text: "LX-ME-Frp-Luncher", link: "/client/LX" },
-                { text: "Plain ME Frp Launcher", link: "/client/qyf" },
-              ]
-             },
+                { text: "Plain ME Frp Launcher", link: "/client/QYF" },
+              ],
+            },
           ],
         },
       ],
@@ -79,37 +74,35 @@ export default defineConfig({
     },
     ssr: {
       noExternal: [
-        'naive-ui',
-        'date-fns',
-        'vueuc',
-        '@nolebase/vitepress-plugin-enhanced-readabilities',
-        '@nolebase/vitepress-plugin-highlight-targeted-heading',
+        "naive-ui",
+        "date-fns",
+        "vueuc",
+        "@nolebase/vitepress-plugin-enhanced-readabilities",
+        "@nolebase/vitepress-plugin-highlight-targeted-heading",
       ],
     },
     server: {
-    host: '0.0.0.0',
-    allowedHosts: ['mefrp.yealqp.fun'],
-  },
+      host: "0.0.0.0",
+      allowedHosts: ["mefrp.yealqp.fun"],
+    },
   },
   postRender(context) {
-    const styleRegex = /<css-render-style>((.|\s)+)<\/css-render-style>/
-    const vitepressPathRegex = /<vitepress-path>(.+)<\/vitepress-path>/
-    const style = styleRegex.exec(context.content)?.[1]
-    const vitepressPath = vitepressPathRegex.exec(context.content)?.[1]
+    const styleRegex = /<css-render-style>((.|\s)+)<\/css-render-style>/;
+    const vitepressPathRegex = /<vitepress-path>(.+)<\/vitepress-path>/;
+    const style = styleRegex.exec(context.content)?.[1];
+    const vitepressPath = vitepressPathRegex.exec(context.content)?.[1];
     if (vitepressPath && style) {
-      fileAndStyles[vitepressPath] = style
+      fileAndStyles[vitepressPath] = style;
     }
-    context.content = context.content.replace(styleRegex, '')
-    context.content = context.content.replace(vitepressPathRegex, '')
+    context.content = context.content.replace(styleRegex, "");
+    context.content = context.content.replace(vitepressPathRegex, "");
   },
   transformHtml(code, id) {
-    const html = id.split('/').pop()
-    if (!html)
-      return
-    const style = fileAndStyles[`/${html}`]
+    const html = id.split("/").pop();
+    if (!html) return;
+    const style = fileAndStyles[`/${html}`];
     if (style) {
-      return code.replace(/<\/head>/, `${style}</head>`)
+      return code.replace(/<\/head>/, `${style}</head>`);
     }
-  }
+  },
 });
-
