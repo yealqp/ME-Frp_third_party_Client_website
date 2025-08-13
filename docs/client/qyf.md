@@ -2,21 +2,27 @@
 import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 </script>
->---
-><NSpace>
-><NTag :bordered="false" type="info">.NET 8.0</NTag>
-><NTag :bordered="false" type="info">WPF</NTag>
-><NTag :bordered="false" type="warning">HandyControl</NTag> 
-></NSpace> 
+
+
+
 # Plain ME Frp Luncher
+
+> <NSpace>
+> <NTag :bordered="false" type="info">.NET 8.0</NTag>
+> <NTag :bordered="false" type="info">WPF</NTag>
+> <NTag :bordered="false" type="warning">HandyControl</NTag> 
+> </NSpace>
+
 > 作者: RYCB Studio  
 > 命名灵感来源: PCL Ⅱ  
 > 查看[官网](https://rycb.mxj.pub/mefl/)
 
 ## 简介
+
 Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了简单便捷的操作，可以快速启动实例/隧道。
 
 ## 预览
+
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
@@ -49,15 +55,22 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 </NCarousel>
 
 ## 功能
+
 - 连接到 ME Frp 服务端
 - 显示连接状态
 - 显示连接信息
 - 支持断开连接
 
+## 使用方法
+1. 下载并安装 .NET 8.0
+2. 下载 Plain ME Frp Luncher
+3. 运行 Plain ME Frp Luncher
+
 ## 下载地址
+
 > [!INFO]
-> Plain ME Frp Launcher依赖于[.NET 8.0桌面运行时(Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
-> 若您仍不知道如何下载，请点击该[直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本8.0.18)下载。
+> Plain ME Frp Launcher 依赖于[.NET 8.0 桌面运行时(Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
+> 若您仍不知道如何下载，请点击该[直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本 8.0.18)下载。
 
 官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码:2Hxf
 
@@ -67,10 +80,10 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 官方 [蓝奏云](https://rycbstudio.lanzoue.com/ibcLg33fs6qh) 密码:fx7q
 
-备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
+备用 [CDN 源站](https://content.rycb.mxj.pub/files/mefl/Plain%20Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
 
 > [!WARNING]
-> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)  
+> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)
 > 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
 
@@ -90,14 +103,9 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 - 增加设置项: `HideInsteadOfClose` - 是否在关闭窗口时隐藏窗口
 ### v1.0.1
 - 修复了连接状态显示错误的问题
-- 修复了无法从控制台启动mefrpc的问题
+- 修复了无法从控制台启动 mefrpc 的问题
 - 增加设置项: `KickWithoutDisable` - 是否在断开连接时禁用隧道
 - 增加设置项: `ParallelDownload` - 是否在下载文件时多线程下载
 - 增加设置项: `ParallelCount` - 多线程下载的线程数量
 ### v1.0.0
 - 发布
-
-## 使用方法
-1. 下载并安装 .NET 8.0
-2. 下载 Plain ME Frp Luncher
-3. 运行 Plain ME Frp Luncher
