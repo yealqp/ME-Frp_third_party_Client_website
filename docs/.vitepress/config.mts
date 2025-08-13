@@ -64,7 +64,7 @@ export default defineConfig({
               items: [
                 { text: "XL-ME-Frp-Luncher", link: "/client/XL" },
                 { text: "LX-ME-Frp-Luncher", link: "/client/LX" },
-                { text: "QYF-ME-Frp-Luncher", link: "/client/QYF" },
+                { text: "Plain ME Frp Launcher", link: "/client/qyf" },
               ]
              },
           ],
