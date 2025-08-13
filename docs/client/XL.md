@@ -1,12 +1,10 @@
 <script setup>
 import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
-
 </script>
 # XL-ME-Frp-Luncher
 >---
 ><NSpace>
 ><NTag :bordered="false" type="success">Vue3</NTag>
-><NTag :bordered="false" type="info">Tauri</NTag>
 ><NTag :bordered="false" type="info">TypeScript</NTag>
 ><NTag :bordered="false" type="warning">Naive UI</NTag> 
 ><NTag :bordered="false" type="error">Vite</NTag>
@@ -15,6 +13,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 ></NSpace> 
 
 本客户端由yealqp使用 Tauri 框架开发，仅支持 Windows amd64架构 (我没有其他开发环境)
+
+界面高防官网样式 较为美观
 
 ## 预览图
 <NCarousel show-arrow autoplay>
@@ -50,7 +50,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
  官方 [OpenList](https://alist.yealqp.fun/mefrp-desktop)
 
 > [!WARNING]
-> 注意:仅适于windows 10 11 server19 22 25 <br>
+> 该应用仅适于windows 10 11 server19 22 25 <br>
 > 请使用[ME-Frp官网](https://www.mefrp.com/)账号登录 <br>
 > 需要更多功能或报告Bug 请向yealqp@163.com发送邮件 <br>
 
