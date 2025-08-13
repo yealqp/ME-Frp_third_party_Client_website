@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 const fileAndStyles: Record<string, string> = {}
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/vitePress-project/",
+  base: "/ME-Frp_third_party_Client_website/",
   title: "ME-Frp第三方客户端联盟",
   description: "收录ME-Frp的第三方客户端",
   head: [
