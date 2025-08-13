@@ -14,7 +14,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 > </NSpace>
 
 > 作者: RYCB Studio  
-> 命名灵感来源: PCL Ⅱ
+> 命名灵感来源: PCL Ⅱ  
+> 查看[官网](https://rycb.mxj.pub/mefl/)
 
 ## 简介
 
@@ -82,12 +83,19 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 备用 [CDN 源站](https://content.rycb.mxj.pub/files/mefl/Plain%20Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
 
 > [!WARNING]
-> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)  
-> 注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
-> 请使用[ME Frp 官网](https://www.mefrp.com/)账号登录 <br> > [!INFO]
-> 需要更多功能或报告Bug 请提交Issue <br>
+> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)
+> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
+> 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
+
+> [!INFO]
+> 需要更多功能或报告Bug 请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
 
 ## 更新日志
+### v1.1.1
+- 增加一些彩蛋
+- 增加设置的UI界面
+- 增加"取消登录"选项
+- 增加设置项: `CheckUpdate` - 是否在启动时检查更新
 ### v1.1.0
 - 优化主页面框架的菜单栏显示
 - 完善用户中心
