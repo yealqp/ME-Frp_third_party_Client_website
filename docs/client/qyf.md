@@ -18,8 +18,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 > 查看[官网](https://rycb.mxj.pub/mefl/)
 
 ## 简介
+Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了简单便捷的操作，可以快速启动实例/隧道。*可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。*
 
-Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了简单便捷的操作，可以快速启动实例/隧道。
 
 ## 预览
 
@@ -80,7 +80,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 官方 [蓝奏云](https://rycbstudio.lanzoue.com/ibcLg33fs6qh) 密码:fx7q
 
-备用 [CDN 源站](https://content.rycb.mxj.pub/files/mefl/Plain%20Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
+备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)=
 
 > [!WARNING]
 > 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)
@@ -91,11 +91,18 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 > 需要更多功能或报告Bug 请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
 
 ## 更新日志
+### v1.2.0
+- 修复了更新检查逻辑
+- 美化UI, 增加辉光效果
+- 修复登录时最小化到托盘又打开主界面时直接跳转到登录后页面导致无限加载的问题
+- 修复彩蛋的加载问题
+- 修复了当在托盘中打开主界面时托盘菜单不隐藏的问题
+- 修复了启动多个实例的问题
+- 修复了在浅色模式下控制台前景色不切换的问题
 ### v1.1.1
 - 增加一些彩蛋
 - 增加设置的UI界面
 - 增加"取消登录"选项
-- 增加设置项: `CheckUpdate` - 是否在启动时检查更新
 ### v1.1.0
 - 优化主页面框架的菜单栏显示
 - 完善用户中心
