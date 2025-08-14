@@ -60,7 +60,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 > [!WARNING]
 > 注意:仅适于 windows <br>
 > 请使用[ME-Frp 官网](https://www.mefrp.com/)账号登录 <br>
-> 需要更多功能或报告Bug 请提交Issue <br>
+> 需要更多功能或报告Bug 请向我们的邮箱 407176772@qq.com 发送邮件 <br>
 
 ## 更新记录
 ### v2.0
