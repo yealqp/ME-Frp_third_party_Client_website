@@ -30,7 +30,10 @@ export default defineConfig({
 
   themeConfig: {
     logo: "./favicon.ico",
-    nav: [{ text: "ME-Frp主站", link: "https://www.mefrp.com/" }],
+    nav: [
+         { text: "ME-Frp主站", link: "https://www.mefrp.com/" },
+         { text: "ZeroSnow联盟", link: "https://mefrplm.framer.ai/"}
+         ],
 
     docFooter: {
       prev: "上一页",
