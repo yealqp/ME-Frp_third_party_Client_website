@@ -9,13 +9,16 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 > <NSpace>
 > <NTag :bordered="false" type="info">.NET 8.0</NTag>
-> <NTag :bordered="false" type="info">WPF</NTag>
-> <NTag :bordered="false" type="warning">HandyControl</NTag> 
+> <NTag :bordered="false" color="violet">Avalonia</NTag>
+> <NTag :bordered="false" type="warning">Semi.Avalonia</NTag> 
 > </NSpace>
 
 > 作者: RYCB Studio  
 > 命名灵感来源: PCL Ⅱ  
 > 查看[官网](https://rycb.mxj.pub/mefl/)
+
+> [!INFO]
+> 基于Avalonia的 Plain ME Frp Launcher 2.0 即将到来！支持Windows和Linux两端！欢迎关注PML Ⅱ ！(doge)
 
 ## 简介
 Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了简单便捷的操作，可以快速启动实例/隧道。*可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。*
@@ -84,14 +87,35 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 > [!WARNING]
 > 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)
-> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
+> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux 发行版 <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
 
 > [!INFO]
 > 需要更多功能或报告Bug 请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
 
 ## 更新日志
+### v2.0.0 \[building\]
+- 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
+- \[ADDED\]
+    - Windows & Linux 多平台支持
+    - 统一 UI 风格为`Semi.Avalonia`
+    - 完整 ME Frp 功能
+- \[REMOVED\]
+    - 移除 HandyControl 及其相关，包括但不限于: 
+        - 辉光窗口
+        - 类Windows 10加载动画
+    - 移除 WPF 相关内容，包括但不限于:
+        - 基于WPF的托盘图标
+        - 基于WPF的动画
+    - 移除了 Herobrine.
+- \[MODIFIED\]
+    - 修改了更新的默认下载源
+    - 修改部分程序逻辑
+- \[FIXED\]
+    - 修复了在特定条件下一言无法加载的问题
+
 ### v1.2.0
+- 统一所有UI字体为HarmonyOS Sans
 - 修复了更新检查逻辑
 - 美化UI, 增加辉光效果
 - 修复登录时最小化到托盘又打开主界面时直接跳转到登录后页面导致无限加载的问题
