@@ -9,8 +9,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 > <NSpace>
 > <NTag :bordered="false" type="info">.NET 8.0</NTag>
-> <NTag :bordered="false" type="info">Avalonia</NTag>
-> <NTag :bordered="false" type="warning">HandyControl</NTag> 
+> <NTag :bordered="false" color="violet">Avalonia</NTag>
+> <NTag :bordered="false" type="warning">Semi.Avalonia</NTag> 
 > </NSpace>
 
 > 作者: RYCB Studio  
@@ -95,6 +95,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 ## 更新日志
 ### v2.0.0 \[building\]
+- 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
 - \[ADDED\]
     - Windows & Linux 多平台支持
     - 统一 UI 风格为`Semi.Avalonia`
@@ -114,6 +115,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
     - 修复了在特定条件下一言无法加载的问题
 
 ### v1.2.0
+- 统一所有UI字体为HarmonyOS Sans
 - 修复了更新检查逻辑
 - 美化UI, 增加辉光效果
 - 修复登录时最小化到托盘又打开主界面时直接跳转到登录后页面导致无限加载的问题
