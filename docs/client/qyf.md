@@ -96,6 +96,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 ## 更新日志
 ### v2.0.0 \[building\]
 - 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
+- *2.0.0暂时移除了控制台功能。该功能可能会在2.1.x中回归。
 - \[ADDED\]
     - Windows & Linux 多平台支持
     - 统一 UI 风格为`Semi.Avalonia`
