@@ -23,7 +23,7 @@
           <div class="hero-content">
             <div class="hero-text">
               <span :style="{ fontSize: isMobile ? '32px' : '48px' }">
-                MCSL 开发组
+                ME-Frp TPCA
               </span>
               <div class="hero-subtitle-container">
                 <transition name="fade" mode="out-in">
