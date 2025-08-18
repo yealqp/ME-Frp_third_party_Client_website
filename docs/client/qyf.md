@@ -74,7 +74,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 > [!INFO]
 > Plain ME Frp Launcher 依赖于[.NET 8.0 桌面运行时(Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
 > 若您仍不知道如何下载，请点击该[直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本 8.0.18)下载。
-
+#### Legacy v1.2.0
 官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码:2Hxf
 
 官方 [百度云](https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb) 密码:rycb
@@ -83,10 +83,13 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 官方 [蓝奏云](https://rycbstudio.lanzoue.com/ibcLg33fs6qh) 密码:fx7q
 
-备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)=
+备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
+
+#### X v2.0.0
+\[开发中...\]
 
 > [!WARNING]
-> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)
+> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)<br>
 > 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux 发行版 <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
 
@@ -96,7 +99,6 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 ## 更新日志
 ### v2.0.0 \[building\]
 - 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
-- *2.0.0暂时移除了控制台功能。该功能可能会在2.1.x中回归。
 - \[ADDED\]
     - Windows & Linux 多平台支持
     - 统一 UI 风格为`Semi.Avalonia`
