@@ -62,25 +62,26 @@ export default {
   setup() {
     const products = ref([
       {
-        name: 'MCServerLauncher 2',
+        name: 'XL-ME-Frp-Launcher',
         link: 'https://v2.mcsl.com.cn/',
         icon: 'https://images.mcsl.com.cn/new/MCSL2.webp',
-        description: '一个简洁、全能的 Minecraft 开服器，MCSL开发组用 Python 倾心打造 2 年之作',
-        image: 'https://images.mcsl.com.cn/new/mcsl2-preview.webp'
+        description: '本客户端由 yealqp 使用 Tauri 框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也是包体最小的一个。',
+        image: 'https://image.mefrp-tpca.yealqp.fun/image/home/yea.webp'
       },
       {
-        name: 'MCServerLauncher Future',
+        name: 'LX-ME-Frp-Launcher',
         link: 'https://future.mcsl.com.cn/',
         icon: 'https://images.mcsl.com.cn/new/MCServerLauncherFuture.webp',
-        description: 'MCSL 的全新版本。完全重新设计，功能全面，简单上手。(暂未完工)',
-        image: 'https://images.mcsl.com.cn/new/bg.webp'
+        description: '本客户端由 灵弦 MuaMua 使用 易语言&Exui 开发，界面高仿官方图形化V4.0',
+
+        image: 'https://image.mefrp-tpca.yealqp.fun/image/home/lingx.webp'
       },
       {
-        name: 'MCSL-Sync',
+        name: 'Plain ME Frp Luncher',
         link: 'https://sync.mcsl.com.cn/',
         icon: 'https://images.mcsl.com.cn/new/MCSL-Sync.webp',
-        description: '一个全面的 MC 服务器核心镜像站，提供超过 30 种服务器核心下载',
-        image: 'https://images.mcsl.com.cn/new/mcsl-sync-preview.webp'
+        description: 'Plain ME Frp Launcher 提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。',
+        image: 'https://image.mefrp-tpca.yealqp.fun/image/home/qyf.webp'
       }
     ])
 
@@ -125,8 +126,8 @@ export default {
 
     // 获取产品位置类名
     const getProductPositionClass = (index) => {
-      const positions = ['bottom-left', 'top-right', 'bottom-right']
-      return positions[index] || 'center'
+      const positions = ['bottom-left', 'top-right', 'bottom-right', 'top-left']
+      return positions[index % positions.length]
     }
 
     // 打开产品链接
@@ -365,6 +366,11 @@ export default {
   right: 80px;
 }
 
+.product-content.top-left {
+  top: 80px;
+  left: 80px;
+}
+
 .product-content.center {
   top: 50%;
   left: 50%;
@@ -468,7 +474,8 @@ export default {
   /* 移动端靠下居中显示 */
   .product-content.bottom-left,
   .product-content.top-right,
-  .product-content.bottom-right {
+  .product-content.bottom-right,
+  .product-content.top-left {
     position: absolute;
     top: auto;
     left: 50%;

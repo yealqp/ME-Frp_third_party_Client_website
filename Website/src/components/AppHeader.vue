@@ -2,7 +2,7 @@
   <n-layout-header bordered class="header pc-header" :class="{ transparent: isTransparent }" style="user-select: none">
     <div class="header-content">
       <div class="logo" @click="goHome">
-        <img src="https://images.mcsl.com.cn/new/MCSLTeam.webp" alt="MCSL" class="logo-icon" />
+        <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
         <span class="logo-text">ME-Frp TPCA</span>
       </div>
 
@@ -16,7 +16,7 @@
   <n-layout-header bordered class="header mobile-header" :class="{ transparent: isTransparent }" style="user-select: none">
     <div class="mobile-header-content">
       <div class="logo" @click="goHome">
-        <img src="https://images.mcsl.com.cn/new/MCSLTeam.webp" alt="MCSL" class="logo-icon" />
+        <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
         <span class="logo-text">ME-Frp TPCA</span>
 
       </div>
@@ -55,7 +55,8 @@ import {
   Apps as ProductsIcon,
   InformationCircle as AboutIcon,
   People as PartnersIcon,
-  Menu as MenuIcon
+  Menu as MenuIcon,
+  Document as DocumentIcon
 } from '@vicons/ionicons5'
 
 export default {
@@ -71,7 +72,8 @@ export default {
     ProductsIcon,
     AboutIcon,
     PartnersIcon,
-    MenuIcon
+    MenuIcon,
+    DocumentIcon
   },
   props: {
     activeKey: {
@@ -136,6 +138,11 @@ export default {
         label: '关于',
         key: 'about',
         icon: () => h(NIcon, null, { default: () => h(AboutIcon) })
+      },
+      {
+        label: '文档',
+        key: 'docs',
+        icon: () => h(NIcon, null, { default: () => h(DocumentIcon) })
       }
     ]
 
@@ -149,6 +156,9 @@ export default {
         router.push('/partners')
       } else if (key === 'about') {
         router.push('/about')
+      } else if (key === 'docs') {
+        router.push('/docs')
+
       }
     }
 
