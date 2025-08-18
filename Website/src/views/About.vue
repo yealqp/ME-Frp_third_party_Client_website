@@ -10,7 +10,7 @@
                   关于我们
                 </n-gradient-text>
               </h1>
-              <p class="hero-subtitle">了解MCSL开发组的故事与使命</p>
+              <p class="hero-subtitle">了解ME-Frp TPCA的故事与使命</p>
             </div>
           </div>
         </div>

@@ -13,12 +13,11 @@
   },
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs --port 4173",
     "dev:website": "cd Website && npm run dev",
+    "build": "npm run build:website && npm run build:docs",
     "build:website": "cd Website && npm run build",
-    "preview:website": "cd Website && npm run preview",
-    "build:all": "npm run build:website && npm run build"
+    "build:docs": "vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
     "@css-render/vue3-ssr": "^0.15.14",

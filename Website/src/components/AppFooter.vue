@@ -3,7 +3,7 @@
     <div class="footer-content">
       <div class="footer-left">
         <p class="copyright">
-          Copyright © 2022 - 2025 MCSL 开发组.
+          Copyright © 2025 ME-Frp TPCA.
         </p>
         <p class="runtime">
           我们已奋斗 {{ runtimeText }}
@@ -11,7 +11,7 @@
       </div>
       <div class="footer-right">
         <a target="_blank" href="https://beian.miit.gov.cn/" class="beian-link">
-          鲁ICP备2023001164号-2
+          冀ICP备2025123259号-1
         </a>
         <div class="contact-links">
           <a target="_blank" href="https://github.com/MCSLTeam" class="contact-link">
@@ -47,7 +47,7 @@ export default {
     let timer = null
 
     const calculateRuntime = () => {
-      const startTime = new Date('2022/08/27 22:25:27')
+      const startTime = new Date('2025/08/13 11:25:27')
       const now = new Date()
       const diff = now - startTime
 

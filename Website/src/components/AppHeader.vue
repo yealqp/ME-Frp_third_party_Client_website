@@ -3,7 +3,7 @@
     <div class="header-content">
       <div class="logo" @click="goHome">
         <img src="https://images.mcsl.com.cn/new/MCSLTeam.webp" alt="MCSL" class="logo-icon" />
-        <span class="logo-text">MCSL 开发组</span>
+        <span class="logo-text">ME-Frp TPCA</span>
       </div>
 
       <div class="nav-links">
@@ -17,7 +17,8 @@
     <div class="mobile-header-content">
       <div class="logo" @click="goHome">
         <img src="https://images.mcsl.com.cn/new/MCSLTeam.webp" alt="MCSL" class="logo-icon" />
-        <span class="logo-text">MCSL 开发组</span>
+        <span class="logo-text">ME-Frp TPCA</span>
+
       </div>
 
       <n-popover trigger="click" placement="bottom-end" v-model:show="showMobileMenu"

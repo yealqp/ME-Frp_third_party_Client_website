@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { resolve } from "path";
 const fileAndStyles: Record<string, string> = {};
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -20,6 +21,12 @@ export default defineConfig({
   },
 
   cleanUrls: true,
+  
+  // 设置基础路径为/docs/
+  base: '/docs/',
+  
+  // 设置构建输出目录
+  outDir: '../dist/docs',
 
   locales: {
     root: {
@@ -31,6 +38,7 @@ export default defineConfig({
   themeConfig: {
     logo: "./favicon.ico",
     nav: [
+         { text: "官网首页", link: "https://mefrp-tpc.yealqp.fun/" },
          { text: "ME-Frp主站", link: "https://www.mefrp.com/" },
          { text: "ZeroSnow联盟", link: "https://mefrplm.framer.ai/"}
          ],
