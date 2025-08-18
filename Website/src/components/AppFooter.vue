@@ -8,20 +8,18 @@
         <p class="runtime">
           我们已奋斗 {{ runtimeText }}
         </p>
+        <p class="copyright">
+           本站二开自<a href="https://github.com/MCSLTeam/MCSLTeam-Website-Next">MCSLTeam官网</a>。
+        </p>
       </div>
       <div class="footer-right">
         <a target="_blank" href="https://beian.miit.gov.cn/" class="beian-link">
           冀ICP备2025123259号-1
         </a>
         <div class="contact-links">
-          <a target="_blank" href="https://github.com/MCSLTeam" class="contact-link">
+          <a target="_blank" href="https://github.com/yealqp/ME-Frp_third_party_Client_website" class="contact-link">
             <n-icon size="24" class="contact-icon">
               <LogoGithub />
-            </n-icon>
-          </a>
-          <a href="mailto:services@mcsl.com.cn" class="contact-link">
-            <n-icon size="24" class="contact-icon">
-              <Mail />
             </n-icon>
           </a>
         </div>

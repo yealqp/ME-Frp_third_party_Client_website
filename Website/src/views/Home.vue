@@ -3,21 +3,10 @@
     <n-layout class="main-layout">
       <n-layout-content>
         <div class="hero-section hero-fullscreen">
-          <n-carousel
-            class="hero-carousel"
-            :autoplay="true"
-            :interval="2000"
-            :show-dots="false"
-            :show-arrow="true"
-            :draggable="true"
-            effect="card"
-          >
-            <div
-              v-for="(image, index) in backgroundImages"
-              :key="index"
-              class="hero-slide"
-              :style="{ backgroundImage: `url(${image})` }"
-            ></div>
+          <n-carousel class="hero-carousel" :autoplay="true" :interval="2000" :show-dots="false" :show-arrow="true"
+            :draggable="true" effect="card">
+            <div v-for="(image, index) in backgroundImages" :key="index" class="hero-slide"
+              :style="{ backgroundImage: `url(${image})` }"></div>
           </n-carousel>
 
           <div class="hero-content">
@@ -27,26 +16,19 @@
               </span>
               <div class="hero-subtitle-container">
                 <transition name="fade" mode="out-in">
-                  <p
-                    :key="currentSubtitleIndex"
-                    class="hero-subtitle"
-                    :class="{ 'mobile-subtitle': isMobile }"
-                  >
-                    {{ subtitles[currentSubtitleIndex] }}
+                  <p :key="currentSubtitleIndex" class="hero-subtitle" :class="{ 'mobile-subtitle': isMobile }">
+                    {{ subtitle[currentSubtitleIndex] }}
                   </p>
                 </transition>
               </div>
             </div>
 
             <div class="hero-actions" :class="{ 'mobile-actions': isMobile }">
-              <n-button
-                type="info"
-                size="large"
-                @click="scrollToMembers"
-                class="hero-button"
-              >
+              <n-button type="info" size="large" @click="scrollToMembers" class="hero-button">
                 <template #icon>
-                  <n-icon><PeopleIcon /></n-icon>
+                  <n-icon>
+                    <PeopleIcon />
+                  </n-icon>
                 </template>
                 了解更多
               </n-button>
@@ -93,21 +75,43 @@ export default {
 
     // 背景图片数组
     const backgroundImages = ref([
-      'https://images.mcsl.com.cn/new/mcsl2-preview.webp',
-      'https://images.mcsl.com.cn/new/bg.webp',
-      'https://images.mcsl.com.cn/new/mcsl-sync-preview.webp'
+      'http://image.mefrp-tpca.yealqp.fun/image/home/yea.webp',
+      'http://image.mefrp-tpca.yealqp.fun/image/home/lingx.webp',
+      'http://image.mefrp-tpca.yealqp.fun/image/home/qyf.webp'
     ])
 
     // subtitle轮播数组
     const subtitles = ref([
-      "以心相面，从心出发。",
+      "名無声",
+      "迷星叫",
+      "壹雫空",
+      "無路矢",
+      "詩超絆",
+      "春日影",
+      "步拾道",
+      "影色舞",
+      "明弦音",
+      "輪符雨",
+      "処救生",
+      "砂寸奏",
+      "焚音打"
+    ])
+    const subtitle = ref([
+      "星光不问赶路人，时光不负有心人。",
+      "在风暴中扎根，才能触摸云端的自由。",
+      "平凡之路，亦可走出璀璨星河。",
+      "心向光明者，阴影终将臣服于脚下。",
+      "山高水长，步履不停。",
+      "种下一颗星火，终能燎原成光。",
+      "不完美的人生，才是真正的开始。",
+      "时间会证明，坚持比天赋更接近奇迹。",
+      "逆风的方向，更适合飞翔。",
       "活着就是为了改变世界。",
       "即使无法掌握未来，也请不要忘了明天。",
-      "Welcome to future.",
       "你若盛开，清风自来。",
-      "不忘初心，方得始终。"
+      "不忘初心，方得始终。",
+      "以梦为马，方知远方不止一个方向。"
     ])
-
     const currentSubtitleIndex = ref(0)
     let subtitleTimer = null
 
@@ -123,7 +127,7 @@ export default {
     // subtitle轮播逻辑
     const startSubtitleRotation = () => {
       subtitleTimer = setInterval(() => {
-        currentSubtitleIndex.value = (currentSubtitleIndex.value + 1) % subtitles.value.length
+        currentSubtitleIndex.value = (currentSubtitleIndex.value + 1) % subtitle.value.length
       }, 3000) // 每3秒切换一次
     }
 
@@ -158,7 +162,7 @@ export default {
     return {
       isMobile,
       backgroundImages,
-      subtitles,
+      subtitle,
       currentSubtitleIndex,
       scrollToMembers
     }
@@ -211,7 +215,7 @@ export default {
   height: calc(100vh + 64px) !important;
 }
 
-.hero-carousel .n-carousel__slide > div {
+.hero-carousel .n-carousel__slide>div {
   height: 100% !important;
 }
 
@@ -223,7 +227,8 @@ export default {
   background-repeat: no-repeat !important;
   background-attachment: local;
   filter: blur(4px);
-  transform: scale(1.1); /* 稍微放大以避免模糊边缘 */
+  transform: scale(1.1);
+  /* 稍微放大以避免模糊边缘 */
   min-height: calc(100vh + 64px) !important;
 }
 
