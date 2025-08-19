@@ -175,6 +175,12 @@ export default {
         link: 'https://github.com/QYF-RYCBStudio'
       },
       {
+        name: 'ZeroSnow',
+        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3976141098&spec=4',
+        role: '联盟网盘维护者',
+        link: 'https://github.com/chencomcdyun'
+      },
+      {
         name: 'MR.苏',
         avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2748874586&spec=4',
         role: '成员 / 敬请期待',
