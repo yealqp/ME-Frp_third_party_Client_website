@@ -17,39 +17,39 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/login.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/login.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/home.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/create.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/create.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/tunnel.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/tunnel.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/tunnellog.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/tunnellog.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/monitor.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/monitor.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/person.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/person.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/config.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/config.png"
     >
     <img
       class="carousel-img"
-      src="./Lx_MuaMua/about.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/about.png"
     >
 </NCarousel>
 
