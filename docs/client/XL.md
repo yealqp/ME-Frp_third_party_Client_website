@@ -25,27 +25,27 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/yealqp/login.png"
+      src="./yealqp/login.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/home.png"
+      src="./yealqp/home.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/tunnel.png"
+      src="./yealqp/tunnel.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/create.png"
+      src="./yealqp/create.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/config.png"
+      src="./yealqp/config.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/about.png"
+      src="./yealqp/about.png"
     >
 </NCarousel>
 
