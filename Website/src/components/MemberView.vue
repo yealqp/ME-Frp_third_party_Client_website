@@ -62,6 +62,68 @@
         </n-grid>
       </div>
     </n-card>
+    <n-card title="特别鸣谢" class="section-card" :bordered="false">
+      <template #header-extra>
+        <n-icon size="20" color="#18a058">
+          <PeopleIcon />
+        </n-icon>
+      </template>
+
+      <div class="members-container">
+        <n-grid :cols="gridCols" :x-gap="12" :y-gap="12">
+          <n-grid-item v-for="member in mcslmembers" :key="member.name">
+            <n-card size="small" :bordered="false" class="member-card">
+              <div class="member-header">
+                <div class="member-avatar-container">
+                  <div class="member-avatar-wrapper">
+                    <img
+                      :src="member.avatar"
+                      :alt="`${member.name} Avatar`"
+                      class="member-avatar-img"
+                      @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
+                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }"
+                    />
+                    <div class="member-fallback-avatar">
+                      {{ member.name.charAt(0) }}
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <strong>{{ member.name }}</strong>
+                  <p class="member-role">{{ member.role }}</p>
+                </div>
+                <div class="member-actions mobile-actions">
+                  <n-button
+                    text
+                    type="primary"
+                    size="small"
+                    @click="openMemberLink(member.link)"
+                  >
+                    <template #icon>
+                      <n-icon><GithubIcon /></n-icon>
+                    </template>
+                    GitHub
+                  </n-button>
+                </div>
+              </div>
+              <div class="member-actions desktop-actions">
+                <n-button
+                  text
+                  type="primary"
+                  size="small"
+                  @click="openMemberLink(member.link)"
+                >
+                  <template #icon>
+                    <n-icon><GithubIcon /></n-icon>
+                  </template>
+                  GitHub
+                </n-button>
+              </div>
+            </n-card>
+          </n-grid-item>
+        </n-grid>
+      </div>
+    </n-card>
   </div>
 </template>
 
@@ -95,160 +157,42 @@ export default {
     
     const members = ref([
       {
+        name: 'Yealqp',
+        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1592239257&spec=4',
+        role: '开发兼运维 / 创始人 / 成员',
+        link: 'https://github.com/Yealqp'
+      },
+      {
+        name: '灵弦MuaMua',
+        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=407176772&spec=4',
+        role: '创始人 / 成员',
+        link: 'https://github.com/lngxian'
+      },
+      {
+        name: 'QYF',
+        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3561786358&spec=4',
+        role: '创始人 / 成员',
+        link: 'https://github.com/QYF-RYCBStudio'
+      },
+      {
+        name: 'MR.苏',
+        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2748874586&spec=4',
+        role: '成员 / 敬请期待',
+      }
+    ])
+
+    const mcslmembers = ref([
+      {
         name: '落雪无痕LxHTT',
         avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3395314362&spec=4',
-        role: '研发兼运维 / 创始人',
+        role: '原项目开发者',
         link: 'https://github.com/LxHTT'
       },
       {
-        name: '爱喝矿泉水',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2247176795&spec=4',
-        role: '研发工程师 / 创始人',
-        link: 'https://github.com/AresConnor'
-      },
-      {
-        name: 'Z_Tsin',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3372523&spec=4',
-        role: '运维工程师 / 创始人',
-        link: 'https://github.com/ztsinsun'
-      },
-      {
-        name: 'LoveChinaT',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3273789867&spec=4',
-        role: '研发工程师 / 创始人',
-        link: 'https://gitee.com/ct_zhiyu'
-      },
-      {
-        name: '饼干',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3076823485&spec=4',
-        role: '研发工程师 / 创始人',
-        link: 'https://github.com/lgc2333'
-      },
-      {
-        name: '锅盖',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2509043002&spec=4',
-        role: '开发工程师 / 创始人',
-        link: 'https://github.com/wyx55520'
-      },
-      {
-        name: 'shenjack',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3695888&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/shenjackyuanjie'
-      },
-      {
-        name: 'Tiger',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1577438625&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/Tigercrl'
-      },
-      {
-        name: 'Mavis',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1530624156&spec=4',
-        role: '研发兼运维',
-        link: 'https://github.com/1530624156'
-      },
-      {
-        name: '烟墨',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2315049216&spec=4',
-        role: '开发兼运维',
-        link: 'https://github.com/ltzXiaoYanMo'
-      },
-      {
-        name: '本樱羽衫',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2151340746&spec=4',
-        role: '国际化专员',
-        link: 'https://github.com/lcix1145'
-      },
-      {
-        name: 'kitUIN',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1585447424&spec=4',
-        role: '创新建设者',
-        link: 'https://github.com/kitUIN'
-      },
-      {
-        name: '星姮十织',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3192145045&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/hengshizhi'
-      },
-      {
-        name: '雪球',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2957202260&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/SnowballXueQiu'
-      },
-      {
-        name: 'XieXiLin',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3068342155&spec=4',
-        role: '规范化专员',
-        link: 'https://github.com/XieXiLin2'
-      },
-      {
-        name: 'Yurnu',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1487084645&spec=4',
-        role: '创新开发者',
-        link: 'https://github.com/StarryCamile'
-      },
-      {
-        name: 'ZeroWolf',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3174788113&spec=4',
-        role: '创新开发者',
-        link: 'https://github.com/ZeroWolf233/'
-      },
-      {
-        name: '阳帆',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3356136957&spec=4',
-        role: '创新建设者',
-        link: 'https://github.com/WolfYangFan'
-      },
-      {
-        name: '小涵',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2104687126&spec=4',
-        role: '开发工程师',
-        link: 'https://github.com/XiaoHan-Creator'
-      },
-      {
-        name: '括弧',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=183713750&spec=4',
-        role: '研发兼运维',
-        link: 'https://github.com/daizihan233'
-      },
-      {
-        name: 'MRSlouzk',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3237231778&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/MRSlouzk'
-      },
-      {
-        name: '水合',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3038094028&spec=4',
-        role: '研发工程师 / 技术顾问',
-        link: 'https://github.com/suisanka'
-      },
-      {
-        name: 'tianxiu',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=794609509&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/tianxiu2b2t'
-      },
-      {
-        name: '孤帆',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2101596336&spec=4',
-        role: '开发工程师',
-        link: 'https://github.com/Lonely-Sails/'
-      },
-      {
-        name: '蓝冰',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3235325661&spec=4',
-        role: '研发工程师',
-        link: 'https://github.com/IcyBlue17'
-      },
-      {
-        name: 'chenziqian0625',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2675575791&spec=4',
-        role: '创新建设者',
-        link: 'https://github.com/chenziqian0625'
+        name: 'MCSLTeam-Website-Next',
+        avatar: 'https://images.mcsl.com.cn/new/MCSLTeam.webp',
+        role: '原项目',
+        link: 'https://github.com/MCSLTeam/MCSLTeam-Website-Next'
       }
     ])
 
@@ -292,6 +236,7 @@ export default {
 
     return {
       members,
+      mcslmembers,
       gridCols,
       openMemberLink
     }

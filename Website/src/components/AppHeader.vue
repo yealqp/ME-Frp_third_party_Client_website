@@ -3,7 +3,7 @@
     <div class="header-content">
       <div class="logo" @click="goHome">
         <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
-        <span class="logo-text">ME-Frp TPCA</span>
+        <span class="logo-text">ME-Frp 第三方客户端联盟</span>
       </div>
 
       <div class="nav-links">
@@ -17,7 +17,7 @@
     <div class="mobile-header-content">
       <div class="logo" @click="goHome">
         <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
-        <span class="logo-text">ME-Frp TPCA</span>
+        <span class="logo-text">ME-Frp 第三方客户端联盟</span>
 
       </div>
 
@@ -130,11 +130,6 @@ export default {
         icon: () => h(NIcon, null, { default: () => h(ProductsIcon) })
       },
       {
-        label: '合作伙伴',
-        key: 'partners',
-        icon: () => h(NIcon, null, { default: () => h(PartnersIcon) })
-      },
-      {
         label: '关于',
         key: 'about',
         icon: () => h(NIcon, null, { default: () => h(AboutIcon) })
@@ -157,7 +152,8 @@ export default {
       } else if (key === 'about') {
         router.push('/about')
       } else if (key === 'docs') {
-        router.push('/docs')
+        window.open('https://mefrp-tpca.yealqp.fun/docs', '_blank')
+
 
       }
     }

@@ -22,22 +22,22 @@
                 <InfoIcon />
               </n-icon>
             </template>
-            
+
             <div class="intro-content">
               <p class="intro-text">
-                <strong>MCSL开发组</strong> 是自发性的、学生群体为主的社区开发组织。
+                <strong>ME-Frp TPCA</strong> 是自发性的、开发者群体为主的社区组织。
               </p>
-              
+
               <p class="intro-text">
-                从 <strong>2022/08/27</strong> 的夜晚直至今日，在 Coding 路上不断学习、不断前行的身影，时时映在我们身上。
+                从 <strong>2025/8/13</strong> 的上午直至今日，在Development路上不断学习、不断前行的身影，时时映在我们身上。
               </p>
-              
+
               <p class="intro-text">
-                我们是一位位不畏难、不退缩、勇创新、敢作为的伙伴携手共成的团体。现归属于<strong>阜阳市波比网络科技有限公司</strong>旗下。
+                我们是一位位不畏难、不退缩、勇创新、敢作为的伙伴携手共成的团体。现归属于<strong>天津河东幻缘网络科技有限公司</strong>旗下。
               </p>
-              
+
               <p class="intro-text">
-                专注于<strong>Minecraft 服务器工具开发</strong>，拥有多项计算机软件著作权，并成功推出多款高口碑产品。
+                专注于<strong>ME-Frp第三方客户端开发</strong>。
               </p>
             </div>
           </n-card>
@@ -48,42 +48,20 @@
                 <TimeIcon />
               </n-icon>
             </template>
-            
+
             <n-timeline>
-              <n-timeline-item
-                type="success"
-                title="MCSL开发组成立"
-                time="2022/08/27"
-                content="在一个夜晚，一群热爱编程的学生聚集在一起，MCSL开发组正式成立"
-              />
 
-              <n-timeline-item
-                type="info"
-                title="MCSL 写下第一行代码"
-                time="2022/08/20"
-                content="MCSL 1 的第一行代码被写下，命运的齿轮悄然转动"
-              />
+              <n-timeline-item type="info" title="写下第一行代码" time="2025/07/11"
+                content="LX-ME-Frp-Launcher 的第一行代码被写下，命运的齿轮悄然转动" />
 
-              <n-timeline-item
-                type="info"
-                title="产品矩阵初具规模"
-                time="2023/03/05"
-                content="MCServerLauncher 2 正式发布，获得广泛好评"
-              />
+              <n-timeline-item type="info" title="逐渐扩大" time="2025/08/01"
+                content="LX-ME-Frp-Launcher 的开发纷纷让其他开发者也开始开发ME-Frp第三方客户端" />
 
-              <n-timeline-item
-                type="warning"
-                title="找到归宿"
-                time="2024/01/20"
-                content="正式归属于阜阳市波比网络科技有限公司"
-              />
+              <n-timeline-item type="success" title="ME-Frp TPCA成立" time="2025/8/13"
+                content="ME-Frp第三方客户端的开发者们聚集在一起，ME-Frp TPCA正式成立" />
 
-              <n-timeline-item
-                type="success"
-                title="从新出发"
-                time="2024/04/05"
-                content="MCServerLauncher Future 正式立项"
-              />
+              <n-timeline-item type="success" title="展望未来" time="1970/01/01"
+                content="我们会变得更好..." />
             </n-timeline>
           </n-card>
 
@@ -93,7 +71,7 @@
                 <HeartIcon />
               </n-icon>
             </template>
-            
+
             <div class="values-grid">
               <div class="value-item">
                 <div class="value-icon">
@@ -104,7 +82,7 @@
                 <h3>不畏难</h3>
                 <p>面对技术挑战，我们勇于探索，永不退缩</p>
               </div>
-              
+
               <div class="value-item">
                 <div class="value-icon">
                   <n-icon size="32" color="#19e3a2">
@@ -114,7 +92,7 @@
                 <h3>勇创新</h3>
                 <p>持续创新，为用户提供更好的产品体验</p>
               </div>
-              
+
               <div class="value-item">
                 <div class="value-icon">
                   <n-icon size="32" color="#19e3a2">
@@ -124,7 +102,7 @@
                 <h3>敢作为</h3>
                 <p>积极行动，用实际成果证明我们的价值</p>
               </div>
-              
+
               <div class="value-item">
                 <div class="value-icon">
                   <n-icon size="32" color="#19e3a2">
@@ -143,56 +121,20 @@
                 <ContactIcon />
               </n-icon>
             </template>
-            
+
             <div class="contact-content">
               <div class="contact-links">
-                <n-button
-                  type="primary"
-                  size="large"
-                  @click="openLink('https://github.com/MCSLTeam')"
-                  class="contact-button"
-                >
+                <n-button type="primary" size="large" @click="openLink('https://github.com/yealqp/ME-Frp_third_party_Client_website')"
+
+                  class="contact-button">
                   <template #icon>
-                    <n-icon><GithubIcon /></n-icon>
+                    <n-icon>
+                      <GithubIcon />
+                    </n-icon>
                   </template>
                   &nbsp;&nbsp;GitHub&nbsp;
                 </n-button>
 
-                <n-button
-                  type="primary"
-                  size="large"
-                  @click="openLink('https://afdian.com/a/lxhtt')"
-                  class="contact-button afdian-button"
-                >
-                  <template #icon>
-                    <div class="afdian-icon" v-html="afdianSvg"></div>
-                  </template>
-                  爱发电
-                </n-button>
-
-                <n-button
-                  type="primary"
-                  size="large"
-                  @click="openLink('https://jq.qq.com/?_wv=1027&k=x2ISlviQ')"
-                  class="contact-button qq-button"
-                >
-                  <template #icon>
-                    <div class="qq-icon" v-html="qqSvg"></div>
-                  </template>
-                  QQ群
-                </n-button>
-
-                <n-button
-                  type="primary"
-                  size="large"
-                  @click="openLink('mailto:services@mcsl.com.cn')"
-                  class="contact-button"
-                >
-                  <template #icon>
-                    <n-icon><MailIcon /></n-icon>
-                  </template>
-                  联系邮箱
-                </n-button>
               </div>
             </div>
           </n-card>
@@ -454,20 +396,20 @@ export default {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .content-container {
     padding: 32px 16px;
   }
-  
+
   .values-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  
+
   .contact-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
