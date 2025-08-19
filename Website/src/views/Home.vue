@@ -75,9 +75,9 @@ export default {
 
     // 背景图片数组
     const backgroundImages = ref([
-      'http://image.mefrp-tpca.yealqp.fun/image/home/yea.webp',
-      'http://image.mefrp-tpca.yealqp.fun/image/home/lingx.webp',
-      'http://image.mefrp-tpca.yealqp.fun/image/home/qyf.webp'
+      'https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png',
+      'https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png',
+      'https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png'
     ])
 
     // subtitle轮播数组
