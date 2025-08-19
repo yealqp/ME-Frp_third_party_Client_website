@@ -17,39 +17,39 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/login.png"
+      src="./Lx_MuaMua/login.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/home.png"
+      src="./Lx_MuaMua/home.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/create.png"
+      src="./Lx_MuaMua/create.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/tunnel.png"
+      src="./Lx_MuaMua/tunnel.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/tunnellog.png"
+      src="./Lx_MuaMua/tunnellog.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/monitor.png"
+      src="./Lx_MuaMua/monitor.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/person.png"
+      src="./Lx_MuaMua/person.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/config.png"
+      src="./Lx_MuaMua/config.png"
     >
     <img
       class="carousel-img"
-      src="/Lx_MuaMua/about.png"
+      src="./Lx_MuaMua/about.png"
     >
 </NCarousel>
 

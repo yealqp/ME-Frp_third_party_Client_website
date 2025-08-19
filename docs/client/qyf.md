@@ -29,31 +29,31 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/rycb/login.png"
+      src="./rycb/login.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/home.png"
+      src="./rycb/home.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/create.png"
+      src="./rycb/create.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/manage.png"
+      src="./rycb/manage.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/monitor.png"
+      src="./rycb/monitor.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/about.png"
+      src="./rycb/about.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/terminal.png"
+      src="./rycb/terminal.png"
     >
 </NCarousel>
 
