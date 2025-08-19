@@ -5,7 +5,7 @@ const fileAndStyles: Record<string, string> = {};
 export default defineConfig({
   title: "ME-Frp第三方客户端联盟",
   description: "收录ME-Frp的第三方客户端",
-  head: [["link", { rel: "icon", href: "./favicon.ico" }]],
+  head: [["link", { rel: "icon", href: "https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" }]],
 
   lastUpdated: true,
   sitemap: {
