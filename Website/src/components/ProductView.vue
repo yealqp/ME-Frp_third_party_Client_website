@@ -63,24 +63,23 @@ export default {
     const products = ref([
       {
         name: 'XL-ME-Frp-Launcher',
-        link: 'https://v2.mcsl.com.cn/',
+        link: 'https://mefrp-tpca.yealqp.fun/docs/client/XL',
         icon: 'https://images.mcsl.com.cn/new/MCSL2.webp',
-        description: '本客户端由 yealqp 使用 Tauri 框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也是包体最小的一个。',
+        description: '由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也是包体最小的一个。',
         image: 'https://image.mefrp-tpca.yealqp.fun/image/home/yea.webp'
       },
       {
         name: 'LX-ME-Frp-Launcher',
-        link: 'https://future.mcsl.com.cn/',
+        link: 'https://mefrp-tpca.yealqp.fun/docs/client/LX',
         icon: 'https://images.mcsl.com.cn/new/MCServerLauncherFuture.webp',
-        description: '本客户端由 灵弦 MuaMua 使用 易语言&Exui 开发，界面高仿官方图形化V4.0',
-
+        description: '由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。',
         image: 'https://image.mefrp-tpca.yealqp.fun/image/home/lingx.webp'
       },
       {
         name: 'Plain ME Frp Luncher',
-        link: 'https://sync.mcsl.com.cn/',
+        link: 'https://mefrp-tpca.yealqp.fun/docs/client/qyf',
         icon: 'https://images.mcsl.com.cn/new/MCSL-Sync.webp',
-        description: 'Plain ME Frp Launcher 提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。',
+        description: 'Plain ME Frp Launcher 使用dotnet提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。',
         image: 'https://image.mefrp-tpca.yealqp.fun/image/home/qyf.webp'
       }
     ])
