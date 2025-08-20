@@ -6,11 +6,16 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 > <NSpace>
 > <NTag :bordered="false" type="success">易语言</NTag>
+> <NTag :bordered="false" type="info">Exui</NTag>
 > </NSpace>
 
 ## 简介
 
-本客户端由 灵弦 MuaMua 使用 易语言&Exui 开发，仅支持 Windows 系统 （不同 Windows 架构可在官网下载，在安装目录里直接替换即可）
+- 本客户端由 灵弦 MuaMua 使用 易语言&Exui 开发
+- 具有较美观的UI界面
+- `正常使用` 功能较为完善
+- 提供了简单便捷的操作，可以快速启动实例/隧道
+- 仅支持 Windows 系统 （不同 Windows 架构可在官网下载，在安装目录里直接替换即可）
 
 ## 预览图
 
@@ -58,7 +63,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 下载方式 [蓝奏云](https://wwms.lanzouo.com/iu7tR32rucid)
 
 > [!WARNING]
-> 注意:仅适于 windows <br>
+> 注意:仅适于 windows 系统<br>
 > 请使用[ME-Frp 官网](https://www.mefrp.com/)账号登录 <br>
 > 需要更多功能或报告Bug 请向我们的邮箱 407176772@qq.com 发送邮件 <br>
 
