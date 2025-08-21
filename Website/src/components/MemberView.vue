@@ -109,21 +109,20 @@
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
                     <img 
-                      src="https://www.rainyun.com/favicon.ico" alt="雨云 Avatar" class="member-avatar-img"
+                      src="https://image.mefrp-tpca.yealqp.fun/image/ad/favicon.ico" alt="仙林云计算 Avatar" class="member-avatar-img"
                       @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
                       @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
                     <div class="member-fallback-avatar">
-                      123123123
                     </div>
                   </div>
                 </div>
                 <div class="member-info">
-                  <strong>雨云</strong>
-                  <p class="member-role">《老一代服务提供商》</p>
+                  <strong>仙林云计算</strong>
+                  <p class="member-role">服务提供商</p>
                 </div>
                 <div class="member-actions mobile-actions">
                   <n-button text type="primary" size="small"
-                    @click="openMemberLink('https://www.rainyun.com/yealqp_')">
+                    @click="openMemberLink('https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL')">
                     <template #icon>
                       <n-icon>
                         <GithubIcon />
@@ -135,7 +134,7 @@
               </div>
               <div class="member-actions desktop-actions">
                 <n-button text type="primary" size="small"
-                  @click="openMemberLink('https://www.rainyun.com/yealqp_')">
+                  @click="openMemberLink('https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL')">
                   <template #icon>
                     <n-icon>
                       <GithubIcon />
