@@ -96,6 +96,12 @@ export default defineConfig({
         "vueuc",
         "@nolebase/vitepress-plugin-enhanced-readabilities",
         "@nolebase/vitepress-plugin-highlight-targeted-heading",
+        "@nolebase/vitepress-plugin-enhanced-mark",
+        "@nolebase/ui",
+        "@css-render/vue3-ssr",
+        "@fortawesome/vue-fontawesome",
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
       ],
     },
     server: {

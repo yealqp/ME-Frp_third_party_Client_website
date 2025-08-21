@@ -14,13 +14,9 @@
               <div class="member-header">
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
-                    <img
-                      :src="member.avatar"
-                      :alt="`${member.name} Avatar`"
-                      class="member-avatar-img"
+                    <img :src="member.avatar" :alt="`${member.name} Avatar`" class="member-avatar-img"
                       @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
-                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }"
-                    />
+                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
                     <div class="member-fallback-avatar">
                       {{ member.name.charAt(0) }}
                     </div>
@@ -31,28 +27,22 @@
                   <p class="member-role">{{ member.role }}</p>
                 </div>
                 <div class="member-actions mobile-actions">
-                  <n-button
-                    text
-                    type="primary"
-                    size="small"
-                    @click="openMemberLink(member.link)"
-                  >
+                  <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
                     <template #icon>
-                      <n-icon><GithubIcon /></n-icon>
+                      <n-icon>
+                        <GithubIcon />
+                      </n-icon>
                     </template>
                     GitHub
                   </n-button>
                 </div>
               </div>
               <div class="member-actions desktop-actions">
-                <n-button
-                  text
-                  type="primary"
-                  size="small"
-                  @click="openMemberLink(member.link)"
-                >
+                <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
                   <template #icon>
-                    <n-icon><GithubIcon /></n-icon>
+                    <n-icon>
+                      <GithubIcon />
+                    </n-icon>
                   </template>
                   GitHub
                 </n-button>
@@ -76,13 +66,9 @@
               <div class="member-header">
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
-                    <img
-                      :src="member.avatar"
-                      :alt="`${member.name} Avatar`"
-                      class="member-avatar-img"
+                    <img :src="member.avatar" :alt="`${member.name} Avatar`" class="member-avatar-img"
                       @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
-                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }"
-                    />
+                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
                     <div class="member-fallback-avatar">
                       {{ member.name.charAt(0) }}
                     </div>
@@ -93,34 +79,74 @@
                   <p class="member-role">{{ member.role }}</p>
                 </div>
                 <div class="member-actions mobile-actions">
-                  <n-button
-                    text
-                    type="primary"
-                    size="small"
-                    @click="openMemberLink(member.link)"
-                  >
+                  <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
                     <template #icon>
-                      <n-icon><GithubIcon /></n-icon>
+                      <n-icon>
+                        <GithubIcon />
+                      </n-icon>
                     </template>
                     GitHub
                   </n-button>
                 </div>
               </div>
               <div class="member-actions desktop-actions">
-                <n-button
-                  text
-                  type="primary"
-                  size="small"
-                  @click="openMemberLink(member.link)"
-                >
+                <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
                   <template #icon>
-                    <n-icon><GithubIcon /></n-icon>
+                    <n-icon>
+                      <GithubIcon />
+                    </n-icon>
                   </template>
                   GitHub
                 </n-button>
               </div>
             </n-card>
           </n-grid-item>
+
+          <!-- 仙林云计算独立卡片 -->
+          <n-grid-item>
+            <n-card size="small" :bordered="false" class="member-card special-sponsor">
+              <div class="member-header">
+                <div class="member-avatar-container">
+                  <div class="member-avatar-wrapper">
+                    <img 
+                      src="https://www.rainyun.com/favicon.ico" alt="雨云 Avatar" class="member-avatar-img"
+                      @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
+                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
+                    <div class="member-fallback-avatar">
+                      123123123
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <strong>雨云</strong>
+                  <p class="member-role">《老一代服务提供商》</p>
+                </div>
+                <div class="member-actions mobile-actions">
+                  <n-button text type="primary" size="small"
+                    @click="openMemberLink('https://www.rainyun.com/yealqp_')">
+                    <template #icon>
+                      <n-icon>
+                        <GithubIcon />
+                      </n-icon>
+                    </template>
+                    点击前往
+                  </n-button>
+                </div>
+              </div>
+              <div class="member-actions desktop-actions">
+                <n-button text type="primary" size="small"
+                  @click="openMemberLink('https://www.rainyun.com/yealqp_')">
+                  <template #icon>
+                    <n-icon>
+                      <GithubIcon />
+                    </n-icon>
+                  </template>
+                  点击前往
+                </n-button>
+              </div>
+            </n-card>
+          </n-grid-item>
+
         </n-grid>
       </div>
     </n-card>
@@ -154,7 +180,7 @@ export default {
   },
   setup() {
     const screenWidth = ref(window.innerWidth)
-    
+
     const members = ref([
       {
         name: 'Yealqp',
@@ -347,7 +373,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-width: 0; /* 防止文字溢出 */
+  min-width: 0;
+  /* 防止文字溢出 */
 }
 
 .member-info strong {
@@ -437,5 +464,41 @@ export default {
   .desktop-actions {
     display: none;
   }
+}
+
+/* 特别赞助商卡片样式 */
+.special-sponsor {
+  border: 2px solid #18a058 !important;
+  background: linear-gradient(135deg, rgba(24, 160, 88, 0.05) 0%, rgba(24, 160, 88, 0.02) 100%) !important;
+  position: relative;
+  overflow: visible;
+}
+
+.special-sponsor::before {
+  content: '特别赞助';
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background: linear-gradient(135deg, #18a058 0%, #16d195 100%);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.special-sponsor:hover {
+  box-shadow: 0 4px 20px rgba(24, 160, 88, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.special-sponsor .member-avatar-wrapper {
+  border-color: #18a058;
+  box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.2);
+}
+
+.special-sponsor .member-info strong {
+  color: #18a058;
 }
 </style>
