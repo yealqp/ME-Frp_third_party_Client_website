@@ -22,6 +22,7 @@ import { NolebaseHighlightTargetedHeading } from "@nolebase/vitepress-plugin-hig
 import "@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import SidebarAd from "./components/SidebarAd.vue";
 
 export const Theme: ThemeConfig = {
   extends: DefaultTheme,
@@ -34,6 +35,8 @@ export const Theme: ThemeConfig = {
         h(NolebaseEnhancedReadabilitiesScreenMenu),
       // vitepress-plugin-highlight-targeted-heading
       "layout-top": () => [h(NolebaseHighlightTargetedHeading)],
+      // 侧边栏导航后添加广告位
+      "sidebar-nav-after": () => h(SidebarAd),
     });
   },
   enhanceApp({ app, router }) {
@@ -82,7 +85,14 @@ const NaiveUIProvider = defineComponent({
       { abstract: true, inlineThemeDisabled: true },
       {
         default: () => [
-          h(Layout, null, { default: this.$slots.default?.() }),
+          h(Layout, null, {
+            // 添加插槽配置
+            "nav-bar-content-after": () => h(NolebaseEnhancedReadabilitiesMenu),
+            "nav-screen-content-after": () => h(NolebaseEnhancedReadabilitiesScreenMenu),
+            "layout-top": () => [h(NolebaseHighlightTargetedHeading)],
+            "sidebar-nav-after": () => h(SidebarAd),
+            default: this.$slots.default?.()
+          }),
           import.meta.env.SSR ? [h(CssRenderStyle), h(VitepressPath)] : null,
         ],
       }
