@@ -109,7 +109,7 @@
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
                     <img 
-                      src="https://image.mefrp-tpca.yealqp.fun/image/ad/favicon.ico" alt="仙林云计算 Avatar" class="member-avatar-img"
+                      src="https://image.mefrp-tpca.yealqp.fun/image/xianlin.ico" alt="仙林云计算 Avatar" class="member-avatar-img"
                       @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
                       @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
                     <div class="member-fallback-avatar">

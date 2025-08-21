@@ -21,7 +21,7 @@ import { ref } from 'vue'
  * @property {string} text - 广告文字
  */
 const adConfig = ref({
-  image: '../../../../docs/ad.png',
+  image: 'https://image.mefrp-tpca.yealqp.fun/image/xianlin2.png',
   link: 'https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL',
   alt: '仙林云计算',
   text: '仙林云计算'
