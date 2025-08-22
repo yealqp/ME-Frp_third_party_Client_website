@@ -87,6 +87,16 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 #### X v2.0.0
 \[开发中...\]
+> [!IMPORTANT]
+> 如何在 Linux 上安装 .NET 8.0 运行时?
+> 1. 若您认为您有技术，则请参考[官方文档](https://learn.microsoft.com/zh-cn/dotnet/core/install/linux)。
+> 2. 若您认为您没有技术，则请按照下面的步骤来安装.NET运行时。
+>     1. 打开终端
+>     2. 先切换到root用户(Ubuntu: `sudo su`  Debian: `su`  其他操作系统同理)
+>     3. 输入 `wget https://content.rycb.mxj.pub/files/dotnet/install.sh`
+>    4. 等待下载完成后，输入 `chmod +x ./install.sh` \***这一步很重要, 请务必执行**
+>    5. 输入 `./install.sh`
+>     6. 等待安装完成即可。
 
 > [!WARNING]
 > 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)<br>
