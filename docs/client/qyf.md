@@ -9,8 +9,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 > <NSpace>
 > <NTag :bordered="false" type="info">.NET 8.0</NTag>
-> <NTag :bordered="false" color="violet">Avalonia</NTag>
-> <NTag :bordered="false" type="warning">Semi.Avalonia</NTag> 
+> <NTag :bordered="false" type="important">Avalonia</NTag>
+> <NTag :bordered="false" type="error">Fluent Design</NTag> 
 > </NSpace>
 
 > 作者: RYCB Studio  
@@ -97,11 +97,25 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 >    4. 等待下载完成后，输入 `chmod +x ./install.sh` \***这一步很重要, 请务必执行**
 >    5. 输入 `./install.sh`
 >     6. 等待安装完成即可。
+> 3. 若您在安装过程中遇到问题，或软件运行时提示"Framework not found", 请参考[官方文档](https://learn.microsoft.com/zh-cn/dotnet/core/install/linux)或[向我们汇报](mailto://rycbstudio@163.com)。您可以向AI求助。
+> 4. 已知**在Debian 13上安装.NET 8.0运行时后运行程序无效，请等待上游修复。**
 
+
+> [!IMPORTANT]
+> 如何在 Linux 上安装并顺利运行本软件?
+>    1. 在您下载了 .deb文件的目录里，打开终端
+>    2. 先切换到root用户(Ubuntu: `sudo su`  Debian: `su`  其他操作系统同理)
+>    3. 输入 `dpkg -i mefrplauncherx.2.0.0.linux-x64.deb`
+>    4. 等待安装完成后，使用`cd`命令跳转至软件安装目录，即输入 `cd /usr/share/mefrplauncherx/` 
+>    5. 确保您仍处于root账户下，输入 `chmod -R a+r,a+w *` \***这一步很重要, 请务必执行, 否则程序将无法运行。**
+>    6. 等待配置完成后，输入 `exit` 退出root模式。
+>    7. 输入 `./mefrplauncherx` 即可开始使用本软件。
+  
 > [!WARNING]
-> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)<br>
-> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux 发行版 <br>
+> 安装或使用本软件表明您同意本软件的[用户协议](https://rycb/mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb/mxj.pub/mefl/privacy.html)。<br>
+> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux x64 发行版. <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
+> 若您在Linux环境下使用root账户运行本软件，则本软件将无法正常运行。
 
 > [!INFO]
 > 需要更多功能或报告Bug 请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
@@ -111,7 +125,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 - 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
 - \[ADDED\]
     - Windows & Linux 多平台支持
-    - 统一 UI 风格为`Semi.Avalonia`
+    - 统一 UI 风格为`Fluent Design`
     - 完整 ME Frp 功能
 - \[REMOVED\]
     - 移除 HandyControl 及其相关，包括但不限于: 
@@ -124,8 +138,13 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 - \[MODIFIED\]
     - 修改了更新的默认下载源
     - 修改部分程序逻辑
+    - 修改数据加载逻辑, 优化性能
 - \[FIXED\]
     - 修复了在特定条件下一言无法加载的问题
+    - 修复了加载两次用户数据的问题
+    - 修复了在加载节点不存在的隧道时程序卡死的问题
+- 已知问题
+    - 公告显示不支持标题(`MEFLX #001`): 将于后续版本修复。
 
 ### v1.2.0
 - 统一所有UI字体为HarmonyOS Sans
