@@ -1,95 +1,5 @@
 <script setup>
-import { NTag, NCard, NSpace, NCarousel, NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui'
-import { ref } from 'vue'
-
-const message = useMessage()
-const formRef = ref(null)
-const formValue = ref({
-  email: '',
-  suggestion: ''
-})
-
-const loading = ref(false)
-
-const rules = {
-  email: {
-    required: true,
-    type: 'email',
-    message: '请输入有效的邮箱地址',
-    trigger: ['blur', 'input']
-  },
-  suggestion: {
-    required: true,
-    message: '请填写您的建议',
-    trigger: 'blur'
-  }
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault()
-  formRef.value?.validate(async (errors) => {
-    if (!errors) {
-      loading.value = true
-      try {
-        // 尝试多个服务器端点
-        const endpoints = [
-          'https://api.rycb.mxj.pub/feedback.php',
-          'https://rycb.mxj.pub/api/feedback.php',
-          'https://content.rycb.mxj.pub/api/feedback.php'
-        ]
-        
-        let success = false
-        for (const endpoint of endpoints) {
-          try {
-            const response = await fetch(endpoint, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                email: formValue.value.email,
-                suggestion: formValue.value.suggestion,
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent,
-                source: 'Plain ME Frp Launcher Feedback'
-              })
-            })
-            
-            if (response.ok) {
-              success = true
-              message.success('感谢您的建议！我们会认真考虑。')
-              break
-            }
-          } catch (error) {
-            console.warn(`Endpoint ${endpoint} failed:`, error)
-            // 继续尝试下一个端点
-          }
-        }
-        
-        if (!success) {
-          // 所有端点都失败，使用邮件备用方案
-          const mailtoLink = `mailto:rycbstudio@163.com?subject=Plain ME Frp Launcher 建议反馈&body=邮箱: ${formValue.value.email}%0D%0A%0D%0A建议内容:%0D%0A${formValue.value.suggestion}`
-          window.location.href = mailtoLink
-          message.info('已打开邮件客户端，请手动发送您的建议')
-        }
-        
-        // 重置表单
-        formValue.value = {
-          email: '',
-          suggestion: ''
-        }
-        
-      } catch (error) {
-        console.error('提交失败:', error)
-        message.error('提交失败，请稍后重试或直接发送邮件至 rycbstudio@163.com')
-      } finally {
-        loading.value = false
-      }
-    } else {
-      message.error('请完善表单信息')
-    }
-  })
-}
+import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 </script>
 
 # Plain ME Frp Luncher
@@ -172,8 +82,8 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 >     1. 打开终端
 >     2. 先切换到root用户(Ubuntu: `sudo su`  Debian: `su`  其他操作系统同理)
 >     3. 输入 `wget https://content.rycb.mxj.pub/files/dotnet/install.sh`
->    4. 等待下载完成后，输入 `chmod +x ./install.sh` \***这一步很重要, 请务必执行**
->    5. 输入 `./install.sh`
+>     4. 等待下载完成后，输入 `chmod +x ./install.sh` \***这一步很重要, 请务必执行**
+>     5. 输入 `./install.sh`
 >     6. 等待安装完成即可。
 > 3. 若您在安装过程中遇到问题，或软件运行时提示"Framework not found", 请参考[官方文档](https://learn.microsoft.com/zh-cn/dotnet/core/install/linux)或[向我们汇报](mailto://rycbstudio@163.com)。您可以向AI求助。
 > 4. 已知**在Debian 13上安装.NET 8.0运行时后运行程序无效，具体原因我们仍在排查。**
@@ -217,51 +127,6 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 > [!INFO]
 > 需要更多功能或报告Bug，请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
-
-## 用户建议
-
-<n-form
-  ref="formRef"
-  :model="formValue"
-  :rules="rules"
-  label-placement="left"
-  label-width="auto"
-  require-mark-placement="right-hanging"
-  size="medium"
-  style="max-width: 600px; margin: 20px 0;"
->
-  <n-form-item label="邮箱地址" path="email">
-    <n-input 
-      v-model:value="formValue.email" 
-      placeholder="请输入您的邮箱（用于回复反馈）" 
-    />
-  </n-form-item>
-  
-  <n-form-item label="您的建议" path="suggestion">
-    <n-input
-      v-model:value="formValue.suggestion"
-      type="textarea"
-      placeholder="请详细描述您的建议、反馈或遇到的问题"
-      :autosize="{
-        minRows: 4,
-        maxRows: 8
-      }"
-    />
-  </n-form-item>
-  
-  <n-form-item>
-    <n-button 
-      type="primary" 
-      @click="handleSubmit"
-      :loading="loading"
-    >
-      {{ loading ? '提交中...' : '提交建议' }}
-    </n-button>
-    <span style="margin-left: 12px; color: #666; font-size: 12px;">
-      或直接发送邮件至 <a href="mailto:rycbstudio@163.com">rycbstudio@163.com</a>
-    </span>
-  </n-form-item>
-</n-form>
 
 ## 更新日志
 ### v2.0.0 \[building\]
