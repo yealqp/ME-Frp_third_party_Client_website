@@ -1,6 +1,5 @@
 <script setup>
 import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
-import FeedbackForm from '../.vitepress/theme/components/FeedbackForm.vue'
 </script>
 
 # Plain ME Frp Luncher
