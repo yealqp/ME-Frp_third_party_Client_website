@@ -18,33 +18,34 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 - 本客户端由 yealqp 使用 Tauri 框架开发，仅支持 Windows amd64 架构。
 - 界面高仿官网样式，是目前收录的三个客户端中最美观的一个，也是包体最小的一个。
 - 提供了官网没有的启停隧道的功能。
+- 拥有开机自启动, 系统托盘等功能。
 
 ## 预览图
 
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/yealqp/login.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/login.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/home.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/tunnel.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/tunnel.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/create.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/create.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/config.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/config.png"
     >
     <img
       class="carousel-img"
-      src="/yealqp/about.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/about.png"
     >
 </NCarousel>
 

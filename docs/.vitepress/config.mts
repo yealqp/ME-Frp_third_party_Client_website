@@ -1,14 +1,15 @@
 import { defineConfig } from "vitepress";
+import { resolve } from "path";
 const fileAndStyles: Record<string, string> = {};
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ME-Frp第三方客户端联盟",
   description: "收录ME-Frp的第三方客户端",
-  head: [["link", { rel: "icon", href: "./favicon.ico" }]],
+  head: [["link", { rel: "icon", href: "https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" }]],
 
   lastUpdated: true,
   sitemap: {
-    hostname: "https://mefrp.yealqp.fun",
+    hostname: "https://mefrp-tpca.yealqp.fun",
   },
 
   lang: "zh",
@@ -20,6 +21,12 @@ export default defineConfig({
   },
 
   cleanUrls: true,
+  
+  // 设置基础路径为/docs/
+  base: '/docs/',
+  
+  // 设置构建输出目录
+  outDir: '../dist/docs',
 
   locales: {
     root: {
@@ -30,7 +37,10 @@ export default defineConfig({
 
   themeConfig: {
     logo: "./favicon.ico",
-    nav: [{ text: "ME-Frp主站", link: "https://www.mefrp.com/" }],
+    nav: [
+         { text: "首页", link: "https://mefrp-tpca.yealqp.fun/" },
+         { text: "ME-Frp主站", link: "https://www.mefrp.com/" }
+         ],
 
     docFooter: {
       prev: "上一页",
@@ -86,11 +96,18 @@ export default defineConfig({
         "vueuc",
         "@nolebase/vitepress-plugin-enhanced-readabilities",
         "@nolebase/vitepress-plugin-highlight-targeted-heading",
+        "@nolebase/vitepress-plugin-enhanced-mark",
+        "@nolebase/ui",
+        "@css-render/vue3-ssr",
+        "@fortawesome/vue-fontawesome",
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
       ],
     },
     server: {
       host: "0.0.0.0",
-      allowedHosts: ["mefrp.yealqp.fun"],
+      allowedHosts: ["mefrp-tpca.yealqp.fun"],
+
     },
   },
   postRender(context) {

@@ -1,95 +1,5 @@
 <script setup>
-import { NTag, NCard, NSpace, NCarousel, NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui'
-import { ref } from 'vue'
-
-const message = useMessage()
-const formRef = ref(null)
-const formValue = ref({
-  email: '',
-  suggestion: ''
-})
-
-const loading = ref(false)
-
-const rules = {
-  email: {
-    required: true,
-    type: 'email',
-    message: '请输入有效的邮箱地址',
-    trigger: ['blur', 'input']
-  },
-  suggestion: {
-    required: true,
-    message: '请填写您的建议',
-    trigger: 'blur'
-  }
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault()
-  formRef.value?.validate(async (errors) => {
-    if (!errors) {
-      loading.value = true
-      try {
-        // 尝试多个服务器端点
-        const endpoints = [
-          'https://api.rycb.mxj.pub/feedback.php',
-          'https://rycb.mxj.pub/api/feedback.php',
-          'https://content.rycb.mxj.pub/api/feedback.php'
-        ]
-        
-        let success = false
-        for (const endpoint of endpoints) {
-          try {
-            const response = await fetch(endpoint, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                email: formValue.value.email,
-                suggestion: formValue.value.suggestion,
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent,
-                source: 'Plain ME Frp Launcher Feedback'
-              })
-            })
-            
-            if (response.ok) {
-              success = true
-              message.success('感谢您的建议！我们会认真考虑。')
-              break
-            }
-          } catch (error) {
-            console.warn(`Endpoint ${endpoint} failed:`, error)
-            // 继续尝试下一个端点
-          }
-        }
-        
-        if (!success) {
-          // 所有端点都失败，使用邮件备用方案
-          const mailtoLink = `mailto:rycbstudio@163.com?subject=Plain ME Frp Launcher 建议反馈&body=邮箱: ${formValue.value.email}%0D%0A%0D%0A建议内容:%0D%0A${formValue.value.suggestion}`
-          window.location.href = mailtoLink
-          message.info('已打开邮件客户端，请手动发送您的建议')
-        }
-        
-        // 重置表单
-        formValue.value = {
-          email: '',
-          suggestion: ''
-        }
-        
-      } catch (error) {
-        console.error('提交失败:', error)
-        message.error('提交失败，请稍后重试或直接发送邮件至 rycbstudio@163.com')
-      } finally {
-        loading.value = false
-      }
-    } else {
-      message.error('请完善表单信息')
-    }
-  })
-}
+import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 </script>
 
 # Plain ME Frp Luncher
@@ -126,31 +36,31 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/rycb/login.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/login.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/home.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/create.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/create.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/manage.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/manage.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/monitor.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/monitor.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/about.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/about.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/terminal.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/terminal.png"
     >
 </NCarousel>
 
