@@ -1,5 +1,5 @@
 <script setup>
-import { NTag, NCard, NSpace, NCarousel, NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui'
+import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 </script>
 
 # Plain ME Frp Luncher
@@ -34,31 +34,31 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 <NCarousel show-arrow autoplay>
     <img
       class="carousel-img"
-      src="/rycb/login.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/login.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/home.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/create.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/create.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/manage.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/manage.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/monitor.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/monitor.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/about.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/about.png"
     >
     <img
       class="carousel-img"
-      src="/rycb/terminal.png"
+      src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/terminal.png"
     >
 </NCarousel>
 
