@@ -1,95 +1,5 @@
 <script setup>
 import { NTag, NCard, NSpace, NCarousel, NForm, NFormItem, NInput, NButton, useMessage } from 'naive-ui'
-import { ref } from 'vue'
-
-const message = useMessage()
-const formRef = ref(null)
-const formValue = ref({
-  email: '',
-  suggestion: ''
-})
-
-const loading = ref(false)
-
-const rules = {
-  email: {
-    required: true,
-    type: 'email',
-    message: '请输入有效的邮箱地址',
-    trigger: ['blur', 'input']
-  },
-  suggestion: {
-    required: true,
-    message: '请填写您的建议',
-    trigger: 'blur'
-  }
-}
-
-const handleSubmit = async (e) => {
-  e.preventDefault()
-  formRef.value?.validate(async (errors) => {
-    if (!errors) {
-      loading.value = true
-      try {
-        // 尝试多个服务器端点
-        const endpoints = [
-          'https://api.rycb.mxj.pub/feedback.php',
-          'https://rycb.mxj.pub/api/feedback.php',
-          'https://content.rycb.mxj.pub/api/feedback.php'
-        ]
-        
-        let success = false
-        for (const endpoint of endpoints) {
-          try {
-            const response = await fetch(endpoint, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                email: formValue.value.email,
-                suggestion: formValue.value.suggestion,
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent,
-                source: 'Plain ME Frp Launcher Feedback'
-              })
-            })
-            
-            if (response.ok) {
-              success = true
-              message.success('感谢您的建议！我们会认真考虑。')
-              break
-            }
-          } catch (error) {
-            console.warn(`Endpoint ${endpoint} failed:`, error)
-            // 继续尝试下一个端点
-          }
-        }
-        
-        if (!success) {
-          // 所有端点都失败，使用邮件备用方案
-          const mailtoLink = `mailto:rycbstudio@163.com?subject=Plain ME Frp Launcher 建议反馈&body=邮箱: ${formValue.value.email}%0D%0A%0D%0A建议内容:%0D%0A${formValue.value.suggestion}`
-          window.location.href = mailtoLink
-          message.info('已打开邮件客户端，请手动发送您的建议')
-        }
-        
-        // 重置表单
-        formValue.value = {
-          email: '',
-          suggestion: ''
-        }
-        
-      } catch (error) {
-        console.error('提交失败:', error)
-        message.error('提交失败，请稍后重试或直接发送邮件至 rycbstudio@163.com')
-      } finally {
-        loading.value = false
-      }
-    } else {
-      message.error('请完善表单信息')
-    }
-  })
-}
 </script>
 
 # Plain ME Frp Luncher
@@ -104,11 +14,9 @@ const handleSubmit = async (e) => {
 >       />
 >    </template>
 > </NTag>
-> <template>
->  <n-tag :bordered="false" :color="{ color: '#018DF8', textColor: '#BBB' }">
+>  <NTag :bordered="false" :color="{ color: '#047edbff', textColor: '#BBB' }">
 >    Fluent Design
->  </n-tag>
-> </template>
+>  </NTag>
 > </NSpace>
 
 > 作者: RYCB Studio  
@@ -239,25 +147,30 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 备用 [CDN源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)
 
-#### X v2.0.0
+#### X v2.0.0.2
 官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码:2Hxf  
 官方 [百度云](https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb) 密码:rycb  
-官方 [蓝奏云|Windows-x64发行版](https://rycbstudio.lanzoue.com/i93Fg34lbc2j) 密码:59kd  
-官方 [蓝奏云|Linux-x64发行版](https://rycbstudio.lanzoue.com/iHfIe34lbcre) 密码:axa1  
-官方 [联盟网盘|Windows-x64发行版](https://lmcloud.yealqp.fun/f/19co/PML%20%E2%85%A1%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%202.0.0.1.exe)  
-官方 [联盟网盘|Linux-x64发行版](https://lmcloud.yealqp.fun/f/M6Hb/mefrplauncherx.2.0.0.1.linux-x64.deb)
+官方 [蓝奏云](https://rycbstudio.lanzoue.com/b0zk6qxri) 密码:akev  
+**⚠️ 以下源暂不可用。**  
+~~官方 [联盟网盘|Windows-x64发行版](https://lmcloud.yealqp.fun/f/19co/PML%20%E2%85%A1%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%202.0.0.1.exe)~~  
+~~官方 [联盟网盘|Linux-x64发行版](https://lmcloud.yealqp.fun/f/M6Hb/mefrplauncherx.2.0.0.1.linux-x64.deb)~~
 
   
-> [!WARNING]
+> [!IMPORTANT]重要提醒
 > 安装或使用本软件表明您同意本软件的[用户协议](https://rycb.mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb.mxj.pub/mefl/privacy.html)。<br>
 > 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux x64 发行版. <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
 > 若您在Linux环境下使用root账户运行本软件，则本软件将无法正常运行。
 
-> [!TIP]
+> [!TIP]提示
 > 需要更多功能或报告Bug，请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
 
 ## 更新日志
+### v2.0.0.2
+- 更新人机验证逻辑, 与官网一致。
+- 修复无法登录的bug(已登录用户不受影响)
+### v2.0.0.1
+- 修复了Windows 11系统之外的兼容性问题
 ### v2.0.0
 - 您仍可以选择下载旧版。旧版只适用于Windows，但与新版功能基本保持同步。
 - **\[ADDED\]**
