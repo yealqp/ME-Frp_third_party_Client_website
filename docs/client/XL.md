@@ -16,7 +16,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 ## 简介
 
 - 本客户端由 yealqp 使用 Tauri 框架开发，仅支持 Windows amd64 架构。
-- 界面高仿官网样式，是目前收录的三个客户端中最美观的一个，也是包体最小的一个。
+- 界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，可能也是包体最小的一个。
 - 提供了官网没有的启停隧道的功能。
 - 拥有开机自启动, 系统托盘等功能。
 
@@ -51,15 +51,15 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 ## 下载地址
 
-官方 [蓝奏云](https://wwoq.lanzouo.com/inDj133d4jve) 密码:5d69
-
-官方 [OpenList](https://alist.yealqp.fun/mefrp-desktop)
+官方 [蓝奏云](https://wwoq.lanzouo.com/b00tbv513c) 密码:btyv
 
 > [!WARNING]
 > 注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
 > 请使用[ME-Frp 官网](https://www.mefrp.com/)账号登录 <br>
-> 需要更多功能或报告Bug 请提交Issue <br>
+> 需要更多功能或报告Bug 请向邮箱[yealqp@163.com](mailto://yealqp@163.com)发送邮件 <br>
 ## 更新记录
+### v1.5
+- 添加登录时的人机验证功能，感谢[落雪无痕LxHTT](https://github.com/LxHTT)提供了官网使用的人机验证逻辑。
 ### v1.4
 - 添加配置文件启动功能，更新了软件内的新版本下载地址
 ### v1.3
