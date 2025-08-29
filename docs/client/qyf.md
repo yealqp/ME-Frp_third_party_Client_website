@@ -105,7 +105,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 1. 下载并安装 .NET 8.0 运行时
 2. 下载 Plain ME Frp Luncher
 3. 运行 Plain ME Frp Luncher
-> [!TIP]
+> [!TIP] 教程
 > 如何在 Linux 上安装 .NET 8.0 运行时?
 > 1. 若您认为您有技术，则请参考[官方文档](https://learn.microsoft.com/zh-cn/dotnet/core/install/linux)。
 > 2. 若您认为您没有技术，则请按照下面的步骤来安装.NET运行时。
@@ -119,7 +119,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 > 4. 已知**在Debian 13上安装.NET 8.0运行时后仍无法安装程序，具体原因我们仍在排查。**
 
 
-> [!TIP]
+> [!TIP] 教程
 > 如何在 Linux 上安装并顺利运行本软件?
 >    1. 在您下载了 .deb文件的目录里，打开终端
 >    2. 先切换到root用户(Ubuntu: `sudo su`  Debian: `su`  其他操作系统同理)
@@ -132,7 +132,7 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
 
 ## 下载地址
 
-> [!TIP]
+> [!TIP] 提示
 > Plain ME Frp Launcher Windows版 依赖于[.NET 8.0 桌面运行时(Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
 > 若您仍不知道如何下载，请点击该[直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本 8.0.18)下载。
 > Linux 用户请见上文.
@@ -158,14 +158,34 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射)的图形化实现，提供了
   
 > [!IMPORTANT]重要提醒
 > 安装或使用本软件表明您同意本软件的[用户协议](https://rycb.mxj.pub/mefl/useragreement.html)和[隐私政策](https://rycb.mxj.pub/mefl/privacy.html)。<br>
-> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux x64 发行版. <br>
+> 注意: 本软件仅适于Windows 10, Windows 11, Windows Server 2019, 2022, 2025, 常见 Linux x64 发行版(**包括Linux MUSL x64**). <br>
 > 请使用[ME Frp官网](https://www.mefrp.com/)账号登录 <br>
 > 若您在Linux环境下使用root账户运行本软件，则本软件将无法正常运行。
 
 > [!TIP]提示
+> 遇到问题，请先查看[快速修复](#快速修复)  
 > 需要更多功能或报告Bug，请向[我们的邮箱rycbstudio@163.com](mailto://rycbstudio@163.com)发送邮件 <br>
 
+## 快速修复
+### Windows
+#### 软件无法启动
+> 问题重现: 点击软件，软件窗口闪一下就消失/无窗口出现/只有一个白色边框。  
+> 问题原因: 在特定安装文件夹内，软件需要管理员权限才能正常运行。  
+> **解决方法**
+> 1. 打开软件安装目录，如`C:\Program Files\RYCB Studio\Plain ME Frp Launcher X`。桌面操作如下图所示。
+> ![Step 1](/rycb/W-1-Step1.png)
+> 2. 右键点击选中文件(`MEFrpLauncherX.exe`)，选择"属性"，如下图所示。
+> ![Step 2](/rycb/W-1-Step2.png)
+> 3. 在弹出的窗口中，点击"兼容性"选项卡，点击"更改所有用户"按钮，如下图所示。
+> ![Step 3](/rycb/W-1-Step3.png)
+> 4. 在弹出的窗口中，勾选"以管理员身份运行此程序"，点击"确定"按钮，如下图所示。
+> ![Step 4](/rycb/W-1-Step4.png)
+> 5. 重新启动软件，问题解决。  
+
 ## 更新日志
+### v2.0.1
+- 在"用户中心"中增加"流量统计"功能
+- 优化人机验证逻辑, 登录时可以自动识别验证码。
 ### v2.0.0.2
 - 更新人机验证逻辑, 与官网一致。
 - 修复无法登录的bug(已登录用户不受影响)
