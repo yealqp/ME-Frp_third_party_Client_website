@@ -6,11 +6,10 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 > <NSpace>
 > <NTag :bordered="false" type="info">.NET 8.0</NTag>
-> <NTag :bordered="false" :color="{ color: '#165cff7b', textColor: '#165cff' }">
+> <NTag :bordered="false" :color="{ color: '#165cff4b', textColor: '#165cff' }">
 >    Avalonia UI
->    </template>
 > </NTag>
->  <NTag :bordered="false" :color="{ color: '#047edb7b', textColor: '#047edb' }">
+>  <NTag :bordered="false" :color="{ color: '#047edb4b', textColor: '#047edb' }">
 >    Fluent Design
 >  </NTag>
 > </NSpace>
