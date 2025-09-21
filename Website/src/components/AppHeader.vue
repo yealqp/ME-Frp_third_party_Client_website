@@ -152,7 +152,7 @@ export default {
       } else if (key === 'about') {
         router.push('/about')
       } else if (key === 'docs') {
-        window.open('https://mefrp-tpca.yealqp.fun/docs', '_blank')
+        window.open('https://mefrp-tpca.yealqp.cn/docs', '_blank')
 
 
       }
