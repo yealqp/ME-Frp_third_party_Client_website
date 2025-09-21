@@ -123,20 +123,25 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射) 的图形化实现，提供�
 >    7. 输入 `./mefrplauncherx` 即可开始使用本软件。
 >    8. 之后想要运行软件，可以直接在终端中输入: `mefrplauncherx` 即可启动软件。
 
+
+> [!IMPORTANT] 为什么在Linux系统中我们建议使用终端运行软件？
+> 1. 在 Linux 中，软件的安装目录通常不在用户的主目录下，因此无法直接在桌面双击运行。
+> 2. Linux的程序运行和权限机制与Windows不同，使用终端可以追踪到程序的运行情况，方便错误追踪。
 ## 下载地址
 
 > [!TIP] 提示
 > Plain ME Frp Launcher Windows 版 依赖于 [.NET 8.0 桌面运行时 (Desktop Runtime)](https://dotnet.microsoft.com/download/dotnet/8.0)，您需要预先下载并安装。  
 > 若您仍不知道如何下载，请点击该 [直链](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)(版本 8.0.18) 下载。  
-> **Linux 用户请见上文.**
-#### Legacy v1.2.0
+> **Linux 用户安装运行时请见上文.**
+<!-- ### Legacy v1.2.0
 官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码：2Hxf  
 官方 [百度云](https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb) 密码:rycb  
 官方 [易云分流](https://share.asytech.cn/s/95b2yoQjK6wJMk5)  
 官方 [蓝奏云](https://rycbstudio.lanzoue.com/ibcLg33fs6qh) 密码:fx7q  
-备用 [CDN 源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)  
+备用 [CDN 源站](https://content.rycb.mxj.pub/files/mefl/Plain%20ME%20Frp%20Launcher%20%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F.exe)   -->
 
-#### X v2.0.0.2
+### X v2.0.5.0 (2.1.0.0 过渡版本)
+**2.0.5.0包含除插件外的所有更新内容。**  
 官方 [夸克云](https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf) 密码：2Hxf  
 官方 [百度云](https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb) 密码:rycb  
 官方 [蓝奏云](https://rycbstudio.lanzoue.com/b0zk6qxri) 密码:akev  
@@ -179,6 +184,27 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射) 的图形化实现，提供�
 > 2. 重新启动软件 (打开终端，输入 `mefrplauncherx`), 问题解决。
 
 ## 更新日志
+### v2.1.0
+- **\[重大更新\] \[开发中\]**
+  - "插件"功能现已加入至PML Ⅱ。 
+  - 您可以在 "插件" 页面中安装、启用、禁用、卸载插件。
+  - 插件支持自定义配置，您可以在插件设置中配置插件。
+  > [!IMPORTANT]对于插件开发者
+  > - 若您想成为插件开发者，请[与我们联系](mailto://rycbstudio@163.com)，我们会将程序核心(插件核心依赖)发送给您。
+  > - 查看[开发者文档](https://dev.mefl.mxj.pub)
+- 修复`MEFLX-#001`(公告显示不支持标题)。
+- 优化设置UI, 使其更符合Fluent Design。
+- 优化节点API的使用, 解决了一次无法获取所有节点的问题和启动时无法获取节点状态和信息, 后续无法继续获取的问题。
+- 增加设置项: `Theme` - 主题颜色，支持浅色和深色。
+- 修改设置项: `Skin` - 现支持设置为"Mica"(云母, **仅适用于Windows**)或"Acrylic"(亚克力)或"Blur"(模糊)或"Transparent"(透明)，详细信息请见[此处](https://learn.microsoft.com/zh-cn/windows/apps/design/style/materials)。
+- 增加设置项: `AutoStart` - 是否在开机时自动启动软件
+- 增加设置项: `AutoLaunch` - 是否在启动时自动启动隧道
+  - 附加设置项: `AutoLaunchProxies` - 自动启动的隧道id
+- 增加设置项: `ExpireDays` - 登录信息过期天数
+### v2.0.2
+- 优化"隧道管理"页面，增加命令语法功能和帮助。  
+ \* 命令语法请查看软件内的"帮助"页面。
+- "隧道管理"页面搜索时支持拼音搜索。
 ### v2.0.1
 - 在 "用户中心" 中增加 "流量统计" 功能
 - 优化人机验证逻辑，登录和签到时可以自动识别验证码。
@@ -190,7 +216,6 @@ Plain ME Frp Launcher 是对 ME Frp (幻缘映射) 的图形化实现，提供�
 ### v2.0.0.1
 - 修复了 Windows 11 系统之外的兼容性问题
 ### v2.0.0
-- 您仍可以选择下载旧版。旧版只适用于 Windows，但与新版功能基本保持同步。
 - **\[ADDED\]**
     - Windows & Linux 多平台支持
     - 统一 UI 风格为 `Fluent Design`
