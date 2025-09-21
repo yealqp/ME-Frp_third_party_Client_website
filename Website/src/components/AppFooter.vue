@@ -14,7 +14,7 @@
       </div>
       <div class="footer-right">
         <a target="_blank" href="https://beian.miit.gov.cn/" class="beian-link">
-          冀ICP备2025123259号-1
+          冀ICP备2025123259号-2
         </a>
         <div class="contact-links">
           <a target="_blank" href="https://github.com/yealqp/ME-Frp_third_party_Client_website" class="contact-link">

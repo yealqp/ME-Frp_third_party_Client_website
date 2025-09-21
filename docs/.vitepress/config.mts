@@ -9,7 +9,7 @@ export default defineConfig({
 
   lastUpdated: true,
   sitemap: {
-    hostname: "https://mefrp-tpca.yealqp.fun",
+    hostname: "https://mefrp-tpca.yealqp.cn",
   },
 
   lang: "zh",
@@ -38,7 +38,7 @@ export default defineConfig({
   themeConfig: {
     logo: "./favicon.ico",
     nav: [
-         { text: "首页", link: "https://mefrp-tpca.yealqp.fun/" },
+         { text: "首页", link: "https://mefrp-tpca.yealqp.cn/" },
          { text: "ME-Frp主站", link: "https://www.mefrp.com/" }
          ],
 
@@ -106,7 +106,7 @@ export default defineConfig({
     },
     server: {
       host: "0.0.0.0",
-      allowedHosts: ["mefrp-tpca.yealqp.fun"],
+      allowedHosts: ["mefrp-tpca.yealqp.cn"],
 
     },
   },
