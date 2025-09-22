@@ -60,7 +60,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 ## 下载
 
-下载方式 [蓝奏云](https://wwms.lanzouo.com/iu7tR32rucid)
+下载方式 [蓝奏云](https://wwms.lanzouo.com/iKaTu364rd1a)
 
 > [!WARNING]
 > 注意:仅适于 windows 系统<br>
