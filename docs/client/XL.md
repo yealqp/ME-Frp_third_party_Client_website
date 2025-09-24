@@ -51,7 +51,7 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 ## 下载地址
 
-官方 [蓝奏云](https://wwoq.lanzouo.com/idlrB36x0mgb) 密码:1zbs
+官方 [蓝奏云](https://wwoq.lanzouo.com/idlrB36x0mgb) 密码:1zbs <br>
 官方 [OpenList](https://alist.yealqp.cn/)
 
 > [!WARNING]
