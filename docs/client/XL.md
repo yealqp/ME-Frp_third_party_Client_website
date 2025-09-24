@@ -51,7 +51,8 @@ import { NTag, NCard, NSpace, NCarousel } from 'naive-ui'
 
 ## 下载地址
 
-官方 [蓝奏云](https://wwoq.lanzouo.com/b00tbv513c) 密码:btyv
+官方 [蓝奏云](https://wwoq.lanzouo.com/idlrB36x0mgb) 密码:1zbs
+官方 [OpenList](https://alist.yealqp.cn/)
 
 > [!WARNING]
 > 注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022, 2025 <br>
