@@ -2,14 +2,12 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
+        <p class="copyright">Copyright © 2025 ME-Frp TPCA.</p>
+        <p class="runtime">我们已奋斗 {{ runtimeText }}</p>
         <p class="copyright">
-          Copyright © 2025 ME-Frp TPCA.
-        </p>
-        <p class="runtime">
-          我们已奋斗 {{ runtimeText }}
-        </p>
-        <p class="copyright">
-           本站二开自<a href="https://github.com/MCSLTeam/MCSLTeam-Website-Next">MCSLTeam官网</a>。
+          本站二开自<a href="https://github.com/MCSLTeam/MCSLTeam-Website-Next"
+            >MCSLTeam官网</a
+          >。
         </p>
       </div>
       <div class="footer-right">
@@ -17,7 +15,11 @@
           冀ICP备2025123259号-2
         </a>
         <div class="contact-links">
-          <a target="_blank" href="https://github.com/yealqp/ME-Frp_third_party_Client_website" class="contact-link">
+          <a
+            target="_blank"
+            href="https://github.com/yealqp/ME-Frp_third_party_Client_website"
+            class="contact-link"
+          >
             <n-icon size="24" class="contact-icon">
               <LogoGithub />
             </n-icon>
@@ -29,50 +31,52 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { NIcon } from 'naive-ui'
-import { LogoGithub, Mail } from '@vicons/ionicons5'
+import { ref, onMounted, onUnmounted } from "vue";
+import { NIcon } from "naive-ui";
+import { LogoGithub, Mail } from "@vicons/ionicons5";
 
 export default {
-  name: 'AppFooter',
+  name: "AppFooter",
   components: {
     NIcon,
     LogoGithub,
-    Mail
+    Mail,
   },
   setup() {
-    const runtimeText = ref('')
-    let timer = null
+    const runtimeText = ref("");
+    let timer = null;
 
     const calculateRuntime = () => {
-      const startTime = new Date('2025/08/13 11:25:27')
-      const now = new Date()
-      const diff = now - startTime
+      const startTime = new Date("2025/08/13 11:25:27");
+      const now = new Date();
+      const diff = now - startTime;
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      runtimeText.value = `${days}天${hours}小时${minutes}分钟${seconds}秒`
-    }
+      runtimeText.value = `${days}天${hours}小时${minutes}分钟${seconds}秒`;
+    };
 
     onMounted(() => {
-      calculateRuntime()
-      timer = setInterval(calculateRuntime, 1000)
-    })
+      calculateRuntime();
+      timer = setInterval(calculateRuntime, 1000);
+    });
 
     onUnmounted(() => {
       if (timer) {
-        clearInterval(timer)
+        clearInterval(timer);
       }
-    })
+    });
 
     return {
-      runtimeText
-    }
-  }
-}
+      runtimeText,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -82,6 +86,8 @@ export default {
   color: #f0f0f0;
   background-color: #18181c;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
 }
 
 :deep(.n-theme-dark) .footer {

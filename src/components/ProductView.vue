@@ -4,13 +4,17 @@
       v-for="(product, index) in products"
       :key="product.name"
       class="product-section"
-      :ref="el => productRefs[index] = el"
+      :ref="(el) => (productRefs[index] = el)"
     >
       <div class="product-background">
-        <img :src="product.image" :alt="product.name" class="product-bg-image" />
+        <img
+          :src="product.image"
+          :alt="product.name"
+          class="product-bg-image"
+        />
         <div class="product-overlay"></div>
       </div>
-      
+
       <div class="product-content" :class="getProductPositionClass(index)">
         <div class="product-info">
           <div class="product-icon">
@@ -48,246 +52,266 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { NButton, NIcon } from 'naive-ui'
-import { Link as LinkIcon } from '@vicons/ionicons5'
+import { ref, onMounted, onUnmounted } from "vue";
+import { NButton, NIcon } from "naive-ui";
+import { Link as LinkIcon } from "@vicons/ionicons5";
 
 export default {
-  name: 'ProductView',
+  name: "ProductView",
   components: {
     NButton,
     NIcon,
-    LinkIcon
+    LinkIcon,
   },
   setup() {
     const products = ref([
       {
-        name: 'XL-ME-Frp-Launcher',
-        link: 'https://mefrp-tpca.yealqp.fun/docs/client/XL',
-        icon: 'https://images.mcsl.com.cn/new/MCSL2.webp',
-        description: '由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也是包体最小的一个。',
-        image: 'https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png'
+        name: "XL-ME-Frp-Launcher",
+        link: "https://mefrp-tpca.yealqp.fun/docs/client/XL",
+        icon: "https://images.mcsl.com.cn/new/MCSL2.webp",
+        description:
+          "由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也是包体最小的一个。",
+        image:
+          "https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png",
       },
       {
-        name: 'LX-ME-Frp-Launcher',
-        link: 'https://mefrp-tpca.yealqp.fun/docs/client/LX',
-        icon: 'https://images.mcsl.com.cn/new/MCServerLauncherFuture.webp',
-        description: '由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。',
-        image: 'https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png'
+        name: "LX-ME-Frp-Launcher",
+        link: "https://mefrp-tpca.yealqp.fun/docs/client/LX",
+        icon: "https://images.mcsl.com.cn/new/MCServerLauncherFuture.webp",
+        description:
+          "由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。",
+        image:
+          "https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png",
       },
       {
-        name: 'Plain ME Frp Luncher',
-        link: 'https://mefrp-tpca.yealqp.fun/docs/client/qyf',
-        icon: 'https://images.mcsl.com.cn/new/MCSL-Sync.webp',
-        description: 'Plain ME Frp Launcher 使用dotnet提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。',
-        image: 'https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png'
-      }
-    ])
+        name: "Plain ME Frp Luncher",
+        link: "https://mefrp-tpca.yealqp.fun/docs/client/qyf",
+        icon: "https://images.mcsl.com.cn/new/MCSL-Sync.webp",
+        description:
+          "Plain ME Frp Launcher 使用dotnet提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。",
+        image: "https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png",
+      },
+    ]);
 
-    const productRefs = ref([])
-    const currentIndex = ref(0)
-    const isScrolling = ref(false)
+    const productRefs = ref([]);
+    const currentIndex = ref(0);
+    const isScrolling = ref(false);
 
     // 滚动到指定产品
     const scrollToProduct = (index) => {
-      if (index >= 0 && index < products.value.length && productRefs.value[index]) {
-        isScrolling.value = true
-        currentIndex.value = index
+      if (
+        index >= 0 &&
+        index < products.value.length &&
+        productRefs.value[index]
+      ) {
+        isScrolling.value = true;
+        currentIndex.value = index;
 
         // 使用自定义快速滚动
-        const targetElement = productRefs.value[index]
-        const targetPosition = targetElement.offsetTop
-        const startPosition = window.pageYOffset
-        const distance = targetPosition - startPosition
-        const duration = 1000
-        let start = null
+        const targetElement = productRefs.value[index];
+        const targetPosition = targetElement.offsetTop;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 1000;
+        let start = null;
 
         const smoothScroll = (timestamp) => {
-          if (!start) start = timestamp
-          const progress = timestamp - start
-          const percentage = Math.min(progress / duration, 1)
+          if (!start) start = timestamp;
+          const progress = timestamp - start;
+          const percentage = Math.min(progress / duration, 1);
 
           // 使用easeOutQuart缓动函数，快速开始，平缓结束
-          const easeOutQuart = 1 - Math.pow(1 - percentage, 4)
+          const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
 
-          window.scrollTo(0, startPosition + distance * easeOutQuart)
+          window.scrollTo(0, startPosition + distance * easeOutQuart);
 
           if (progress < duration) {
-            requestAnimationFrame(smoothScroll)
+            requestAnimationFrame(smoothScroll);
           } else {
-            isScrolling.value = false
+            isScrolling.value = false;
           }
-        }
+        };
 
-        requestAnimationFrame(smoothScroll)
+        requestAnimationFrame(smoothScroll);
       }
-    }
+    };
 
     // 获取产品位置类名
     const getProductPositionClass = (index) => {
-      const positions = ['bottom-left', 'top-right', 'bottom-right', 'top-left']
-      return positions[index % positions.length]
-    }
+      const positions = [
+        "bottom-left",
+        "top-right",
+        "bottom-right",
+        "top-left",
+      ];
+      return positions[index % positions.length];
+    };
 
     // 打开产品链接
     const openProductLink = (link) => {
       try {
-        window.open(link, '_blank', 'noopener,noreferrer')
+        window.open(link, "_blank", "noopener,noreferrer");
       } catch (error) {
-        console.error('Failed to open link:', error)
+        console.error("Failed to open link:", error);
         // 备用方案：使用 location.href
-        const newWindow = window.open()
+        const newWindow = window.open();
         if (newWindow) {
-          newWindow.location.href = link
+          newWindow.location.href = link;
         }
       }
-    }
+    };
 
     // 处理滚轮事件
     const handleWheel = (event) => {
       if (isScrolling.value) {
-        event.preventDefault()
-        return
+        event.preventDefault();
+        return;
       }
 
-      event.preventDefault()
+      event.preventDefault();
 
-      const delta = event.deltaY
-      let newIndex = currentIndex.value
+      const delta = event.deltaY;
+      let newIndex = currentIndex.value;
 
       if (delta > 0 && currentIndex.value < products.value.length - 1) {
         // 向下滚动
-        newIndex = currentIndex.value + 1
+        newIndex = currentIndex.value + 1;
       } else if (delta < 0 && currentIndex.value > 0) {
         // 向上滚动
-        newIndex = currentIndex.value - 1
+        newIndex = currentIndex.value - 1;
       }
 
       if (newIndex !== currentIndex.value) {
-        currentIndex.value = newIndex
-        scrollToProduct(newIndex)
+        currentIndex.value = newIndex;
+        scrollToProduct(newIndex);
       }
-    }
+    };
 
     // 处理键盘事件
     const handleKeydown = (event) => {
-      if (isScrolling.value) return
+      if (isScrolling.value) return;
 
       switch (event.key) {
-        case 'ArrowDown':
-        case 'PageDown':
-          event.preventDefault()
+        case "ArrowDown":
+        case "PageDown":
+          event.preventDefault();
           if (currentIndex.value < products.value.length - 1) {
-            currentIndex.value++
-            scrollToProduct(currentIndex.value)
+            currentIndex.value++;
+            scrollToProduct(currentIndex.value);
           }
-          break
-        case 'ArrowUp':
-        case 'PageUp':
-          event.preventDefault()
+          break;
+        case "ArrowUp":
+        case "PageUp":
+          event.preventDefault();
           if (currentIndex.value > 0) {
-            currentIndex.value--
-            scrollToProduct(currentIndex.value)
+            currentIndex.value--;
+            scrollToProduct(currentIndex.value);
           }
-          break
-        case 'Home':
-          event.preventDefault()
-          currentIndex.value = 0
-          scrollToProduct(0)
-          break
-        case 'End':
-          event.preventDefault()
-          currentIndex.value = products.value.length - 1
-          scrollToProduct(products.value.length - 1)
-          break
+          break;
+        case "Home":
+          event.preventDefault();
+          currentIndex.value = 0;
+          scrollToProduct(0);
+          break;
+        case "End":
+          event.preventDefault();
+          currentIndex.value = products.value.length - 1;
+          scrollToProduct(products.value.length - 1);
+          break;
       }
-    }
+    };
 
     // 处理触摸事件（移动端）
-    let touchStartY = 0
-    let touchEndY = 0
+    let touchStartY = 0;
+    let touchEndY = 0;
 
     const handleTouchStart = (event) => {
-      touchStartY = event.touches[0].clientY
-    }
+      touchStartY = event.touches[0].clientY;
+    };
 
     const handleTouchEnd = (event) => {
-      if (isScrolling.value) return
+      if (isScrolling.value) return;
 
-      touchEndY = event.changedTouches[0].clientY
-      const deltaY = touchStartY - touchEndY
-      const threshold = 80 // 增加最小滑动距离，避免误触
+      touchEndY = event.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      const threshold = 80; // 增加最小滑动距离，避免误触
 
       if (Math.abs(deltaY) > threshold) {
         if (deltaY > 0 && currentIndex.value < products.value.length - 1) {
           // 向上滑动（下一个产品）
-          currentIndex.value++
-          scrollToProduct(currentIndex.value)
+          currentIndex.value++;
+          scrollToProduct(currentIndex.value);
         } else if (deltaY < 0 && currentIndex.value > 0) {
           // 向下滑动（上一个产品）
-          currentIndex.value--
-          scrollToProduct(currentIndex.value)
+          currentIndex.value--;
+          scrollToProduct(currentIndex.value);
         }
       }
-    }
+    };
 
     const observeProducts = () => {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            const index = productRefs.value.indexOf(entry.target)
-            if (index !== -1 && entry.isIntersecting && entry.intersectionRatio > 0.5) {
-              currentIndex.value = index
+            const index = productRefs.value.indexOf(entry.target);
+            if (
+              index !== -1 &&
+              entry.isIntersecting &&
+              entry.intersectionRatio > 0.5
+            ) {
+              currentIndex.value = index;
             }
-          })
+          });
         },
         {
           threshold: 0.5,
-          rootMargin: '-10% 0px -10% 0px'
-        }
-      )
+          rootMargin: "-10% 0px -10% 0px",
+        },
+      );
 
       productRefs.value.forEach((ref) => {
         if (ref) {
-          observer.observe(ref)
+          observer.observe(ref);
         }
-      })
+      });
 
-      return observer
-    }
+      return observer;
+    };
 
-    let observer = null
+    let observer = null;
 
     onMounted(() => {
       // 延迟观察以确保DOM已渲染
       setTimeout(() => {
-        observer = observeProducts()
-      }, 100)
+        observer = observeProducts();
+      }, 100);
 
       // 添加事件监听器
-      window.addEventListener('wheel', handleWheel, { passive: false })
-      window.addEventListener('keydown', handleKeydown)
-      window.addEventListener('touchstart', handleTouchStart, { passive: true })
-      window.addEventListener('touchend', handleTouchEnd, { passive: true })
+      window.addEventListener("wheel", handleWheel, { passive: false });
+      window.addEventListener("keydown", handleKeydown);
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
+      window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
       // 禁用默认滚动，启用整页滚动
-      document.body.style.overflow = 'hidden'
-    })
+      document.body.style.overflow = "hidden";
+    });
 
     onUnmounted(() => {
       if (observer) {
-        observer.disconnect()
+        observer.disconnect();
       }
 
       // 移除事件监听器
-      window.removeEventListener('wheel', handleWheel)
-      window.removeEventListener('keydown', handleKeydown)
-      window.removeEventListener('touchstart', handleTouchStart)
-      window.removeEventListener('touchend', handleTouchEnd)
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
 
       // 恢复默认滚动
-      document.body.style.overflow = 'auto'
-    })
+      document.body.style.overflow = "auto";
+    });
 
     return {
       products,
@@ -295,10 +319,10 @@ export default {
       currentIndex,
       scrollToProduct,
       getProductPositionClass,
-      openProductLink
-    }
-  }
-}
+      openProductLink,
+    };
+  },
+};
 </script>
 
 <style scoped>

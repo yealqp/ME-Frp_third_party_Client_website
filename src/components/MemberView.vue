@@ -14,9 +14,23 @@
               <div class="member-header">
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
-                    <img :src="member.avatar" :alt="`${member.name} Avatar`" class="member-avatar-img"
-                      @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
-                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
+                    <img
+                      :src="member.avatar"
+                      :alt="`${member.name} Avatar`"
+                      class="member-avatar-img"
+                      @error="
+                        (e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'flex';
+                        }
+                      "
+                      @load="
+                        (e) => {
+                          e.target.style.display = 'block';
+                          e.target.nextElementSibling.style.display = 'none';
+                        }
+                      "
+                    />
                     <div class="member-fallback-avatar">
                       {{ member.name.charAt(0) }}
                     </div>
@@ -27,7 +41,12 @@
                   <p class="member-role">{{ member.role }}</p>
                 </div>
                 <div class="member-actions mobile-actions">
-                  <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
+                  <n-button
+                    text
+                    type="primary"
+                    size="small"
+                    @click="openMemberLink(member.link)"
+                  >
                     <template #icon>
                       <n-icon>
                         <GithubIcon />
@@ -38,7 +57,12 @@
                 </div>
               </div>
               <div class="member-actions desktop-actions">
-                <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
+                <n-button
+                  text
+                  type="primary"
+                  size="small"
+                  @click="openMemberLink(member.link)"
+                >
                   <template #icon>
                     <n-icon>
                       <GithubIcon />
@@ -66,9 +90,23 @@
               <div class="member-header">
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
-                    <img :src="member.avatar" :alt="`${member.name} Avatar`" class="member-avatar-img"
-                      @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
-                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
+                    <img
+                      :src="member.avatar"
+                      :alt="`${member.name} Avatar`"
+                      class="member-avatar-img"
+                      @error="
+                        (e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'flex';
+                        }
+                      "
+                      @load="
+                        (e) => {
+                          e.target.style.display = 'block';
+                          e.target.nextElementSibling.style.display = 'none';
+                        }
+                      "
+                    />
                     <div class="member-fallback-avatar">
                       {{ member.name.charAt(0) }}
                     </div>
@@ -79,7 +117,12 @@
                   <p class="member-role">{{ member.role }}</p>
                 </div>
                 <div class="member-actions mobile-actions">
-                  <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
+                  <n-button
+                    text
+                    type="primary"
+                    size="small"
+                    @click="openMemberLink(member.link)"
+                  >
                     <template #icon>
                       <n-icon>
                         <GithubIcon />
@@ -90,7 +133,12 @@
                 </div>
               </div>
               <div class="member-actions desktop-actions">
-                <n-button text type="primary" size="small" @click="openMemberLink(member.link)">
+                <n-button
+                  text
+                  type="primary"
+                  size="small"
+                  @click="openMemberLink(member.link)"
+                >
                   <template #icon>
                     <n-icon>
                       <GithubIcon />
@@ -104,16 +152,32 @@
 
           <!-- 仙林云计算独立卡片 -->
           <n-grid-item>
-            <n-card size="small" :bordered="false" class="member-card special-sponsor">
+            <n-card
+              size="small"
+              :bordered="false"
+              class="member-card special-sponsor"
+            >
               <div class="member-header">
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
-                    <img 
-                      src="https://image.mefrp-tpca.yealqp.fun/image/xianlin.ico" alt="仙林云计算 Avatar" class="member-avatar-img"
-                      @error="(e) => { e.target.style.display = 'none'; e.target.nextElementSibling.style.display = 'flex' }"
-                      @load="(e) => { e.target.style.display = 'block'; e.target.nextElementSibling.style.display = 'none' }" />
-                    <div class="member-fallback-avatar">
-                    </div>
+                    <img
+                      src="https://image.mefrp-tpca.yealqp.fun/image/xianlin.ico"
+                      alt="仙林云计算 Avatar"
+                      class="member-avatar-img"
+                      @error="
+                        (e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'flex';
+                        }
+                      "
+                      @load="
+                        (e) => {
+                          e.target.style.display = 'block';
+                          e.target.nextElementSibling.style.display = 'none';
+                        }
+                      "
+                    />
+                    <div class="member-fallback-avatar"></div>
                   </div>
                 </div>
                 <div class="member-info">
@@ -121,8 +185,16 @@
                   <p class="member-role">服务提供商</p>
                 </div>
                 <div class="member-actions mobile-actions">
-                  <n-button text type="primary" size="small"
-                    @click="openMemberLink('https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL')">
+                  <n-button
+                    text
+                    type="primary"
+                    size="small"
+                    @click="
+                      openMemberLink(
+                        'https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL',
+                      )
+                    "
+                  >
                     <template #icon>
                       <n-icon>
                         <GithubIcon />
@@ -133,8 +205,16 @@
                 </div>
               </div>
               <div class="member-actions desktop-actions">
-                <n-button text type="primary" size="small"
-                  @click="openMemberLink('https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL')">
+                <n-button
+                  text
+                  type="primary"
+                  size="small"
+                  @click="
+                    openMemberLink(
+                      'https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL',
+                    )
+                  "
+                >
                   <template #icon>
                     <n-icon>
                       <GithubIcon />
@@ -145,7 +225,6 @@
               </div>
             </n-card>
           </n-grid-item>
-
         </n-grid>
       </div>
     </n-card>
@@ -153,21 +232,15 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
-import {
-  NCard,
-  NButton,
-  NGrid,
-  NGridItem,
-  NIcon
-} from 'naive-ui'
+import { ref, onMounted, onUnmounted, computed } from "vue";
+import { NCard, NButton, NGrid, NGridItem, NIcon } from "naive-ui";
 import {
   People as PeopleIcon,
-  LogoGithub as GithubIcon
-} from '@vicons/ionicons5'
+  LogoGithub as GithubIcon,
+} from "@vicons/ionicons5";
 
 export default {
-  name: 'MemberView',
+  name: "MemberView",
   components: {
     NCard,
     NButton,
@@ -175,104 +248,104 @@ export default {
     NGridItem,
     NIcon,
     PeopleIcon,
-    GithubIcon
+    GithubIcon,
   },
   setup() {
-    const screenWidth = ref(window.innerWidth)
+    const screenWidth = ref(window.innerWidth);
 
     const members = ref([
       {
-        name: 'Yealqp',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=1592239257&spec=4',
-        role: '开发兼运维 / 创始人 / 成员',
-        link: 'https://github.com/Yealqp'
+        name: "Yealqp",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=1592239257&spec=4",
+        role: "开发兼运维 / 创始人 / 成员",
+        link: "https://github.com/Yealqp",
       },
       {
-        name: '灵弦MuaMua',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=407176772&spec=4',
-        role: '创始人 / 成员',
-        link: 'https://github.com/lngxian'
+        name: "灵弦MuaMua",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=407176772&spec=4",
+        role: "创始人 / 成员",
+        link: "https://github.com/lngxian",
       },
       {
-        name: 'QYF',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3561786358&spec=4',
-        role: '创始人 / 成员',
-        link: 'https://github.com/QYF-RYCBStudio'
+        name: "QYF",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3561786358&spec=4",
+        role: "创始人 / 成员",
+        link: "https://github.com/QYF-RYCBStudio",
       },
       {
-        name: 'ZeroSnow',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3976141098&spec=4',
-        role: '联盟网盘维护者',
-        link: 'https://github.com/chencomcdyun'
+        name: "ZeroSnow",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3976141098&spec=4",
+        role: "联盟网盘维护者",
+        link: "https://github.com/chencomcdyun",
       },
       {
-        name: 'MR.苏',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=2748874586&spec=4',
-        role: '成员 / 敬请期待',
-      }
-    ])
+        name: "MR.苏",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2748874586&spec=4",
+        role: "成员 / 敬请期待",
+      },
+    ]);
 
     const mcslmembers = ref([
       {
-        name: '落雪无痕LxHTT',
-        avatar: 'https://q2.qlogo.cn/headimg_dl?dst_uin=3395314362&spec=4',
-        role: '原项目开发者',
-        link: 'https://github.com/LxHTT'
+        name: "落雪无痕LxHTT",
+        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3395314362&spec=4",
+        role: "原项目开发者",
+        link: "https://github.com/LxHTT",
       },
       {
-        name: 'MCSLTeam-Website-Next',
-        avatar: 'https://images.mcsl.com.cn/new/MCSLTeam.webp',
-        role: '原项目',
-        link: 'https://github.com/MCSLTeam/MCSLTeam-Website-Next'
-      }
-    ])
+        name: "MCSLTeam-Website-Next",
+        avatar: "https://images.mcsl.com.cn/new/MCSLTeam.webp",
+        role: "原项目",
+        link: "https://github.com/MCSLTeam/MCSLTeam-Website-Next",
+      },
+    ]);
 
     // 计算网格列数 - 优化空间利用率
     const gridCols = computed(() => {
       if (screenWidth.value >= 900) {
-        return 3  // 中等屏幕显示3列
+        return 3; // 中等屏幕显示3列
       } else if (screenWidth.value >= 600) {
-        return 2  // 小屏幕显示2列
+        return 2; // 小屏幕显示2列
       } else {
-        return 1  // 移动端显示1列
+        return 1; // 移动端显示1列
       }
-    })
+    });
 
     const checkScreenSize = () => {
-      screenWidth.value = window.innerWidth
-    }
+      screenWidth.value = window.innerWidth;
+    };
 
     onMounted(() => {
-      checkScreenSize()
-      window.addEventListener('resize', checkScreenSize)
-    })
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+    });
 
     onUnmounted(() => {
-      window.removeEventListener('resize', checkScreenSize)
-    })
+      window.removeEventListener("resize", checkScreenSize);
+    });
 
     // 打开成员链接
     const openMemberLink = (link) => {
       try {
-        window.open(link, '_blank', 'noopener,noreferrer')
+        window.open(link, "_blank", "noopener,noreferrer");
       } catch (error) {
-        console.error('Failed to open member link:', error)
+        console.error("Failed to open member link:", error);
         // 备用方案
-        const newWindow = window.open()
+        const newWindow = window.open();
         if (newWindow) {
-          newWindow.location.href = link
+          newWindow.location.href = link;
         }
       }
-    }
+    };
 
     return {
       members,
       mcslmembers,
       gridCols,
-      openMemberLink
-    }
-  }
-}
+      openMemberLink,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -395,8 +468,6 @@ export default {
   text-overflow: ellipsis;
 }
 
-
-
 /* 超大屏幕优化 */
 @media (min-width: 1400px) {
   .content-container {
@@ -468,13 +539,17 @@ export default {
 /* 特别赞助商卡片样式 */
 .special-sponsor {
   border: 2px solid #18a058 !important;
-  background: linear-gradient(135deg, rgba(24, 160, 88, 0.05) 0%, rgba(24, 160, 88, 0.02) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(24, 160, 88, 0.05) 0%,
+    rgba(24, 160, 88, 0.02) 100%
+  ) !important;
   position: relative;
   overflow: visible;
 }
 
 .special-sponsor::before {
-  content: '特别赞助';
+  content: "特别赞助";
   position: absolute;
   top: -8px;
   right: 8px;

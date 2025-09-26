@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import ProductView from '../components/ProductView.vue'
+import ProductView from "../components/ProductView.vue";
 
 export default {
-  name: 'Products',
+  name: "Products",
   components: {
-    ProductView
-  }
-}
+    ProductView,
+  },
+};
 </script>
 
 <style scoped>
