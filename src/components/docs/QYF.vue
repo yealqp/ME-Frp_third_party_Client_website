@@ -125,12 +125,12 @@ function lml() {
 
       <h3>X 版</h3>
       <NCarousel show-arrow autoplay>
-        <img class="carousel-img" src="../../public/rycb/homex.png" />
-        <img class="carousel-img" src="../../public/rycb/createx.png" />
-        <img class="carousel-img" src="../../public/rycb/managex.png" />
-        <img class="carousel-img" src="../../public/rycb/monitorx.png" />
-        <img class="carousel-img" src="../../public/rycb/aboutx.png" />
-        <img class="carousel-img" src="../../public/rycb/terminalx.png" />
+        <img class="carousel-img" src="/rycb/homex.png" />
+        <img class="carousel-img" src="/rycb/createx.png" />
+        <img class="carousel-img" src="/rycb/managex.png" />
+        <img class="carousel-img" src="/rycb/monitorx.png" />
+        <img class="carousel-img" src="/rycb/aboutx.png" />
+        <img class="carousel-img" src="/rycb/terminalx.png" />
       </NCarousel>
     </div>
 
@@ -324,13 +324,13 @@ function lml() {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>打开安装目录（如 <code>C:\Program Files\...</code>）</li>
-          <img class="img" src="../../public/rycb/W-1-Step1.png" alt="Step 1" />
+          <img class="img" src="/rycb/W-1-Step1.png" alt="Step 1" />
           <li>右键 <code>MEFrpLauncherX.exe</code> → 属性</li>
-          <img class="img" src="../../public/rycb/W-1-Step2.png" alt="Step 1" />
+          <img class="img" src="/rycb/W-1-Step2.png" alt="Step 1" />
           <li>切换到“兼容性” → 点击“更改所有用户的设置”</li>
-          <img class="img" src="../../public/rycb/W-1-Step3.png" alt="Step 1" />
+          <img class="img" src="/rycb/W-1-Step3.png" alt="Step 1" />
           <li>勾选“以管理员身份运行此程序” → 确定</li>
-          <img class="img" src="../../public/rycb/W-1-Step4.png" alt="Step 1" />
+          <img class="img" src="/rycb/W-1-Step4.png" alt="Step 1" />
           <li>重新启动软件</li>
         </ol>
       </div>
@@ -481,4 +481,5 @@ export default {
 };
 </script>
 
-<style src="../../public/style.css"></style>
+<style src="../../style.css"></style>
+public\rycb\aboutx.png
