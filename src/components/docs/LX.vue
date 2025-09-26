@@ -304,4 +304,4 @@ export default {
 };
 </script>
 
-<style src="../../public/style.css"></style>
+<style src="../../style.css"></style>

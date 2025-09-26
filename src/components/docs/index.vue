@@ -64,7 +64,7 @@ import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-
   </NCard>
 </template>
 
-<style src="../../public/style.css"></style>
+<style src="../../style.css"></style>
 
 
 
