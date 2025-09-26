@@ -3,10 +3,21 @@
     <n-layout class="main-layout">
       <n-layout-content>
         <div class="hero-section hero-fullscreen">
-          <n-carousel class="hero-carousel" :autoplay="true" :interval="2000" :show-dots="false" :show-arrow="true"
-            :draggable="true" effect="card">
-            <div v-for="(image, index) in backgroundImages" :key="index" class="hero-slide"
-              :style="{ backgroundImage: `url(${image})` }"></div>
+          <n-carousel
+            class="hero-carousel"
+            :autoplay="true"
+            :interval="2000"
+            :show-dots="false"
+            :show-arrow="true"
+            :draggable="true"
+            effect="card"
+          >
+            <div
+              v-for="(image, index) in backgroundImages"
+              :key="index"
+              class="hero-slide"
+              :style="{ backgroundImage: `url(${image})` }"
+            ></div>
           </n-carousel>
 
           <div class="hero-content">
@@ -16,7 +27,11 @@
               </span>
               <div class="hero-subtitle-container">
                 <transition name="fade" mode="out-in">
-                  <p :key="currentSubtitleIndex" class="hero-subtitle" :class="{ 'mobile-subtitle': isMobile }">
+                  <p
+                    :key="currentSubtitleIndex"
+                    class="hero-subtitle"
+                    :class="{ 'mobile-subtitle': isMobile }"
+                  >
                     {{ subtitle[currentSubtitleIndex] }}
                   </p>
                 </transition>
@@ -24,7 +39,12 @@
             </div>
 
             <div class="hero-actions" :class="{ 'mobile-actions': isMobile }">
-              <n-button type="info" size="large" @click="scrollToMembers" class="hero-button">
+              <n-button
+                type="info"
+                size="large"
+                @click="scrollToMembers"
+                class="hero-button"
+              >
                 <template #icon>
                   <n-icon>
                     <PeopleIcon />
@@ -43,22 +63,20 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
-import MemberView from '../components/MemberView.vue'
+import { ref, onMounted, onUnmounted } from "vue";
+import MemberView from "../components/MemberView.vue";
 import {
   NLayout,
   NLayoutContent,
   NButton,
   NIcon,
   NGradientText,
-  NCarousel
-} from 'naive-ui'
-import {
-  People as PeopleIcon
-} from '@vicons/ionicons5'
+  NCarousel,
+} from "naive-ui";
+import { People as PeopleIcon } from "@vicons/ionicons5";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     NLayout,
     NLayoutContent,
@@ -67,18 +85,18 @@ export default {
     NGradientText,
     NCarousel,
     MemberView,
-    PeopleIcon
+    PeopleIcon,
   },
   setup() {
-    const isMobile = ref(false)
-    const screenWidth = ref(window.innerWidth)
+    const isMobile = ref(false);
+    const screenWidth = ref(window.innerWidth);
 
     // 背景图片数组
     const backgroundImages = ref([
-      'https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png',
-      'https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png',
-      'https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png'
-    ])
+      "https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png",
+      "https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png",
+      "https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png",
+    ]);
 
     // subtitle轮播数组
     const subtitles = ref([
@@ -94,8 +112,8 @@ export default {
       "輪符雨",
       "処救生",
       "砂寸奏",
-      "焚音打"
-    ])
+      "焚音打",
+    ]);
     const subtitle = ref([
       "星光不问赶路人，时光不负有心人。",
       "在风暴中扎根，才能触摸云端的自由。",
@@ -110,66 +128,61 @@ export default {
       "即使无法掌握未来，也请不要忘了明天。",
       "你若盛开，清风自来。",
       "不忘初心，方得始终。",
-      "以梦为马，方知远方不止一个方向。"
-    ])
-    const currentSubtitleIndex = ref(0)
-    let subtitleTimer = null
-
-
-
-
+      "以梦为马，方知远方不止一个方向。",
+    ]);
+    const currentSubtitleIndex = ref(0);
+    let subtitleTimer = null;
 
     const checkScreenSize = () => {
-      screenWidth.value = window.innerWidth
-      isMobile.value = window.innerWidth < 768
-    }
+      screenWidth.value = window.innerWidth;
+      isMobile.value = window.innerWidth < 768;
+    };
 
     // subtitle轮播逻辑
     const startSubtitleRotation = () => {
       subtitleTimer = setInterval(() => {
-        currentSubtitleIndex.value = (currentSubtitleIndex.value + 1) % subtitle.value.length
-      }, 3000) // 每3秒切换一次
-    }
+        currentSubtitleIndex.value =
+          (currentSubtitleIndex.value + 1) % subtitle.value.length;
+      }, 3000); // 每3秒切换一次
+    };
 
     const stopSubtitleRotation = () => {
       if (subtitleTimer) {
-        clearInterval(subtitleTimer)
-        subtitleTimer = null
+        clearInterval(subtitleTimer);
+        subtitleTimer = null;
       }
-    }
+    };
 
     const scrollToMembers = () => {
-      const membersSection = document.querySelector('.section-card')
+      const membersSection = document.querySelector(".section-card");
       if (membersSection) {
         membersSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        })
+          behavior: "smooth",
+          block: "start",
+        });
       }
-    }
+    };
 
     onMounted(() => {
-      checkScreenSize()
-      window.addEventListener('resize', checkScreenSize)
-      startSubtitleRotation()
-    })
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+      startSubtitleRotation();
+    });
 
     onUnmounted(() => {
-      window.removeEventListener('resize', checkScreenSize)
-      stopSubtitleRotation()
-    })
+      window.removeEventListener("resize", checkScreenSize);
+      stopSubtitleRotation();
+    });
 
     return {
       isMobile,
       backgroundImages,
       subtitle,
       currentSubtitleIndex,
-      scrollToMembers
-    }
-  }
-}
-
-
+      scrollToMembers,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -178,8 +191,6 @@ export default {
   background: var(--n-body-color);
   transition: background-color 0.3s var(--n-bezier);
 }
-
-
 
 .main-layout {
   background: transparent;
@@ -215,7 +226,7 @@ export default {
   height: calc(100vh + 64px) !important;
 }
 
-.hero-carousel .n-carousel__slide>div {
+.hero-carousel .n-carousel__slide > div {
   height: 100% !important;
 }
 
@@ -461,8 +472,6 @@ export default {
   }
 }
 
-
-
 /* 超链接样式 */
 .visit-link a {
   color: #18a058;
@@ -589,7 +598,6 @@ export default {
 
 /* 移动端优化 */
 @media (max-width: 767px) {
-
   /* 移动端链接优化 */
   .visit-link a {
     font-size: 14px;

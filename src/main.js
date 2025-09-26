@@ -1,6 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
 // Naive UI
 import {
@@ -9,8 +9,8 @@ import {
   NMessageProvider,
   NNotificationProvider,
   NDialogProvider,
-  NLoadingBarProvider
-} from 'naive-ui'
+  NLoadingBarProvider,
+} from "naive-ui";
 
 const naive = create({
   components: [
@@ -18,13 +18,13 @@ const naive = create({
     NMessageProvider,
     NNotificationProvider,
     NDialogProvider,
-    NLoadingBarProvider
-  ]
-})
+    NLoadingBarProvider,
+  ],
+});
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
-app.use(naive)
+app.use(router);
+app.use(naive);
 
-app.mount('#app')
+app.mount("#app");

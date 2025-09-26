@@ -1,27 +1,28 @@
 {
-  "devDependencies": {
-    "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@fortawesome/vue-fontawesome": "^3.1.1",
-    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.1",
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.1",
-    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.1",
-    "axios": "^1.11.0",
-    "naive-ui": "^2.42.0",
-    "vitepress": "^2.0.0-alpha.10",
-    "vue-data-ui": "^2.17.11",
-    "vue-echarts": "^7.0.3"
-  },
+  "name": "mefrp-tpca-website",
+  "version": "1.0.0",
+  "description": "mefrp-tpca-website",
+  "main": "src/main.js",
   "scripts": {
-    "dev": "vitepress dev docs",
-    "dev:website": "cd Website && npm run dev",
-    "build": "npm run build:website && npm run build:docs",
-    "build:website": "cd Website && npm run build",
-    "build:docs": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview"
   },
   "dependencies": {
-    "@css-render/vue3-ssr": "^0.15.14",
-    "axios": "^1.11.0",
-    "sass-embedded": "^1.90.0"
-  }
+    "@vicons/ionicons5": "^0.13.0",
+    "axios": "^1.12.2",
+    "naive-ui": "^2.43.1",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.9",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1",
+    "prettier": "3.6.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.7"
+  },
+  "type": "module"
 }

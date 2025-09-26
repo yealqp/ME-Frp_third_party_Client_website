@@ -1,38 +1,73 @@
 <template>
-  <n-layout-header bordered class="header pc-header" :class="{ transparent: isTransparent }" style="user-select: none">
+  <n-layout-header
+    bordered
+    class="header pc-header"
+    :class="{ transparent: isTransparent }"
+    style="user-select: none"
+  >
     <div class="header-content">
       <div class="logo" @click="goHome">
-        <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
+        <img
+          src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico"
+          alt="MCSL"
+          class="logo-icon"
+        />
         <span class="logo-text">ME-Frp 第三方客户端联盟</span>
       </div>
 
       <div class="nav-links">
-        <n-menu :value="activeKey" mode="horizontal" :options="menuOptions" class="desktop-menu"
-          :theme-overrides="menuThemeOverrides" @update:value="handleMenuUpdate" />
+        <n-menu
+          :value="activeKey"
+          mode="horizontal"
+          :options="menuOptions"
+          class="desktop-menu"
+          :theme-overrides="menuThemeOverrides"
+          @update:value="handleMenuUpdate"
+        />
       </div>
     </div>
   </n-layout-header>
 
-  <n-layout-header bordered class="header mobile-header" :class="{ transparent: isTransparent }" style="user-select: none">
+  <n-layout-header
+    bordered
+    class="header mobile-header"
+    :class="{ transparent: isTransparent }"
+    style="user-select: none"
+  >
     <div class="mobile-header-content">
       <div class="logo" @click="goHome">
-        <img src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico" alt="MCSL" class="logo-icon" />
+        <img
+          src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico"
+          alt="MCSL"
+          class="logo-icon"
+        />
         <span class="logo-text">ME-Frp 第三方客户端联盟</span>
-
       </div>
 
-      <n-popover trigger="click" placement="bottom-end" v-model:show="showMobileMenu"
-        :theme-overrides="popoverThemeOverrides">
+      <n-popover
+        trigger="click"
+        placement="bottom-end"
+        v-model:show="showMobileMenu"
+        :theme-overrides="popoverThemeOverrides"
+      >
         <template #trigger>
-          <n-button text class="menu-button" :theme-overrides="buttonThemeOverrides">
+          <n-button
+            text
+            class="menu-button"
+            :theme-overrides="buttonThemeOverrides"
+          >
             <n-icon size="24">
               <MenuIcon />
             </n-icon>
           </n-button>
         </template>
         <div class="mobile-menu">
-          <n-menu :value="activeKey" :options="menuOptions" :theme-overrides="menuThemeOverrides"
-            @update:value="handleMobileMenuUpdate" />
+          <n-menu
+            :value="activeKey"
+            :options="menuOptions"
+            :theme-overrides="menuThemeOverrides"
+            @update:value="handleMobileMenuUpdate"
+          />
         </div>
       </n-popover>
     </div>
@@ -40,27 +75,27 @@
 </template>
 
 <script>
-import { h, ref, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { h, ref, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import {
   NLayoutHeader,
   NMenu,
   NIcon,
   NPopover,
   NButton,
-  NSpace
-} from 'naive-ui'
+  NSpace,
+} from "naive-ui";
 import {
   Home as HomeIcon,
   Apps as ProductsIcon,
   InformationCircle as AboutIcon,
   People as PartnersIcon,
   Menu as MenuIcon,
-  Document as DocumentIcon
-} from '@vicons/ionicons5'
+  Document as DocumentIcon,
+} from "@vicons/ionicons5";
 
 export default {
-  name: 'AppHeader',
+  name: "AppHeader",
   components: {
     NLayoutHeader,
     NMenu,
@@ -73,102 +108,98 @@ export default {
     AboutIcon,
     PartnersIcon,
     MenuIcon,
-    DocumentIcon
+    DocumentIcon,
   },
   props: {
     activeKey: {
       type: String,
-      default: 'home'
-    }
+      default: "home",
+    },
   },
-  emits: ['update:activeKey'],
+  emits: ["update:activeKey"],
   setup(props, { emit }) {
-    const router = useRouter()
-    const route = useRoute()
-    const showMobileMenu = ref(false)
+    const router = useRouter();
+    const route = useRoute();
+    const showMobileMenu = ref(false);
 
     // 检测是否需要透明效果
     const isTransparent = computed(() => {
-      const transparentRoutes = ['/', '/products']
-      return transparentRoutes.includes(route.path)
-    })
+      const transparentRoutes = ["/", "/products"];
+      return transparentRoutes.includes(route.path);
+    });
 
     // 强制深色模式的主题覆盖
     const menuThemeOverrides = {
-      itemTextColor: '#ffffff',
-      itemTextColorHover: '#19e8a2',
-      itemTextColorActive: '#19e8a2',
-      itemColorHover: 'rgba(25, 232, 162, 0.1)',
-      itemColorActive: 'rgba(25, 232, 162, 0.15)',
-      itemIconColor: '#ffffff',
-      itemIconColorHover: '#19e8a2',
-      itemIconColorActive: '#19e8a2'
-    }
+      itemTextColor: "#ffffff",
+      itemTextColorHover: "#19e8a2",
+      itemTextColorActive: "#19e8a2",
+      itemColorHover: "rgba(25, 232, 162, 0.1)",
+      itemColorActive: "rgba(25, 232, 162, 0.15)",
+      itemIconColor: "#ffffff",
+      itemIconColorHover: "#19e8a2",
+      itemIconColorActive: "#19e8a2",
+    };
 
     const buttonThemeOverrides = {
-      textColorText: '#ffffff',
-      textColorTextHover: '#19e8a2',
-      textColorTextPressed: '#19e8a2'
-    }
+      textColorText: "#ffffff",
+      textColorTextHover: "#19e8a2",
+      textColorTextPressed: "#19e8a2",
+    };
 
     const popoverThemeOverrides = {
-      color: '#48484e',
-      textColor: '#f0f0f0',
-      borderColor: 'rgba(255, 255, 255, 0.1)',
-      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
-    }
+      color: "#48484e",
+      textColor: "#f0f0f0",
+      borderColor: "rgba(255, 255, 255, 0.1)",
+      boxShadow: "0 4px 16px rgba(0, 0, 0, 0.3)",
+    };
 
     const menuOptions = [
       {
-        label: '首页',
-        key: 'home',
-        icon: () => h(NIcon, null, { default: () => h(HomeIcon) })
+        label: "首页",
+        key: "home",
+        icon: () => h(NIcon, null, { default: () => h(HomeIcon) }),
       },
       {
-        label: '产品',
-        key: 'products',
-        icon: () => h(NIcon, null, { default: () => h(ProductsIcon) })
+        label: "产品",
+        key: "products",
+        icon: () => h(NIcon, null, { default: () => h(ProductsIcon) }),
       },
       {
-        label: '关于',
-        key: 'about',
-        icon: () => h(NIcon, null, { default: () => h(AboutIcon) })
+        label: "关于",
+        key: "about",
+        icon: () => h(NIcon, null, { default: () => h(AboutIcon) }),
       },
       {
-        label: '文档',
-        key: 'docs',
-        icon: () => h(NIcon, null, { default: () => h(DocumentIcon) })
-      }
-    ]
+        label: "文档",
+        key: "docs",
+        icon: () => h(NIcon, null, { default: () => h(DocumentIcon) }),
+      },
+    ];
 
     const handleMenuUpdate = (key) => {
-      emit('update:activeKey', key)
-      if (key === 'home') {
-        router.push('/')
-      } else if (key === 'products') {
-        router.push('/products')
-      } else if (key === 'partners') {
-        router.push('/partners')
-      } else if (key === 'about') {
-        router.push('/about')
-      } else if (key === 'docs') {
-        window.open('https://mefrp-tpca.yealqp.cn/docs', '_blank')
-
-
+      emit("update:activeKey", key);
+      if (key === "home") {
+        router.push("/");
+      } else if (key === "products") {
+        router.push("/products");
+      } else if (key === "partners") {
+        router.push("/partners");
+      } else if (key === "about") {
+        router.push("/about");
+      } else if (key === "docs") {
+        router.push("/docs");
       }
-    }
+    };
 
     const handleMobileMenuUpdate = (key) => {
-      showMobileMenu.value = false // 关闭移动端菜单
-      handleMenuUpdate(key) // 复用桌面端的处理逻辑
-    }
+      showMobileMenu.value = false; // 关闭移动端菜单
+      handleMenuUpdate(key); // 复用桌面端的处理逻辑
+    };
 
     const goHome = () => {
-      emit('update:activeKey', 'home')
-      router.push('/')
-    }
-
-
+      emit("update:activeKey", "home");
+      router.push("/");
+    };
 
     return {
       menuOptions,
@@ -179,10 +210,10 @@ export default {
       menuThemeOverrides,
       buttonThemeOverrides,
       popoverThemeOverrides,
-      isTransparent
-    }
-  }
-}
+      isTransparent,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -193,7 +224,7 @@ export default {
   right: 0;
   z-index: 1000;
   color: #f0f0f0;
-  background-color: rgba(72, 72, 68, 0.6);
+  background-color: #18181c;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -287,7 +318,6 @@ export default {
   color: var(--n-primary-color);
   background-color: var(--n-primary-color-suppl);
 }
-
 
 /* 移动端优化 */
 @media (max-width: 768px) {

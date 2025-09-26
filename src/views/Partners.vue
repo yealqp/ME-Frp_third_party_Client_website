@@ -6,7 +6,9 @@
           <div class="hero-content">
             <div class="hero-text">
               <h1 class="hero-title">
-                <n-gradient-text gradient="linear-gradient(135deg, #19e3a2 0%, #16d195 100%)">
+                <n-gradient-text
+                  gradient="linear-gradient(135deg, #19e3a2 0%, #16d195 100%)"
+                >
                   合作伙伴
                 </n-gradient-text>
               </h1>
@@ -24,16 +26,30 @@
             </template>
 
             <div class="partners-grid">
-              <div class="partner-card" v-for="partner in strategicPartners" :key="partner.id">
+              <div
+                class="partner-card"
+                v-for="partner in strategicPartners"
+                :key="partner.id"
+              >
                 <div class="partner-logo">
-                  <img :src="partner.logo" :alt="partner.name" @error="handleImageError" />
-                  <div class="partner-fallback">{{ partner.name.charAt(0) }}</div>
+                  <img
+                    :src="partner.logo"
+                    :alt="partner.name"
+                    @error="handleImageError"
+                  />
+                  <div class="partner-fallback">
+                    {{ partner.name.charAt(0) }}
+                  </div>
                 </div>
                 <div class="partner-info">
                   <h3>{{ partner.name }}</h3>
                 </div>
                 <div class="partner-actions" v-if="partner.website">
-                  <n-button text type="primary" @click="openLink(partner.website)">
+                  <n-button
+                    text
+                    type="primary"
+                    @click="openLink(partner.website)"
+                  >
                     <template #icon>
                       <n-icon>
                         <LinkIcon />
@@ -46,7 +62,12 @@
             </div>
           </n-card>
 
-          <n-card v-if="techPartners.length > 0" title="技术合作伙伴" class="section-card" :bordered="false">
+          <n-card
+            v-if="techPartners.length > 0"
+            title="技术合作伙伴"
+            class="section-card"
+            :bordered="false"
+          >
             <template #header-extra>
               <n-icon size="20" color="#19e3a2">
                 <CodeIcon />
@@ -54,16 +75,30 @@
             </template>
 
             <div class="partners-grid">
-              <div class="partner-card" v-for="partner in techPartners" :key="partner.id">
+              <div
+                class="partner-card"
+                v-for="partner in techPartners"
+                :key="partner.id"
+              >
                 <div class="partner-logo">
-                  <img :src="partner.logo" :alt="partner.name" @error="handleImageError" />
-                  <div class="partner-fallback">{{ partner.name.charAt(0) }}</div>
+                  <img
+                    :src="partner.logo"
+                    :alt="partner.name"
+                    @error="handleImageError"
+                  />
+                  <div class="partner-fallback">
+                    {{ partner.name.charAt(0) }}
+                  </div>
                 </div>
                 <div class="partner-info">
                   <h3>{{ partner.name }}</h3>
                 </div>
                 <div class="partner-actions" v-if="partner.website">
-                  <n-button text type="primary" @click="openLink(partner.website)">
+                  <n-button
+                    text
+                    type="primary"
+                    @click="openLink(partner.website)"
+                  >
                     <template #icon>
                       <n-icon>
                         <LinkIcon />
@@ -84,16 +119,30 @@
             </template>
 
             <div class="partners-grid">
-              <div class="partner-card" v-for="partner in communityPartners" :key="partner.id">
+              <div
+                class="partner-card"
+                v-for="partner in communityPartners"
+                :key="partner.id"
+              >
                 <div class="partner-logo">
-                  <img :src="partner.logo" :alt="partner.name" @error="handleImageError" />
-                  <div class="partner-fallback">{{ partner.name.charAt(0) }}</div>
+                  <img
+                    :src="partner.logo"
+                    :alt="partner.name"
+                    @error="handleImageError"
+                  />
+                  <div class="partner-fallback">
+                    {{ partner.name.charAt(0) }}
+                  </div>
                 </div>
                 <div class="partner-info">
                   <h3>{{ partner.name }}</h3>
                 </div>
                 <div class="partner-actions" v-if="partner.website">
-                  <n-button text type="primary" @click="openLink(partner.website)">
+                  <n-button
+                    text
+                    type="primary"
+                    @click="openLink(partner.website)"
+                  >
                     <template #icon>
                       <n-icon>
                         <LinkIcon />
@@ -115,10 +164,17 @@
 
             <div class="partnership-info">
               <div class="partnership-content">
-                <p>我们欢迎志同道合的组织和个人与我们建立合作关系，共同推动 Minecraft 服务器生态的发展。</p>
+                <p>
+                  我们欢迎志同道合的组织和个人与我们建立合作关系，共同推动
+                  Minecraft 服务器生态的发展。
+                </p>
 
                 <div class="partnership-contact">
-                  <n-button type="primary" size="large" @click="openLink('mailto:services@mcsl.com.cn')">
+                  <n-button
+                    type="primary"
+                    size="large"
+                    @click="openLink('mailto:services@mcsl.com.cn')"
+                  >
                     <template #icon>
                       <n-icon>
                         <MailIcon />
@@ -143,20 +199,20 @@ import {
   NCard,
   NButton,
   NIcon,
-  NGradientText
-} from 'naive-ui'
+  NGradientText,
+} from "naive-ui";
 import {
   Business as BusinessIcon,
   Code as CodeIcon,
   People as PeopleIcon,
   Link as LinkIcon,
   Checkmark as CheckmarkIcon,
-  Mail as MailIcon
-} from '@vicons/ionicons5'
-import { Link as HandshakeIcon } from '@vicons/ionicons5'
+  Mail as MailIcon,
+} from "@vicons/ionicons5";
+import { Link as HandshakeIcon } from "@vicons/ionicons5";
 
 export default {
-  name: 'Partners',
+  name: "Partners",
   components: {
     NLayout,
     NLayoutContent,
@@ -170,84 +226,84 @@ export default {
     LinkIcon,
     HandshakeIcon,
     CheckmarkIcon,
-    MailIcon
+    MailIcon,
   },
   setup() {
     const strategicPartners = [
       {
         id: 1,
-        name: '阜阳市波比网络科技有限公司',
-        logo: 'https://img.fastmirror.net/s/2025/07/22/687f88c27f39b.jpg',
-        website: 'http://www.blbilink.com'
-      }
-    ]
+        name: "阜阳市波比网络科技有限公司",
+        logo: "https://img.fastmirror.net/s/2025/07/22/687f88c27f39b.jpg",
+        website: "http://www.blbilink.com",
+      },
+    ];
 
     const communityPartners = [
       {
         id: 1,
-        name: 'MSL 开发组',
-        logo: 'https://mslmc.cn/logo.png',
-        website: 'https://www.mslmc.cn/'
+        name: "MSL 开发组",
+        logo: "https://mslmc.cn/logo.png",
+        website: "https://www.mslmc.cn/",
       },
       {
         id: 2,
-        name: '内网穿透联盟 CFU',
-        logo: 'https://img.fastmirror.net/s/2025/07/22/687f8d53e18f5.png',
-        website: 'https://www.xn--v6qw21h0gd43u.xn--fiqs8s/'
+        name: "内网穿透联盟 CFU",
+        logo: "https://img.fastmirror.net/s/2025/07/22/687f8d53e18f5.png",
+        website: "https://www.xn--v6qw21h0gd43u.xn--fiqs8s/",
       },
-    ]
+    ];
 
     const techPartners = [
       {
         id: 1,
-        name: '幻缘网络 MagicEdge Network',
-        logo: 'https://img.fastmirror.net/s/2025/07/14/68740bbd67d18.png',
-        website: 'https://www.menetx.com/'
+        name: "幻缘网络 MagicEdge Network",
+        logo: "https://img.fastmirror.net/s/2025/07/14/68740bbd67d18.png",
+        website: "https://www.menetx.com/",
       },
       {
         id: 2,
-        name: '乐青团队 LoCyan',
-        logo: 'https://www.locyan.cn/upload/favicon.ico',
-        website: 'https://www.locyan.cn/'
+        name: "乐青团队 LoCyan",
+        logo: "https://www.locyan.cn/upload/favicon.ico",
+        website: "https://www.locyan.cn/",
       },
       {
         id: 3,
-        name: '裕米云',
-        logo: 'https://img.fastmirror.net/s/2025/07/22/687f8c75dbb2a.png',
-        website: 'https://comcorn.cn/'
+        name: "裕米云",
+        logo: "https://img.fastmirror.net/s/2025/07/22/687f8c75dbb2a.png",
+        website: "https://comcorn.cn/",
       },
-    ]
+    ];
 
     const openLink = (url) => {
       try {
-        window.open(url, '_blank', 'noopener,noreferrer')
+        window.open(url, "_blank", "noopener,noreferrer");
       } catch (error) {
-        console.error('Failed to open link:', error)
-        const newWindow = window.open()
+        console.error("Failed to open link:", error);
+        const newWindow = window.open();
         if (newWindow) {
-          newWindow.location.href = url
+          newWindow.location.href = url;
         }
       }
-    }
+    };
 
     const handleImageError = (event) => {
-      const img = event.target
-      const fallback = img.nextElementSibling
+      const img = event.target;
+      const fallback = img.nextElementSibling;
       if (fallback) {
-        img.style.display = 'none'
-        fallback.style.display = 'flex'
+        img.style.display = "none";
+        fallback.style.display = "flex";
       }
-    }
+    };
 
     return {
       strategicPartners,
       techPartners,
       communityPartners,
       openLink,
-      handleImageError
-    }
-  }
-}
+      handleImageError,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -380,7 +436,7 @@ export default {
   margin-top: 24px;
 }
 
-.partnership-content>p {
+.partnership-content > p {
   color: var(--n-text-color-2);
   line-height: 1.6;
   margin-bottom: 32px;

@@ -1,0 +1,230 @@
+.dark-card {
+  background-color: #18181c;
+  border-color: #18181c;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dark-card .n-card__content {
+  background-color: #18181c;
+}
+
+.dark-card h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.dark-card h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+  border-left: 3px solid #232326;
+  padding-left: 8px;
+  color: #e0e0e0;
+}
+
+.dark-card h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #e0e0e0;
+}
+
+.dark-card .update-version {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-left: 3px solid #232326;
+  background-color: #18181c;
+}
+
+.dark-card .update-meta {
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.dark-card .update-note {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-left: 2px solid #232326;
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+}
+
+.dark-card .download-container {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.dark-card .download-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #232326;
+  color: #e0e0e0;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dark-card .download-link:hover {
+  background-color: #333;
+}
+
+.dark-card .warning-alert {
+  margin-top: 16px;
+  font-size: 14px;
+  background-color: #232326;
+  color: #e0e0e0;
+}
+
+.dark-card .carousel-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dark-card ul {
+  padding-left: 20px;
+  margin: 12px 0;
+}
+
+.dark-card li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.dark-card code {
+  background-color: #232326;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  font-size: 0.95em;
+  color: #e0e0e0;
+}
+
+/* 为第90-91行的链接设置颜色样式 */
+.dark-card a {
+  color: #48c47d;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* 链接悬停效果 */
+.dark-card a:hover {
+  color: #a8e6b7;
+  text-decoration: underline;
+}
+
+.qyf-doc {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.doc-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.doc-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--text-color-1);
+}
+
+.doc-section {
+  margin-bottom: 30px;
+}
+
+.doc-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-color-1);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.doc-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+  color: var(--text-color-2);
+}
+
+.doc-section p {
+  line-height: 1.6;
+  color: var(--text-color-2);
+  margin-bottom: 10px;
+}
+
+.doc-section ul,
+.doc-section ol {
+  padding-left: 20px;
+  color: var(--text-color-2);
+}
+
+.doc-section li {
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+.doc-section a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.doc-section a:hover {
+  text-decoration: underline;
+}
+
+.doc-section code {
+  background-color: var(--code-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+}
+
+.fix-guide,
+.update-log {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .qyf-doc {
+    padding: 15px;
+  }
+
+  .doc-header h1 {
+    font-size: 2rem;
+  }
+
+  .doc-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .doc-section h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .qyf-doc {
+    color: var(--text-color-1);
+  }
+}
+
+.img {
+  max-width: 600px;
+  max-height: 400px;
+}
