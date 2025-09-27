@@ -257,7 +257,7 @@ export default {
       {
         name: "Yealqp",
         avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=1592239257&spec=4",
-        role: "开发兼运维 / 创始人 / 成员",
+        role: "DevOps / 创始人 / 成员",
         link: "https://github.com/Yealqp",
       },
       {
@@ -277,11 +277,6 @@ export default {
         avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=3976141098&spec=4",
         role: "联盟网盘维护者",
         link: "https://github.com/chencomcdyun",
-      },
-      {
-        name: "MR.苏",
-        avatar: "https://q2.qlogo.cn/headimg_dl?dst_uin=2748874586&spec=4",
-        role: "成员 / 敬请期待",
       },
     ]);
 
