@@ -37,13 +37,13 @@ import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-
         </NTimelineItem>
         <NTimelineItem
           title="获得同意"
-          content="在得到猫羽雽的同意后，参考下文。"
+          content="在得到猫羽雫的同意后，参考下文。"
           type="success"
         >
         </NTimelineItem>
         <NTimelineItem
           title="Fork项目并创建文件"
-          content="在Github上fork主分支，创建md文件以及修改配置文件。"
+          content="在Github上fork主分支，创建属于自己的vue文件。"
           type="success"
         >
         </NTimelineItem>
@@ -55,7 +55,7 @@ import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-
         </NTimelineItem>
         <NTimelineItem
           title="提交PR"
-          content="提交PR，等待审核。"
+          content="提交PR，等待猫羽雫适配。"
           type="success"
         >
         </NTimelineItem>
