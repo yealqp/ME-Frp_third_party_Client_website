@@ -53,30 +53,12 @@ function ol() {
     <div class="section">
       <h2>预览图</h2>
       <NCarousel show-arrow autoplay>
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/login.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/tunnel.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/create.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/config.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/about.png"
-        />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/login.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/tunnel.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/create.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/config.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/about.png" />
       </NCarousel>
     </div>
 
@@ -88,8 +70,7 @@ function ol() {
       <NAlert type="warning">
         注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022,
         2025<br />
-        请使用<a href="https://www.mefrp.com/" target="_blank">ME-Frp 官网</a
-        >账号登录 <br />
+        请使用<a href="https://www.mefrp.com/" target="_blank">ME-Frp 官网</a>账号登录 <br />
         需要更多功能或报告Bug 请向我们的邮箱
         <a href="mailto:yealqp@163.com">yealqp@163.com</a> 发送邮件
       </NAlert>
@@ -99,14 +80,34 @@ function ol() {
       <h2>更新记录</h2>
       <div class="updates">
         <div class="update-version">
+          <h3>v1.5.3</h3>
+          <ul>
+            <li>
+              修改新版本下载地址，修改了仙林云官网地址，在帮助页面图形化反馈卡片中添加新版本下载页按钮。
+            </li>
+          </ul>
+        </div>
+        <div class="update-version">
+          <h3>v1.5.2</h3>
+          <ul>
+            <li>
+              将隧道管理页面的编辑按钮移到更多选项卡中，将更多选项卡中的复制远程地址和详情按钮移到原编辑按钮位置。
+            </li>
+          </ul>
+        </div>
+        <div class="update-version">
+          <h3>v1.5.1</h3>
+          <ul>
+            <li>
+              添加复制隧道远程地址功能。
+            </li>
+          </ul>
+        </div>
+        <div class="update-version">
           <h3>v1.5</h3>
           <ul>
             <li>
-              添加登录时的人机验证功能，感谢<a
-                href="https://github.com/LxHTT"
-                target="_blank"
-                >落雪无痕LxHTT</a
-              >提供了官网使用的人机验证逻辑。
+              添加登录时的人机验证功能，感谢<a href="https://github.com/LxHTT" target="_blank">落雪无痕LxHTT</a>提供了官网使用的人机验证逻辑。
             </li>
           </ul>
         </div>
