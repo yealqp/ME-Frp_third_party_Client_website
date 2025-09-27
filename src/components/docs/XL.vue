@@ -10,9 +10,6 @@ import {
   NSpace,
 } from "naive-ui";
 const title = "XL-ME-Frp-Luncher";
-function lanzoo() {
-  window.open("https://wwoq.lanzouo.com/idlrB36x0mgb", "_blank");
-}
 function ol() {
   window.open("https://alist.yealqp.cn/", "_blank");
 }
@@ -86,8 +83,6 @@ function ol() {
     <div class="section">
       <h2>下载</h2>
       <div class="download-container">
-        <NButton @click="lanzoo" type="primary"> 蓝奏云 密码1zbs </NButton>
-        <a>-------</a>
         <NButton @click="ol" type="primary"> OpenList </NButton>
       </div>
       <NAlert type="warning">
