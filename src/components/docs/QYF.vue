@@ -1,6 +1,109 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
+
 const title = "Plain-ME-Frp-Luncher";
+
+// 响应式数据
+const updates = ref([]);
+const loading = ref(true);
+const error = ref(null);
+
+/**
+ * 从 API 获取更新日志数据
+ * @returns {Promise<Object>} API 响应数据
+ */
+async function fetchChangelog() {
+  try {
+    const response = await fetch("https://api.rycb.mxj.pub/api/changelog");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error("获取更新日志失败:", err);
+    throw err;
+  }
+}
+
+/**
+ * 比较两个版本号的大小
+ * @param {string} version1 - 第一个版本号
+ * @param {string} version2 - 第二个版本号
+ * @returns {number} 返回 1 表示 version1 > version2，-1 表示 version1 < version2，0 表示相等
+ */
+function compareVersions(version1, version2) {
+  // 移除版本号中的非数字和点号字符，然后按点号分割
+  const v1Parts = version1.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0);
+  const v2Parts = version2.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0);
+  
+  // 确保两个版本号数组长度相同，不足的部分用 0 补齐
+  const maxLength = Math.max(v1Parts.length, v2Parts.length);
+  while (v1Parts.length < maxLength) v1Parts.push(0);
+  while (v2Parts.length < maxLength) v2Parts.push(0);
+  
+  // 逐段比较版本号
+  for (let i = 0; i < maxLength; i++) {
+    if (v1Parts[i] > v2Parts[i]) return 1;
+    if (v1Parts[i] < v2Parts[i]) return -1;
+  }
+  
+  return 0; // 版本号相等
+}
+
+/**
+ * 将 API 返回的数据格式转换为模板所需的数组格式
+ * @param {Object} apiData - API 返回的数据
+ * @returns {Array} 转换后的更新日志数组
+ */
+function transformApiData(apiData) {
+  if (!apiData.success || !apiData.data) {
+    throw new Error("API 数据格式错误");
+  }
+
+  const transformedData = [];
+  
+  // 将对象转换为数组并按版本号排序（高版本在前）
+  const versions = Object.keys(apiData.data).sort((a, b) => {
+    return compareVersions(b, a); // 降序排列，高版本在前
+  });
+
+  versions.forEach(version => {
+    const versionData = apiData.data[version];
+    transformedData.push({
+      version: `v${version}`,
+      notes: versionData.changes || [],
+      date: versionData.date || "",
+      description: versionData.description || ""
+    });
+  });
+
+  return transformedData;
+}
+
+
+
+/**
+ * 初始化更新日志数据
+ */
+async function initializeUpdates() {
+  loading.value = true;
+  error.value = null;
+
+  try {
+    const apiData = await fetchChangelog();
+    updates.value = transformApiData(apiData);
+  } catch (err) {
+    error.value = "获取更新日志失败";
+    updates.value = [];
+    console.error("获取更新日志失败:", err);
+  } finally {
+    loading.value = false;
+  }
+}
+
+// 下载链接函数
 function quack() {
   window.open("https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf", "_blank");
 }
@@ -25,6 +128,11 @@ function lml() {
     "_blank",
   );
 }
+
+// 组件挂载时初始化数据
+onMounted(() => {
+  initializeUpdates();
+});
 </script>
 
 <template>
@@ -358,7 +466,22 @@ function lml() {
     <div class="section">
       <h2>更新日志</h2>
 
-      <div class="updates">
+      <!-- 加载状态 -->
+      <div v-if="loading" class="loading-state">
+        <NAlert type="info" title="正在加载更新日志...">
+          请稍候，正在从服务器获取最新的更新日志信息。
+        </NAlert>
+      </div>
+
+      <!-- 错误状态 -->
+      <div v-else-if="error" class="error-state">
+        <NAlert type="error" title="获取更新日志失败">
+          {{ error }}，请稍后重试或联系管理员。
+        </NAlert>
+      </div>
+
+      <!-- 更新日志内容 -->
+      <div v-else class="updates">
         <div
           v-for="update in updates"
           :key="update.version"
@@ -378,108 +501,4 @@ function lml() {
   </NCard>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      updates: [
-        {
-          version: "v2.1.0",
-          notes: [
-            "<strong>[重大更新][开发中]</strong>",
-            "“插件”功能现已加入至PML Ⅱ。",
-            "您可以在“插件”页面中安装、启用、禁用、卸载插件。",
-            "插件支持自定义配置。",
-            '<n-alert type="info">对于插件开发者：<br/>- 若您想成为插件开发者，请<a href="mailto:rycbstudio@163.com">与我们联系</a>。<br/>- 查看<a href="https://dev.mefl.mxj.pub" target="_blank">开发者文档</a>。</n-alert>',
-          ],
-        },
-        {
-          version: "v2.0.2",
-          notes: [
-            "优化“隧道管理”页面，增加命令语法功能和帮助。",
-            "“隧道管理”页面搜索时支持拼音搜索。",
-          ],
-        },
-        {
-          version: "v2.0.1",
-          notes: [
-            "在“用户中心”中增加“流量统计”功能",
-            "优化人机验证逻辑，登录和签到时可自动识别验证码。",
-            "增加底部状态栏，显示正在运行的操作。",
-            "增加崩溃窗口，在程序崩溃时显示错误信息。",
-          ],
-        },
-        {
-          version: "v2.0.0.2",
-          notes: [
-            "更新人机验证逻辑，与官网一致。",
-            "修复无法登录的 bug（已登录用户不受影响）",
-          ],
-        },
-        {
-          version: "v2.0.0.1",
-          notes: ["修复了 Windows 11 系统之外的兼容性问题"],
-        },
-        {
-          version: "v2.0.0",
-          notes: [
-            "<strong>[ADDED]</strong>",
-            "Windows & Linux 多平台支持",
-            "统一 UI 风格为 Fluent Design",
-            "完整 ME Frp 功能",
-            "<strong>[REMOVED]</strong>",
-            "移除 HandyControl 及其相关（辉光窗口、加载动画等）",
-            "移除 WPF 相关内容（托盘图标、动画等）",
-            "移除了 Herobrine",
-            "<strong>[MODIFIED]</strong>",
-            "修改了更新的默认下载源",
-            "修改部分程序逻辑",
-            "优化性能",
-            "<strong>[FIXED]</strong>",
-            "修复一言无法加载的问题",
-            "修复加载两次用户数据的问题",
-            "修复加载不存在节点时程序卡死的问题",
-            "<strong>已知问题</strong>",
-            "公告显示不支持标题 (MEFLX #001)：后续修复",
-          ],
-        },
-        // 以下为 v1.x 版本...
-        {
-          version: "v1.2.0",
-          notes: [
-            "统一字体为 HarmonyOS Sans",
-            "修复更新检查逻辑",
-            "美化 UI，增加辉光效果",
-            "修复多个界面和逻辑问题",
-          ],
-        },
-        {
-          version: "v1.1.1",
-          notes: ["增加彩蛋", "增加设置界面", "增加“取消登录”选项"],
-        },
-        {
-          version: "v1.1.0",
-          notes: [
-            "优化菜单栏",
-            "完善用户中心",
-            "支持后台运行",
-            "增加 HideInsteadOfClose 设置",
-          ],
-        },
-        {
-          version: "v1.0.1",
-          notes: [
-            "修复连接状态显示错误",
-            "修复控制台启动问题",
-            "增加 KickWithoutDisable、ParallelDownload 等设置项",
-          ],
-        },
-        { version: "v1.0.0", notes: ["发布"] },
-      ],
-    };
-  },
-};
-</script>
-
 <style src="../../style.css"></style>
-public\rycb\aboutx.png
