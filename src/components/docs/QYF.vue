@@ -2,7 +2,7 @@
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
 import hljs from 'highlight.js';
 import 'highlight.js/styles/default.css';
-const title = "Plain-ME-Frp-Luncher";
+const title = "PML 2";
 function quark() {
   window.open("https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf", "_blank");
 }
@@ -57,7 +57,7 @@ function lml() {
       <div class="update-version">
         <ul>
           <li>
-            PML 2 X (PML 2)是对 ME Frp (幻缘映射)
+            Plain ME Frp Launcher X (PML 2)是对 ME Frp (幻缘映射)
             的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
             Windows 和 Linux 两端。
             <em>可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。</em>
