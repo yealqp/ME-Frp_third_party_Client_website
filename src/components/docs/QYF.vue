@@ -1,7 +1,9 @@
 <script setup>
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
 const title = "Plain-ME-Frp-Luncher";
-function quack() {
+function quark() {
   window.open("https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf", "_blank");
 }
 function baidu() {
@@ -9,6 +11,9 @@ function baidu() {
     "https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb",
     "_blank",
   );
+}
+function openlist(){
+  window.open("https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp", "_blank");
 }
 function lanzoo() {
   window.open("https://rycbstudio.lanzoue.com/b0zk6qxri", "_blank");
@@ -38,16 +43,10 @@ function lml() {
       <h2>技术栈</h2>
       <n-space>
         <NTag :bordered="false" type="info">.NET 8.0</NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#165cff4b', textColor: '#165cff' }"
-        >
+        <NTag :bordered="false" :color="{ color: '#165cff4b', textColor: '#165cff' }">
           Avalonia UI
         </NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#047edb4b', textColor: '#047edb' }"
-        >
+        <NTag :bordered="false" :color="{ color: '#047edb4b', textColor: '#047edb' }">
           Fluent Design
         </NTag>
       </n-space>
@@ -58,19 +57,17 @@ function lml() {
       <div class="update-version">
         <ul>
           <li>
-            Plain ME Frp Launcher 是对 ME Frp (幻缘映射)
+            PML 2 X (PML 2)是对 ME Frp (幻缘映射)
             的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
-            Windows 和 Linux 两端 (X 版本)。
+            Windows 和 Linux 两端。
             <em>可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。</em>
           </li>
           <li>
             作者:
-            <n-tag :bordered="false" type="success" size="small"
-              >RYCB Studio</n-tag
-            >
+            <n-tag :bordered="false" type="success" size="small">RYCB Studio</n-tag>
           </li>
           <li>
-            命名灵感来源:
+            命名灵感:
             <n-tag :bordered="false" type="info" size="small">PCL Ⅱ</n-tag>
           </li>
           <li>
@@ -81,49 +78,15 @@ function lml() {
       </div>
 
       <NAlert type="info" title="重要更新">
-        基于 Avalonia 的 Plain ME Frp Launcher 2.0 已经发布！<br />
+        基于 Avalonia 的 PML 2 2.0 已经发布！<br />
         支持 Windows 和 Linux 两端！<br />
-        欢迎使用 PML Ⅱ ！(doge)
+        欢迎使用 PML Ⅱ !(doge)
       </NAlert>
     </div>
 
     <!-- 预览图 -->
     <div class="section">
       <h2>预览</h2>
-
-      <h3>Legacy 版</h3>
-      <NCarousel show-arrow autoplay>
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/login.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/create.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/manage.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/monitor.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/about.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/terminal.png"
-        />
-      </NCarousel>
-
-      <h3>X 版</h3>
       <NCarousel show-arrow autoplay>
         <img class="carousel-img" src="/rycb/homex.png" />
         <img class="carousel-img" src="/rycb/createx.png" />
@@ -150,47 +113,19 @@ function lml() {
     <!-- 使用方法 -->
     <div class="section">
       <h2>使用方法</h2>
-      <ol>
-        <li>下载并安装 .NET 8.0 运行时</li>
-        <li>下载 Plain ME Frp Launcher</li>
-        <li>运行 Plain ME Frp Launcher</li>
-      </ol>
-
-      <NAlert
-        type="warning"
-        title="教程：如何在 Linux 上安装 .NET 8.0 运行时？"
-      >
+      <NAlert type="info" title="教程：如何在 Linux 上安装 .NET 8.0 运行时？">
         <ul>
           <li>
             若您认为您有技术，则请参考
-            <a
-              href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux"
-              target="_blank"
-              >官方文档</a
-            >。
+            <a href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux" target="_blank">官方文档</a>。
           </li>
           <li>
             若您认为您没有技术，则请按照下面的步骤来安装 .NET 运行时：
             <ol>
               <li>打开终端</li>
-              <li>
-                先切换到 root 用户 (Ubuntu: <code>sudo su</code> Debian:
-                <code>su</code>)
+              <li>输入
+                <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/dotnet/install.sh)</code></pre>
               </li>
-              <li>
-                输入
-                <code
-                  >wget
-                  https://content.rycb.mxj.pub/files/dotnet/install.sh</code
-                >
-                或 <code>wget https://kike.cc/27G</code>
-              </li>
-              <li>
-                等待下载完成后，输入
-                <code>chmod +x ./install.sh</code>（这一步很重要）
-              </li>
-              <li>输入 <code>./install.sh</code></li>
-              <li>按照提示安装即可。</li>
             </ol>
           </li>
           <li>
@@ -205,23 +140,12 @@ function lml() {
 
       <NAlert type="warning" title="教程：如何在 Linux 上顺利运行本软件？">
         <ol>
-          <li>在您下载了 .deb 文件的目录里，打开终端</li>
-          <li>切换到 root 用户 (<code>sudo su</code> 或 <code>su</code>)</li>
-          <li>
-            输入
-            <code>dpkg -i mefrplauncherx.2.0.0.1.linux-x64.deb</code
-            >（替换为实际文件名）
+          <li>预先安装 .NET 8.0 运行时（参考上文）</li>
+          <li>打开终端</li>
+          <li>输入
+            <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/hefl/install.sh)</code></pre>
           </li>
-          <li>
-            安装完成后，跳转至安装目录：<code
-              >cd /usr/share/mefrplauncherx/</code
-            >
-          </li>
-          <li>
-            输入 <code>chmod -R a+r,a+w *</code>（务必执行，否则无法运行）
-          </li>
-          <li>输入 <code>exit</code> 退出 root 模式</li>
-          <li>输入 <code>./mefrplauncherx</code> 启动软件</li>
+          <li>等待安装完成</li>
           <li>之后可直接输入 <code>mefrplauncherx</code> 启动</li>
         </ol>
       </NAlert>
@@ -239,38 +163,36 @@ function lml() {
       <h2>下载地址</h2>
 
       <NAlert type="warning">
-        Plain ME Frp Launcher Windows 版依赖于
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/8.0"
-          target="_blank"
-          >.NET 8.0 桌面运行时</a
-        >， 请预先安装。
+        PML 2 Windows 版依赖于
+        <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">.NET 8.0 桌面运行时</a>， 请预先安装。
         <br />
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
-          target="_blank"
-        >
+        <a href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
+          target="_blank">
           点击此处下载 8.0.18 版本
         </a>
         <br />
         Linux 用户请参考上文安装运行时。
       </NAlert>
 
-      <h3>X v2.0.5.0 (2.1.0.0 过渡版本)</h3>
-      <p><strong>2.0.5.0 包含除插件外的所有更新内容。</strong></p>
+      <h3>v2.0.6.0 (2.1.0.0 过渡版本)</h3>
+      <p><strong>2.0.6.0 包含除插件外的所有更新内容。</strong></p>
       <ul>
-        <li>
+        <!-- <li>
           <NButton @click="quack" type="primary"> 夸克云 密码2Hxf </NButton>
         </li>
 
         <li>
           <NButton @click="baidu" type="primary"> 百度云 密码rycb </NButton>
         </li>
+      -->
 
+        <li>
+          <NButton @click="openlist" type="primary"> OpenList </NButton>
+        </li>
         <li>
           <NButton @click="lanzoo" type="primary"> 蓝奏云 密码akev </NButton>
         </li>
-        <li>
+        <!-- <li>
           <NButton @click="lmw" type="error">
             <del>联盟网盘 | Windows-x64 发行版 </del>
           </NButton>
@@ -279,34 +201,30 @@ function lml() {
           <NButton @click="lml" type="error">
             <del>联盟网盘 | Linux-x64 发行版 </del>
           </NButton>
-        </li>
+        </li> -->
       </ul>
 
       <NAlert type="error" title="重要提醒">
         安装或使用本软件表明您同意本软件的
-        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank"
-          >用户协议</a
-        >
+        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank">用户协议</a>
         和
-        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank"
-          >隐私政策</a
-        >。
+        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank">隐私政策</a>。
         <br />
-        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版（包括
-        Alpine Linux）。
+        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版(包括
+        Alpine Linux)。
         <br />
         请使用
         <a href="https://www.mefrp.com/" target="_blank">ME Frp 官网</a>
         账号登录。
         <br />
-        若在 Linux 下使用 root 账户运行，软件将无法正常运行。
+        若在 Linux 下使用 root 账户运行，软件可能将无法正常运行。
       </NAlert>
 
       <NAlert type="warning">
         遇到问题，请先查看
         <a href="#快速修复">快速修复</a>
         <br />
-        需要更多功能或报告 Bug，请发送邮件至
+        需要更多功能或报告 Bug, 请发送邮件至
         <a href="mailto:rycbstudio@163.com">rycbstudio@163.com</a>
       </NAlert>
     </div>
@@ -345,9 +263,7 @@ function lml() {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>
-            打开终端，执行：<code
-              >chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code
-            >
+            打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
           </li>
           <li>重新运行：<code>mefrplauncherx</code></li>
         </ol>
@@ -359,18 +275,10 @@ function lml() {
       <h2>更新日志</h2>
 
       <div class="updates">
-        <div
-          v-for="update in updates"
-          :key="update.version"
-          class="update-version"
-        >
+        <div v-for="update in updates" :key="update.version" class="update-version">
           <h3>{{ update.version }}</h3>
           <ul>
-            <li
-              v-for="(item, index) in update.notes"
-              :key="index"
-              v-html="item"
-            ></li>
+            <li v-for="(item, index) in update.notes" :key="index" v-html="item"></li>
           </ul>
         </div>
       </div>
@@ -478,6 +386,12 @@ export default {
       ],
     };
   },
+  mounted() {
+    const blocks = this.$el.querySelectorAll('pre code');
+    blocks.forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
 };
 </script>
 
