@@ -2,7 +2,9 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
-        <p class="copyright">Copyright © 2025 ME-Frp TPCA.</p>
+        <p class="copyright">
+          Copyright © 2025 ME-Frp Third-Party Client Alliance.
+        </p>
         <p class="runtime">我们已奋斗 {{ runtimeText }}</p>
         <p class="copyright">
           本站二开自<a href="https://github.com/MCSLTeam/MCSLTeam-Website-Next"

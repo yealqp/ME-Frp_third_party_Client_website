@@ -209,11 +209,7 @@
                   text
                   type="primary"
                   size="small"
-                  @click="
-                    openMemberLink(
-                      'https://qm.qq.com/cgi-bin/qm/qr?k=S5tzhFVCoN28LIyPA5BJEZ0EFayLz4zh&jump_from=webapi&authKey=/FxL2ZT41DaqB5gyb8f9jauks1L6b/143XAXv5z0MhYkET0OeVdyT+umItJVlzrL',
-                    )
-                  "
+                  @click="openMemberLink('https://www.xianlin.cloud/')"
                 >
                   <template #icon>
                     <n-icon>
@@ -289,7 +285,7 @@ export default {
       },
       {
         name: "MCSLTeam-Website-Next",
-        avatar: "https://images.mcsl.com.cn/new/MCSLTeam.webp",
+        avatar: "https://avatars.githubusercontent.com/u/138136619?s=48&v=4",
         role: "原项目",
         link: "https://github.com/MCSLTeam/MCSLTeam-Website-Next",
       },
