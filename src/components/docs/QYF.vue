@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted } from "vue";
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
 import hljs from 'highlight.js';
 import 'highlight.js/styles/default.css';
@@ -30,6 +31,11 @@ function lml() {
     "_blank",
   );
 }
+
+// 组件挂载时初始化数据
+onMounted(() => {
+  initializeUpdates();
+});
 </script>
 
 <template>
@@ -274,8 +280,27 @@ function lml() {
     <div class="section">
       <h2>更新日志</h2>
 
-      <div class="updates">
-        <div v-for="update in updates" :key="update.version" class="update-version">
+      <!-- 加载状态 -->
+      <div v-if="loading" class="loading-state">
+        <NAlert type="info" title="正在加载更新日志...">
+          请稍候，正在从服务器获取最新的更新日志信息。
+        </NAlert>
+      </div>
+
+      <!-- 错误状态 -->
+      <div v-else-if="error" class="error-state">
+        <NAlert type="error" title="获取更新日志失败">
+          {{ error }}，请稍后重试或联系管理员。
+        </NAlert>
+      </div>
+
+      <!-- 更新日志内容 -->
+      <div v-else class="updates">
+        <div
+          v-for="update in updates"
+          :key="update.version"
+          class="update-version"
+        >
           <h3>{{ update.version }}</h3>
           <ul>
             <li v-for="(item, index) in update.notes" :key="index" v-html="item"></li>
