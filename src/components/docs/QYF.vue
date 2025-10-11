@@ -1,110 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
-
-const title = "Plain-ME-Frp-Luncher";
-
-// 响应式数据
-const updates = ref([]);
-const loading = ref(true);
-const error = ref(null);
-
-/**
- * 从 API 获取更新日志数据
- * @returns {Promise<Object>} API 响应数据
- */
-async function fetchChangelog() {
-  try {
-    const response = await fetch("https://api.rycb.mxj.pub/api/changelog");
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.error("获取更新日志失败:", err);
-    throw err;
-  }
-}
-
-/**
- * 比较两个版本号的大小
- * @param {string} version1 - 第一个版本号
- * @param {string} version2 - 第二个版本号
- * @returns {number} 返回 1 表示 version1 > version2，-1 表示 version1 < version2，0 表示相等
- */
-function compareVersions(version1, version2) {
-  // 移除版本号中的非数字和点号字符，然后按点号分割
-  const v1Parts = version1.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0);
-  const v2Parts = version2.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0);
-  
-  // 确保两个版本号数组长度相同，不足的部分用 0 补齐
-  const maxLength = Math.max(v1Parts.length, v2Parts.length);
-  while (v1Parts.length < maxLength) v1Parts.push(0);
-  while (v2Parts.length < maxLength) v2Parts.push(0);
-  
-  // 逐段比较版本号
-  for (let i = 0; i < maxLength; i++) {
-    if (v1Parts[i] > v2Parts[i]) return 1;
-    if (v1Parts[i] < v2Parts[i]) return -1;
-  }
-  
-  return 0; // 版本号相等
-}
-
-/**
- * 将 API 返回的数据格式转换为模板所需的数组格式
- * @param {Object} apiData - API 返回的数据
- * @returns {Array} 转换后的更新日志数组
- */
-function transformApiData(apiData) {
-  if (!apiData.success || !apiData.data) {
-    throw new Error("API 数据格式错误");
-  }
-
-  const transformedData = [];
-  
-  // 将对象转换为数组并按版本号排序（高版本在前）
-  const versions = Object.keys(apiData.data).sort((a, b) => {
-    return compareVersions(b, a); // 降序排列，高版本在前
-  });
-
-  versions.forEach(version => {
-    const versionData = apiData.data[version];
-    transformedData.push({
-      version: `v${version}`,
-      notes: versionData.changes || [],
-      date: versionData.date || "",
-      description: versionData.description || ""
-    });
-  });
-
-  return transformedData;
-}
-
-
-
-/**
- * 初始化更新日志数据
- */
-async function initializeUpdates() {
-  loading.value = true;
-  error.value = null;
-
-  try {
-    const apiData = await fetchChangelog();
-    updates.value = transformApiData(apiData);
-  } catch (err) {
-    error.value = "获取更新日志失败";
-    updates.value = [];
-    console.error("获取更新日志失败:", err);
-  } finally {
-    loading.value = false;
-  }
-}
-
-// 下载链接函数
-function quack() {
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
+const title = "PML 2";
+function quark() {
   window.open("https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf", "_blank");
 }
 function baidu() {
@@ -112,6 +12,9 @@ function baidu() {
     "https://pan.baidu.com/s/1c_oLBFQt6VSDhyUohefw_g?pwd=rycb",
     "_blank",
   );
+}
+function openlist(){
+  window.open("https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp", "_blank");
 }
 function lanzoo() {
   window.open("https://rycbstudio.lanzoue.com/b0zk6qxri", "_blank");
@@ -146,16 +49,10 @@ onMounted(() => {
       <h2>技术栈</h2>
       <n-space>
         <NTag :bordered="false" type="info">.NET 8.0</NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#165cff4b', textColor: '#165cff' }"
-        >
+        <NTag :bordered="false" :color="{ color: '#165cff4b', textColor: '#165cff' }">
           Avalonia UI
         </NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#047edb4b', textColor: '#047edb' }"
-        >
+        <NTag :bordered="false" :color="{ color: '#047edb4b', textColor: '#047edb' }">
           Fluent Design
         </NTag>
       </n-space>
@@ -166,19 +63,17 @@ onMounted(() => {
       <div class="update-version">
         <ul>
           <li>
-            Plain ME Frp Launcher 是对 ME Frp (幻缘映射)
+            Plain ME Frp Launcher X (PML 2)是对 ME Frp (幻缘映射)
             的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
-            Windows 和 Linux 两端 (X 版本)。
-            <em>可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。</em>
+            Windows 和 Linux 两端。
+            <em>可能也是目前三个产品中唯一一个支持跨平台的软件。</em>
           </li>
           <li>
             作者:
-            <n-tag :bordered="false" type="success" size="small"
-              >RYCB Studio</n-tag
-            >
+            <n-tag :bordered="false" type="success" size="small">RYCB Studio</n-tag>
           </li>
           <li>
-            命名灵感来源:
+            命名灵感:
             <n-tag :bordered="false" type="info" size="small">PCL Ⅱ</n-tag>
           </li>
           <li>
@@ -189,49 +84,15 @@ onMounted(() => {
       </div>
 
       <NAlert type="info" title="重要更新">
-        基于 Avalonia 的 Plain ME Frp Launcher 2.0 已经发布！<br />
+        基于 Avalonia 的 PML 2 2.0 已经发布！<br />
         支持 Windows 和 Linux 两端！<br />
-        欢迎使用 PML Ⅱ ！(doge)
+        欢迎使用 PML Ⅱ !(doge)
       </NAlert>
     </div>
 
     <!-- 预览图 -->
     <div class="section">
       <h2>预览</h2>
-
-      <h3>Legacy 版</h3>
-      <NCarousel show-arrow autoplay>
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/login.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/create.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/manage.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/monitor.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/about.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/rycb/terminal.png"
-        />
-      </NCarousel>
-
-      <h3>X 版</h3>
       <NCarousel show-arrow autoplay>
         <img class="carousel-img" src="/rycb/homex.png" />
         <img class="carousel-img" src="/rycb/createx.png" />
@@ -258,47 +119,19 @@ onMounted(() => {
     <!-- 使用方法 -->
     <div class="section">
       <h2>使用方法</h2>
-      <ol>
-        <li>下载并安装 .NET 8.0 运行时</li>
-        <li>下载 Plain ME Frp Launcher</li>
-        <li>运行 Plain ME Frp Launcher</li>
-      </ol>
-
-      <NAlert
-        type="warning"
-        title="教程：如何在 Linux 上安装 .NET 8.0 运行时？"
-      >
+      <NAlert type="info" title="教程：如何在 Linux 上安装 .NET 8.0 运行时？">
         <ul>
           <li>
             若您认为您有技术，则请参考
-            <a
-              href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux"
-              target="_blank"
-              >官方文档</a
-            >。
+            <a href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux" target="_blank">官方文档</a>。
           </li>
           <li>
             若您认为您没有技术，则请按照下面的步骤来安装 .NET 运行时：
             <ol>
               <li>打开终端</li>
-              <li>
-                先切换到 root 用户 (Ubuntu: <code>sudo su</code> Debian:
-                <code>su</code>)
+              <li>输入
+                <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/dotnet/install.sh)</code></pre>
               </li>
-              <li>
-                输入
-                <code
-                  >wget
-                  https://content.rycb.mxj.pub/files/dotnet/install.sh</code
-                >
-                或 <code>wget https://kike.cc/27G</code>
-              </li>
-              <li>
-                等待下载完成后，输入
-                <code>chmod +x ./install.sh</code>（这一步很重要）
-              </li>
-              <li>输入 <code>./install.sh</code></li>
-              <li>按照提示安装即可。</li>
             </ol>
           </li>
           <li>
@@ -313,23 +146,12 @@ onMounted(() => {
 
       <NAlert type="warning" title="教程：如何在 Linux 上顺利运行本软件？">
         <ol>
-          <li>在您下载了 .deb 文件的目录里，打开终端</li>
-          <li>切换到 root 用户 (<code>sudo su</code> 或 <code>su</code>)</li>
-          <li>
-            输入
-            <code>dpkg -i mefrplauncherx.2.0.0.1.linux-x64.deb</code
-            >（替换为实际文件名）
+          <li>预先安装 .NET 8.0 运行时（参考上文）</li>
+          <li>打开终端</li>
+          <li>输入
+            <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/hefl/install.sh)</code></pre>
           </li>
-          <li>
-            安装完成后，跳转至安装目录：<code
-              >cd /usr/share/mefrplauncherx/</code
-            >
-          </li>
-          <li>
-            输入 <code>chmod -R a+r,a+w *</code>（务必执行，否则无法运行）
-          </li>
-          <li>输入 <code>exit</code> 退出 root 模式</li>
-          <li>输入 <code>./mefrplauncherx</code> 启动软件</li>
+          <li>等待安装完成</li>
           <li>之后可直接输入 <code>mefrplauncherx</code> 启动</li>
         </ol>
       </NAlert>
@@ -347,38 +169,36 @@ onMounted(() => {
       <h2>下载地址</h2>
 
       <NAlert type="warning">
-        Plain ME Frp Launcher Windows 版依赖于
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/8.0"
-          target="_blank"
-          >.NET 8.0 桌面运行时</a
-        >， 请预先安装。
+        PML 2 Windows 版依赖于
+        <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">.NET 8.0 桌面运行时</a>， 请预先安装。
         <br />
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
-          target="_blank"
-        >
+        <a href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
+          target="_blank">
           点击此处下载 8.0.18 版本
         </a>
         <br />
         Linux 用户请参考上文安装运行时。
       </NAlert>
 
-      <h3>X v2.0.5.0 (2.1.0.0 过渡版本)</h3>
-      <p><strong>2.0.5.0 包含除插件外的所有更新内容。</strong></p>
+      <h3>v2.0.6.0 (2.1.0.0 过渡版本)</h3>
+      <p><strong>2.0.6.0 包含除插件外的所有更新内容。</strong></p>
       <ul>
-        <li>
+        <!-- <li>
           <NButton @click="quack" type="primary"> 夸克云 密码2Hxf </NButton>
         </li>
 
         <li>
           <NButton @click="baidu" type="primary"> 百度云 密码rycb </NButton>
         </li>
+      -->
 
+        <li>
+          <NButton @click="openlist" type="primary"> OpenList </NButton>
+        </li>
         <li>
           <NButton @click="lanzoo" type="primary"> 蓝奏云 密码akev </NButton>
         </li>
-        <li>
+        <!-- <li>
           <NButton @click="lmw" type="error">
             <del>联盟网盘 | Windows-x64 发行版 </del>
           </NButton>
@@ -387,34 +207,30 @@ onMounted(() => {
           <NButton @click="lml" type="error">
             <del>联盟网盘 | Linux-x64 发行版 </del>
           </NButton>
-        </li>
+        </li> -->
       </ul>
 
       <NAlert type="error" title="重要提醒">
         安装或使用本软件表明您同意本软件的
-        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank"
-          >用户协议</a
-        >
+        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank">用户协议</a>
         和
-        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank"
-          >隐私政策</a
-        >。
+        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank">隐私政策</a>。
         <br />
-        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版（包括
-        Alpine Linux）。
+        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版(包括
+        Alpine Linux)。
         <br />
         请使用
         <a href="https://www.mefrp.com/" target="_blank">ME Frp 官网</a>
         账号登录。
         <br />
-        若在 Linux 下使用 root 账户运行，软件将无法正常运行。
+        若在 Linux 下使用 root 账户运行，软件可能将无法正常运行。
       </NAlert>
 
       <NAlert type="warning">
         遇到问题，请先查看
         <a href="#快速修复">快速修复</a>
         <br />
-        需要更多功能或报告 Bug，请发送邮件至
+        需要更多功能或报告 Bug, 请发送邮件至
         <a href="mailto:rycbstudio@163.com">rycbstudio@163.com</a>
       </NAlert>
     </div>
@@ -453,9 +269,7 @@ onMounted(() => {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>
-            打开终端，执行：<code
-              >chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code
-            >
+            打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
           </li>
           <li>重新运行：<code>mefrplauncherx</code></li>
         </ol>
@@ -489,11 +303,7 @@ onMounted(() => {
         >
           <h3>{{ update.version }}</h3>
           <ul>
-            <li
-              v-for="(item, index) in update.notes"
-              :key="index"
-              v-html="item"
-            ></li>
+            <li v-for="(item, index) in update.notes" :key="index" v-html="item"></li>
           </ul>
         </div>
       </div>
@@ -501,4 +311,114 @@ onMounted(() => {
   </NCard>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      updates: [
+        {
+          version: "v2.1.0",
+          notes: [
+            "<strong>[重大更新][开发中]</strong>",
+            "“插件”功能现已加入至PML Ⅱ。",
+            "您可以在“插件”页面中安装、启用、禁用、卸载插件。",
+            "插件支持自定义配置。",
+            '<n-alert type="info">对于插件开发者：<br/>- 若您想成为插件开发者，请<a href="mailto:rycbstudio@163.com">与我们联系</a>。<br/>- 查看<a href="https://dev.mefl.mxj.pub" target="_blank">开发者文档</a>。</n-alert>',
+          ],
+        },
+        {
+          version: "v2.0.2",
+          notes: [
+            "优化“隧道管理”页面，增加命令语法功能和帮助。",
+            "“隧道管理”页面搜索时支持拼音搜索。",
+          ],
+        },
+        {
+          version: "v2.0.1",
+          notes: [
+            "在“用户中心”中增加“流量统计”功能",
+            "优化人机验证逻辑，登录和签到时可自动识别验证码。",
+            "增加底部状态栏，显示正在运行的操作。",
+            "增加崩溃窗口，在程序崩溃时显示错误信息。",
+          ],
+        },
+        {
+          version: "v2.0.0.2",
+          notes: [
+            "更新人机验证逻辑，与官网一致。",
+            "修复无法登录的 bug（已登录用户不受影响）",
+          ],
+        },
+        {
+          version: "v2.0.0.1",
+          notes: ["修复了 Windows 11 系统之外的兼容性问题"],
+        },
+        {
+          version: "v2.0.0",
+          notes: [
+            "<strong>[ADDED]</strong>",
+            "Windows & Linux 多平台支持",
+            "统一 UI 风格为 Fluent Design",
+            "完整 ME Frp 功能",
+            "<strong>[REMOVED]</strong>",
+            "移除 HandyControl 及其相关（辉光窗口、加载动画等）",
+            "移除 WPF 相关内容（托盘图标、动画等）",
+            "移除了 Herobrine",
+            "<strong>[MODIFIED]</strong>",
+            "修改了更新的默认下载源",
+            "修改部分程序逻辑",
+            "优化性能",
+            "<strong>[FIXED]</strong>",
+            "修复一言无法加载的问题",
+            "修复加载两次用户数据的问题",
+            "修复加载不存在节点时程序卡死的问题",
+            "<strong>已知问题</strong>",
+            "公告显示不支持标题 (MEFLX #001)：后续修复",
+          ],
+        },
+        // 以下为 v1.x 版本...
+        {
+          version: "v1.2.0",
+          notes: [
+            "统一字体为 HarmonyOS Sans",
+            "修复更新检查逻辑",
+            "美化 UI，增加辉光效果",
+            "修复多个界面和逻辑问题",
+          ],
+        },
+        {
+          version: "v1.1.1",
+          notes: ["增加彩蛋", "增加设置界面", "增加“取消登录”选项"],
+        },
+        {
+          version: "v1.1.0",
+          notes: [
+            "优化菜单栏",
+            "完善用户中心",
+            "支持后台运行",
+            "增加 HideInsteadOfClose 设置",
+          ],
+        },
+        {
+          version: "v1.0.1",
+          notes: [
+            "修复连接状态显示错误",
+            "修复控制台启动问题",
+            "增加 KickWithoutDisable、ParallelDownload 等设置项",
+          ],
+        },
+        { version: "v1.0.0", notes: ["发布"] },
+      ],
+    };
+  },
+  mounted() {
+    const blocks = this.$el.querySelectorAll('pre code');
+    blocks.forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }
+};
+</script>
+
 <style src="../../style.css"></style>
+public\rycb\aboutx.png
