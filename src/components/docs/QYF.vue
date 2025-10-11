@@ -60,7 +60,7 @@ function lml() {
             Plain ME Frp Launcher X (PML 2)是对 ME Frp (幻缘映射)
             的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
             Windows 和 Linux 两端。
-            <em>可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。</em>
+            <em>可能也是目前三个产品中唯一一个支持跨平台的软件。</em>
           </li>
           <li>
             作者:
