@@ -7,13 +7,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['vue', 'vue-router'],
-          ui: ['naive-ui']
-        }
-      }
-    }
+          vendor: ["vue", "vue-router"],
+          ui: ["naive-ui"],
+        },
+      },
+    },
   },
   server: {
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 });

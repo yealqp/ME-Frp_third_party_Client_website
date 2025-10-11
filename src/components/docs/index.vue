@@ -1,5 +1,9 @@
 <script setup>
-import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-ui'
+import {
+  NCard,
+  NTimeline,
+  NTimelineItem,
+} from "naive-ui";
 </script>
 
 <template>
@@ -20,7 +24,11 @@ import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-
       <h2>本站内容</h2>
       <p>
         本站收录了ME-Frp的第三方客户端，由
-        <a href="https://qm.qq.com/cgi-bin/qm/qr?authKey=W%2BsWnBZYMUyqre2CMvoILZ4TQniiva5PNFFYkBtY0TaMNb%2BSWiToLDbiglufNaaT&k=bqlThMvikRF4ZaOwEq_ckpedjzthHccE&noverify=0" target="_blank">群内</a>
+        <a
+          href="https://qm.qq.com/cgi-bin/qm/qr?authKey=W%2BsWnBZYMUyqre2CMvoILZ4TQniiva5PNFFYkBtY0TaMNb%2BSWiToLDbiglufNaaT&k=bqlThMvikRF4ZaOwEq_ckpedjzthHccE&noverify=0"
+          target="_blank"
+          >群内</a
+        >
         大佬们贡献，为了防止某些人的逆天操作，故我们不将这些第三方客户端开源。
       </p>
     </div>
@@ -65,6 +73,3 @@ import { NCard, NSpace, NButton, NAlert, NTimeline, NTimelineItem } from 'naive-
 </template>
 
 <style src="../../style.css"></style>
-
-
-

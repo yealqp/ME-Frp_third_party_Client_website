@@ -1,9 +1,111 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { NTag, NCard, NSpace, NCarousel, NAlert, NButton } from "naive-ui";
-import hljs from 'highlight.js';
-import 'highlight.js/styles/default.css';
+import hljs from "highlight.js";
+import "highlight.js/styles/default.css";
 const title = "PML 2";
+const loading = ref(false);
+const error = ref(null);
+const updates = ref([]);
+
+/**
+ * 从 API 获取更新日志数据
+ * @returns {Promise<Object>} API 响应数据
+ */
+async function fetchChangelog() {
+  try {
+    const response = await fetch("https://api.rycb.mxj.pub/api/changelog");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error("获取更新日志失败:", err);
+    throw err;
+  }
+}
+
+/**
+ * 比较两个版本号的大小
+ * @param {string} version1 - 第一个版本号
+ * @param {string} version2 - 第二个版本号
+ * @returns {number} 返回 1 表示 version1 > version2，-1 表示 version1 < version2，0 表示相等
+ */
+function compareVersions(version1, version2) {
+  // 移除版本号中的非数字和点号字符，然后按点号分割
+  const v1Parts = version1
+    .replace(/[^\d.]/g, "")
+    .split(".")
+    .map((num) => parseInt(num) || 0);
+  const v2Parts = version2
+    .replace(/[^\d.]/g, "")
+    .split(".")
+    .map((num) => parseInt(num) || 0);
+
+  // 确保两个版本号数组长度相同，不足的部分用 0 补齐
+  const maxLength = Math.max(v1Parts.length, v2Parts.length);
+  while (v1Parts.length < maxLength) v1Parts.push(0);
+  while (v2Parts.length < maxLength) v2Parts.push(0);
+
+  // 逐段比较版本号
+  for (let i = 0; i < maxLength; i++) {
+    if (v1Parts[i] > v2Parts[i]) return 1;
+    if (v1Parts[i] < v2Parts[i]) return -1;
+  }
+
+  return 0; // 版本号相等
+}
+
+/**
+ * 将 API 返回的数据格式转换为模板所需的数组格式
+ * @param {Object} apiData - API 返回的数据
+ * @returns {Array} 转换后的更新日志数组
+ */
+function transformApiData(apiData) {
+  if (!apiData.success || !apiData.data) {
+    throw new Error("API 数据格式错误");
+  }
+
+  const transformedData = [];
+
+  // 将对象转换为数组并按版本号排序（高版本在前）
+  const versions = Object.keys(apiData.data).sort((a, b) => {
+    return compareVersions(b, a); // 降序排列，高版本在前
+  });
+
+  versions.forEach((version) => {
+    const versionData = apiData.data[version];
+    transformedData.push({
+      version: `v${version}`,
+      notes: versionData.changes || [],
+      date: versionData.date || "",
+      description: versionData.description || "",
+    });
+  });
+
+  return transformedData;
+}
+
+/**
+ * 初始化更新日志数据
+ */
+async function initializeUpdates() {
+  loading.value = true;
+  error.value = null;
+
+  try {
+    const apiData = await fetchChangelog();
+    updates.value = transformApiData(apiData);
+  } catch (err) {
+    error.value = "获取更新日志失败";
+    updates.value = [];
+    console.error("获取更新日志失败:", err);
+  } finally {
+    loading.value = false;
+  }
+}
+
 function quark() {
   window.open("https://pan.quark.cn/s/dbc1e3b0c0a4?pwd=2Hxf", "_blank");
 }
@@ -13,8 +115,11 @@ function baidu() {
     "_blank",
   );
 }
-function openlist(){
-  window.open("https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp", "_blank");
+function openlist() {
+  window.open(
+    "https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp",
+    "_blank",
+  );
 }
 function lanzoo() {
   window.open("https://rycbstudio.lanzoue.com/b0zk6qxri", "_blank");
@@ -32,9 +137,18 @@ function lml() {
   );
 }
 
-// 组件挂载时初始化数据
+// 组件挂载时初始化数据和高亮代码块
 onMounted(() => {
+  // 初始化更新日志数据
   initializeUpdates();
+
+  // 初始化代码高亮
+  setTimeout(() => {
+    const blocks = document.querySelectorAll("pre code");
+    blocks.forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }, 100);
 });
 </script>
 
@@ -49,10 +163,16 @@ onMounted(() => {
       <h2>技术栈</h2>
       <n-space>
         <NTag :bordered="false" type="info">.NET 8.0</NTag>
-        <NTag :bordered="false" :color="{ color: '#165cff4b', textColor: '#165cff' }">
+        <NTag
+          :bordered="false"
+          :color="{ color: '#165cff4b', textColor: '#165cff' }"
+        >
           Avalonia UI
         </NTag>
-        <NTag :bordered="false" :color="{ color: '#047edb4b', textColor: '#047edb' }">
+        <NTag
+          :bordered="false"
+          :color="{ color: '#047edb4b', textColor: '#047edb' }"
+        >
           Fluent Design
         </NTag>
       </n-space>
@@ -70,7 +190,9 @@ onMounted(() => {
           </li>
           <li>
             作者:
-            <n-tag :bordered="false" type="success" size="small">RYCB Studio</n-tag>
+            <n-tag :bordered="false" type="success" size="small"
+              >RYCB Studio</n-tag
+            >
           </li>
           <li>
             命名灵感:
@@ -123,13 +245,18 @@ onMounted(() => {
         <ul>
           <li>
             若您认为您有技术，则请参考
-            <a href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux" target="_blank">官方文档</a>。
+            <a
+              href="https://learn.microsoft.com/zh-cn/dotnet/core/install/linux"
+              target="_blank"
+              >官方文档</a
+            >。
           </li>
           <li>
             若您认为您没有技术，则请按照下面的步骤来安装 .NET 运行时：
             <ol>
               <li>打开终端</li>
-              <li>输入
+              <li>
+                输入
                 <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/dotnet/install.sh)</code></pre>
               </li>
             </ol>
@@ -148,7 +275,8 @@ onMounted(() => {
         <ol>
           <li>预先安装 .NET 8.0 运行时（参考上文）</li>
           <li>打开终端</li>
-          <li>输入
+          <li>
+            输入
             <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/hefl/install.sh)</code></pre>
           </li>
           <li>等待安装完成</li>
@@ -170,10 +298,16 @@ onMounted(() => {
 
       <NAlert type="warning">
         PML 2 Windows 版依赖于
-        <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">.NET 8.0 桌面运行时</a>， 请预先安装。
+        <a
+          href="https://dotnet.microsoft.com/download/dotnet/8.0"
+          target="_blank"
+          >.NET 8.0 桌面运行时</a
+        >， 请预先安装。
         <br />
-        <a href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
-          target="_blank">
+        <a
+          href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
+          target="_blank"
+        >
           点击此处下载 8.0.18 版本
         </a>
         <br />
@@ -212,9 +346,13 @@ onMounted(() => {
 
       <NAlert type="error" title="重要提醒">
         安装或使用本软件表明您同意本软件的
-        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank">用户协议</a>
+        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank"
+          >用户协议</a
+        >
         和
-        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank">隐私政策</a>。
+        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank"
+          >隐私政策</a
+        >。
         <br />
         注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版(包括
         Alpine Linux)。
@@ -269,7 +407,9 @@ onMounted(() => {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>
-            打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
+            打开终端，执行：<code
+              >chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code
+            >
           </li>
           <li>重新运行：<code>mefrplauncherx</code></li>
         </ol>
@@ -303,122 +443,15 @@ onMounted(() => {
         >
           <h3>{{ update.version }}</h3>
           <ul>
-            <li v-for="(item, index) in update.notes" :key="index" v-html="item"></li>
+            <li
+              v-for="(item, index) in update.notes"
+              :key="index"
+              v-html="item"
+            ></li>
           </ul>
         </div>
       </div>
     </div>
   </NCard>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      updates: [
-        {
-          version: "v2.1.0",
-          notes: [
-            "<strong>[重大更新][开发中]</strong>",
-            "“插件”功能现已加入至PML Ⅱ。",
-            "您可以在“插件”页面中安装、启用、禁用、卸载插件。",
-            "插件支持自定义配置。",
-            '<n-alert type="info">对于插件开发者：<br/>- 若您想成为插件开发者，请<a href="mailto:rycbstudio@163.com">与我们联系</a>。<br/>- 查看<a href="https://dev.mefl.mxj.pub" target="_blank">开发者文档</a>。</n-alert>',
-          ],
-        },
-        {
-          version: "v2.0.2",
-          notes: [
-            "优化“隧道管理”页面，增加命令语法功能和帮助。",
-            "“隧道管理”页面搜索时支持拼音搜索。",
-          ],
-        },
-        {
-          version: "v2.0.1",
-          notes: [
-            "在“用户中心”中增加“流量统计”功能",
-            "优化人机验证逻辑，登录和签到时可自动识别验证码。",
-            "增加底部状态栏，显示正在运行的操作。",
-            "增加崩溃窗口，在程序崩溃时显示错误信息。",
-          ],
-        },
-        {
-          version: "v2.0.0.2",
-          notes: [
-            "更新人机验证逻辑，与官网一致。",
-            "修复无法登录的 bug（已登录用户不受影响）",
-          ],
-        },
-        {
-          version: "v2.0.0.1",
-          notes: ["修复了 Windows 11 系统之外的兼容性问题"],
-        },
-        {
-          version: "v2.0.0",
-          notes: [
-            "<strong>[ADDED]</strong>",
-            "Windows & Linux 多平台支持",
-            "统一 UI 风格为 Fluent Design",
-            "完整 ME Frp 功能",
-            "<strong>[REMOVED]</strong>",
-            "移除 HandyControl 及其相关（辉光窗口、加载动画等）",
-            "移除 WPF 相关内容（托盘图标、动画等）",
-            "移除了 Herobrine",
-            "<strong>[MODIFIED]</strong>",
-            "修改了更新的默认下载源",
-            "修改部分程序逻辑",
-            "优化性能",
-            "<strong>[FIXED]</strong>",
-            "修复一言无法加载的问题",
-            "修复加载两次用户数据的问题",
-            "修复加载不存在节点时程序卡死的问题",
-            "<strong>已知问题</strong>",
-            "公告显示不支持标题 (MEFLX #001)：后续修复",
-          ],
-        },
-        // 以下为 v1.x 版本...
-        {
-          version: "v1.2.0",
-          notes: [
-            "统一字体为 HarmonyOS Sans",
-            "修复更新检查逻辑",
-            "美化 UI，增加辉光效果",
-            "修复多个界面和逻辑问题",
-          ],
-        },
-        {
-          version: "v1.1.1",
-          notes: ["增加彩蛋", "增加设置界面", "增加“取消登录”选项"],
-        },
-        {
-          version: "v1.1.0",
-          notes: [
-            "优化菜单栏",
-            "完善用户中心",
-            "支持后台运行",
-            "增加 HideInsteadOfClose 设置",
-          ],
-        },
-        {
-          version: "v1.0.1",
-          notes: [
-            "修复连接状态显示错误",
-            "修复控制台启动问题",
-            "增加 KickWithoutDisable、ParallelDownload 等设置项",
-          ],
-        },
-        { version: "v1.0.0", notes: ["发布"] },
-      ],
-    };
-  },
-  mounted() {
-    const blocks = this.$el.querySelectorAll('pre code');
-    blocks.forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  }
-};
-</script>
-
 <style src="../../style.css"></style>
-public\rycb\aboutx.png

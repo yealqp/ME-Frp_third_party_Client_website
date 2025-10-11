@@ -143,16 +143,16 @@ export default {
      */
     const updateActiveKey = () => {
       const currentPath = route.path;
-      if (currentPath === '/docs') {
-        activeKey.value = 'intro';
-      } else if (currentPath === '/docs/xl') {
-        activeKey.value = 'xl';
-      } else if (currentPath === '/docs/lx') {
-        activeKey.value = 'lx';
-      } else if (currentPath === '/docs/qyf') {
-        activeKey.value = 'qyf';
+      if (currentPath === "/docs") {
+        activeKey.value = "intro";
+      } else if (currentPath === "/docs/xl") {
+        activeKey.value = "xl";
+      } else if (currentPath === "/docs/lx") {
+        activeKey.value = "lx";
+      } else if (currentPath === "/docs/qyf") {
+        activeKey.value = "qyf";
       } else {
-        activeKey.value = '';
+        activeKey.value = "";
       }
     };
 
@@ -162,9 +162,9 @@ export default {
     // 组件挂载时的初始化
     onMounted(() => {
       updateActiveKey();
-      
+
       // 监听来自子组件的侧边栏关闭事件
-      window.addEventListener('closeSidebar', () => {
+      window.addEventListener("closeSidebar", () => {
         showSidebar.value = false;
       });
     });
