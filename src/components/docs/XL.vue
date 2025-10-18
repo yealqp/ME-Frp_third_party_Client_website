@@ -99,6 +99,14 @@ function ol() {
       <h2>更新记录</h2>
       <div class="updates">
         <div class="update-version">
+          <h3>v1.5.4</h3>
+          <ul>
+            <li>
+              添加Token登录功能，减少冗余代码，修复了自动检查更新时弹出的新版本下载地址不正确的问题，优化QQ群聊按钮，添加二群相关按钮，优化后端逻辑。
+            </li>
+          </ul>
+        </div>
+        <div class="update-version">
           <h3>v1.5.3</h3>
           <ul>
             <li>
