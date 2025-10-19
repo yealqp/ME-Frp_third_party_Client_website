@@ -11,7 +11,7 @@ import {
 } from "naive-ui";
 const title = "LX-ME-Frp-Luncher";
 function lanzoo() {
-  window.open("https://wwms.lanzouo.com/iKaTu364rd1a", "_blank");
+  window.open("https://wwms.lanzouo.com/iGZtL37rk67g", "_blank");
 }
 </script>
 
@@ -142,6 +142,15 @@ export default {
   data() {
     return {
       updates: [
+        {
+          version: "v2.3",
+          date: "2025-10-6",
+          notes: `
+            <li>新增 <code>浅色窗口模式</code> ，可在设置页面更换</li>
+            <li>修复部分用户每十分钟一次的卡顿现象</li>
+            <li>完善 新建隧道页面，新增节点介绍</li>
+          `,
+        },
         {
           version: "v2.2",
           date: "2025-9-14",
