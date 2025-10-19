@@ -275,9 +275,8 @@ onMounted(() => {
         <ol>
           <li>预先安装 .NET 8.0 运行时（参考上文）</li>
           <li>打开终端</li>
-          <li>
-            输入
-            <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/hefl/install.sh)</code></pre>
+          <li>输入
+            <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></pre>
           </li>
           <li>等待安装完成</li>
           <li>之后可直接输入 <code>mefrplauncherx</code> 启动</li>
