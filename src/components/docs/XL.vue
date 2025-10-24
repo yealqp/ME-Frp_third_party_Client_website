@@ -4,8 +4,6 @@ import {
   NCard,
   NCarousel,
   NAlert,
-  NList,
-  NListItem,
   NButton,
   NSpace,
 } from "naive-ui";
@@ -65,9 +63,17 @@ function ol() {
           class="carousel-img"
           src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/tunnel.png"
         />
+         <img
+          class="carousel-img"
+          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/node.png"
+        />
         <img
           class="carousel-img"
           src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/create.png"
+        />
+         <img
+          class="carousel-img"
+          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/help.png"
         />
         <img
           class="carousel-img"
@@ -87,9 +93,10 @@ function ol() {
       </div>
       <NAlert type="warning">
         注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022,
-        2025<br />
+        2025<br/>
+        在使用前请确认您的电脑上安装了<a href="https://developer.microsoft.com/zh-cn/microsoft-edge/webview2/?form=MA13LH#download" target="_blank">WebView2</a>  (WebView2已经在Windows10 1803以上和更高版本的Windows上默认安装。)<br/>
         请使用<a href="https://www.mefrp.com/" target="_blank">ME-Frp 官网</a
-        >账号登录 <br />
+        >账号登录 <br/>
         需要更多功能或报告Bug 请向我们的邮箱
         <a href="mailto:yealqp@163.com">yealqp@163.com</a> 发送邮件
       </NAlert>

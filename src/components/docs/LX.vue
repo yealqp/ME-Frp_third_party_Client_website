@@ -5,8 +5,6 @@ import {
   NSpace,
   NCarousel,
   NAlert,
-  NList,
-  NListItem,
   NButton,
 } from "naive-ui";
 const title = "LX-ME-Frp-Luncher";
