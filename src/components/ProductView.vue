@@ -72,7 +72,7 @@ export default {
         description:
           "由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也可能也是包体最小的一个，亦或是bug最少的一个。",
         image:
-          "https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png",
+          "https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png",
       },
       {
         name: "LX-ME-Frp-Launcher",
@@ -81,7 +81,7 @@ export default {
         description:
           "由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。",
         image:
-          "https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png",
+          "https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/home.png",
       },
       {
         name: "Plain ME Frp Luncher",
@@ -89,7 +89,7 @@ export default {
         icon: "https://images.mcsl.com.cn/new/MCSL-Sync.webp",
         description:
           "Plain ME Frp Launcher 使用dotnet提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。",
-        image: "https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png",
+        image: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/home.png",
       },
     ]);
 

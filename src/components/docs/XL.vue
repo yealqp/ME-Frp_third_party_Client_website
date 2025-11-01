@@ -53,35 +53,35 @@ function ol() {
       <NCarousel show-arrow autoplay>
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/login.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/login.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/home.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/tunnel.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/tunnel.png"
         />
          <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/node.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/node.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/create.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/create.png"
         />
          <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/help.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/help.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/config.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/config.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/yealqp/about.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png"
         />
       </NCarousel>
     </div>
