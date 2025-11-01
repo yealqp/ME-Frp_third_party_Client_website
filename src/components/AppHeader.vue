@@ -8,7 +8,7 @@
     <div class="header-content">
       <div class="logo" @click="goHome">
         <img
-          src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico"
+          src="https://image.mefrp-tpca.yealqp.cn/image/favicon.ico"
           alt="MCSL"
           class="logo-icon"
         />
@@ -37,7 +37,7 @@
     <div class="mobile-header-content">
       <div class="logo" @click="goHome">
         <img
-          src="https://image.mefrp-tpca.yealqp.fun/image/favicon.ico"
+          src="https://image.mefrp-tpca.yealqp.cn/image/favicon.ico"
           alt="MCSL"
           class="logo-icon"
         />

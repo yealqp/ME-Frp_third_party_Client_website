@@ -161,7 +161,7 @@
                 <div class="member-avatar-container">
                   <div class="member-avatar-wrapper">
                     <img
-                      src="https://image.mefrp-tpca.yealqp.fun/image/xianlin.ico"
+                      src="https://image.mefrp-tpca.yealqp.cn/image/xianlin.ico"
                       alt="仙林云计算 Avatar"
                       class="member-avatar-img"
                       @error="
