@@ -51,38 +51,14 @@ function ol() {
     <div class="section">
       <h2>预览图</h2>
       <NCarousel show-arrow autoplay>
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/login.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/tunnel.png"
-        />
-         <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/node.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/create.png"
-        />
-         <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/help.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/config.png"
-        />
-        <img
-          class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png"
-        />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/login.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/tunnel.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/node.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/create.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/help.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/config.png" />
+        <img class="carousel-img" src="https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png" />
       </NCarousel>
     </div>
 
@@ -93,10 +69,10 @@ function ol() {
       </div>
       <NAlert type="warning">
         注意: 本软件仅适于 Windows 10, Windows 11, Windows Server 2019, 2022,
-        2025<br/>
-        在使用前请确认您的电脑上安装了<a href="https://developer.microsoft.com/zh-cn/microsoft-edge/webview2/?form=MA13LH#download" target="_blank">WebView2</a>  (WebView2已经在Windows10 1803以上和更高版本的Windows上默认安装。)<br/>
-        请使用<a href="https://www.mefrp.com/" target="_blank">ME-Frp 官网</a
-        >账号登录 <br/>
+        2025<br />
+        在使用前请确认您的电脑上安装了<a href="https://developer.microsoft.com/zh-cn/microsoft-edge/webview2/?form=MA13LH#download"
+          target="_blank">WebView2</a> (WebView2已经在Windows10 1803以上和更高版本的Windows上默认安装。)<br />
+        请使用<a href="https://www.mefrp.com/" target="_blank">ME-Frp 官网</a>账号登录 <br />
         需要更多功能或报告Bug 请向我们的邮箱
         <a href="mailto:yealqp@163.com">yealqp@163.com</a> 发送邮件
       </NAlert>
@@ -105,6 +81,14 @@ function ol() {
     <div class="section">
       <h2>更新记录</h2>
       <div class="updates">
+        <div class="update-version">
+          <h3>v1.5.5</h3>
+          <ul>
+            <li>
+              创建隧道页面节点卡片添加VIP节点样式和逻辑,删除了创建HTTP/S隧道功能(我才发现不能用,先扔着)。
+            </li>
+          </ul>
+        </div>
         <div class="update-version">
           <h3>v1.5.4</h3>
           <ul>
@@ -139,11 +123,7 @@ function ol() {
           <h3>v1.5</h3>
           <ul>
             <li>
-              添加登录时的人机验证功能，感谢<a
-                href="https://github.com/LxHTT"
-                target="_blank"
-                >落雪无痕LxHTT</a
-              >提供了官网使用的人机验证逻辑。
+              添加登录时的人机验证功能，感谢<a href="https://github.com/LxHTT" target="_blank">落雪无痕LxHTT</a>提供了官网使用的人机验证逻辑。
             </li>
           </ul>
         </div>
