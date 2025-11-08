@@ -9,7 +9,7 @@ import {
 } from "naive-ui";
 const title = "LX-ME-Frp-Luncher";
 function lanzoo() {
-  window.open("https://wwms.lanzouo.com/iGZtL37rk67g", "_blank");
+  window.open("https://wwms.lanzouo.com/iLP383aflywb", "_blank");
 }
 </script>
 
@@ -140,6 +140,15 @@ export default {
   data() {
     return {
       updates: [
+        {
+          version: "v2.4",
+          date: "2025-11-8",
+          notes: `
+            <li>新增 <code>VIP节点提示</code></li>
+            <li>修复隧道无法创建问题</li>
+            <li>修复隧道创建界面部分UI显示问题</li>
+          `,
+        },
         {
           version: "v2.3",
           date: "2025-10-6",
