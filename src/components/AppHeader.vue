@@ -237,13 +237,14 @@ export default {
   color: #ffffff;
 }
 
+/* 深色主题下保持主色调为黑色 */
 :deep(.n-theme-dark) .header {
-  background-color: #f4f4f5;
-  color: #2c2c2c;
+  background-color: #18181c;
+  color: #f0f0f0;
 }
 
 :deep(.n-theme-dark) .header.transparent {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(24, 24, 28, 0.8);
   backdrop-filter: blur(15px);
 }
 

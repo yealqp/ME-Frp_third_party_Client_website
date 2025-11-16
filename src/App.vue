@@ -75,21 +75,16 @@ export default {
       }
     };
 
+    /**
+     * 强制站点使用深色主题：统一为 Naive UI 的 darkTheme，
+     * 不再跟随系统主题变化，确保主色调始终为黑色。
+     */
+    function setAlwaysDarkTheme() {
+      theme.value = darkTheme;
+    }
+
     onMounted(() => {
-      // 检测系统主题偏好
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      theme.value = prefersDark ? darkTheme : null;
-
-      // 监听系统主题变化
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (e) => {
-          theme.value = e.matches ? darkTheme : null;
-        });
-
-      // 初始化 activeKey
+      setAlwaysDarkTheme();
       updateActiveKey();
     });
 
