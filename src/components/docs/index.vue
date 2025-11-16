@@ -1,9 +1,35 @@
 <script setup>
-import {
-  NCard,
-  NTimeline,
-  NTimelineItem,
-} from "naive-ui";
+import { onMounted, onUnmounted } from "vue";
+import { NCard, NTimeline, NTimelineItem } from "naive-ui";
+
+/**
+ * 在文档首页挂载时为 html/body 添加 no-scrollbar 类，隐藏PC端滚动条；
+ * 在页面卸载时移除该类，恢复默认滚动条显示。
+ */
+function enableNoScrollbar() {
+  if (typeof document === "undefined") return;
+  const isPC = window.innerWidth >= 1024;
+  if (!isPC) return;
+  document.documentElement.classList.add("no-scrollbar");
+  document.body.classList.add("no-scrollbar");
+}
+
+/**
+ * 解除文档首页对滚动条的隐藏效果，确保离开页面后不影响其它路由。
+ */
+function disableNoScrollbar() {
+  if (typeof document === "undefined") return;
+  document.documentElement.classList.remove("no-scrollbar");
+  document.body.classList.remove("no-scrollbar");
+}
+
+onMounted(() => {
+  enableNoScrollbar();
+});
+
+onUnmounted(() => {
+  disableNoScrollbar();
+});
 </script>
 
 <template>
