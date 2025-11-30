@@ -84,12 +84,12 @@ export default {
           "https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/home.png",
       },
       {
-        name: "Plain ME Frp Luncher",
+        name: "Plain ME Frp Launcher",
         link: "https://mefrp-tpca.yealqp.cn/docs/qyf",
         icon: "https://images.mcsl.com.cn/new/MCSL-Sync.webp",
         description:
-          "Plain ME Frp Launcher 使用dotnet提供了简单便捷的操作，可以快速启动实例/隧道。可能也是目前三个产品中唯一一个支持软件内控制台操作的软件。",
-        image: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/home.png",
+          "PML 2使用.NET提供了简单便捷的操作, 也是目前三个产品中唯一一个跨平台的软件。支持常见主流平台(Windows, Linux, MacOS, Android)。",
+        image: "https://image.mefrp-tpca.yealqp.fun/image/views/rycb/home.png",
       },
     ]);
 
