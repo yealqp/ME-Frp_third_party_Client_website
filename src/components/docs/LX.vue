@@ -5,13 +5,11 @@ import {
   NSpace,
   NCarousel,
   NAlert,
-  NList,
-  NListItem,
   NButton,
 } from "naive-ui";
 const title = "LX-ME-Frp-Luncher";
 function lanzoo() {
-  window.open("https://wwms.lanzouo.com/iKaTu364rd1a", "_blank");
+  window.open("https://wwms.lanzouo.com/iGZtL37rk67g", "_blank");
 }
 </script>
 
@@ -60,39 +58,39 @@ function lanzoo() {
       <NCarousel show-arrow autoplay>
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/login.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/login.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/home.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/home.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/create.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/create.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/tunnel.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/tunnel.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/tunnellog.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/tunnellog.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/monitor.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/monitor.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/person.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/person.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/config.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/config.png"
         />
         <img
           class="carousel-img"
-          src="https://image.mefrp-tpca.yealqp.fun/image/views/Lx_MuaMua/about.png"
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/about.png"
         />
       </NCarousel>
     </div>
@@ -142,6 +140,15 @@ export default {
   data() {
     return {
       updates: [
+        {
+          version: "v2.3",
+          date: "2025-10-6",
+          notes: `
+            <li>新增 <code>浅色窗口模式</code> ，可在设置页面更换</li>
+            <li>修复部分用户每十分钟一次的卡顿现象</li>
+            <li>完善 新建隧道页面，新增节点介绍</li>
+          `,
+        },
         {
           version: "v2.2",
           date: "2025-9-14",

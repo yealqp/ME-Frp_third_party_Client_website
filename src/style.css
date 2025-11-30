@@ -228,3 +228,16 @@
   max-width: 600px;
   max-height: 400px;
 }
+
+/* 仅在PC端隐藏页面滚动条（用于特定页面场景） */
+@media (min-width: 1024px) {
+  html.no-scrollbar,
+  body.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html.no-scrollbar::-webkit-scrollbar,
+  body.no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
