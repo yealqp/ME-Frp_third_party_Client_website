@@ -8,6 +8,7 @@ import DocsIndex from "../components/docs/index.vue";
 import XLDoc from "../components/docs/XL.vue";
 import LXDoc from "../components/docs/LX.vue";
 import QYFDoc from "../components/docs/QYF.vue";
+import UrlProtocolView from "../components/UrlProtocolView.vue";
 
 const routes = [
   {
@@ -57,6 +58,12 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/start/:id',
+    name: "URL Protocol Redirect",
+    component: UrlProtocolView,
+    props: true
+  }
 ];
 
 const router = createRouter({

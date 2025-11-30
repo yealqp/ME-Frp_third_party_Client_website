@@ -121,8 +121,14 @@ function openlist() {
     "_blank",
   );
 }
-function lanzoo() {
-  window.open("https://rycbstudio.lanzoue.com/b0zk6qxri", "_blank");
+function lanzoo_win() {
+  window.open("https://rycbstudio.lanzoue.com/b0zkfytmb", "_blank");
+}
+function lanzoo_linux() {
+  window.open("https://rycbstudio.lanzoue.com/b0zkfytpe", "_blank");
+}
+function lanzoo_mac() {
+  window.open("https://rycbstudio.lanzoue.com/b0zkfytqf", "_blank");
 }
 function lmw() {
   window.open(
@@ -162,17 +168,11 @@ onMounted(() => {
     <div class="section">
       <h2>技术栈</h2>
       <n-space>
-        <NTag :bordered="false" type="info">.NET 8.0</NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#165cff4b', textColor: '#165cff' }"
-        >
+        <NTag :bordered="false" type="info">.NET 10.0</NTag>
+        <NTag :bordered="false" :color="{ color: '#165cff4b', textColor: '#165cff' }">
           Avalonia UI
         </NTag>
-        <NTag
-          :bordered="false"
-          :color="{ color: '#047edb4b', textColor: '#047edb' }"
-        >
+        <NTag :bordered="false" :color="{ color: '#047edb4b', textColor: '#047edb' }">
           Fluent Design
         </NTag>
       </n-space>
@@ -185,14 +185,12 @@ onMounted(() => {
           <li>
             Plain ME Frp Launcher X (PML 2)是对 ME Frp (幻缘映射)
             的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
-            Windows 和 Linux 两端。
-            <em>可能也是目前三个产品中唯一一个支持跨平台的软件。</em>
+            Windows, Linux 和 MacOS 三端。
+            <em>也是目前三个产品中唯一一个支持跨平台的软件。</em>
           </li>
           <li>
             作者:
-            <n-tag :bordered="false" type="success" size="small"
-              >RYCB Studio</n-tag
-            >
+            <n-tag :bordered="false" type="success" size="small">RYCB Studio</n-tag>
           </li>
           <li>
             命名灵感:
@@ -204,12 +202,6 @@ onMounted(() => {
           </li>
         </ul>
       </div>
-
-      <NAlert type="info" title="重要更新">
-        基于 Avalonia 的 PML 2 2.0 已经发布！<br />
-        支持 Windows 和 Linux 两端！<br />
-        欢迎使用 PML Ⅱ !(doge)
-      </NAlert>
     </div>
 
     <!-- 预览图 -->
@@ -220,12 +212,12 @@ onMounted(() => {
         <img class="carousel-img" src="/rycb/createx.png" />
         <img class="carousel-img" src="/rycb/managex.png" />
         <img class="carousel-img" src="/rycb/monitorx.png" />
+        <img class="carousel-img" src="/rycb/settingsx.png" />
         <img class="carousel-img" src="/rycb/aboutx.png" />
         <img class="carousel-img" src="/rycb/terminalx.png" />
       </NCarousel>
     </div>
-
-    <!-- 功能 -->
+    <!-- 功能 
     <div class="section">
       <h2>功能</h2>
       <div class="update-version">
@@ -237,11 +229,12 @@ onMounted(() => {
         </ul>
       </div>
     </div>
+   -->
 
     <!-- 使用方法 -->
     <div class="section">
       <h2>使用方法</h2>
-      <NAlert type="info" title="教程：如何在 Linux 上安装 .NET 8.0 运行时？">
+      <!-- <NAlert type="info" title="教程：如何在 Linux 上安装 .NET 8.0 运行时？">
         <ul>
           <li>
             若您认为您有技术，则请参考
@@ -269,14 +262,15 @@ onMounted(() => {
             已知在 Debian 13 上安装 .NET 8.0 后仍无法运行程序，原因正在排查。
           </li>
         </ul>
-      </NAlert>
+      </NAlert> -->
 
       <NAlert type="warning" title="教程：如何在 Linux 上顺利运行本软件？">
         <ol>
-          <li>预先安装 .NET 8.0 运行时（参考上文）</li>
+          <li>请注意: 目前Ubuntu 22.04+(不包含22.04)还不支持.NET 10。请暂缓安装。</li> 
+          <!-- <li>预先安装 .NET 8.0 运行时（参考上文）</li> -->
           <li>打开终端</li>
           <li>输入
-            <pre><code class="language-bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></pre>
+            <code language="bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code>
           </li>
           <li>等待安装完成</li>
           <li>之后可直接输入 <code>mefrplauncherx</code> 启动</li>
@@ -295,27 +289,23 @@ onMounted(() => {
     <div class="section">
       <h2>下载地址</h2>
 
-      <NAlert type="warning">
+      <!-- <NAlert type="warning">
         PML 2 Windows 版依赖于
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/8.0"
-          target="_blank"
-          >.NET 8.0 桌面运行时</a
-        >， 请预先安装。
+        <a href="https://dotnet.microsoft.com/download/dotnet/10.0" target="_blank">.NET 10.0 桌面运行时</a>， 请预先安装。
         <br />
-        <a
-          href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer"
-          target="_blank"
-        >
-          点击此处下载 8.0.18 版本
+        <a href="https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-10.0.0-windows-x64-installer"
+          target="_blank">
+          点击此处下载 10.0.0 版本
         </a>
         <br />
         Linux 用户请参考上文安装运行时。
-      </NAlert>
+      </NAlert> -->
 
-      <h3>v2.0.6.0 (2.1.0.0 过渡版本)</h3>
-      <p><strong>2.0.6.0 包含除插件外的所有更新内容。</strong></p>
+      <h3>v2.1.0</h3>
       <ul>
+        <NAlert type="info" title="请注意">
+          Windows下安装时请不要将软件安装至C:\Program Files等需要管理员权限的目录，否则可能导致软件无法正常运行。<em>建议安装至用户主目录下。</em>
+        </NAlert>
         <!-- <li>
           <NButton @click="quack" type="primary"> 夸克云 密码2Hxf </NButton>
         </li>
@@ -329,7 +319,13 @@ onMounted(() => {
           <NButton @click="openlist" type="primary"> OpenList </NButton>
         </li>
         <li>
-          <NButton @click="lanzoo" type="primary"> 蓝奏云 密码akev </NButton>
+          <NButton @click="lanzoo_win" type="primary"> 蓝奏云-Windows分发 密码9839 </NButton>
+        </li>
+        <li>
+          <NButton @click="lanzoo_linux" type="primary"> 蓝奏云-Linux分发 密码9iai </NButton>
+        </li>
+        <li>
+          <NButton @click="lanzoo_mac" type="primary"> 蓝奏云-Mac分发 密码apeg </NButton>
         </li>
         <!-- <li>
           <NButton @click="lmw" type="error">
@@ -345,16 +341,12 @@ onMounted(() => {
 
       <NAlert type="error" title="重要提醒">
         安装或使用本软件表明您同意本软件的
-        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank"
-          >用户协议</a
-        >
+        <a href="https://rycb.mxj.pub/mefl/useragreement.html" target="_blank">用户协议</a>
         和
-        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank"
-          >隐私政策</a
-        >。
+        <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank">隐私政策</a>。
         <br />
         注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版(包括
-        Alpine Linux)。
+        Alpine Linux)，以及 MacOS。
         <br />
         请使用
         <a href="https://www.mefrp.com/" target="_blank">ME Frp 官网</a>
@@ -406,9 +398,7 @@ onMounted(() => {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>
-            打开终端，执行：<code
-              >chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code
-            >
+            打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
           </li>
           <li>重新运行：<code>mefrplauncherx</code></li>
         </ol>
@@ -435,18 +425,10 @@ onMounted(() => {
 
       <!-- 更新日志内容 -->
       <div v-else class="updates">
-        <div
-          v-for="update in updates"
-          :key="update.version"
-          class="update-version"
-        >
+        <div v-for="update in updates" :key="update.version" class="update-version">
           <h3>{{ update.version }}</h3>
           <ul>
-            <li
-              v-for="(item, index) in update.notes"
-              :key="index"
-              v-html="item"
-            ></li>
+            <li v-for="(item, index) in update.notes" :key="index" v-html="item"></li>
           </ul>
         </div>
       </div>
