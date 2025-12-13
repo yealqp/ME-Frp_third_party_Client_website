@@ -1,0 +1,550 @@
+<template>
+  <div>
+    <!-- 页面标题 -->
+    <div class="mb-8">
+      <div class="flex items-center space-x-4 mb-4">
+        <img 
+          src="https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp" 
+          alt="Plain ME Frp Launcher"
+          class="w-12 h-12 rounded-lg"
+        />
+        <div>
+          <h1 class="text-3xl font-bold text-white">Plain ME Frp Launcher</h1>
+          <p class="text-gray-400">基于 .NET 的跨平台客户端</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2">
+        <UBadge variant="soft" color="blue">.NET 10.0</UBadge>
+        <UBadge variant="soft" color="cyan">Avalonia UI</UBadge>
+        <UBadge variant="soft" color="indigo">Fluent Design</UBadge>
+        <UBadge variant="soft" color="green">跨平台</UBadge>
+      </div>
+    </div>
+
+    <!-- 项目介绍 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">项目介绍</h2>
+      </template>
+      
+      <div class="space-y-4 text-gray-300">
+        <p>
+          Plain ME Frp Launcher X (PML 2) 是由 <strong class="text-primary-400">RYCB Studio</strong> 使用 .NET 10.0 开发的 ME-Frp 第三方客户端。
+          该客户端是对 ME Frp (幻缘映射) 的图形化实现，提供了简单便捷的操作，可以快速启动隧道，支持 Windows, Linux 和 MacOS 三端。
+          <em class="text-primary-300">也是目前三个产品中唯一一个支持跨平台的软件。</em>
+        </p>
+        
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">✨ 主要特性</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>作者：<strong class="text-primary-400">RYCB Studio</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>命名灵感：<strong class="text-blue-400">PCL Ⅱ</strong></span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>基于 .NET 10.0 框架，跨平台支持</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>支持 Windows、Linux、MacOS 三端</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>操作简单便捷，功能丰富</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>持续更新，社区活跃</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">🖥️ 系统要求</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>Windows 10/11/Server 2019+</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>常见 Linux x64 发行版</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>macOS（Intel/Apple Silicon）</span>
+              </li>
+            </ul>
+          </div>
+          
+          <UAlert 
+            color="blue" 
+            variant="soft"
+            title="官网信息"
+            description="查看官网https://rycb.mxj.pub/mefl/以获得最新消息。"
+          />
+        </div>
+      </div>
+    </UCard>
+
+    <!-- 预览图 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">预览图</h2>
+      </template>
+      
+      <div class="relative rounded-lg overflow-hidden bg-gray-900/50">
+        <!-- 图片容器 -->
+        <div class="relative h-96 flex items-center justify-center">
+          <img 
+            :src="previewImages[currentImageIndex].src" 
+            :alt="previewImages[currentImageIndex].alt" 
+            class="max-w-full max-h-full object-contain cursor-pointer"
+            @click="openImageModal(previewImages[currentImageIndex])"
+          />
+          
+          <!-- 标题遮罩 -->
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+            <p class="text-white text-center font-medium">{{ previewImages[currentImageIndex].alt }}</p>
+          </div>
+        </div>
+        
+        <!-- 导航箭头 -->
+        <button 
+          @click="previousImage"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+          :disabled="previewImages.length <= 1"
+        >
+          <UIcon name="i-heroicons-chevron-left" class="w-5 h-5" />
+        </button>
+        
+        <button 
+          @click="nextImage"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+          :disabled="previewImages.length <= 1"
+        >
+          <UIcon name="i-heroicons-chevron-right" class="w-5 h-5" />
+        </button>
+        
+        <!-- 指示器 -->
+        <div class="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <button
+            v-for="(image, index) in previewImages"
+            :key="index"
+            @click="currentImageIndex = index"
+            class="w-2 h-2 rounded-full transition-colors"
+            :class="index === currentImageIndex ? 'bg-white' : 'bg-white/50'"
+          />
+        </div>
+      </div>
+    </UCard>
+
+    <!-- 使用方法 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">使用方法</h2>
+      </template>
+      
+      <div class="space-y-6">
+        <div class="space-y-4">
+          <UAlert 
+            color="blue" 
+            variant="soft"
+            title="教程：如何在 Linux 上顺利运行本软件？"
+          >
+            <template #description>
+              <div>
+                <ol class="space-y-2 text-sm">
+                  <li>1. 打开终端</li>
+                  <li>2. 输入 <code class="bg-gray-700 px-2 py-1 rounded text-xs">bash &lt;(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></li>
+                  <li>3. 等待安装完成</li>
+                  <li>4. 之后可直接输入 (2.1.0.0 以下) <code class="bg-gray-700 px-2 py-1 rounded text-xs">mefrplauncherx</code> 或 (2.1.0.0 及以上) <code class="bg-gray-700 px-2 py-1 rounded text-xs">pml-2</code> 启动</li>
+                </ol>
+              </div>
+            </template>
+          </UAlert>
+
+          
+          <UAlert 
+            color="cyan" 
+            variant="soft"
+            title="为什么建议在 Linux 中使用终端运行？"
+            description="Linux 软件安装目录通常不在用户主目录下，无法双击运行。使用终端可追踪程序运行情况，便于错误排查。"
+          />
+        </div>
+      </div>
+    </UCard>
+
+    <!-- 下载安装 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">下载安装</h2>
+      </template>
+      
+      <div class="space-y-6">
+        <div class="text-center mb-6">
+          <h3 class="text-lg font-semibold text-white mb-4">v2.1.0 下载地址</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <UButton 
+              color="primary"
+              to="https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp"
+              target="_blank"
+              block
+            >
+              <UIcon name="i-heroicons-folder-open" class="w-4 h-4 mr-2" />
+              OpenList
+            </UButton>
+            
+            <UButton 
+              color="blue"
+              to="https://rycbstudio.lanzoue.com/b0zkfytmb"
+              target="_blank"
+              block
+            >
+              <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 mr-2" />
+              Windows 分发
+            </UButton>
+            
+            <UButton 
+              color="green"
+              to="https://rycbstudio.lanzoue.com/b0zkfytpe"
+              target="_blank"
+              block
+            >
+              <UIcon name="i-heroicons-command-line" class="w-4 h-4 mr-2" />
+              Linux 分发
+            </UButton>
+            
+            <UButton 
+              color="gray"
+              to="https://rycbstudio.lanzoue.com/b0zkfytqf"
+              target="_blank"
+              block
+            >
+              <UIcon name="i-heroicons-device-tablet" class="w-4 h-4 mr-2" />
+              MacOS 分发
+            </UButton>
+          </div>
+          <div class="text-xs text-gray-500 mt-2 space-y-1">
+            <p>蓝奏云密码：Windows(9839) | Linux(9iai) | Mac(apeg)</p>
+          </div>
+        </div>
+        
+        <UAlert 
+          color="red" 
+          variant="soft"
+          title="重要提醒"
+          description="安装或使用本软件表明您同意本软件的用户协议和隐私政策。Windows下安装时请不要将软件安装至C:\Program Files等需要管理员权限的目录。请使用 ME Frp 官网账号登录。若在 Linux 下使用 root 账户运行，软件可能将无法正常运行。"
+        />
+        
+        <UAlert 
+          color="yellow" 
+          variant="soft"
+          title="需要帮助？"
+          description="遇到问题，请先查看下方的快速修复。需要更多功能或报告 Bug, 请发送邮件至 rycbstudio@163.com"
+        />
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Windows 安装 -->
+          <div class="bg-gray-700/30 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+              <UIcon name="i-simple-icons-windows" class="w-5 h-5 mr-2 text-blue-400" />
+              Windows 安装
+            </h3>
+            <ol class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                <span>下载 Windows 安装包 (.msi 或 .exe)</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                <span>运行安装程序，按提示完成安装</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                <span>启动程序，开始配置</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Linux 安装 -->
+          <div class="bg-gray-700/30 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+              <UIcon name="i-simple-icons-linux" class="w-5 h-5 mr-2 text-yellow-400" />
+              Linux 安装
+            </h3>
+            <ol class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                <span>下载 Linux 包 (.deb/.rpm/.tar.gz)</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                <span>安装 .NET Runtime (如未安装)</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                <span>解压并运行程序</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- macOS 安装 -->
+          <div class="bg-gray-700/30 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+              <UIcon name="i-simple-icons-apple" class="w-5 h-5 mr-2 text-gray-300" />
+              macOS 安装
+            </h3>
+            <ol class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                <span>下载 macOS 应用包 (.dmg)</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                <span>拖拽到应用程序文件夹</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                <span>首次运行需要允许未知开发者</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Android 安装 -->
+          <div class="bg-gray-700/30 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+              <UIcon name="i-simple-icons-android" class="w-5 h-5 mr-2 text-green-400" />
+              Android 安装
+            </h3>
+            <ol class="space-y-2 text-gray-300 text-sm">
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                <span>下载 Android APK 文件</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                <span>允许安装未知来源应用</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="flex-shrink-0 w-5 h-5 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                <span>安装并启动应用</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </UCard>
+
+    <!-- 快速修复 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">快速修复</h2>
+      </template>
+      
+      <div class="space-y-8">
+        <!-- Windows 问题 -->
+        <div class="border-l-2 border-red-500/30 pl-4">
+          <h3 class="text-lg font-semibold text-white mb-3">Windows - 软件无法启动</h3>
+          <div class="space-y-3 text-gray-300 text-sm">
+            <p><strong class="text-red-400">问题重现：</strong>点击软件，窗口闪退 / 无响应 / 白色边框。</p>
+            <p><strong class="text-yellow-400">原因：</strong>特定目录下需要管理员权限。</p>
+            <p><strong class="text-green-400">解决方法：</strong></p>
+            <ol class="space-y-2 ml-4">
+              <li>1. 打开安装目录（如 <code class="bg-gray-700 px-1 py-0.5 rounded">C:\Program Files\...</code>）</li>
+              <li>2. 右键 <code class="bg-gray-700 px-1 py-0.5 rounded">MEFrpLauncherX.exe</code> → 属性</li>
+              <li>3. 切换到"兼容性" → 点击"更改所有用户的设置"</li>
+              <li>4. 勾选"以管理员身份运行此程序" → 确定</li>
+              <li>5. 重新启动软件</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Linux 问题 -->
+        <div class="border-l-2 border-blue-500/30 pl-4">
+          <h3 class="text-lg font-semibold text-white mb-3">Linux - 软件无法启动</h3>
+          <div class="space-y-3 text-gray-300 text-sm">
+            <p><strong class="text-red-400">问题重现：</strong>无窗口，控制台报错 "UnauthorizedException"。</p>
+            <p><strong class="text-yellow-400">原因：</strong>权限不足。</p>
+            <p><strong class="text-green-400">解决方法：</strong></p>
+            <ol class="space-y-2 ml-4">
+              <li>1. (2.1.0.0 以下)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded">chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code></li>
+              <li>2. (2.1.0.0 及以上)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded">chmod -R a+r,a+w /opt/pml-2</code></li>
+              <li>3. 重新运行：(2.1.0.0 以下) <code class="bg-gray-700 px-1 py-0.5 rounded">mefrplauncherx</code> 或(2.1.0.0 及以上) <code class="bg-gray-700 px-1 py-0.5 rounded">pml-2</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </UCard>
+
+    <!-- 更新记录 -->
+    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+      <template #header>
+        <h2 class="text-xl font-semibold text-white">更新记录</h2>
+      </template>
+      
+      <!-- 加载状态 -->
+      <div v-if="loading" class="text-center py-8">
+        <UIcon name="i-heroicons-arrow-path" class="w-8 h-8 text-primary-400 animate-spin mx-auto mb-4" />
+        <p class="text-gray-400">正在加载更新日志...</p>
+      </div>
+
+      <!-- 错误状态 -->
+      <div v-else-if="error" class="text-center py-8">
+        <UAlert 
+          color="red" 
+          variant="soft"
+          title="获取更新日志失败"
+          :description="`${error}，请稍后重试或联系管理员。`"
+        />
+      </div>
+
+      <!-- 更新日志内容 -->
+      <div v-else class="space-y-6">
+        <div v-for="update in updates" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
+          <div class="flex items-center space-x-2 mb-2">
+            <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
+            <UBadge v-if="update.isLatest" variant="soft" color="green" size="sm">最新</UBadge>
+          </div>
+          <ul class="space-y-1 text-gray-300 text-sm">
+            <li v-for="(item, index) in update.notes" :key="index" class="flex items-start space-x-2">
+              <span class="text-primary-400 mt-1">•</span>
+              <span v-html="item"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </UCard>
+
+  </div>
+</template>
+
+<script setup>
+// 使用文档布局
+definePageMeta({
+  layout: 'docs'
+})
+
+// 页面元数据
+useHead({
+  title: 'Plain ME Frp Launcher 文档 - ME-Frp 第三方客户端联盟',
+  meta: [
+    { name: 'description', content: 'Plain ME Frp Launcher 详细使用文档，包含多平台安装、配置和使用指南' }
+  ]
+})
+
+// 预览图数据
+const previewImages = [
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png', alt: '主页面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/createx.png', alt: '创建隧道' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/managex.png', alt: '隧道管理' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/monitorx.png', alt: '节点监控' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/settingsx.png', alt: '设置页面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/aboutx.png', alt: '关于页面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/terminalx.png', alt: '终端界面' }
+]
+
+// 更新日志状态
+const loading = ref(false)
+const error = ref(null)
+const updates = ref([])
+
+// 从 API 获取更新日志
+const fetchChangelog = async () => {
+  try {
+    const response = await fetch('https://api.rycb.mxj.pub/api/changelog')
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    return data
+  } catch (err) {
+    console.error('获取更新日志失败:', err)
+    throw err
+  }
+}
+
+// 版本号比较
+const compareVersions = (version1, version2) => {
+  const v1Parts = version1.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  const v2Parts = version2.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  
+  const maxLength = Math.max(v1Parts.length, v2Parts.length)
+  while (v1Parts.length < maxLength) v1Parts.push(0)
+  while (v2Parts.length < maxLength) v2Parts.push(0)
+  
+  for (let i = 0; i < maxLength; i++) {
+    if (v1Parts[i] > v2Parts[i]) return 1
+    if (v1Parts[i] < v2Parts[i]) return -1
+  }
+  return 0
+}
+
+// 转换 API 数据
+const transformApiData = (apiData) => {
+  if (!apiData.success || !apiData.data) {
+    throw new Error('API 数据格式错误')
+  }
+  
+  const transformedData = []
+  const versions = Object.keys(apiData.data).sort((a, b) => compareVersions(b, a))
+  
+  versions.forEach((version, index) => {
+    const versionData = apiData.data[version]
+    transformedData.push({
+      version: `v${version}`,
+      notes: versionData.changes || [],
+      date: versionData.date || '',
+      description: versionData.description || '',
+      isLatest: index === 0
+    })
+  })
+  
+  return transformedData
+}
+
+// 初始化更新日志
+const initializeUpdates = async () => {
+  loading.value = true
+  error.value = null
+  
+  try {
+    const apiData = await fetchChangelog()
+    updates.value = transformApiData(apiData)
+  } catch (err) {
+    error.value = '获取更新日志失败'
+    updates.value = []
+  } finally {
+    loading.value = false
+  }
+}
+
+// 轮播图状态
+const currentImageIndex = ref(0)
+
+// 轮播图导航
+const nextImage = () => {
+  currentImageIndex.value = (currentImageIndex.value + 1) % previewImages.length
+}
+
+const previousImage = () => {
+  currentImageIndex.value = currentImageIndex.value === 0 ? previewImages.length - 1 : currentImageIndex.value - 1
+}
+
+// 打开图片模态框
+const openImageModal = (image) => {
+  window.open(image.src, '_blank')
+}
+
+// 组件挂载时初始化
+onMounted(() => {
+  initializeUpdates()
+})
+</script>

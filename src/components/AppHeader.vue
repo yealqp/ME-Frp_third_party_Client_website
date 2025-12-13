@@ -1,374 +1,84 @@
 <template>
-  <n-layout-header
-    bordered
-    class="header pc-header"
-    :class="{ transparent: isTransparent }"
-    style="user-select: none"
-  >
-    <div class="header-content">
-      <div class="logo" @click="goHome">
-        <img
-          src="https://image.mefrp-tpca.yealqp.cn/image/favicon.ico"
-          alt="MCSL"
-          class="logo-icon"
-        />
-        <span class="logo-text">ME-Frp 第三方客户端联盟</span>
-      </div>
-
-      <div class="nav-links">
-        <n-menu
-          :value="activeKey"
-          mode="horizontal"
-          :options="menuOptions"
-          class="desktop-menu"
-          :theme-overrides="menuThemeOverrides"
-          @update:value="handleMenuUpdate"
-        />
-      </div>
-    </div>
-  </n-layout-header>
-
-  <n-layout-header
-    bordered
-    class="header mobile-header"
-    :class="{ transparent: isTransparent }"
-    style="user-select: none"
-  >
-    <div class="mobile-header-content">
-      <div class="logo" @click="goHome">
-        <img
-          src="https://image.mefrp-tpca.yealqp.cn/image/favicon.ico"
-          alt="MCSL"
-          class="logo-icon"
-        />
-        <span class="logo-text">ME-Frp 第三方客户端联盟</span>
-      </div>
-
-      <n-popover
-        trigger="click"
-        placement="bottom-end"
-        v-model:show="showMobileMenu"
-        :theme-overrides="popoverThemeOverrides"
-      >
-        <template #trigger>
-          <n-button
-            text
-            class="menu-button"
-            :theme-overrides="buttonThemeOverrides"
-          >
-            <n-icon size="24">
-              <MenuIcon />
-            </n-icon>
-          </n-button>
-        </template>
-        <div class="mobile-menu">
-          <n-menu
-            :value="activeKey"
-            :options="menuOptions"
-            :theme-overrides="menuThemeOverrides"
-            @update:value="handleMobileMenuUpdate"
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-gray-950/80 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between h-16 px-4">
+        <!-- Logo -->
+        <NuxtLink to="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <LogoIcon 
+            :size="32" 
+            :animated="false" 
+            class="w-8 h-8"
           />
-        </div>
-      </n-popover>
+          <span class="text-xl font-bold text-white hidden sm:block">
+            ME-Frp 第三方客户端联盟
+          </span>
+          <span class="text-xl font-bold text-white sm:hidden">
+            ME-Frp TPCA
+          </span>
+        </NuxtLink>
+
+        <!-- 桌面端导航 -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <NuxtLink 
+            v-for="item in navigation" 
+            :key="item.name"
+            :to="item.href"
+            class="flex items-center space-x-2 text-gray-300 hover:text-primary-400 transition-colors duration-200"
+            :class="{ 'text-primary-400': $route.path === item.href }"
+          >
+            <UIcon :name="item.icon" class="w-4 h-4" />
+            <span>{{ item.name }}</span>
+          </NuxtLink>
+        </nav>
+
+        <!-- 移动端菜单按钮 -->
+        <UButton 
+          variant="ghost" 
+          size="sm"
+          class="md:hidden"
+          @click="isMenuOpen = !isMenuOpen"
+        >
+          <UIcon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="w-6 h-6" />
+        </UButton>
+      </div>
+
+      <!-- 移动端导航菜单 -->
+      <div 
+        v-if="isMenuOpen" 
+        class="md:hidden border-t border-gray-800 bg-gray-950/95 backdrop-blur-md"
+      >
+        <nav class="px-4 py-4 space-y-2">
+          <NuxtLink 
+            v-for="item in navigation" 
+            :key="item.name"
+            :to="item.href"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+            :class="{ 'text-primary-400 bg-gray-800/50': $route.path === item.href }"
+            @click="isMenuOpen = false"
+          >
+            <UIcon :name="item.icon" class="w-5 h-5" />
+            <span>{{ item.name }}</span>
+          </NuxtLink>
+        </nav>
+      </div>
     </div>
-  </n-layout-header>
+  </header>
 </template>
 
-<script>
-import { h, ref, computed } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import {
-  NLayoutHeader,
-  NMenu,
-  NIcon,
-  NPopover,
-  NButton,
-  NSpace,
-} from "naive-ui";
-import {
-  Home as HomeIcon,
-  Apps as ProductsIcon,
-  InformationCircle as AboutIcon,
-  People as PartnersIcon,
-  Menu as MenuIcon,
-  Document as DocumentIcon,
-} from "@vicons/ionicons5";
+<script setup>
+const route = useRoute()
+const isMenuOpen = ref(false)
 
-export default {
-  name: "AppHeader",
-  components: {
-    NLayoutHeader,
-    NMenu,
-    NIcon,
-    NPopover,
-    NButton,
-    NSpace,
-    HomeIcon,
-    ProductsIcon,
-    AboutIcon,
-    PartnersIcon,
-    MenuIcon,
-    DocumentIcon,
-  },
-  props: {
-    activeKey: {
-      type: String,
-      default: "home",
-    },
-  },
-  emits: ["update:activeKey"],
-  setup(props, { emit }) {
-    const router = useRouter();
-    const route = useRoute();
-    const showMobileMenu = ref(false);
+const navigation = [
+  { name: '首页', href: '/', icon: 'i-heroicons-home' },
+  { name: '产品', href: '/products', icon: 'i-heroicons-cube' },
+  { name: '关于', href: '/about', icon: 'i-heroicons-information-circle' },
+  { name: '文档', href: '/docs', icon: 'i-heroicons-document-text' }
+  
+]
 
-    // 检测是否需要透明效果
-    const isTransparent = computed(() => {
-      const transparentRoutes = ["/", "/products"];
-      return transparentRoutes.includes(route.path);
-    });
-
-    // 强制深色模式的主题覆盖
-    const menuThemeOverrides = {
-      itemTextColor: "#ffffff",
-      itemTextColorHover: "#19e8a2",
-      itemTextColorActive: "#19e8a2",
-      itemColorHover: "rgba(25, 232, 162, 0.1)",
-      itemColorActive: "rgba(25, 232, 162, 0.15)",
-      itemIconColor: "#ffffff",
-      itemIconColorHover: "#19e8a2",
-      itemIconColorActive: "#19e8a2",
-    };
-
-    const buttonThemeOverrides = {
-      textColorText: "#ffffff",
-      textColorTextHover: "#19e8a2",
-      textColorTextPressed: "#19e8a2",
-    };
-
-    const popoverThemeOverrides = {
-      color: "#48484e",
-      textColor: "#f0f0f0",
-      borderColor: "rgba(255, 255, 255, 0.1)",
-      boxShadow: "0 4px 16px rgba(0, 0, 0, 0.3)",
-    };
-
-    const menuOptions = [
-      {
-        label: "首页",
-        key: "home",
-        icon: () => h(NIcon, null, { default: () => h(HomeIcon) }),
-      },
-      {
-        label: "产品",
-        key: "products",
-        icon: () => h(NIcon, null, { default: () => h(ProductsIcon) }),
-      },
-      {
-        label: "关于",
-        key: "about",
-        icon: () => h(NIcon, null, { default: () => h(AboutIcon) }),
-      },
-      {
-        label: "文档",
-        key: "docs",
-        icon: () => h(NIcon, null, { default: () => h(DocumentIcon) }),
-      },
-    ];
-
-    const handleMenuUpdate = (key) => {
-      emit("update:activeKey", key);
-      if (key === "home") {
-        router.push("/");
-      } else if (key === "products") {
-        router.push("/products");
-      } else if (key === "partners") {
-        router.push("/partners");
-      } else if (key === "about") {
-        router.push("/about");
-      } else if (key === "docs") {
-        router.push("/docs");
-      }
-    };
-
-    const handleMobileMenuUpdate = (key) => {
-      showMobileMenu.value = false; // 关闭移动端菜单
-      handleMenuUpdate(key); // 复用桌面端的处理逻辑
-    };
-
-    const goHome = () => {
-      emit("update:activeKey", "home");
-      router.push("/");
-    };
-
-    return {
-      menuOptions,
-      handleMenuUpdate,
-      handleMobileMenuUpdate,
-      showMobileMenu,
-      goHome,
-      menuThemeOverrides,
-      buttonThemeOverrides,
-      popoverThemeOverrides,
-      isTransparent,
-    };
-  },
-};
+// 监听路由变化，关闭移动端菜单
+watch(() => route.path, () => {
+  isMenuOpen.value = false
+})
 </script>
-
-<style scoped>
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  color: #f0f0f0;
-  background-color: #18181c;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-/* 首页和产品页面的磨砂透明效果 */
-.header.transparent {
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-/* 深色主题下保持主色调为黑色 */
-:deep(.n-theme-dark) .header {
-  background-color: #18181c;
-  color: #f0f0f0;
-}
-
-:deep(.n-theme-dark) .header.transparent {
-  background: rgba(24, 24, 28, 0.8);
-  backdrop-filter: blur(15px);
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-.desktop-menu {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.pc-header {
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-.mobile-header {
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-}
-
-.mobile-header-content {
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
-
-.logo-icon {
-  height: 32px;
-  width: 32px;
-  border-radius: 6px;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: bold;
-  color: inherit;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-menu-item:hover {
-  color: var(--n-primary-color);
-  background-color: var(--n-primary-color-suppl);
-}
-
-.mobile-menu-item.active {
-  color: var(--n-primary-color);
-  background-color: var(--n-primary-color-suppl);
-}
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .header-content {
-    padding: 0 16px;
-  }
-
-  .logo-icon {
-    height: 28px;
-    width: 28px;
-  }
-
-  .logo-text {
-    font-size: 18px;
-  }
-
-  .menu-button {
-    color: rgba(255, 255, 255, 0.9);
-    padding: 8px;
-  }
-
-  .mobile-menu {
-    min-width: 160px;
-    margin: -8px -16px;
-  }
-
-  .mobile-menu :deep(.n-menu) {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    --n-item-height: 32px;
-  }
-
-  .mobile-menu :deep(.n-menu-item) {
-    font-size: 14px;
-    color: #f0f0f0;
-  }
-
-  .mobile-menu :deep(.n-menu-item:hover) {
-    color: #19e3a2;
-  }
-
-  .mobile-menu :deep(.n-menu-item.n-menu-item--selected) {
-    background-color: rgba(25, 227, 162, 0.15);
-    color: #19e3a2;
-  }
-
-  .mobile-menu :deep(.n-menu-item-content) {
-    padding: 0;
-    justify-content: flex-start;
-  }
-}
-</style>
