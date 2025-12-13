@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import 'highlight.js/styles/atom-one-dark.css'; // 引入样式
+import hljsVuePlugin from '@highlightjs/vue-plugin';
 
 // Naive UI
 import {
@@ -24,6 +26,8 @@ const naive = create({
 
 const app = createApp(App);
 
+
+app.use(hljsVuePlugin); // 注册插件
 app.use(router);
 app.use(naive);
 
