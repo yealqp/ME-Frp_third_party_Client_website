@@ -1,0 +1,49 @@
+<svg width="280" height="80" viewBox="0 0 280 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo 图标部分 -->
+  <g transform="translate(10, 10)">
+    <!-- 背景圆形 -->
+    <circle cx="30" cy="30" r="28" fill="url(#bgGrad)" stroke="#14b8a6" stroke-width="2"/>
+    
+    <!-- 中心连接点 -->
+    <circle cx="30" cy="30" r="5" fill="#14b8a6"/>
+    
+    <!-- 连接线 -->
+    <line x1="30" y1="6" x2="30" y2="25" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="30" y1="35" x2="30" y2="54" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="6" y1="30" x2="25" y2="30" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="35" y1="30" x2="54" y2="30" stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- 外围节点 -->
+    <circle cx="30" cy="6" r="3" fill="#5eead4"/>
+    <circle cx="30" cy="54" r="3" fill="#5eead4"/>
+    <circle cx="6" cy="30" r="3" fill="#5eead4"/>
+    <circle cx="54" cy="30" r="3" fill="#5eead4"/>
+  </g>
+  
+  <!-- 文字部分 -->
+  <g transform="translate(80, 0)">
+    <!-- ME-Frp -->
+    <text x="0" y="32" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="url(#textGrad1)">
+      ME-Frp
+    </text>
+    
+    <!-- TPCA -->
+    <text x="0" y="55" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#5eead4">
+      Third-Party Client Alliance
+    </text>
+  </g>
+  
+  <!-- 渐变定义 -->
+  <defs>
+    <radialGradient id="bgGrad" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#134e4a" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#042f2e" stop-opacity="0.2"/>
+    </radialGradient>
+    
+    <linearGradient id="textGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="50%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+  </defs>
+</svg>

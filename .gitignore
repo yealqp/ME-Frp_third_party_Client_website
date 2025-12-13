@@ -1,6 +1,8 @@
 node_modules
 dist
 api
-.venv
 .vscode
 .idea
+.nuxt
+.output
+jenkins.groovy
