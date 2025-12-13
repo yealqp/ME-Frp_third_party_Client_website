@@ -143,6 +143,10 @@ function lml() {
   );
 }
 
+
+import bash from 'highlight.js/lib/languages/bash'
+hljs.registerLanguage('bash', bash)
+
 // 组件挂载时初始化数据和高亮代码块
 onMounted(() => {
   // 初始化更新日志数据
@@ -150,7 +154,7 @@ onMounted(() => {
 
   // 初始化代码高亮
   setTimeout(() => {
-    const blocks = document.querySelectorAll("pre code");
+    const blocks = document.querySelectorAll("code");
     blocks.forEach((block) => {
       hljs.highlightBlock(block);
     });
@@ -272,7 +276,7 @@ onMounted(() => {
             <code language="bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code>
           </li>
           <li>等待安装完成</li>
-          <li>之后可直接输入 (2.1.0.0 以下) <code>mefrplauncherx</code> 或(2.1.0.0 及以上) <code>pml-2</code> 启动</li>
+          <li>之后可直接输入 (2.1.0.0 以下) <code  language="bash">mefrplauncherx</code> 或(2.1.0.0 及以上) <code>pml-2</code> 启动</li>
         </ol>
       </NAlert>
 
