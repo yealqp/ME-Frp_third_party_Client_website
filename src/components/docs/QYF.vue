@@ -184,7 +184,7 @@ onMounted(() => {
         <ul>
           <li>
             Plain ME Frp Launcher X (PML 2)是对 ME Frp (幻缘映射)
-            的图形化实现，提供了简单便捷的操作，可以快速启动实例 / 隧道，支持
+            的图形化实现，提供了简单便捷的操作，可以快速启动隧道，支持
             Windows, Linux 和 MacOS 三端。
             <em>也是目前三个产品中唯一一个支持跨平台的软件。</em>
           </li>
@@ -197,8 +197,8 @@ onMounted(() => {
             <n-tag :bordered="false" type="info" size="small">PCL Ⅱ</n-tag>
           </li>
           <li>
-            查看
-            <a href="https://rycb.mxj.pub/mefl/" target="_blank">官网</a>
+            <b>查看
+            <a href="https://rycb.mxj.pub/mefl/" target="_blank">官网</a>以获得最新消息。</b>
           </li>
         </ul>
       </div>
@@ -264,16 +264,15 @@ onMounted(() => {
         </ul>
       </NAlert> -->
 
-      <NAlert type="warning" title="教程：如何在 Linux 上顺利运行本软件？">
+      <NAlert type="info" title="教程：如何在 Linux 上顺利运行本软件？">
         <ol>
-          <li>请注意: 目前Ubuntu 22.04+(不包含22.04)还不支持.NET 10。请暂缓安装。</li> 
           <!-- <li>预先安装 .NET 8.0 运行时（参考上文）</li> -->
           <li>打开终端</li>
           <li>输入
             <code language="bash">bash <(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code>
           </li>
           <li>等待安装完成</li>
-          <li>之后可直接输入 <code>mefrplauncherx</code> 启动</li>
+          <li>之后可直接输入 (2.1.0.0 以下) <code>mefrplauncherx</code> 或(2.1.0.0 及以上) <code>pml-2</code> 启动</li>
         </ol>
       </NAlert>
 
@@ -345,8 +344,7 @@ onMounted(() => {
         和
         <a href="https://rycb.mxj.pub/mefl/privacy.html" target="_blank">隐私政策</a>。
         <br />
-        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版(包括
-        Alpine Linux)，以及 MacOS。
+        注意：本软件适于 Windows 10/11/Server 2019+, 常见 Linux x64 发行版，以及 MacOS。
         <br />
         请使用
         <a href="https://www.mefrp.com/" target="_blank">ME Frp 官网</a>
@@ -398,9 +396,12 @@ onMounted(() => {
         <p><strong>解决方法：</strong></p>
         <ol>
           <li>
-            打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
+            (2.1.0.0 以下)打开终端，执行：<code>chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code>
           </li>
-          <li>重新运行：<code>mefrplauncherx</code></li>
+          <li>
+            (2.1.0.0 及以上)打开终端，执行：<code>chmod -R a+r,a+w /opt/pml-2</code>
+          </li>
+          <li>重新运行：(2.1.0.0 以下) <code>mefrplauncherx</code> 或(2.1.0.0 及以上) <code>pml-2</code></li>
         </ol>
       </div>
     </div>
