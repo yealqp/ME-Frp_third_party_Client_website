@@ -93,9 +93,9 @@ useHead({
 useSeoMeta({
   title: 'ME-Frp 第三方客户端联盟',
   ogTitle: 'ME-Frp 第三方客户端联盟',
-  description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发',
-  ogDescription: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发',
-  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/favicon.ico',
+  description: 'ME-Frp 第三方客户端联盟官方网站,专注于 ME-Frp 第三方客户端开发,ME-Frp内网穿透,ME-Frp,CFU,中国内网穿透联盟,内网穿透,内网穿透客户端,ME-Frp内网穿透客户端,ME-Frp图形化客户端,图形化界面.',
+  ogDescription: 'ME-Frp 第三方客户端联盟官方网站,专注于 ME-Frp 第三方客户端开发,ME-Frp内网穿透,ME-Frp,CFU,中国内网穿透联盟,内网穿透,内网穿透客户端,ME-Frp内网穿透客户端,ME-Frp图形化客户端,图形化界面.',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico',
   twitterCard: 'summary_large_image'
 })
 </script>

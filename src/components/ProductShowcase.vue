@@ -85,20 +85,20 @@ const products = ref([
     id: 'xl',
     name: 'XL-ME-Frp-Launcher',
     author: 'yealqp',
-    version: 'v1.5.0',
+    version: 'v1.5.5',
     description: '由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也可能也是包体最小的一个，亦或是bug最少的一个。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/xl_icon.webp',
-    link: 'https://mefrp-tpca.yealqp.cn/docs/XL',
+    link: 'https://mefrp-tpca.yealqp.cn/docs/xl',
     tags: ['Tauri', '跨平台', '轻量级']
   },
   {
     id: 'lx',
     name: 'LX-ME-Frp-Launcher',
     author: '灵弦MuaMua',
-    version: 'v1.3.0',
+    version: 'v2.3.0',
     description: '由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/lx_icon.webp',
-    link: 'https://mefrp-tpca.yealqp.cn/docs/LX',
+    link: 'https://mefrp-tpca.yealqp.cn/docs/lx',
     tags: ['易语言', 'Windows', '官方风格']
   },
   {
@@ -108,7 +108,7 @@ const products = ref([
     version: 'v2.1.0',
     description: 'PML 2使用.NET提供了简单便捷的操作, 也是目前三个产品中唯一一个跨平台的软件。支持常见主流平台(Windows, Linux, MacOS, Android)。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp',
-    link: 'https://mefrp-tpca.yealqp.cn/docs/qyf',
+    link: 'https://mefrp-tpca.yealqp.cn/docs/pml',
     tags: ['.NET', '跨平台', '多系统']
   }
 ])
