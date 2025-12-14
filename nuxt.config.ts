@@ -22,8 +22,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'ME-Frp 第三方客户端联盟官方网站' }
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico' }
       ]
     }
   },
