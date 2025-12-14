@@ -110,7 +110,7 @@ const products = ref([
     version: 'v1.5.0',
     description: '由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/xl_icon.webp',
-    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/XL'
+    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/xl'
   },
   {
     id: 'lx',
@@ -119,7 +119,7 @@ const products = ref([
     version: 'v1.3.0',
     description: '由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/lx_icon.webp',
-    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/LX'
+    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/lx'
   },
   {
     id: 'pml',
@@ -128,7 +128,7 @@ const products = ref([
     version: 'v2.1.0',
     description: 'PML 2使用.NET提供了简单便捷的操作，支持常见主流平台。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp',
-    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/qyf'
+    downloadUrl: 'https://mefrp-tpca.yealqp.cn/docs/pml'
   }
 ])
 
