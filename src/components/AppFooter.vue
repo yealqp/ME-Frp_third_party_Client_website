@@ -11,7 +11,7 @@
             我们已奋斗 {{ runtimeText }}
           </p>
           <p class="text-gray-400 text-sm">
-            本站修改自
+            本站借鉴自
             <ULink 
               to="https://github.com/MCSLTeam/MCSLTeam-Website-Next" 
               target="_blank"
