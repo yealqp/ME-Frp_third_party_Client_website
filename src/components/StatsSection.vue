@@ -39,7 +39,7 @@ const stats = ref([
   {
     icon: 'i-heroicons-code-bracket',
     value: '100%',
-    label: '借助AI(?)'
+    label: '社区驱动'
   },
   {
     icon: 'i-heroicons-heart',

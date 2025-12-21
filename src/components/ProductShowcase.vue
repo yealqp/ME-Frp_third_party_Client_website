@@ -61,16 +61,6 @@
                 <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-4 h-4 mr-2" />
                 查看详情
               </UButton>
-              
-              <UButton 
-                variant="ghost" 
-                color="gray"
-                size="sm"
-                @click="openProtocol(product.id)"
-              >
-                <UIcon name="i-heroicons-play" class="w-4 h-4 mr-1" />
-                启动
-              </UButton>
             </div>
           </template>
         </UCard>

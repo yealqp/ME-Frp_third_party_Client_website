@@ -81,16 +81,6 @@
                 <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-5 h-5 mr-2" />
                 查看文档
               </UButton>
-              
-              <UButton 
-                size="lg" 
-                variant="outline"
-                color="gray"
-                @click="openProtocol(product.id)"
-              >
-                <UIcon name="i-heroicons-play" class="w-5 h-5 mr-2" />
-                启动客户端
-              </UButton>
             </div>
           </div>
 
