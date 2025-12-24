@@ -2,8 +2,6 @@ pipeline {
     agent any
     
     environment {
-        // Git 仓库地址
-        GIT_REPO = 'https://github.com/yealqp/ME-Frp_third_party_Client_website.git'
         // 构建目录
         BUILD_DIR = 'dist'
         // 远程服务器配置名称（需要在 Jenkins 中配置 Publish Over SSH）
@@ -15,7 +13,7 @@ pipeline {
             steps {
                 echo '🔄 Cloning repository...'
                 git branch: 'main', 
-                    url: "${GIT_REPO}",
+                    url: "https://fastgit.cc/https://github.com/yealqp/ME-Frp_third_party_Client_website.git",
                     credentialsId: 'github-credentials' // 如果是私有仓库需要配置凭据
             }
         }
@@ -27,7 +25,7 @@ pipeline {
                     # 安装 NVM
                     if [ ! -d "$HOME/.nvm" ]; then
                         echo "Installing NVM..."
-                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+                        curl -o- https://cdn.yealqp.cn/Script/InstallNvm.sh | bash
                     fi
                     
                     # 加载 NVM
