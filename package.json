@@ -1,13 +1,12 @@
 {
   "name": "mefrp-tpca-website",
   "version": "2.0.0",
-  "description": "ME-Frp 第三方客户端联盟官网 - 使用 Nuxt 3 + Nuxt/UI",
+  "description": "ME-Frp 第三方客户端联盟官网",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt generate",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

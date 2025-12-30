@@ -32,6 +32,9 @@ export default defineNuxtConfig({
     output: {
       dir: 'dist',
       publicDir: 'dist'
+    },
+    prerender: {
+      routes: ['/']
     }
   },
 
