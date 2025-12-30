@@ -103,8 +103,8 @@ pipeline {
                                 transfers: [
                                     sshTransfer(
                                         cleanRemote: true,
-                                        removePrefix: 'dist/',
-                                        sourceFiles: 'dist/**/*'
+                                        removePrefix: '/',
+                                        sourceFiles: '/**/*'
                                     )
                                 ],
                                 usePromotionTimestamp: false,

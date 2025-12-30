@@ -2,9 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   
-  // 静态站点生成模式
-  ssr: false,
-  
   // Nuxt UI 模块
   modules: [
     '@nuxt/ui'
