@@ -25,7 +25,14 @@
     </div>
 
     <!-- 项目介绍 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">项目介绍</h2>
       </template>
@@ -89,7 +96,14 @@
     </UCard>
 
     <!-- 预览图 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">预览图</h2>
       </template>
@@ -99,8 +113,9 @@
         <div class="relative h-96 flex items-center justify-center">
           <img 
             :src="previewImages[currentImageIndex].src" 
-            :alt="previewImages[currentImageIndex].alt" 
+            :alt="`${previewImages[currentImageIndex].alt} - XL-ME-Frp-Launcher 界面截图`" 
             class="max-w-full max-h-full object-contain cursor-pointer"
+            loading="lazy"
             @click="openImageModal(previewImages[currentImageIndex])"
           />
           
@@ -141,7 +156,14 @@
     </UCard>
 
     <!-- 下载安装 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">下载安装</h2>
       </template>
@@ -153,6 +175,7 @@
             color="primary"
             to="https://alist.yealqp.cn/"
             target="_blank"
+            class="btn-glow cursor-pointer"
           >
             <UIcon name="i-heroicons-arrow-down-tray" class="w-5 h-5 mr-2" />
             OpenList 下载
@@ -175,7 +198,7 @@
           description="请使用 ME-Frp 官网账号登录。需要更多功能或报告 Bug 请向邮箱 yealqp@163.com 发送邮件。"
         />
         
-        <div class="bg-gray-700/30 rounded-lg p-4">
+        <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
           <h3 class="text-lg font-semibold text-white mb-3">安装步骤</h3>
           <ol class="space-y-2 text-gray-300">
             <li class="flex items-start space-x-3">
@@ -200,7 +223,14 @@
     </UCard>
 
     <!-- 更新记录 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </template>
@@ -232,10 +262,39 @@ definePageMeta({
 
 // 页面元数据
 useHead({
-  title: 'XL-ME-Frp-Launcher 文档 - ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: 'XL-ME-Frp-Launcher 详细使用文档，包含安装、配置和使用指南' }
+  title: 'XL-ME-Frp-Launcher 文档',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/docs/xl' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'XL-ME-Frp-Launcher',
+        applicationCategory: 'NetworkApplication',
+        operatingSystem: 'Windows 10, Windows 11, Windows Server',
+        softwareVersion: 'v1.5.5',
+        description: '基于 Tauri 2 框架开发的 ME-Frp 第三方客户端，界面高仿官网样式，性能优异',
+        author: { '@type': 'Person', name: 'yealqp' },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
+        downloadUrl: 'https://alist.yealqp.cn/'
+      })
+    }
   ]
+})
+
+// SEO 优化
+useSeoMeta({
+  title: 'XL-ME-Frp-Launcher 文档 | ME-Frp 第三方客户端联盟',
+  ogTitle: 'XL-ME-Frp-Launcher 文档 - ME-Frp 第三方客户端联盟',
+  description: 'XL-ME-Frp-Launcher 详细使用文档，基于 Tauri 2 框架开发的 ME-Frp 第三方客户端，包含安装、配置和使用指南，支持 Windows 10/11 和 Windows Server。',
+  ogDescription: 'XL-ME-Frp-Launcher 详细使用文档，包含安装、配置和使用指南',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/docs/xl',
+  ogType: 'article',
+  twitterCard: 'summary_large_image'
 })
 
 // 预览图数据

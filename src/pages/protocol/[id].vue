@@ -169,9 +169,16 @@ onMounted(() => {
 
 // 页面元数据
 useHead({
-  title: '协议跳转 - ME-Frp 第三方客户端联盟',
+  title: '协议跳转',
   meta: [
-    { name: 'description', content: 'ME-Frp 客户端协议跳转页面' }
+    { name: 'robots', content: 'noindex, nofollow' }
   ]
+})
+
+// SEO 优化
+useSeoMeta({
+  title: '协议跳转 | ME-Frp 第三方客户端联盟',
+  description: 'ME-Frp 客户端协议跳转页面，自动启动已安装的 ME-Frp 第三方客户端',
+  robots: 'noindex, nofollow'
 })
 </script>

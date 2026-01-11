@@ -23,7 +23,14 @@
     </div>
 
     <!-- 项目介绍 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">项目介绍</h2>
       </template>
@@ -95,7 +102,14 @@
     </UCard>
 
     <!-- 预览图 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">预览图</h2>
       </template>
@@ -105,8 +119,9 @@
         <div class="relative h-96 flex items-center justify-center">
           <img 
             :src="previewImages[currentImageIndex].src" 
-            :alt="previewImages[currentImageIndex].alt" 
+            :alt="`${previewImages[currentImageIndex].alt} - Plain ME Frp Launcher 界面截图`" 
             class="max-w-full max-h-full object-contain cursor-pointer"
+            loading="lazy"
             @click="openImageModal(previewImages[currentImageIndex])"
           />
           
@@ -147,7 +162,14 @@
     </UCard>
 
     <!-- 使用方法 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">使用方法</h2>
       </template>
@@ -183,7 +205,14 @@
     </UCard>
 
     <!-- 下载安装 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">下载安装</h2>
       </template>
@@ -253,7 +282,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Windows 安装 -->
-          <div class="bg-gray-700/30 rounded-lg p-4">
+          <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
               <UIcon name="i-simple-icons-windows" class="w-5 h-5 mr-2 text-blue-400" />
               Windows 安装
@@ -275,7 +304,7 @@
           </div>
 
           <!-- Linux 安装 -->
-          <div class="bg-gray-700/30 rounded-lg p-4">
+          <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
               <UIcon name="i-simple-icons-linux" class="w-5 h-5 mr-2 text-yellow-400" />
               Linux 安装
@@ -297,7 +326,7 @@
           </div>
 
           <!-- macOS 安装 -->
-          <div class="bg-gray-700/30 rounded-lg p-4">
+          <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
               <UIcon name="i-simple-icons-apple" class="w-5 h-5 mr-2 text-gray-300" />
               macOS 安装
@@ -319,7 +348,7 @@
           </div>
 
           <!-- Android 安装 -->
-          <div class="bg-gray-700/30 rounded-lg p-4">
+          <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
               <UIcon name="i-simple-icons-android" class="w-5 h-5 mr-2 text-green-400" />
               Android 安装
@@ -344,7 +373,14 @@
     </UCard>
 
     <!-- 快速修复 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">快速修复</h2>
       </template>
@@ -385,7 +421,14 @@
     </UCard>
 
     <!-- 更新记录 -->
-    <UCard class="mb-8 bg-gray-800/50 border-gray-700">
+    <UCard 
+      class="mb-8 glass-card"
+      :ui="{
+        base: 'overflow-hidden',
+        background: 'bg-transparent',
+        ring: 'ring-0'
+      }"
+    >
       <template #header>
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </template>
@@ -434,10 +477,38 @@ definePageMeta({
 
 // 页面元数据
 useHead({
-  title: 'Plain ME Frp Launcher 文档 - ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: 'Plain ME Frp Launcher 详细使用文档，包含多平台安装、配置和使用指南' }
+  title: 'Plain ME Frp Launcher 文档',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/docs/pml' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Plain ME Frp Launcher',
+        applicationCategory: 'NetworkApplication',
+        operatingSystem: 'Windows, Linux, macOS, Android',
+        softwareVersion: 'v2.1.0',
+        description: '基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android',
+        author: { '@type': 'Organization', name: 'RYCB Studio' },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' }
+      })
+    }
   ]
+})
+
+// SEO 优化
+useSeoMeta({
+  title: 'Plain ME Frp Launcher 文档 | ME-Frp 第三方客户端联盟',
+  ogTitle: 'Plain ME Frp Launcher 文档 - ME-Frp 第三方客户端联盟',
+  description: 'Plain ME Frp Launcher 详细使用文档，基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android，包含多平台安装、配置和使用指南。',
+  ogDescription: 'Plain ME Frp Launcher 详细使用文档，包含多平台安装、配置和使用指南',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/docs/pml',
+  ogType: 'article',
+  twitterCard: 'summary_large_image'
 })
 
 // 预览图数据

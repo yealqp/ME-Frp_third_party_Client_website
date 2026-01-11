@@ -2,18 +2,22 @@
   <div>
     <!-- Hero Section -->
     <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-      <!-- 背景装饰 -->
-      <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <!-- 动态渐变背景 - Requirements 3.1 -->
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-gray-950 to-blue-900/20"></div>
+        <!-- 动态光斑 -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-500"></div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <div class="max-w-4xl mx-auto space-y-8 animate-fade-in">
+        <div class="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
           <!-- 主标题 -->
           <div class="text-center space-y-6">
 
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <!-- 发光标题 - Requirements 3.2 -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-glow">
               <span class="block">
                 <span class="text-gradient bg-gradient-to-r from-primary-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                   ME-Frp 第三方客户端联盟
@@ -40,14 +44,14 @@
             为用户提供更美观、更便捷、更强大的内网穿透体验
           </p>
 
-          <!-- 按钮组 -->
+          <!-- 按钮组 - Requirements 3.3 CTA 按钮发光效果 -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <UButton 
               size="xl" 
               color="primary"
               variant="solid"
               to="/products"
-              class="px-8 py-4 text-lg font-semibold"
+              class="px-8 py-4 text-lg font-semibold btn-glow cursor-pointer"
             >
               <UIcon name="i-heroicons-cube" class="w-5 h-5 mr-2" />
               探索产品
@@ -58,7 +62,7 @@
               color="gray"
               variant="outline"
               to="/about"
-              class="px-8 py-4 text-lg"
+              class="px-8 py-4 text-lg btn-glow cursor-pointer"
             >
               <UIcon name="i-heroicons-users" class="w-5 h-5 mr-2" />
               了解更多
@@ -82,21 +86,42 @@
 <script setup>
 // 页面元数据
 useHead({
-  title: 'ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发' },
-    { name: 'keywords', content: 'ME-Frp, 内网穿透, 第三方客户端, 开源' }
+  title: '首页',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'ME-Frp 第三方客户端联盟',
+        alternateName: 'ME-Frp TPCA',
+        url: 'https://mefrp-tpca.yealqp.cn',
+        logo: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico',
+        description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端',
+        sameAs: [
+          'https://github.com/yealqp/ME-Frp_third_party_Client_website'
+        ]
+      })
+    }
   ]
 })
 
 // SEO 优化
 useSeoMeta({
-  title: 'ME-Frp 第三方客户端联盟',
-  ogTitle: 'ME-Frp 第三方客户端联盟',
-  description: 'ME-Frp 第三方客户端联盟官方网站,专注于 ME-Frp 第三方客户端开发,ME-Frp内网穿透,ME-Frp,CFU,中国内网穿透联盟,内网穿透,内网穿透客户端,ME-Frp内网穿透客户端,ME-Frp图形化客户端,图形化界面.',
-  ogDescription: 'ME-Frp 第三方客户端联盟官方网站,专注于 ME-Frp 第三方客户端开发,ME-Frp内网穿透,ME-Frp,CFU,中国内网穿透联盟,内网穿透,内网穿透客户端,ME-Frp内网穿透客户端,ME-Frp图形化客户端,图形化界面.',
-  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico',
-  twitterCard: 'summary_large_image'
+  title: '首页 | ME-Frp 第三方客户端联盟',
+  ogTitle: 'ME-Frp 第三方客户端联盟 - 专业内网穿透客户端',
+  description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供 XL-ME-Frp-Launcher、LX-ME-Frp-Launcher、Plain ME Frp Launcher 等多款优质内网穿透客户端。',
+  ogDescription: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端，支持 Windows、Linux、macOS 等多平台。',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'ME-Frp 第三方客户端联盟',
+  twitterDescription: '专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端',
+  twitterImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png'
 })
 </script>
 

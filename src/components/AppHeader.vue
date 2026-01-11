@@ -1,9 +1,10 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-gray-950/80 border-b border-gray-800">
+  <!-- Header 增强毛玻璃效果 - Requirements 1.2 -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-gray-950/70 border-b border-white/10 shadow-lg shadow-black/20 transition-smooth">
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between h-16 px-4">
         <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+        <NuxtLink to="/" class="flex items-center space-x-3 hover:opacity-80 transition-smooth cursor-pointer">
           <LogoIcon 
             :size="32" 
             :animated="false" 
@@ -23,7 +24,7 @@
             v-for="item in navigation" 
             :key="item.name"
             :to="item.href"
-            class="flex items-center space-x-2 text-gray-300 hover:text-primary-400 transition-colors duration-200"
+            class="flex items-center space-x-2 text-gray-300 hover:text-primary-400 transition-smooth cursor-pointer"
             :class="{ 'text-primary-400': $route.path === item.href }"
           >
             <UIcon :name="item.icon" class="w-4 h-4" />
@@ -35,25 +36,25 @@
         <UButton 
           variant="ghost" 
           size="sm"
-          class="md:hidden"
+          class="md:hidden cursor-pointer"
           @click="isMenuOpen = !isMenuOpen"
         >
           <UIcon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="w-6 h-6" />
         </UButton>
       </div>
 
-      <!-- 移动端导航菜单 -->
+      <!-- 移动端导航菜单 - 增强毛玻璃效果 -->
       <div 
         v-if="isMenuOpen" 
-        class="md:hidden border-t border-gray-800 bg-gray-950/95 backdrop-blur-md"
+        class="md:hidden border-t border-white/10 bg-gray-950/90 backdrop-blur-xl"
       >
         <nav class="px-4 py-4 space-y-2">
           <NuxtLink 
             v-for="item in navigation" 
             :key="item.name"
             :to="item.href"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
-            :class="{ 'text-primary-400 bg-gray-800/50': $route.path === item.href }"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-smooth cursor-pointer"
+            :class="{ 'text-primary-400 bg-white/5': $route.path === item.href }"
             @click="isMenuOpen = false"
           >
             <UIcon :name="item.icon" class="w-5 h-5" />

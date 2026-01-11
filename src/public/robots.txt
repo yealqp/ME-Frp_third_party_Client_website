@@ -1,0 +1,11 @@
+# ME-Frp 第三方客户端联盟 - robots.txt
+# https://mefrp-tpca.yealqp.cn
+
+User-agent: *
+Allow: /
+
+# 禁止爬取协议跳转页面
+Disallow: /protocol/
+
+# Sitemap
+Sitemap: https://mefrp-tpca.yealqp.cn/sitemap.xml

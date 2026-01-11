@@ -1,21 +1,38 @@
 <template>
   <div class="pt-16">
     <!-- Hero Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-950 to-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-          关于我们
-        </h1>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          我们是一群热爱技术、勇于创新的开发者，致力于为 ME-Frp 用户提供更好的客户端体验
-        </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-950 to-gray-900 relative overflow-hidden">
+      <!-- 动态光斑背景 -->
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="animate-fade-in-up">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 text-glow">
+            关于我们
+          </h1>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            我们是一群热爱技术、勇于创新的开发者，致力于为 ME-Frp 用户提供更好的客户端体验
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- 我们是谁 -->
     <section class="py-16 lg:py-24 bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard class="bg-gray-800/50 border-gray-700">
+        <UCard 
+          ref="whoWeAreRef"
+          class="glass-card scroll-animate"
+          :class="{ 'visible': whoWeAreVisible }"
+          :ui="{
+            base: 'overflow-hidden',
+            background: 'bg-transparent',
+            ring: 'ring-0'
+          }"
+        >
           <template #header>
             <div class="flex items-center space-x-3">
               <UIcon name="i-heroicons-information-circle" class="w-6 h-6 text-primary-400" />
@@ -48,7 +65,16 @@
     <!-- 发展历程 -->
     <section class="py-16 lg:py-24 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard class="bg-gray-800/50 border-gray-700">
+        <UCard 
+          ref="timelineRef"
+          class="glass-card scroll-animate"
+          :class="{ 'visible': timelineVisible }"
+          :ui="{
+            base: 'overflow-hidden',
+            background: 'bg-transparent',
+            ring: 'ring-0'
+          }"
+        >
           <template #header>
             <div class="flex items-center space-x-3">
               <UIcon name="i-heroicons-clock" class="w-6 h-6 text-primary-400" />
@@ -60,7 +86,7 @@
             <div 
               v-for="milestone in timeline" 
               :key="milestone.date"
-              class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg bg-gray-700/30"
+              class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth cursor-pointer"
             >
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500/20">
@@ -84,7 +110,16 @@
     <!-- 核心价值 -->
     <section class="py-16 lg:py-24 bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard class="bg-gray-800/50 border-gray-700">
+        <UCard 
+          ref="valuesRef"
+          class="glass-card scroll-animate"
+          :class="{ 'visible': valuesVisible }"
+          :ui="{
+            base: 'overflow-hidden',
+            background: 'bg-transparent',
+            ring: 'ring-0'
+          }"
+        >
           <template #header>
             <div class="flex items-center space-x-3">
               <UIcon name="i-heroicons-heart" class="w-6 h-6 text-primary-400" />
@@ -96,7 +131,7 @@
             <div 
               v-for="value in values" 
               :key="value.title"
-              class="text-center space-y-4 p-6 rounded-lg bg-gray-700/20 hover:bg-gray-700/30 transition-colors"
+              class="text-center space-y-4 p-6 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth cursor-pointer"
             >
               <div class="flex justify-center">
                 <div class="p-4 bg-primary-500/20 rounded-full">
@@ -114,7 +149,16 @@
     <!-- 联系我们 -->
     <section class="py-16 lg:py-24 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard class="bg-gray-800/50 border-gray-700">
+        <UCard 
+          ref="contactRef"
+          class="glass-card scroll-animate"
+          :class="{ 'visible': contactVisible }"
+          :ui="{
+            base: 'overflow-hidden',
+            background: 'bg-transparent',
+            ring: 'ring-0'
+          }"
+        >
           <template #header>
             <div class="flex items-center space-x-3">
               <UIcon name="i-heroicons-phone" class="w-6 h-6 text-primary-400" />
@@ -133,6 +177,7 @@
                 color="primary"
                 to="https://github.com/yealqp/ME-Frp_third_party_Client_website"
                 target="_blank"
+                class="btn-glow cursor-pointer"
               >
                 <UIcon name="i-simple-icons-github" class="w-5 h-5 mr-2" />
                 GitHub
@@ -148,11 +193,47 @@
 <script setup>
 // 页面元数据
 useHead({
-  title: '关于我们 - ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: '了解 ME-Frp 第三方客户端联盟的发展历程、核心价值和团队成员' }
+  title: '关于我们',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/about' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: '关于我们 - ME-Frp 第三方客户端联盟',
+        description: '了解 ME-Frp 第三方客户端联盟的发展历程、核心价值和团队成员',
+        url: 'https://mefrp-tpca.yealqp.cn/about',
+        mainEntity: {
+          '@type': 'Organization',
+          name: 'ME-Frp 第三方客户端联盟',
+          foundingDate: '2025-08-13',
+          description: '专注于 ME-Frp 第三方客户端开发的社区组织'
+        }
+      })
+    }
   ]
 })
+
+// SEO 优化
+useSeoMeta({
+  title: '关于我们 | ME-Frp 第三方客户端联盟',
+  ogTitle: '关于我们 - ME-Frp 第三方客户端联盟',
+  description: '了解 ME-Frp 第三方客户端联盟的发展历程、核心价值和团队成员，我们是一群热爱技术、勇于创新的开发者。',
+  ogDescription: '了解 ME-Frp 第三方客户端联盟的发展历程、核心价值和团队成员',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/about',
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
+})
+
+// 滚动动画
+const { elementRef: whoWeAreRef, isVisible: whoWeAreVisible } = useScrollAnimation()
+const { elementRef: timelineRef, isVisible: timelineVisible } = useScrollAnimation()
+const { elementRef: valuesRef, isVisible: valuesVisible } = useScrollAnimation()
+const { elementRef: contactRef, isVisible: contactVisible } = useScrollAnimation()
 
 const timeline = ref([
   {
