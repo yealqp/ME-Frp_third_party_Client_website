@@ -1,14 +1,22 @@
 <template>
   <div class="pt-16">
     <!-- Hero Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-950 to-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-          我们的产品
-        </h1>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          为不同需求的用户提供多样化的 ME-Frp 客户端解决方案，每个产品都经过精心设计和优化
-        </p>
+    <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-950 to-gray-900 relative overflow-hidden">
+      <!-- 动态光斑背景 -->
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="animate-fade-in-up">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 text-glow">
+            我们的产品
+          </h1>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            为不同需求的用户提供多样化的 ME-Frp 客户端解决方案，每个产品都经过精心设计和优化
+          </p>
+        </div>
       </div>
     </section>
 
@@ -18,16 +26,22 @@
         <div 
           v-for="(product, index) in products" 
           :key="product.id"
-          class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-          :class="{ 'lg:grid-flow-col-dense': index % 2 === 1 }"
+          :ref="el => productRefs[index] = el"
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center scroll-animate"
+          :class="[
+            { 'lg:grid-flow-col-dense': index % 2 === 1 },
+            { 'visible': productVisibility[index] }
+          ]"
+          :style="{ transitionDelay: `${index * 200}ms` }"
         >
           <!-- 产品信息 -->
           <div class="space-y-6" :class="{ 'lg:col-start-2': index % 2 === 1 }">
             <div class="flex items-center space-x-4">
               <img 
                 :src="product.icon" 
-                :alt="product.name"
+                :alt="`${product.name} 图标 - ME-Frp 第三方客户端`"
                 class="w-16 h-16 rounded-xl"
+                loading="lazy"
               >
               <div>
                 <h2 class="text-2xl md:text-3xl font-bold text-white">
@@ -77,6 +91,7 @@
                 color="primary"
                 :to="product.link"
                 target="_blank"
+                class="btn-glow cursor-pointer"
               >
                 <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-5 h-5 mr-2" />
                 查看文档
@@ -86,13 +101,14 @@
 
           <!-- 产品截图 -->
           <div class="relative" :class="{ 'lg:col-start-1 lg:row-start-1': index % 2 === 1 }">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl glass-card p-2">
               <img 
                 :src="product.screenshot" 
-                :alt="`${product.name} 截图`"
-                class="w-full h-auto"
+                :alt="`${product.name} 界面截图 - ME-Frp 内网穿透客户端`"
+                class="w-full h-auto rounded-xl"
+                loading="lazy"
               >
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
             </div>
           </div>
         </div>
@@ -100,9 +116,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-r from-primary-900/20 to-blue-900/20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+    <section class="py-16 lg:py-24 bg-gradient-to-r from-primary-900/20 to-blue-900/20 relative overflow-hidden">
+      <!-- 动态光斑背景 -->
+      <div class="absolute inset-0">
+        <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      </div>
+      
+      <div 
+        ref="ctaRef"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-animate"
+        :class="{ 'visible': ctaVisible }"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 text-glow">
           开始使用我们的产品
         </h2>
         <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -112,6 +137,7 @@
           size="xl" 
           color="primary"
           to="/docs"
+          class="btn-glow cursor-pointer"
         >
           <UIcon name="i-heroicons-document-text" class="w-5 h-5 mr-2" />
           查看文档
@@ -124,10 +150,93 @@
 <script setup>
 // 页面元数据
 useHead({
-  title: '产品 - ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: '了解 ME-Frp 第三方客户端联盟的所有产品，包括 XL-ME-Frp-Launcher、LX-ME-Frp-Launcher 和 Plain ME Frp Launcher' }
+  title: '产品',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/products' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'ME-Frp 第三方客户端产品列表',
+        description: 'ME-Frp 第三方客户端联盟的所有产品',
+        numberOfItems: 3,
+        itemListElement: [
+          {
+            '@type': 'SoftwareApplication',
+            position: 1,
+            name: 'XL-ME-Frp-Launcher',
+            applicationCategory: 'NetworkApplication',
+            operatingSystem: 'Windows',
+            description: '基于 Tauri 框架开发的跨平台客户端，界面美观，性能优异',
+            author: { '@type': 'Person', name: 'yealqp' }
+          },
+          {
+            '@type': 'SoftwareApplication',
+            position: 2,
+            name: 'LX-ME-Frp-Launcher',
+            applicationCategory: 'NetworkApplication',
+            operatingSystem: 'Windows',
+            description: '使用易语言开发的 Windows 客户端，界面高仿官方风格',
+            author: { '@type': 'Person', name: '灵弦MuaMua' }
+          },
+          {
+            '@type': 'SoftwareApplication',
+            position: 3,
+            name: 'Plain ME Frp Launcher',
+            applicationCategory: 'NetworkApplication',
+            operatingSystem: 'Windows, Linux, macOS, Android',
+            description: '基于 .NET 的跨平台客户端，支持多个操作系统',
+            author: { '@type': 'Organization', name: 'RYCB工作室' }
+          }
+        ]
+      })
+    }
   ]
+})
+
+// SEO 优化
+useSeoMeta({
+  title: '产品 | ME-Frp 第三方客户端联盟',
+  ogTitle: '产品 - ME-Frp 第三方客户端联盟',
+  description: '了解 ME-Frp 第三方客户端联盟的所有产品，包括 XL-ME-Frp-Launcher、LX-ME-Frp-Launcher 和 Plain ME Frp Launcher，为不同需求的用户提供多样化的内网穿透解决方案。',
+  ogDescription: '了解 ME-Frp 第三方客户端联盟的所有产品，包括 XL-ME-Frp-Launcher、LX-ME-Frp-Launcher 和 Plain ME Frp Launcher',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/products',
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
+})
+
+// 滚动动画
+const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollAnimation()
+
+// 产品列表滚动动画
+const productRefs = ref([])
+const productVisibility = ref([false, false, false])
+
+onMounted(() => {
+  if (typeof IntersectionObserver === 'undefined') {
+    productVisibility.value = [true, true, true]
+    return
+  }
+  
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = productRefs.value.indexOf(entry.target)
+        if (index !== -1 && entry.isIntersecting) {
+          productVisibility.value[index] = true
+        }
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  )
+  
+  productRefs.value.forEach((el) => {
+    if (el) observer.observe(el)
+  })
 })
 
 const products = ref([

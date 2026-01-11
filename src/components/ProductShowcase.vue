@@ -2,7 +2,11 @@
   <section class="py-16 lg:py-24 bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- 标题 -->
-      <div class="text-center mb-16">
+      <div 
+        ref="titleRef"
+        class="text-center mb-16 scroll-animate"
+        :class="{ 'visible': titleVisible }"
+      >
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
           我们的产品
         </h2>
@@ -12,18 +16,33 @@
       </div>
 
       <!-- 产品网格 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div 
+        ref="gridRef"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         <UCard 
-          v-for="product in products" 
+          v-for="(product, index) in products" 
           :key="product.id"
-          class="card-hover bg-gray-800/50 border-gray-700"
+          class="glass-card scroll-animate"
+          :class="{ 'visible': gridVisible }"
+          :style="{ transitionDelay: `${getItemDelay(index)}ms` }"
+          :ui="{
+            base: 'overflow-hidden',
+            background: 'bg-transparent',
+            ring: 'ring-0',
+            divide: 'divide-white/10',
+            header: { padding: 'px-4 py-4 sm:px-6' },
+            body: { padding: 'px-4 py-4 sm:px-6' },
+            footer: { padding: 'px-4 py-4 sm:px-6' }
+          }"
         >
           <template #header>
             <div class="flex items-center space-x-4">
               <img 
                 :src="product.icon" 
-                :alt="product.name"
+                :alt="`${product.name} 图标 - ME-Frp 内网穿透客户端`"
                 class="w-12 h-12 rounded-lg"
+                loading="lazy"
               >
               <div>
                 <h3 class="text-xl font-semibold text-white">{{ product.name }}</h3>
@@ -57,6 +76,7 @@
                 color="primary"
                 :to="product.link"
                 target="_blank"
+                class="btn-glow cursor-pointer"
               >
                 <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-4 h-4 mr-2" />
                 查看详情
@@ -70,6 +90,14 @@
 </template>
 
 <script setup>
+// 标题滚动动画 - Nuxt 自动导入 composables
+const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation()
+
+// 产品网格滚动动画（带交错延迟）
+const { containerRef: gridRef, isVisible: gridVisible, getItemDelay } = useScrollAnimationGroup(3, {
+  staggerDelay: 150
+})
+
 const products = ref([
   {
     id: 'xl',

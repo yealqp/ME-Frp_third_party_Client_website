@@ -13,7 +13,14 @@
       </div>
 
       <!-- 项目介绍 -->
-      <UCard class="bg-gray-800/50 border-gray-700">
+      <UCard 
+        class="glass-card"
+        :ui="{
+          base: 'overflow-hidden',
+          background: 'bg-transparent',
+          ring: 'ring-0'
+        }"
+      >
         <template #header>
           <div class="flex items-center space-x-3">
             <UIcon name="i-heroicons-information-circle" class="w-6 h-6 text-primary-400" />
@@ -68,7 +75,14 @@
       </UCard>
 
       <!-- 快速开始 -->
-      <UCard class="bg-gray-800/50 border-gray-700">
+      <UCard 
+        class="glass-card"
+        :ui="{
+          base: 'overflow-hidden',
+          background: 'bg-transparent',
+          ring: 'ring-0'
+        }"
+      >
         <template #header>
           <div class="flex items-center space-x-3">
             <UIcon name="i-heroicons-rocket-launch" class="w-6 h-6 text-primary-400" />
@@ -80,7 +94,7 @@
           <div 
             v-for="(step, index) in quickStartSteps" 
             :key="step.title"
-            class="text-center space-y-4 p-4 rounded-lg bg-gray-700/30"
+            class="text-center space-y-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth cursor-pointer"
           >
             <div class="flex justify-center">
               <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500/20 text-primary-400 text-lg font-bold">
@@ -94,7 +108,14 @@
       </UCard>
 
       <!-- 客户端文档链接 -->
-      <UCard class="bg-gray-800/50 border-gray-700">
+      <UCard 
+        class="glass-card"
+        :ui="{
+          base: 'overflow-hidden',
+          background: 'bg-transparent',
+          ring: 'ring-0'
+        }"
+      >
         <template #header>
           <div class="flex items-center space-x-3">
             <UIcon name="i-heroicons-document-text" class="w-6 h-6 text-primary-400" />
@@ -107,7 +128,7 @@
             v-for="client in clients" 
             :key="client.id"
             :to="client.path"
-            class="block p-4 rounded-lg bg-gray-700/30 hover:bg-gray-700/50 transition-colors border border-gray-600 hover:border-primary-500/50"
+            class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth border border-white/10 hover:border-primary-500/50 cursor-pointer"
           >
             <div class="flex items-center space-x-3 mb-3">
               <img :src="client.icon" :alt="client.name" class="w-8 h-8 rounded" />
@@ -123,7 +144,14 @@
       </UCard>
 
       <!-- 联系我们 -->
-      <UCard class="bg-gray-800/50 border-gray-700">
+      <UCard 
+        class="glass-card"
+        :ui="{
+          base: 'overflow-hidden',
+          background: 'bg-transparent',
+          ring: 'ring-0'
+        }"
+      >
         <template #header>
           <div class="flex items-center space-x-3">
             <UIcon name="i-heroicons-chat-bubble-left-right" class="w-6 h-6 text-primary-400" />
@@ -142,6 +170,7 @@
               color="primary"
               to="https://github.com/yealqp/ME-Frp_third_party_Client_website"
               target="_blank"
+              class="btn-glow cursor-pointer"
             >
               <UIcon name="i-simple-icons-github" class="w-4 h-4 mr-2" />
               GitHub
@@ -151,6 +180,7 @@
               variant="outline" 
               color="primary"
               to="/about"
+              class="btn-glow cursor-pointer"
             >
               <UIcon name="i-heroicons-information-circle" class="w-4 h-4 mr-2" />
               关于我们
@@ -170,10 +200,34 @@ definePageMeta({
 
 // 页面元数据
 useHead({
-  title: '文档中心 - ME-Frp 第三方客户端联盟',
-  meta: [
-    { name: 'description', content: 'ME-Frp 第三方客户端联盟文档中心，包含所有产品的详细使用指南' }
+  title: '文档中心',
+  link: [
+    { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn/docs' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: '文档中心 - ME-Frp 第三方客户端联盟',
+        description: 'ME-Frp 第三方客户端联盟文档中心，包含所有产品的详细使用指南',
+        url: 'https://mefrp-tpca.yealqp.cn/docs'
+      })
+    }
   ]
+})
+
+// SEO 优化
+useSeoMeta({
+  title: '文档中心 | ME-Frp 第三方客户端联盟',
+  ogTitle: '文档中心 - ME-Frp 第三方客户端联盟',
+  description: 'ME-Frp 第三方客户端联盟文档中心，包含 XL-ME-Frp-Launcher、LX-ME-Frp-Launcher、Plain ME Frp Launcher 等所有产品的详细使用指南和安装教程。',
+  ogDescription: 'ME-Frp 第三方客户端联盟文档中心，包含所有产品的详细使用指南',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png',
+  ogUrl: 'https://mefrp-tpca.yealqp.cn/docs',
+  ogType: 'website',
+  twitterCard: 'summary_large_image'
 })
 
 const clients = [

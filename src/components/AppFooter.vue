@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 border-t border-gray-800">
+  <footer class="bg-gray-900/50 backdrop-blur-md border-t border-white/10">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
         <!-- 左侧信息 -->
@@ -15,7 +15,7 @@
             <ULink 
               to="https://github.com/MCSLTeam/MCSLTeam-Website-Next" 
               target="_blank"
-              class="text-primary-400 hover:text-primary-300 transition-colors"
+              class="text-primary-400 hover:text-primary-300 transition-smooth cursor-pointer"
             >
               MCSLTeam官网
             </ULink>
@@ -28,7 +28,7 @@
           <ULink 
             to="https://beian.miit.gov.cn/" 
             target="_blank"
-            class="text-gray-400 hover:text-primary-400 text-sm transition-colors"
+            class="text-gray-400 hover:text-primary-400 text-sm transition-smooth cursor-pointer"
           >
             冀ICP备2025123259号-2
           </ULink>
@@ -39,7 +39,7 @@
               size="sm"
               to="https://github.com/yealqp/ME-Frp_third_party_Client_website"
               target="_blank"
-              class="text-gray-400 hover:text-primary-400"
+              class="text-gray-400 hover:text-primary-400 btn-glow cursor-pointer"
             >
               <UIcon name="i-simple-icons-github" class="w-5 h-5" />
             </UButton>

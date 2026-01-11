@@ -29,8 +29,26 @@
   .btn-primary {
     @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
   }
-  
 
+  /* Glassmorphism 卡片 - Requirements 1.1, 1.3 */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
+    @apply transition-all duration-300 cursor-pointer;
+  }
+
+  .glass-card:hover {
+    @apply bg-white/10 border-primary-500/50;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  /* 发光按钮 - Requirements 3.3 */
+  .btn-glow {
+    @apply transition-all duration-200;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
 }
 
 @layer utilities {
@@ -41,6 +59,17 @@
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* 发光文字 - Requirements 3.2 */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+                 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  /* 平滑过渡 - Requirements 4.3 */
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
   }
 }
 
@@ -95,4 +124,87 @@
 @keyframes loading-dots2 {
   0% { transform: translate(0, 0); }
   100% { transform: translate(24px, 0); }
+}
+
+/* 渐入动画 - Requirements 2.1, 2.3 */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动触发动画 - Requirements 2.1 */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 慢速脉冲动画 - 用于背景光斑 */
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* 动画延迟工具类 */
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-1500 {
+  animation-delay: 1.5s;
+}
+
+/* 尊重用户动画偏好 - Requirements 2.4 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .scroll-animate,
+  .animate-pulse-slow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-animate.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 禁用所有过渡动画 */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
