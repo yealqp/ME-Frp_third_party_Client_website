@@ -1,8 +1,8 @@
 node_modules
 dist
-api
 .vscode
 .idea
 .nuxt
 .output
-jenkins.groovy
+.kiro
+.shared
