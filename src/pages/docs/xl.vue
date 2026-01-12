@@ -26,7 +26,9 @@
 
     <!-- 项目介绍 -->
     <div 
-      class="mb-8 glass-card rounded-xl overflow-hidden"
+      ref="introRef"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      :class="{ 'visible': introVisible }"
     >
       <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">项目介绍</h2>
@@ -40,7 +42,10 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 class="text-lg font-semibold text-white mb-3">✨ 主要特性</h3>
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <UIcon name="i-lucide-sparkles" class="size-5 text-primary-400" />
+              主要特性
+            </h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -70,7 +75,10 @@
           </div>
           
           <div>
-            <h3 class="text-lg font-semibold text-white mb-3">🖥️ 系统要求</h3>
+            <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <UIcon name="i-lucide-monitor" class="size-5 text-primary-400" />
+              系统要求
+            </h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-monitor" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -92,7 +100,9 @@
 
     <!-- 预览图 -->
     <div 
-      class="mb-8 glass-card rounded-xl overflow-hidden"
+      ref="previewRef"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      :class="{ 'visible': previewVisible }"
     >
       <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">预览图</h2>
@@ -147,7 +157,9 @@
 
     <!-- 下载安装 -->
     <div 
-      class="mb-8 glass-card rounded-xl overflow-hidden"
+      ref="downloadRef"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      :class="{ 'visible': downloadVisible }"
     >
       <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">下载安装</h2>
@@ -214,7 +226,9 @@
 
     <!-- 更新记录 -->
     <div 
-      class="mb-8 glass-card rounded-xl overflow-hidden"
+      ref="updateRef"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      :class="{ 'visible': updateVisible }"
     >
       <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
@@ -244,6 +258,12 @@
 definePageMeta({
   layout: 'docs'
 })
+
+// 滚动动画
+const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation()
+const { elementRef: previewRef, isVisible: previewVisible } = useScrollAnimation()
+const { elementRef: downloadRef, isVisible: downloadVisible } = useScrollAnimation()
+const { elementRef: updateRef, isVisible: updateVisible } = useScrollAnimation()
 
 // 页面元数据
 useHead({

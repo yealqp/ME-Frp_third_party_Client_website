@@ -1,13 +1,20 @@
 <template>
-  <div class="min-h-screen bg-gray-950">
+  <div class="min-h-screen" style="background: linear-gradient(135deg, #0F172A 0%, #111827 50%, #0A0E27 100%);">
+    <!-- 动态光斑背景 -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
+    </div>
+
     <!-- 导航栏 -->
     <AppHeader />
 
     <!-- 文档容器 -->
-    <div class="flex pt-16">
+    <div class="flex pt-16 relative z-10">
       <!-- 左侧导航栏 -->
       <aside
-        class="fixed left-0 top-16 bottom-0 w-64 bg-gray-900/50 border-r border-gray-800 overflow-y-auto z-40 transition-transform duration-300 -translate-x-full lg:translate-x-0"
+        class="fixed left-0 top-16 bottom-0 w-64 border-r border-white/10 overflow-y-auto z-40 transition-transform duration-300 -translate-x-full lg:translate-x-0"
+        style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px);"
         :class="{ 'translate-x-0': sidebarOpen }"
       >
         <div class="p-6">
@@ -19,9 +26,9 @@
             <div class="mb-4">
               <NuxtLink
                 to="/docs"
-                class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+                class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                 :class="{
-                  'text-primary-400 bg-gray-800/50': $route.path === '/docs',
+                  'text-primary-400 bg-white/10': $route.path === '/docs',
                 }"
               >
                 <UIcon name="i-lucide-file-text" class="size-5" />
@@ -43,9 +50,9 @@
                   v-for="client in clients"
                   :key="client.id"
                   :to="client.path"
-                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                   :class="{
-                    'text-primary-400 bg-gray-800/50':
+                    'text-primary-400 bg-white/10':
                       $route.path === client.path,
                   }"
                 >
@@ -60,7 +67,7 @@
             </div>
 
             <!-- 快速链接 -->
-            <div class="mt-6 pt-4 border-t border-gray-800">
+            <div class="mt-6 pt-4 border-t border-white/10">
               <div
                 class="flex items-center space-x-2 px-3 py-2 text-gray-400 text-sm font-medium mb-2"
               >
@@ -72,7 +79,7 @@
                 <a
                   href="https://github.com/yealqp/ME-Frp_third_party_Client_website"
                   target="_blank"
-                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                 >
                   <UIcon name="i-lucide-github" class="size-4" />
                   <span class="text-sm">GitHub 仓库</span>
@@ -80,7 +87,7 @@
 
                 <NuxtLink
                   to="/about"
-                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                 >
                   <UIcon
                     name="i-lucide-info"
@@ -90,7 +97,7 @@
                 </NuxtLink>
                 <NuxtLink
                   to="https://www.xianlin.cloud/"
-                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
+                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                 >
                   <img
                     src="https://image.mefrp-tpca.yealqp.cn/image/xianlin.ico"
@@ -108,14 +115,14 @@
       <!-- 移动端遮罩 -->
       <div
         v-if="sidebarOpen"
-        class="fixed inset-0 bg-black/50 z-30 lg:hidden"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
         @click="sidebarOpen = false"
       ></div>
 
       <!-- 主要内容区域 -->
       <main class="flex-1 lg:ml-64">
         <!-- 移动端菜单按钮 -->
-        <div class="lg:hidden p-4 border-b border-gray-800">
+        <div class="lg:hidden p-4 border-b border-white/10">
           <UButton
             variant="ghost"
             size="sm"
