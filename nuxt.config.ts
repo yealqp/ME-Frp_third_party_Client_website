@@ -2,22 +2,19 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   
-  // Nuxt UI 模块
+  // Nuxt UI 4 模块
   modules: [
     '@nuxt/ui'
   ],
 
-  // CSS 配置
+  // CSS 配置 - Nuxt UI 4 会自动处理 Tailwind
   css: [
     '@/assets/css/main.css'
   ],
 
-  // 站点配置 - SEO 优化
-  site: {
-    url: 'https://mefrp-tpca.yealqp.cn',
-    name: 'ME-Frp 第三方客户端联盟',
-    description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端',
-    defaultLocale: 'zh-CN'
+  // Nuxt UI 4 字体配置 - 禁用 Google Fonts
+  fonts: {
+    provider: 'none'
   },
 
   // 应用配置
@@ -78,9 +75,14 @@ export default defineNuxtConfig({
     '/docs/**': { prerender: true }
   },
 
-  // 兼容性
-  compatibilityDate: '2024-12-14',
+  // 兼容性日期
+  compatibilityDate: '2025-01-12',
 
   // 自定义目录结构
-  srcDir: 'src/'
+  srcDir: 'src/',
+
+  // Nuxt 4 future 配置
+  future: {
+    compatibilityVersion: 4
+  }
 })

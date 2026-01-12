@@ -1,6 +1,12 @@
 <template>
-  <!-- Header 增强毛玻璃效果 - Requirements 1.2 -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-gray-950/70 border-b border-white/10 shadow-lg shadow-black/20 transition-smooth">
+  <!-- Header 增强毛玻璃效果 -->
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20 transition-all duration-300"
+    :class="isScrolled ? 'bg-gray-950/90' : 'bg-gray-950/70'"
+  >
+    <!-- 滚动进度条 -->
+    <ScrollProgress />
+    
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between h-16 px-4">
         <!-- Logo -->
@@ -24,10 +30,10 @@
             v-for="item in navigation" 
             :key="item.name"
             :to="item.href"
-            class="flex items-center space-x-2 text-gray-300 hover:text-primary-400 transition-smooth cursor-pointer"
-            :class="{ 'text-primary-400': $route.path === item.href }"
+            class="flex items-center space-x-2 text-gray-300 hover:text-teal-400 transition-smooth cursor-pointer"
+            :class="{ 'text-teal-400': $route.path === item.href }"
           >
-            <UIcon :name="item.icon" class="w-4 h-4" />
+            <UIcon :name="item.icon" class="size-4" />
             <span>{{ item.name }}</span>
           </NuxtLink>
         </nav>
@@ -36,14 +42,15 @@
         <UButton 
           variant="ghost" 
           size="sm"
+          color="neutral"
           class="md:hidden cursor-pointer"
           @click="isMenuOpen = !isMenuOpen"
         >
-          <UIcon :name="isMenuOpen ? 'i-heroicons-x-mark' : 'i-heroicons-bars-3'" class="w-6 h-6" />
+          <UIcon :name="isMenuOpen ? 'i-lucide-x' : 'i-lucide-menu'" class="size-6" />
         </UButton>
       </div>
 
-      <!-- 移动端导航菜单 - 增强毛玻璃效果 -->
+      <!-- 移动端导航菜单 -->
       <div 
         v-if="isMenuOpen" 
         class="md:hidden border-t border-white/10 bg-gray-950/90 backdrop-blur-xl"
@@ -53,11 +60,11 @@
             v-for="item in navigation" 
             :key="item.name"
             :to="item.href"
-            class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-smooth cursor-pointer"
-            :class="{ 'text-primary-400 bg-white/5': $route.path === item.href }"
+            class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-teal-400 hover:bg-white/5 transition-smooth cursor-pointer"
+            :class="{ 'text-teal-400 bg-white/5': $route.path === item.href }"
             @click="isMenuOpen = false"
           >
-            <UIcon :name="item.icon" class="w-5 h-5" />
+            <UIcon :name="item.icon" class="size-5" />
             <span>{{ item.name }}</span>
           </NuxtLink>
         </nav>
@@ -69,14 +76,28 @@
 <script setup>
 const route = useRoute()
 const isMenuOpen = ref(false)
+const isScrolled = ref(false)
 
 const navigation = [
-  { name: '首页', href: '/', icon: 'i-heroicons-home' },
-  { name: '产品', href: '/products', icon: 'i-heroicons-cube' },
-  { name: '关于', href: '/about', icon: 'i-heroicons-information-circle' },
-  { name: '文档', href: '/docs', icon: 'i-heroicons-document-text' }
-  
+  { name: '首页', href: '/', icon: 'i-lucide-home' },
+  { name: '产品', href: '/products', icon: 'i-lucide-box' },
+  { name: '关于', href: '/about', icon: 'i-lucide-info' },
+  { name: '文档', href: '/docs', icon: 'i-lucide-file-text' }
 ]
+
+// 监听滚动
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 // 监听路由变化，关闭移动端菜单
 watch(() => route.path, () => {

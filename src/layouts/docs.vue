@@ -24,7 +24,7 @@
                   'text-primary-400 bg-gray-800/50': $route.path === '/docs',
                 }"
               >
-                <UIcon name="i-heroicons-document-text" class="w-5 h-5" />
+                <UIcon name="i-lucide-file-text" class="size-5" />
                 <span>项目介绍</span>
               </NuxtLink>
             </div>
@@ -34,7 +34,7 @@
               <div
                 class="flex items-center space-x-2 px-3 py-2 text-gray-400 text-sm font-medium"
               >
-                <UIcon name="i-heroicons-folder" class="w-4 h-4" />
+                <UIcon name="i-lucide-folder" class="size-4" />
                 <span>客户端文档</span>
               </div>
 
@@ -64,7 +64,7 @@
               <div
                 class="flex items-center space-x-2 px-3 py-2 text-gray-400 text-sm font-medium mb-2"
               >
-                <UIcon name="i-heroicons-link" class="w-4 h-4" />
+                <UIcon name="i-lucide-link" class="size-4" />
                 <span>快速链接</span>
               </div>
 
@@ -74,7 +74,7 @@
                   target="_blank"
                   class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
                 >
-                  <UIcon name="i-simple-icons-github" class="w-4 h-4" />
+                  <UIcon name="i-lucide-github" class="size-4" />
                   <span class="text-sm">GitHub 仓库</span>
                 </a>
 
@@ -83,8 +83,8 @@
                   class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-gray-800/50 transition-all duration-200"
                 >
                   <UIcon
-                    name="i-heroicons-information-circle"
-                    class="w-4 h-4"
+                    name="i-lucide-info"
+                    class="size-4"
                   />
                   <span class="text-sm">关于我们</span>
                 </NuxtLink>
@@ -121,7 +121,7 @@
             size="sm"
             @click="sidebarOpen = !sidebarOpen"
           >
-            <UIcon name="i-heroicons-bars-3" class="w-5 h-5 mr-2" />
+            <UIcon name="i-lucide-menu" class="size-5 mr-2" />
             文档菜单
           </UButton>
         </div>

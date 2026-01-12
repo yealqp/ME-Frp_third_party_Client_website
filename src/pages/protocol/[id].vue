@@ -1,8 +1,8 @@
 <template>
   <div class="pt-16 min-h-screen bg-gray-950 flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-4xl">
-      <UCard class="bg-gray-800/50 border-gray-700">
-        <div class="text-center space-y-8">
+      <div class="glass-card rounded-xl overflow-hidden">
+        <div class="p-8 text-center space-y-8">
           <!-- 加载动画 -->
           <div class="space-y-4">
             <h1 class="text-2xl md:text-3xl font-bold text-white">
@@ -19,22 +19,25 @@
 
           <!-- 错误提示 -->
           <div v-if="!protocolAvailable" class="space-y-4">
-            <UAlert 
-              color="red" 
-              variant="soft"
-              title="协议不可用"
-              description="检测到您尚未安装支持的客户端，请下载并安装以下任一客户端"
-            />
+            <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+              <div class="flex items-start space-x-3">
+                <UIcon name="i-lucide-alert-circle" class="size-5 text-red-400 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 class="font-semibold text-red-400">协议不可用</h4>
+                  <p class="text-gray-300 text-sm mt-1">检测到您尚未安装支持的客户端，请下载并安装以下任一客户端</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- 产品下载 -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <UCard 
+            <div 
               v-for="product in products" 
               :key="product.id"
-              class="bg-gray-700/50 border-gray-600 hover:border-primary-500/50 transition-colors"
+              class="glass-card rounded-xl overflow-hidden hover:border-primary-500/50 transition-colors"
             >
-              <template #header>
+              <div class="p-4 border-b border-white/10">
                 <div class="flex items-center space-x-3">
                   <img 
                     :src="product.icon" 
@@ -46,9 +49,9 @@
                     <p class="text-sm text-gray-400">{{ product.author }} · {{ product.version }}</p>
                   </div>
                 </div>
-              </template>
+              </div>
 
-              <div class="space-y-4">
+              <div class="p-4 space-y-4">
                 <p class="text-sm text-gray-300 line-clamp-3">
                   {{ product.description }}
                 </p>
@@ -59,11 +62,11 @@
                   :to="product.downloadUrl"
                   target="_blank"
                 >
-                  <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                  <UIcon name="i-lucide-download" class="size-4 mr-2" />
                   下载
                 </UButton>
               </div>
-            </UCard>
+            </div>
           </div>
 
           <!-- 手动跳转 -->
@@ -74,22 +77,25 @@
               color="primary"
               @click="startRedirect"
             >
-              <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-5 h-5 mr-2" />
+              <UIcon name="i-lucide-external-link" class="size-5 mr-2" />
               跳转链接 ({{ countdown }}s)
             </UButton>
           </div>
 
           <!-- 协议不可用提示 -->
           <div v-if="!protocolAvailable && showRedirectBtn" class="space-y-4">
-            <UAlert 
-              color="amber" 
-              variant="soft"
-              title="倒计时结束"
-              description="协议不可用，请下载上方任一产品"
-            />
+            <div class="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
+              <div class="flex items-start space-x-3">
+                <UIcon name="i-lucide-alert-triangle" class="size-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                <div>
+                  <h4 class="font-semibold text-amber-400">倒计时结束</h4>
+                  <p class="text-gray-300 text-sm mt-1">协议不可用，请下载上方任一产品</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </UCard>
+      </div>
     </div>
   </div>
 </template>

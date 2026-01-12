@@ -1,76 +1,171 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS 4 - 使用 @import 引入 */
+@import "tailwindcss";
+@import "@nuxt/ui";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-gray-950 text-white;
-  }
+/* Tailwind CSS 4 主题配置 */
+@theme {
+  /* 主色调 - teal */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
 }
 
-@layer components {
-  /* 自定义组件样式 */
-  .hero-gradient {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
-  }
-  
-  .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
-  }
-
-  /* Glassmorphism 卡片 - Requirements 1.1, 1.3 */
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
-    @apply transition-all duration-300 cursor-pointer;
-  }
-
-  .glass-card:hover {
-    @apply bg-white/10 border-primary-500/50;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  }
-
-  /* 发光按钮 - Requirements 3.3 */
-  .btn-glow {
-    @apply transition-all duration-200;
-  }
-
-  .btn-glow:hover {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-  }
+/* 基础样式 */
+html {
+  /* 不使用 CSS smooth，由 JS 控制滚动动画 */
 }
 
-@layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .backdrop-blur-custom {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+body {
+  background-color: rgb(3 7 18); /* gray-950 */
+  color: white;
+  overflow-x: hidden;
+}
 
-  /* 发光文字 - Requirements 3.2 */
-  .text-glow {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-                 0 0 40px rgba(59, 130, 246, 0.3);
-  }
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-  /* 平滑过渡 - Requirements 4.3 */
-  .transition-smooth {
-    @apply transition-all duration-200 ease-out;
-  }
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
+}
+
+/* 自定义组件样式 */
+.hero-gradient {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+}
+
+.card-hover {
+  transition: all 0.3s;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #2dd4bf, #0d9488);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background-color: #14b8a6;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0d9488;
+}
+
+/* Glassmorphism 卡片 */
+.glass-card {
+  background: #111827; /* gray-900 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.glass-card:hover {
+  background: #1f2937; /* gray-800 - 悬停时稍微变亮 */
+  border-color: rgba(20, 184, 166, 0.5);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 特别赞助卡片 */
+.special-card {
+  background: linear-gradient(135deg, #111827 0%, #0f172a 50%, #111827 100%);
+  border: 1px solid rgba(20, 184, 166, 0.5);
+  box-shadow: 0 0 30px rgba(20, 184, 166, 0.2),
+              inset 0 0 60px rgba(20, 184, 166, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.special-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #3b82f6,
+    #8b5cf6,
+    #14b8a6
+  );
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGradient 4s linear infinite;
+}
+
+.special-card:hover {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #1f2937 100%);
+  box-shadow: 0 0 40px rgba(20, 184, 166, 0.4),
+              0 0 80px rgba(59, 130, 246, 0.2),
+              inset 0 0 60px rgba(20, 184, 166, 0.1);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* 发光按钮 */
+.btn-glow {
+  transition: all 0.2s;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* 工具类 */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 发光文字 */
+.text-glow {
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+               0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+/* 平滑过渡 */
+.transition-smooth {
+  transition: all 0.2s ease-out;
 }
 
 /* 加载动画 */
@@ -126,7 +221,7 @@
   100% { transform: translate(24px, 0); }
 }
 
-/* 渐入动画 - Requirements 2.1, 2.3 */
+/* 渐入动画 */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -142,11 +237,11 @@
   }
 }
 
-/* 滚动触发动画 - Requirements 2.1 */
+/* 滚动触发动画 */
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate.visible {
@@ -154,7 +249,93 @@
   transform: translateY(0);
 }
 
-/* 慢速脉冲动画 - 用于背景光斑 */
+/* 从左侧滑入 */
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 从右侧滑入 */
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 缩放淡入 */
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 旋转淡入 */
+.scroll-animate-rotate {
+  opacity: 0;
+  transform: rotate(-5deg) translateY(20px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-rotate.visible {
+  opacity: 1;
+  transform: rotate(0) translateY(0);
+}
+
+/* 模糊淡入 */
+.scroll-animate-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-blur.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* 弹性效果 */
+.scroll-animate-bounce {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.scroll-animate-bounce.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D 翻转效果 */
+.scroll-animate-flip {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(-10deg) translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-flip.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0) translateY(0);
+}
+
+/* 慢速脉冲动画 */
 .animate-pulse-slow {
   animation: pulseSlow 4s ease-in-out infinite;
 }
@@ -183,23 +364,38 @@
   animation-delay: 1.5s;
 }
 
-/* 尊重用户动画偏好 - Requirements 2.4 */
+/* 尊重用户动画偏好 */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .scroll-animate,
+  .scroll-animate-left,
+  .scroll-animate-right,
+  .scroll-animate-scale,
+  .scroll-animate-rotate,
+  .scroll-animate-blur,
+  .scroll-animate-bounce,
+  .scroll-animate-flip,
   .animate-pulse-slow {
     animation: none;
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 
-  .scroll-animate.visible {
+  .scroll-animate.visible,
+  .scroll-animate-left.visible,
+  .scroll-animate-right.visible,
+  .scroll-animate-scale.visible,
+  .scroll-animate-rotate.visible,
+  .scroll-animate-blur.visible,
+  .scroll-animate-bounce.visible,
+  .scroll-animate-flip.visible {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 
-  /* 禁用所有过渡动画 */
   *,
   *::before,
   *::after {
@@ -207,4 +403,139 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* 视差滚动效果 */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* 滚动进度指示器 */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #14b8a6 0%, #2dd4bf 50%, #5eead4 100%);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+/* 浮动动画 */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* 闪烁光效 */
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 渐变边框动画 */
+.animate-border-gradient {
+  position: relative;
+  background: transparent;
+}
+
+.animate-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #3b82f6,
+    #8b5cf6,
+    #14b8a6
+  );
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGradient 4s linear infinite;
+}
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* 悬浮卡片效果 */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+              0 0 30px rgba(20, 184, 166, 0.2);
+}
+
+/* 倾斜悬浮效果 */
+.hover-tilt {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+}
+
+/* 光标跟随高亮 */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
 }

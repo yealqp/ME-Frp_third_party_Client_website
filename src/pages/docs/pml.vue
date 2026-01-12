@@ -15,27 +15,22 @@
       </div>
       
       <div class="flex flex-wrap gap-2">
-        <UBadge variant="soft" color="blue">.NET 10.0</UBadge>
-        <UBadge variant="soft" color="cyan">Avalonia UI</UBadge>
-        <UBadge variant="soft" color="indigo">Fluent Design</UBadge>
-        <UBadge variant="soft" color="green">跨平台</UBadge>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400">.NET 10.0</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-cyan-500/20 text-cyan-400">Avalonia UI</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-indigo-500/20 text-indigo-400">Fluent Design</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400">跨平台</span>
       </div>
     </div>
 
     <!-- 项目介绍 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">项目介绍</h2>
-      </template>
+      </div>
       
-      <div class="space-y-4 text-gray-300">
+      <div class="p-6 space-y-4 text-gray-300">
         <p>
           Plain ME Frp Launcher X (PML 2) 是由 <strong class="text-primary-400">RYCB Studio</strong> 使用 .NET 10.0 开发的 ME-Frp 第三方客户端。
           该客户端是对 ME Frp (幻缘映射) 的图形化实现，提供了简单便捷的操作，可以快速启动隧道，支持 Windows, Linux 和 MacOS 三端。
@@ -47,27 +42,27 @@
             <h3 class="text-lg font-semibold text-white mb-3">✨ 主要特性</h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>作者：<strong class="text-primary-400">RYCB Studio</strong></span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>命名灵感：<strong class="text-blue-400">PCL Ⅱ</strong></span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>基于 .NET 10.0 框架，跨平台支持</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>支持 Windows、Linux、MacOS 三端</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>操作简单便捷，功能丰富</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>持续更新，社区活跃</span>
               </li>
             </ul>
@@ -77,44 +72,42 @@
             <h3 class="text-lg font-semibold text-white mb-3">🖥️ 系统要求</h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-monitor" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>Windows 10/11/Server 2019+</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-monitor" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>常见 Linux x64 发行版</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-monitor" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>macOS（Intel/Apple Silicon）</span>
               </li>
             </ul>
           </div>
           
-          <UAlert 
-            color="blue" 
-            variant="soft"
-            title="官网信息"
-            description="查看官网https://rycb.mxj.pub/mefl/以获得最新消息。"
-          />
+          <div class="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+            <div class="flex items-start space-x-3">
+              <UIcon name="i-lucide-info" class="size-5 text-blue-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 class="font-semibold text-blue-400">官网信息</h4>
+                <p class="text-gray-300 text-sm mt-1">查看官网https://rycb.mxj.pub/mefl/以获得最新消息。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 预览图 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">预览图</h2>
-      </template>
+      </div>
       
-      <div class="relative rounded-lg overflow-hidden bg-gray-900/50">
+      <div class="p-6 relative rounded-lg overflow-hidden bg-gray-900/50">
         <!-- 图片容器 -->
         <div class="relative h-96 flex items-center justify-center">
           <img 
@@ -137,7 +130,7 @@
           class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
           :disabled="previewImages.length <= 1"
         >
-          <UIcon name="i-heroicons-chevron-left" class="w-5 h-5" />
+          <UIcon name="i-lucide-chevron-left" class="size-5" />
         </button>
         
         <button 
@@ -145,7 +138,7 @@
           class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
           :disabled="previewImages.length <= 1"
         >
-          <UIcon name="i-heroicons-chevron-right" class="w-5 h-5" />
+          <UIcon name="i-lucide-chevron-right" class="size-5" />
         </button>
         
         <!-- 指示器 -->
@@ -159,65 +152,56 @@
           />
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 使用方法 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">使用方法</h2>
-      </template>
+      </div>
       
-      <div class="space-y-6">
+      <div class="p-6 space-y-6">
         <div class="space-y-4">
-          <UAlert 
-            color="blue" 
-            variant="soft"
-            title="教程：如何在 Linux 上顺利运行本软件？"
-          >
-            <template #description>
+          <div class="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
+            <div class="flex items-start space-x-3">
+              <UIcon name="i-lucide-info" class="size-5 text-blue-400 mt-0.5 flex-shrink-0" />
               <div>
-                <ol class="space-y-2 text-sm">
+                <h4 class="font-semibold text-blue-400">教程：如何在 Linux 上顺利运行本软件？</h4>
+                <ol class="space-y-2 text-sm text-gray-300 mt-2">
                   <li>1. 打开终端</li>
                   <li>2. 输入 <code class="bg-gray-700 px-2 py-1 rounded text-xs">bash &lt;(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></li>
                   <li>3. 等待安装完成</li>
                   <li>4. 之后可直接输入 (2.1.0.0 以下) <code class="bg-gray-700 px-2 py-1 rounded text-xs">mefrplauncherx</code> 或 (2.1.0.0 及以上) <code class="bg-gray-700 px-2 py-1 rounded text-xs">pml-2</code> 启动</li>
                 </ol>
               </div>
-            </template>
-          </UAlert>
+            </div>
+          </div>
 
           
-          <UAlert 
-            color="cyan" 
-            variant="soft"
-            title="为什么建议在 Linux 中使用终端运行？"
-            description="Linux 软件安装目录通常不在用户主目录下，无法双击运行。使用终端可追踪程序运行情况，便于错误排查。"
-          />
+          <div class="p-4 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+            <div class="flex items-start space-x-3">
+              <UIcon name="i-lucide-help-circle" class="size-5 text-cyan-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 class="font-semibold text-cyan-400">为什么建议在 Linux 中使用终端运行？</h4>
+                <p class="text-gray-300 text-sm mt-1">Linux 软件安装目录通常不在用户主目录下，无法双击运行。使用终端可追踪程序运行情况，便于错误排查。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 下载安装 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">下载安装</h2>
-      </template>
+      </div>
       
-      <div class="space-y-6">
+      <div class="p-6 space-y-6">
         <div class="text-center mb-6">
           <h3 class="text-lg font-semibold text-white mb-4">v2.1.0 下载地址</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -227,37 +211,37 @@
               target="_blank"
               block
             >
-              <UIcon name="i-heroicons-folder-open" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-folder-open" class="size-4 mr-2" />
               OpenList
             </UButton>
             
             <UButton 
-              color="blue"
+              color="info"
               to="https://rycbstudio.lanzoue.com/b0zkfytmb"
               target="_blank"
               block
             >
-              <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-monitor" class="size-4 mr-2" />
               Windows 分发
             </UButton>
             
             <UButton 
-              color="green"
+              color="success"
               to="https://rycbstudio.lanzoue.com/b0zkfytpe"
               target="_blank"
               block
             >
-              <UIcon name="i-heroicons-command-line" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-terminal" class="size-4 mr-2" />
               Linux 分发
             </UButton>
             
             <UButton 
-              color="gray"
+              color="neutral"
               to="https://rycbstudio.lanzoue.com/b0zkfytqf"
               target="_blank"
               block
             >
-              <UIcon name="i-heroicons-device-tablet" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-tablet" class="size-4 mr-2" />
               MacOS 分发
             </UButton>
           </div>
@@ -266,25 +250,31 @@
           </div>
         </div>
         
-        <UAlert 
-          color="red" 
-          variant="soft"
-          title="重要提醒"
-          description="安装或使用本软件表明您同意本软件的用户协议和隐私政策。Windows下安装时请不要将软件安装至C:\Program Files等需要管理员权限的目录。请使用 ME Frp 官网账号登录。若在 Linux 下使用 root 账户运行，软件可能将无法正常运行。"
-        />
+        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+          <div class="flex items-start space-x-3">
+            <UIcon name="i-lucide-alert-circle" class="size-5 text-red-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold text-red-400">重要提醒</h4>
+              <p class="text-gray-300 text-sm mt-1">安装或使用本软件表明您同意本软件的用户协议和隐私政策。Windows下安装时请不要将软件安装至C:\Program Files等需要管理员权限的目录。请使用 ME Frp 官网账号登录。若在 Linux 下使用 root 账户运行，软件可能将无法正常运行。</p>
+            </div>
+          </div>
+        </div>
         
-        <UAlert 
-          color="yellow" 
-          variant="soft"
-          title="需要帮助？"
-          description="遇到问题，请先查看下方的快速修复。需要更多功能或报告 Bug, 请发送邮件至 rycbstudio@163.com"
-        />
+        <div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+          <div class="flex items-start space-x-3">
+            <UIcon name="i-lucide-alert-triangle" class="size-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold text-yellow-400">需要帮助？</h4>
+              <p class="text-gray-300 text-sm mt-1">遇到问题，请先查看下方的快速修复。需要更多功能或报告 Bug, 请发送邮件至 rycbstudio@163.com</p>
+            </div>
+          </div>
+        </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Windows 安装 -->
           <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
-              <UIcon name="i-simple-icons-windows" class="w-5 h-5 mr-2 text-blue-400" />
+              <UIcon name="i-lucide-monitor" class="size-5 mr-2 text-blue-400" />
               Windows 安装
             </h3>
             <ol class="space-y-2 text-gray-300 text-sm">
@@ -306,7 +296,7 @@
           <!-- Linux 安装 -->
           <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
-              <UIcon name="i-simple-icons-linux" class="w-5 h-5 mr-2 text-yellow-400" />
+              <UIcon name="i-lucide-terminal" class="size-5 mr-2 text-yellow-400" />
               Linux 安装
             </h3>
             <ol class="space-y-2 text-gray-300 text-sm">
@@ -328,7 +318,7 @@
           <!-- macOS 安装 -->
           <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
-              <UIcon name="i-simple-icons-apple" class="w-5 h-5 mr-2 text-gray-300" />
+              <UIcon name="i-lucide-laptop" class="size-5 mr-2 text-gray-300" />
               macOS 安装
             </h3>
             <ol class="space-y-2 text-gray-300 text-sm">
@@ -350,7 +340,7 @@
           <!-- Android 安装 -->
           <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
             <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
-              <UIcon name="i-simple-icons-android" class="w-5 h-5 mr-2 text-green-400" />
+              <UIcon name="i-lucide-smartphone" class="size-5 mr-2 text-green-400" />
               Android 安装
             </h3>
             <ol class="space-y-2 text-gray-300 text-sm">
@@ -370,22 +360,17 @@
           </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 快速修复 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">快速修复</h2>
-      </template>
+      </div>
       
-      <div class="space-y-8">
+      <div class="p-6 space-y-8">
         <!-- Windows 问题 -->
         <div class="border-l-2 border-red-500/30 pl-4">
           <h3 class="text-lg font-semibold text-white mb-3">Windows - 软件无法启动</h3>
@@ -418,43 +403,41 @@
           </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 更新记录 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
-      </template>
+      </div>
       
       <!-- 加载状态 -->
-      <div v-if="loading" class="text-center py-8">
-        <UIcon name="i-heroicons-arrow-path" class="w-8 h-8 text-primary-400 animate-spin mx-auto mb-4" />
+      <div v-if="loading" class="p-6 text-center py-8">
+        <UIcon name="i-lucide-loader-2" class="size-8 text-primary-400 animate-spin mx-auto mb-4" />
         <p class="text-gray-400">正在加载更新日志...</p>
       </div>
 
       <!-- 错误状态 -->
-      <div v-else-if="error" class="text-center py-8">
-        <UAlert 
-          color="red" 
-          variant="soft"
-          title="获取更新日志失败"
-          :description="`${error}，请稍后重试或联系管理员。`"
-        />
+      <div v-else-if="error" class="p-6 text-center py-8">
+        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+          <div class="flex items-start space-x-3">
+            <UIcon name="i-lucide-alert-circle" class="size-5 text-red-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold text-red-400">获取更新日志失败</h4>
+              <p class="text-gray-300 text-sm mt-1">{{ error }}，请稍后重试或联系管理员。</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 更新日志内容 -->
-      <div v-else class="space-y-6">
+      <div v-else class="p-6 space-y-6">
         <div v-for="update in updates" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
           <div class="flex items-center space-x-2 mb-2">
             <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
-            <UBadge v-if="update.isLatest" variant="soft" color="green" size="sm">最新</UBadge>
+            <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
           </div>
           <ul class="space-y-1 text-gray-300 text-sm">
             <li v-for="(item, index) in update.notes" :key="index" class="flex items-start space-x-2">
@@ -464,7 +447,7 @@
           </ul>
         </div>
       </div>
-    </UCard>
+    </div>
 
   </div>
 </template>
