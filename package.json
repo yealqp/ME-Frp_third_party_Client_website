@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
     "@nuxt/ui": "^4.3.0",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18",
