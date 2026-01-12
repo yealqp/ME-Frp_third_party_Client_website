@@ -1,16 +1,16 @@
 <template>
   <div class="pt-16">
     <!-- Hero Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-br from-gray-950 to-gray-900 relative overflow-hidden">
+    <section class="py-16 lg:py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #111827 50%, #0A0E27 100%);">
       <!-- 动态光斑背景 -->
       <div class="absolute inset-0">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
         <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
       </div>
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div class="animate-fade-in-up">
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 text-glow">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" style="text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);">
             我们的产品
           </h1>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -21,7 +21,7 @@
     </section>
 
     <!-- 产品详细展示 -->
-    <section class="py-16 lg:py-24 bg-gray-950">
+    <section class="py-16 lg:py-24 relative" style="background: linear-gradient(180deg, #111827 0%, #0F172A 100%);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         <div 
           v-for="(product, index) in products" 
@@ -115,10 +115,11 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 lg:py-24 bg-gradient-to-r from-primary-900/20 to-blue-900/20 relative overflow-hidden">
+    <section class="py-16 lg:py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #0A0E27 50%, #0F172A 100%);">
       <!-- 动态光斑背景 -->
       <div class="absolute inset-0">
-        <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/2 left-1/3 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
       </div>
       
       <div 
@@ -126,7 +127,7 @@
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-animate"
         :class="{ 'visible': ctaVisible }"
       >
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 text-glow">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" style="text-shadow: 0 0 30px rgba(20, 184, 166, 0.3);">
           开始使用我们的产品
         </h2>
         <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">

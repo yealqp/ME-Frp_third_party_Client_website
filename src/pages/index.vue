@@ -84,20 +84,126 @@
       </div>
     </section>
 
-    <!-- 产品展示区域 -->
-    <ProductShowcase />
-
-    <!-- 团队成员区域 -->
-    <TeamMembers />
-
-    <!-- 统计数据 -->
-    <StatsSection />
+    <!-- 主要内容区域 -->
+    <MainContent />
   </div>
 </template>
 
 <script setup>
 // 视差效果
 const parallaxOffset = ref(0)
+
+// 滚动状态
+const isScrolling = ref(false)
+
+// 平滑滚动到指定位置
+const smoothScrollTo = (targetPosition) => {
+  if (isScrolling.value) return
+  
+  isScrolling.value = true
+  const startPosition = window.pageYOffset
+  const distance = targetPosition - startPosition
+  const duration = 800
+  let start = null
+
+  const smoothScroll = (timestamp) => {
+    if (!start) start = timestamp
+    const progress = timestamp - start
+    const percentage = Math.min(progress / duration, 1)
+
+    // easeOutQuart 缓动函数
+    const easeOutQuart = 1 - Math.pow(1 - percentage, 4)
+
+    window.scrollTo(0, startPosition + distance * easeOutQuart)
+
+    if (progress < duration) {
+      requestAnimationFrame(smoothScroll)
+    } else {
+      isScrolling.value = false
+    }
+  }
+
+  requestAnimationFrame(smoothScroll)
+}
+
+// 处理滚轮事件
+const handleWheel = (event) => {
+  const heroHeight = window.innerHeight
+  const scrollY = window.scrollY
+  
+  // 正在滚动动画中，阻止所有滚动
+  if (isScrolling.value) {
+    event.preventDefault()
+    return
+  }
+
+  // 在 hero 区域内（scrollY < heroHeight）
+  if (scrollY < heroHeight) {
+    event.preventDefault()
+    
+    const delta = event.deltaY
+
+    if (delta > 0) {
+      // 向下滚动，跳到下一个 section
+      smoothScrollTo(heroHeight)
+    } else if (delta < 0 && scrollY > 0) {
+      // 向上滚动，回到顶部
+      smoothScrollTo(0)
+    }
+    return
+  }
+  
+  // 刚离开 hero 区域不远时（heroHeight <= scrollY < heroHeight + 100），向上滚动吸附回 hero
+  if (scrollY < heroHeight + 100 && event.deltaY < 0) {
+    event.preventDefault()
+    smoothScrollTo(0)
+  }
+}
+
+// 处理触摸事件
+let touchStartY = 0
+
+const handleTouchStart = (event) => {
+  touchStartY = event.touches[0].clientY
+}
+
+const handleTouchMove = (event) => {
+  const heroHeight = window.innerHeight
+  const scrollY = window.scrollY
+  
+  // 在 hero 区域内或刚离开 hero 区域时阻止默认触摸滚动
+  if ((scrollY < heroHeight || scrollY < heroHeight + 100) && !isScrolling.value) {
+    event.preventDefault()
+  }
+}
+
+const handleTouchEnd = (event) => {
+  const heroHeight = window.innerHeight
+  const scrollY = window.scrollY
+  
+  if (isScrolling.value) return
+
+  const touchEndY = event.changedTouches[0].clientY
+  const deltaY = touchStartY - touchEndY
+  const threshold = 50
+
+  // 在 hero 区域内
+  if (scrollY < heroHeight) {
+    if (deltaY > threshold) {
+      // 向上滑动（向下滚动）
+      smoothScrollTo(heroHeight)
+    } else if (deltaY < -threshold && scrollY > 0) {
+      // 向下滑动（向上滚动）
+      smoothScrollTo(0)
+    }
+    return
+  }
+  
+  // 刚离开 hero 区域不远时，向上滑动吸附回 hero
+  if (scrollY < heroHeight + 100 && deltaY < -threshold) {
+    smoothScrollTo(0)
+  }
+}
 
 const updateParallax = () => {
   if (import.meta.server) return
@@ -107,11 +213,19 @@ const updateParallax = () => {
 onMounted(() => {
   if (import.meta.server) return
   window.addEventListener('scroll', updateParallax, { passive: true })
+  window.addEventListener('wheel', handleWheel, { passive: false })
+  window.addEventListener('touchstart', handleTouchStart, { passive: true })
+  window.addEventListener('touchmove', handleTouchMove, { passive: false })
+  window.addEventListener('touchend', handleTouchEnd, { passive: true })
 })
 
 onUnmounted(() => {
   if (import.meta.server) return
   window.removeEventListener('scroll', updateParallax)
+  window.removeEventListener('wheel', handleWheel)
+  window.removeEventListener('touchstart', handleTouchStart)
+  window.removeEventListener('touchmove', handleTouchMove)
+  window.removeEventListener('touchend', handleTouchEnd)
 })
 
 // 页面元数据

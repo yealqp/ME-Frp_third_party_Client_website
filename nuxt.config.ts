@@ -12,17 +12,9 @@ export default defineNuxtConfig({
     '@/assets/css/main.css'
   ],
 
-  // Nuxt UI 4 配置
-  ui: {
-    fonts: false // 禁用 Google Fonts 避免网络问题
-  },
-
-  // 站点配置 - SEO 优化
-  site: {
-    url: 'https://mefrp-tpca.yealqp.cn',
-    name: 'ME-Frp 第三方客户端联盟',
-    description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端',
-    defaultLocale: 'zh-CN'
+  // Nuxt UI 4 字体配置 - 禁用 Google Fonts
+  fonts: {
+    provider: 'none'
   },
 
   // 应用配置
