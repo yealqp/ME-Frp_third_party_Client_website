@@ -66,7 +66,7 @@
                   :key="feature"
                   class="flex items-center space-x-3 text-gray-300"
                 >
-                  <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-primary-400 flex-shrink-0" />
+                  <UIcon name="i-lucide-check-circle" class="size-5 text-primary-400 flex-shrink-0" />
                   <span>{{ feature }}</span>
                 </li>
               </ul>
@@ -74,14 +74,13 @@
 
             <!-- 技术标签 -->
             <div class="flex flex-wrap gap-2">
-              <UBadge 
+              <span 
                 v-for="tag in product.tags" 
                 :key="tag"
-                variant="soft" 
-                color="primary"
+                class="px-2 py-1 text-xs font-medium rounded-full bg-primary-500/20 text-primary-400"
               >
                 {{ tag }}
-              </UBadge>
+              </span>
             </div>
 
             <!-- 操作按钮 -->
@@ -93,7 +92,7 @@
                 target="_blank"
                 class="btn-glow cursor-pointer"
               >
-                <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-5 h-5 mr-2" />
+                <UIcon name="i-lucide-external-link" class="size-5 mr-2" />
                 查看文档
               </UButton>
             </div>
@@ -139,7 +138,7 @@
           to="/docs"
           class="btn-glow cursor-pointer"
         >
-          <UIcon name="i-heroicons-document-text" class="w-5 h-5 mr-2" />
+          <UIcon name="i-lucide-file-text" class="size-5 mr-2" />
           查看文档
         </UButton>
       </div>

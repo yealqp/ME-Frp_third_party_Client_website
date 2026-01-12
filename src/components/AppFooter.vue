@@ -12,36 +12,37 @@
           </p>
           <p class="text-gray-400 text-sm">
             本站借鉴自
-            <ULink 
+            <NuxtLink 
               to="https://github.com/MCSLTeam/MCSLTeam-Website-Next" 
               target="_blank"
-              class="text-primary-400 hover:text-primary-300 transition-smooth cursor-pointer"
+              class="text-teal-400 hover:text-teal-300 transition-smooth cursor-pointer"
             >
               MCSLTeam官网
-            </ULink>
+            </NuxtLink>
             。
           </p>
         </div>
 
         <!-- 右侧链接 -->
         <div class="flex flex-col items-start md:items-end space-y-3">
-          <ULink 
+          <NuxtLink 
             to="https://beian.miit.gov.cn/" 
             target="_blank"
-            class="text-gray-400 hover:text-primary-400 text-sm transition-smooth cursor-pointer"
+            class="text-gray-400 hover:text-teal-400 text-sm transition-smooth cursor-pointer"
           >
             冀ICP备2025123259号-2
-          </ULink>
+          </NuxtLink>
           
           <div class="flex items-center space-x-4">
             <UButton
               variant="ghost"
               size="sm"
+              color="neutral"
               to="https://github.com/yealqp/ME-Frp_third_party_Client_website"
               target="_blank"
-              class="text-gray-400 hover:text-primary-400 btn-glow cursor-pointer"
+              class="text-gray-400 hover:text-teal-400 btn-glow cursor-pointer"
             >
-              <UIcon name="i-simple-icons-github" class="w-5 h-5" />
+              <UIcon name="i-lucide-github" class="size-5" />
             </UButton>
           </div>
         </div>

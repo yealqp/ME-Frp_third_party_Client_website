@@ -20,23 +20,15 @@
         ref="gridRef"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        <UCard 
+        <div 
           v-for="(product, index) in products" 
           :key="product.id"
-          class="glass-card hover-lift scroll-animate-scale"
+          class="glass-card hover-lift scroll-animate-scale overflow-hidden"
           :class="{ 'visible': gridVisible }"
           :style="{ transitionDelay: `${getItemDelay(index)}ms` }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0',
-            divide: 'divide-white/10',
-            header: { padding: 'px-4 py-4 sm:px-6' },
-            body: { padding: 'px-4 py-4 sm:px-6' },
-            footer: { padding: 'px-4 py-4 sm:px-6' }
-          }"
         >
-          <template #header>
+          <!-- Header -->
+          <div class="px-4 py-4 sm:px-6 border-b border-white/10">
             <div class="flex items-center space-x-4">
               <img 
                 :src="product.icon" 
@@ -49,27 +41,27 @@
                 <p class="text-sm text-gray-400">{{ product.author }} · {{ product.version }}</p>
               </div>
             </div>
-          </template>
+          </div>
 
-          <div class="space-y-4">
+          <!-- Body -->
+          <div class="px-4 py-4 sm:px-6 space-y-4">
             <p class="text-gray-300 leading-relaxed">
               {{ product.description }}
             </p>
 
             <div class="flex flex-wrap gap-2">
-              <UBadge 
+              <span 
                 v-for="tag in product.tags" 
                 :key="tag"
-                variant="soft" 
-                color="primary"
-                size="sm"
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/20 text-teal-300"
               >
                 {{ tag }}
-              </UBadge>
+              </span>
             </div>
           </div>
 
-          <template #footer>
+          <!-- Footer -->
+          <div class="px-4 py-4 sm:px-6 border-t border-white/10">
             <div class="flex justify-between items-center">
               <UButton 
                 variant="outline" 
@@ -78,19 +70,19 @@
                 target="_blank"
                 class="btn-glow cursor-pointer"
               >
-                <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-4 h-4 mr-2" />
+                <UIcon name="i-lucide-external-link" class="size-4 mr-2" />
                 查看详情
               </UButton>
             </div>
-          </template>
-        </UCard>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-// 标题滚动动画 - Nuxt 自动导入 composables
+// 标题滚动动画
 const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation()
 
 // 产品网格滚动动画（带交错延迟）
@@ -130,14 +122,4 @@ const products = ref([
     tags: ['.NET', '跨平台', '多系统']
   }
 ])
-
-const openProtocol = (productId) => {
-  // 尝试打开自定义协议
-  window.location.href = `mefrp://StartProxy/${productId}`
-  
-  // 如果协议不可用，跳转到协议页面
-  setTimeout(() => {
-    navigateTo(`/protocol/${productId}`)
-  }, 1000)
-}
 </script>

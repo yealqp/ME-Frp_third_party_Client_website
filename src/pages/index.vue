@@ -2,12 +2,12 @@
   <div>
     <!-- Hero Section -->
     <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-      <!-- 动态渐变背景 - Requirements 3.1 -->
+      <!-- 动态渐变背景 -->
       <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-gray-950 to-blue-900/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-900/20 via-gray-950 to-blue-900/20"></div>
         <!-- 动态光斑 - 添加浮动效果 -->
         <div 
-          class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow animate-float"
+          class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow animate-float"
           :style="{ transform: `translateY(${parallaxOffset * 0.3}px)` }"
         ></div>
         <div 
@@ -24,11 +24,10 @@
         <div class="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
           <!-- 主标题 -->
           <div class="text-center space-y-6">
-
-            <!-- 发光标题 - Requirements 3.2 -->
+            <!-- 发光标题 -->
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-glow">
               <span class="block">
-                <span class="text-gradient bg-gradient-to-r from-primary-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span class="text-gradient bg-gradient-to-r from-teal-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                   ME-Frp 第三方客户端联盟
                 </span>
               </span>
@@ -48,32 +47,31 @@
 
           <!-- 副标题 -->
           <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed text-center">
-            专注于 <span class="text-primary-400 font-semibold">ME-Frp</span> 第三方客户端开发，
+            专注于 <span class="text-teal-400 font-semibold">ME-Frp</span> 第三方客户端开发，
             <br class="hidden md:block">
             为用户提供更美观、更便捷、更强大的内网穿透体验
           </p>
 
-          <!-- 按钮组 - Requirements 3.3 CTA 按钮发光效果 -->
+          <!-- 按钮组 -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <UButton 
               size="xl" 
               color="primary"
-              variant="solid"
               to="/products"
               class="px-8 py-4 text-lg font-semibold btn-glow hover-lift cursor-pointer"
             >
-              <UIcon name="i-heroicons-cube" class="w-5 h-5 mr-2" />
+              <UIcon name="i-lucide-box" class="size-5 mr-2" />
               探索产品
             </UButton>
             
             <UButton 
               size="xl" 
-              color="gray"
+              color="neutral"
               variant="outline"
               to="/about"
               class="px-8 py-4 text-lg btn-glow hover-lift cursor-pointer"
             >
-              <UIcon name="i-heroicons-users" class="w-5 h-5 mr-2" />
+              <UIcon name="i-lucide-users" class="size-5 mr-2" />
               了解更多
             </UButton>
           </div>
@@ -82,7 +80,7 @@
 
       <!-- 向下滚动提示 -->
       <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-        <UIcon name="i-heroicons-chevron-double-down" class="w-8 h-8 text-gray-400" />
+        <UIcon name="i-lucide-chevrons-down" class="size-8 text-gray-400" />
       </div>
     </section>
 
@@ -98,10 +96,23 @@
 </template>
 
 <script setup>
-import { useParallax } from '~/composables/useScrollAnimation'
-
 // 视差效果
-const { offset: parallaxOffset } = useParallax(0.3)
+const parallaxOffset = ref(0)
+
+const updateParallax = () => {
+  if (import.meta.server) return
+  parallaxOffset.value = window.scrollY * 0.3
+}
+
+onMounted(() => {
+  if (import.meta.server) return
+  window.addEventListener('scroll', updateParallax, { passive: true })
+})
+
+onUnmounted(() => {
+  if (import.meta.server) return
+  window.removeEventListener('scroll', updateParallax)
+})
 
 // 页面元数据
 useHead({
@@ -143,4 +154,3 @@ useSeoMeta({
   twitterImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/og-image.png'
 })
 </script>
-

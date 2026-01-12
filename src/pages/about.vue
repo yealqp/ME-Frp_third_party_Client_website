@@ -23,24 +23,19 @@
     <!-- 我们是谁 -->
     <section class="py-16 lg:py-24 bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard 
+        <div 
           ref="whoWeAreRef"
-          class="glass-card scroll-animate"
+          class="glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': whoWeAreVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
-              <UIcon name="i-heroicons-information-circle" class="w-6 h-6 text-primary-400" />
+              <UIcon name="i-lucide-info" class="size-6 text-primary-400" />
               <h2 class="text-2xl font-bold text-white">我们是谁？</h2>
             </div>
-          </template>
+          </div>
 
-          <div class="space-y-6 text-gray-300 leading-relaxed">
+          <div class="p-6 space-y-6 text-gray-300 leading-relaxed">
             <p class="text-lg">
               <strong class="text-primary-400">ME-Frp TPCA</strong> 
               是自发性的、开发者群体为主的社区组织。
@@ -58,31 +53,26 @@
               专注于<strong class="text-primary-400">ME-Frp第三方客户端开发</strong>。
             </p>
           </div>
-        </UCard>
+        </div>
       </div>
     </section>
 
     <!-- 发展历程 -->
     <section class="py-16 lg:py-24 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard 
+        <div 
           ref="timelineRef"
-          class="glass-card scroll-animate"
+          class="glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': timelineVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
-              <UIcon name="i-heroicons-clock" class="w-6 h-6 text-primary-400" />
+              <UIcon name="i-lucide-clock" class="size-6 text-primary-400" />
               <h2 class="text-2xl font-bold text-white">发展历程</h2>
             </div>
-          </template>
+          </div>
 
-          <div class="space-y-8">
+          <div class="p-6 space-y-8">
             <div 
               v-for="milestone in timeline" 
               :key="milestone.date"
@@ -90,7 +80,7 @@
             >
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500/20">
-                  <UIcon :name="milestone.icon" class="w-6 h-6 text-primary-400" />
+                  <UIcon :name="milestone.icon" class="size-6 text-primary-400" />
                 </div>
               </div>
               
@@ -103,31 +93,26 @@
               </div>
             </div>
           </div>
-        </UCard>
+        </div>
       </div>
     </section>
 
     <!-- 核心价值 -->
     <section class="py-16 lg:py-24 bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard 
+        <div 
           ref="valuesRef"
-          class="glass-card scroll-animate"
+          class="glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': valuesVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
-              <UIcon name="i-heroicons-heart" class="w-6 h-6 text-primary-400" />
+              <UIcon name="i-lucide-heart" class="size-6 text-primary-400" />
               <h2 class="text-2xl font-bold text-white">核心价值</h2>
             </div>
-          </template>
+          </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div 
               v-for="value in values" 
               :key="value.title"
@@ -135,38 +120,33 @@
             >
               <div class="flex justify-center">
                 <div class="p-4 bg-primary-500/20 rounded-full">
-                  <UIcon :name="value.icon" class="w-8 h-8 text-primary-400" />
+                  <UIcon :name="value.icon" class="size-8 text-primary-400" />
                 </div>
               </div>
               <h3 class="text-xl font-semibold text-white">{{ value.title }}</h3>
               <p class="text-gray-300">{{ value.description }}</p>
             </div>
           </div>
-        </UCard>
+        </div>
       </div>
     </section>
 
     <!-- 联系我们 -->
     <section class="py-16 lg:py-24 bg-gray-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UCard 
+        <div 
           ref="contactRef"
-          class="glass-card scroll-animate"
+          class="glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': contactVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
-              <UIcon name="i-heroicons-phone" class="w-6 h-6 text-primary-400" />
+              <UIcon name="i-lucide-phone" class="size-6 text-primary-400" />
               <h2 class="text-2xl font-bold text-white">联系我们</h2>
             </div>
-          </template>
+          </div>
 
-          <div class="text-center space-y-6">
+          <div class="p-6 text-center space-y-6">
             <p class="text-lg text-gray-300">
               如果您有任何问题或建议，欢迎通过以下方式联系我们
             </p>
@@ -179,12 +159,12 @@
                 target="_blank"
                 class="btn-glow cursor-pointer"
               >
-                <UIcon name="i-simple-icons-github" class="w-5 h-5 mr-2" />
+                <UIcon name="i-lucide-github" class="size-5 mr-2" />
                 GitHub
               </UButton>
             </div>
           </div>
-        </UCard>
+        </div>
       </div>
     </section>
   </div>
@@ -240,25 +220,25 @@ const timeline = ref([
     date: '2025/07/11',
     title: '写下第一行代码',
     description: 'LX-ME-Frp-Launcher 的第一行代码被写下，命运的齿轮悄然转动',
-    icon: 'i-heroicons-code-bracket'
+    icon: 'i-lucide-code'
   },
   {
     date: '2025/08/01',
     title: '逐渐扩大',
     description: 'LX-ME-Frp-Launcher 的开发纷纷让其他开发者也开始开发ME-Frp第三方客户端',
-    icon: 'i-heroicons-arrow-trending-up'
+    icon: 'i-lucide-trending-up'
   },
   {
     date: '2025/8/13',
     title: 'ME-Frp TPCA成立',
     description: 'ME-Frp第三方客户端的开发者们聚集在一起，ME-Frp TPCA正式成立',
-    icon: 'i-heroicons-flag'
+    icon: 'i-lucide-flag'
   },
   {
     date: '未来',
     title: '展望未来',
     description: '我们会变得更好...',
-    icon: 'i-heroicons-rocket-launch'
+    icon: 'i-lucide-rocket'
   }
 ])
 
@@ -266,22 +246,22 @@ const values = ref([
   {
     title: '不畏难',
     description: '面对技术挑战，我们勇于探索，永不退缩',
-    icon: 'i-heroicons-code-bracket'
+    icon: 'i-lucide-code'
   },
   {
     title: '勇创新',
     description: '持续创新，为用户提供更好的产品体验',
-    icon: 'i-heroicons-rocket-launch'
+    icon: 'i-lucide-rocket'
   },
   {
     title: '敢作为',
     description: '积极行动，用实际成果证明我们的价值',
-    icon: 'i-heroicons-users'
+    icon: 'i-lucide-users'
   },
   {
     title: '同努力',
     description: '团结协作，共同成长，共创美好未来',
-    icon: 'i-heroicons-hand-raised'
+    icon: 'i-lucide-hand'
   }
 ])
 </script>

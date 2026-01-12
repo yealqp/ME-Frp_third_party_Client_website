@@ -1,96 +1,115 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS 4 - 使用 @import 引入 */
+@import "tailwindcss";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-gray-950 text-white;
-    overflow-x: hidden;
-  }
-
-  /* 自定义滚动条 */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(17, 24, 39, 0.8);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
-  }
+/* 基础样式 */
+html {
+  scroll-behavior: smooth;
 }
 
-@layer components {
-  /* 自定义组件样式 */
-  .hero-gradient {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
-  }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
-  }
-  
-  .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
-  }
-
-  /* Glassmorphism 卡片 - Requirements 1.1, 1.3 */
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
-    @apply transition-all duration-300 cursor-pointer;
-  }
-
-  .glass-card:hover {
-    @apply bg-white/10 border-primary-500/50;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  }
-
-  /* 发光按钮 - Requirements 3.3 */
-  .btn-glow {
-    @apply transition-all duration-200;
-  }
-
-  .btn-glow:hover {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-  }
+body {
+  background-color: rgb(3 7 18); /* gray-950 */
+  color: white;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .backdrop-blur-custom {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-  /* 发光文字 - Requirements 3.2 */
-  .text-glow {
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-                 0 0 40px rgba(59, 130, 246, 0.3);
-  }
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.8);
+}
 
-  /* 平滑过渡 - Requirements 4.3 */
-  .transition-smooth {
-    @apply transition-all duration-200 ease-out;
-  }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
+}
+
+/* 自定义组件样式 */
+.hero-gradient {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+}
+
+.card-hover {
+  transition: all 0.3s;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #2dd4bf, #0d9488);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background-color: #14b8a6;
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0d9488;
+}
+
+/* Glassmorphism 卡片 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(20, 184, 166, 0.5);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 发光按钮 */
+.btn-glow {
+  transition: all 0.2s;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* 工具类 */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 发光文字 */
+.text-glow {
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+               0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+/* 平滑过渡 */
+.transition-smooth {
+  transition: all 0.2s ease-out;
 }
 
 /* 加载动画 */
@@ -146,7 +165,7 @@
   100% { transform: translate(24px, 0); }
 }
 
-/* 渐入动画 - Requirements 2.1, 2.3 */
+/* 渐入动画 */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -162,7 +181,7 @@
   }
 }
 
-/* 滚动触发动画 - Requirements 2.1 */
+/* 滚动触发动画 */
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
@@ -260,7 +279,7 @@
   transform: perspective(1000px) rotateX(0) translateY(0);
 }
 
-/* 慢速脉冲动画 - 用于背景光斑 */
+/* 慢速脉冲动画 */
 .animate-pulse-slow {
   animation: pulseSlow 4s ease-in-out infinite;
 }
@@ -289,7 +308,7 @@
   animation-delay: 1.5s;
 }
 
-/* 尊重用户动画偏好 - Requirements 2.4 */
+/* 尊重用户动画偏好 */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .scroll-animate,
@@ -321,7 +340,6 @@
     filter: none;
   }
 
-  /* 禁用所有过渡动画 */
   *,
   *::before,
   *::after {
@@ -418,53 +436,6 @@
   100% {
     background-position: 300% 50%;
   }
-}
-
-/* 打字机效果 */
-.typewriter {
-  overflow: hidden;
-  border-right: 2px solid #14b8a6;
-  white-space: nowrap;
-  animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* 波纹效果 */
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.ripple:active::after {
-  width: 300px;
-  height: 300px;
 }
 
 /* 悬浮卡片效果 */

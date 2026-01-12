@@ -20,26 +20,20 @@
         ref="membersGridRef"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
       >
-        <UCard 
+        <div 
           v-for="(member, index) in members" 
           :key="member.name"
-          class="glass-card text-center hover-lift scroll-animate-bounce"
+          class="glass-card text-center hover-lift scroll-animate-bounce overflow-hidden"
           :class="{ 'visible': membersGridVisible }"
           :style="{ transitionDelay: `${getMemberDelay(index)}ms` }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0',
-            body: { padding: 'px-4 py-6 sm:px-6' }
-          }"
         >
-          <div class="space-y-4">
+          <div class="px-4 py-6 sm:px-6 space-y-4">
             <!-- 头像 -->
             <div class="flex justify-center">
               <img 
                 :src="member.avatar" 
                 :alt="`${member.name} - ${member.role}`"
-                class="w-20 h-20 rounded-full border-2 border-primary-500/50"
+                class="w-20 h-20 rounded-full border-2 border-teal-500/50"
                 loading="lazy"
                 @error="handleImageError"
               >
@@ -60,11 +54,11 @@
               target="_blank"
               class="btn-glow cursor-pointer"
             >
-              <UIcon name="i-simple-icons-github" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-github" class="size-4 mr-2" />
               GitHub
             </UButton>
           </div>
-        </UCard>
+        </div>
       </div>
 
       <!-- 特别鸣谢 -->
@@ -82,20 +76,14 @@
           ref="sponsorsGridRef"
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          <UCard 
+          <div 
             v-for="(sponsor, index) in sponsors" 
             :key="sponsor.name"
-            class="glass-card text-center hover-lift scroll-animate-flip"
-            :class="{ 'visible': sponsorsGridVisible, 'border-primary-500/50 animate-border-gradient': sponsor.special }"
+            class="glass-card text-center hover-lift scroll-animate-flip overflow-hidden"
+            :class="{ 'visible': sponsorsGridVisible, 'border-teal-500/50 animate-border-gradient': sponsor.special }"
             :style="{ transitionDelay: `${getSponsorDelay(index)}ms` }"
-            :ui="{
-              base: 'overflow-hidden',
-              background: 'bg-transparent',
-              ring: 'ring-0',
-              body: { padding: 'px-4 py-6 sm:px-6' }
-            }"
           >
-            <div class="space-y-4">
+            <div class="px-4 py-6 sm:px-6 space-y-4">
               <!-- 头像 -->
               <div class="flex justify-center">
                 <img 
@@ -114,14 +102,12 @@
               </div>
 
               <!-- 特殊标记 -->
-              <UBadge 
+              <span 
                 v-if="sponsor.special" 
-                variant="soft" 
-                color="primary"
-                size="sm"
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-500/20 text-teal-300"
               >
                 特别赞助
-              </UBadge>
+              </span>
 
               <!-- 链接 -->
               <UButton 
@@ -132,11 +118,11 @@
                 target="_blank"
                 class="btn-glow cursor-pointer"
               >
-                <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-4 h-4 mr-2" />
+                <UIcon name="i-lucide-external-link" class="size-4 mr-2" />
                 访问
               </UButton>
             </div>
-          </UCard>
+          </div>
         </div>
       </div>
     </div>
@@ -144,7 +130,7 @@
 </template>
 
 <script setup>
-// 标题滚动动画 - Nuxt 自动导入 composables
+// 标题滚动动画
 const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation()
 
 // 成员网格滚动动画
@@ -212,7 +198,6 @@ const sponsors = ref([
 ])
 
 const handleImageError = (event) => {
-  // 图片加载失败时的处理
   event.target.style.display = 'none'
 }
 </script>

@@ -13,8 +13,8 @@
           :style="{ transitionDelay: `${getItemDelay(index)}ms` }"
         >
           <div class="flex justify-center mb-4">
-            <div class="p-4 bg-primary-500/20 rounded-full transition-all duration-300 group-hover:bg-primary-500/30">
-              <UIcon :name="stat.icon" class="w-8 h-8 text-primary-400" />
+            <div class="p-4 bg-teal-500/20 rounded-full transition-all duration-300 group-hover:bg-teal-500/30">
+              <UIcon :name="stat.icon" class="size-8 text-teal-400" />
             </div>
           </div>
           <div class="text-3xl md:text-4xl font-bold text-white text-glow">
@@ -30,29 +30,29 @@
 </template>
 
 <script setup>
-// 统计网格滚动动画 - Nuxt 自动导入 composables
+// 统计网格滚动动画
 const { containerRef: gridRef, isVisible: gridVisible, getItemDelay } = useScrollAnimationGroup(4, {
   staggerDelay: 100
 })
 
 const stats = ref([
   {
-    icon: 'i-heroicons-cube',
+    icon: 'i-lucide-box',
     value: '3+',
     label: '客户端产品'
   },
   {
-    icon: 'i-heroicons-users',
+    icon: 'i-lucide-users',
     value: '4+',
     label: '团队成员'
   },
   {
-    icon: 'i-heroicons-code-bracket',
+    icon: 'i-lucide-code',
     value: '100%',
     label: '社区驱动'
   },
   {
-    icon: 'i-heroicons-heart',
+    icon: 'i-lucide-heart',
     value: '∞',
     label: '用户支持'
   }

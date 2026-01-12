@@ -15,27 +15,22 @@
       </div>
       
       <div class="flex flex-wrap gap-2">
-        <UBadge variant="soft" color="primary">易语言</UBadge>
-        <UBadge variant="soft" color="green">Windows</UBadge>
-        <UBadge variant="soft" color="blue">官方风格</UBadge>
-        <UBadge variant="soft" color="purple">Exui</UBadge>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-primary-500/20 text-primary-400">易语言</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-500/20 text-green-400">Windows</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400">官方风格</span>
+        <span class="px-2 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-400">Exui</span>
       </div>
     </div>
 
     <!-- 项目介绍 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">项目介绍</h2>
-      </template>
+      </div>
       
-      <div class="space-y-4 text-gray-300">
+      <div class="p-6 space-y-4 text-gray-300">
         <p>
           LX-ME-Frp-Launcher 是由 <strong class="text-primary-400">灵弦MuaMua</strong> 使用易语言 & Exui 开发的 ME-Frp 第三方客户端。
           该客户端具有较美观的 UI 界面，功能较为完善，提供了简单便捷的操作。
@@ -46,27 +41,27 @@
             <h3 class="text-lg font-semibold text-white mb-3">✨ 主要特性</h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>使用易语言 & Exui 开发，原生 Windows 体验</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>具有较美观的 UI 界面</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>正常使用功能较为完善</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>提供简单便捷的操作</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>可以快速启动实例/隧道</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>支持自动登录和托盘菜单</span>
               </li>
             </ul>
@@ -76,37 +71,32 @@
             <h3 class="text-lg font-semibold text-white mb-3">🖥️ 系统要求</h3>
             <ul class="space-y-2">
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-computer-desktop" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-monitor" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>仅支持 Windows 系统</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-cpu-chip" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-cpu" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>支持不同 Windows 架构</span>
               </li>
               <li class="flex items-start space-x-2">
-                <UIcon name="i-heroicons-circle-stack" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                <UIcon name="i-lucide-database" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>可在官网下载对应架构版本</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 预览图 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">预览图</h2>
-      </template>
+      </div>
       
-      <div class="relative rounded-lg overflow-hidden bg-gray-900/50">
+      <div class="p-6 relative rounded-lg overflow-hidden bg-gray-900/50">
         <!-- 图片容器 -->
         <div class="relative h-96 flex items-center justify-center">
           <img 
@@ -129,7 +119,7 @@
           class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
           :disabled="previewImages.length <= 1"
         >
-          <UIcon name="i-heroicons-chevron-left" class="w-5 h-5" />
+          <UIcon name="i-lucide-chevron-left" class="size-5" />
         </button>
         
         <button 
@@ -137,7 +127,7 @@
           class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
           :disabled="previewImages.length <= 1"
         >
-          <UIcon name="i-heroicons-chevron-right" class="w-5 h-5" />
+          <UIcon name="i-lucide-chevron-right" class="size-5" />
         </button>
         
         <!-- 指示器 -->
@@ -151,22 +141,17 @@
           />
         </div>
       </div>
-    </UCard>
+    </div>
 
     <!-- 下载安装 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">下载安装</h2>
-      </template>
+      </div>
       
-      <div class="space-y-6">
+      <div class="p-6 space-y-6">
         <div class="text-center">
           <UButton 
             size="lg" 
@@ -175,18 +160,21 @@
             target="_blank"
             class="btn-glow cursor-pointer"
           >
-            <UIcon name="i-heroicons-arrow-down-tray" class="w-5 h-5 mr-2" />
+            <UIcon name="i-lucide-download" class="size-5 mr-2" />
             蓝奏云下载
           </UButton>
           <p class="text-gray-400 text-sm mt-2">当前版本: v2.3</p>
         </div>
         
-        <UAlert 
-          color="yellow" 
-          variant="soft"
-          title="注意事项"
-          description="仅适用于 Windows 系统。请使用 ME-Frp 官网账号登录。需要更多功能或报告 Bug，请发送邮件至 407176772@qq.com。"
-        />
+        <div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+          <div class="flex items-start space-x-3">
+            <UIcon name="i-lucide-alert-triangle" class="size-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold text-yellow-400">注意事项</h4>
+              <p class="text-gray-300 text-sm mt-1">仅适用于 Windows 系统。请使用 ME-Frp 官网账号登录。需要更多功能或报告 Bug，请发送邮件至 407176772@qq.com。</p>
+            </div>
+          </div>
+        </div>
         
         <div class="bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-smooth">
           <h3 class="text-lg font-semibold text-white mb-3">安装步骤</h3>
@@ -210,27 +198,22 @@
           </ol>
         </div>
       </div>
-    </UCard>
+    </div>
 
 
     <!-- 更新记录 -->
-    <UCard 
-      class="mb-8 glass-card"
-      :ui="{
-        base: 'overflow-hidden',
-        background: 'bg-transparent',
-        ring: 'ring-0'
-      }"
+    <div 
+      class="mb-8 glass-card rounded-xl overflow-hidden"
     >
-      <template #header>
+      <div class="p-6 border-b border-white/10">
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
-      </template>
+      </div>
       
-      <div class="space-y-6">
+      <div class="p-6 space-y-6">
         <div v-for="update in updateHistory" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
           <div class="flex items-center space-x-2 mb-2">
             <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
-            <UBadge v-if="update.isLatest" variant="soft" color="green" size="sm">最新</UBadge>
+            <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
           </div>
           <p v-if="update.date" class="text-sm text-gray-400 mb-2">更新日期：{{ update.date }}</p>
           <ul class="space-y-1 text-gray-300 text-sm mb-3">
@@ -245,7 +228,7 @@
           </div>
         </div>
       </div>
-    </UCard>
+    </div>
 
   </div>
 </template>

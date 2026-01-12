@@ -24,21 +24,16 @@
     <section class="py-16 lg:py-24 bg-gray-950">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- 主要 Logo -->
-        <UCard 
+        <div 
           ref="mainLogoRef"
-          class="mb-12 glass-card scroll-animate"
+          class="mb-12 glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': mainLogoVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">主要 Logo</h2>
-          </template>
+          </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- 完整版 Logo -->
             <div class="text-center space-y-4">
               <div class="bg-white/5 rounded-lg p-8 flex items-center justify-center hover:bg-white/10 transition-smooth">
@@ -47,7 +42,7 @@
               <h3 class="text-lg font-semibold text-white">完整版 Logo</h3>
               <p class="text-gray-400 text-sm">包含动画效果的完整版本，适用于网站首页和重要展示场景</p>
               <UButton variant="outline" color="primary" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('logo.svg')">
-                <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                <UIcon name="i-lucide-download" class="size-4 mr-2" />
                 下载 SVG
               </UButton>
             </div>
@@ -60,29 +55,24 @@
               <h3 class="text-lg font-semibold text-white">简化版 Logo</h3>
               <p class="text-gray-400 text-sm">简化版本，适用于小尺寸显示和应用图标</p>
               <UButton variant="outline" color="primary" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('logo-simple.svg')">
-                <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                <UIcon name="i-lucide-download" class="size-4 mr-2" />
                 下载 SVG
               </UButton>
             </div>
           </div>
-        </UCard>
+        </div>
 
         <!-- 文字版 Logo -->
-        <UCard 
+        <div 
           ref="textLogoRef"
-          class="mb-12 glass-card scroll-animate"
+          class="mb-12 glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': textLogoVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">文字版 Logo</h2>
-          </template>
+          </div>
           
-          <div class="text-center space-y-6">
+          <div class="p-6 text-center space-y-6">
             <div class="bg-white/5 rounded-lg p-8 flex items-center justify-center hover:bg-white/10 transition-smooth">
               <div class="flex items-center space-x-4">
                 <LogoIcon :size="60" :animated="false" />
@@ -100,29 +90,24 @@
               <h3 class="text-lg font-semibold text-white mb-2">横版文字 Logo</h3>
               <p class="text-gray-400 text-sm mb-4">包含图标和文字的横版布局，适用于页面头部和官方文档</p>
               <UButton variant="outline" color="primary" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('logo-text.svg')">
-                <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                <UIcon name="i-lucide-download" class="size-4 mr-2" />
                 下载 SVG
               </UButton>
             </div>
           </div>
-        </UCard>
+        </div>
 
         <!-- Favicon -->
-        <UCard 
+        <div 
           ref="faviconRef"
-          class="mb-12 glass-card scroll-animate"
+          class="mb-12 glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': faviconVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">Favicon</h2>
-          </template>
+          </div>
           
-          <div class="text-center space-y-6">
+          <div class="p-6 text-center space-y-6">
             <div class="bg-white/5 rounded-lg p-8 flex items-center justify-center hover:bg-white/10 transition-smooth">
               <LogoIcon :size="64" :animated="false" />
             </div>
@@ -131,34 +116,29 @@
               <p class="text-gray-400 text-sm mb-4">用于浏览器标签页和书签的小尺寸图标</p>
               <div class="flex justify-center space-x-4">
                 <UButton variant="outline" color="primary" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('favicon.svg')">
-                  <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                  <UIcon name="i-lucide-download" class="size-4 mr-2" />
                   SVG 格式
                 </UButton>
-                <UButton variant="outline" color="gray" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('favicon.ico')">
-                  <UIcon name="i-heroicons-arrow-down-tray" class="w-4 h-4 mr-2" />
+                <UButton variant="outline" color="neutral" size="sm" class="btn-glow cursor-pointer" @click="downloadLogo('favicon.ico')">
+                  <UIcon name="i-lucide-download" class="size-4 mr-2" />
                   ICO 格式
                 </UButton>
               </div>
             </div>
           </div>
-        </UCard>
+        </div>
 
         <!-- 使用指南 -->
-        <UCard 
+        <div 
           ref="guideRef"
-          class="glass-card scroll-animate"
+          class="glass-card scroll-animate rounded-xl overflow-hidden"
           :class="{ 'visible': guideVisible }"
-          :ui="{
-            base: 'overflow-hidden',
-            background: 'bg-transparent',
-            ring: 'ring-0'
-          }"
         >
-          <template #header>
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">使用指南</h2>
-          </template>
+          </div>
           
-          <div class="space-y-6 text-gray-300">
+          <div class="p-6 space-y-6 text-gray-300">
             <div>
               <h3 class="text-lg font-semibold text-white mb-3">Logo 设计理念</h3>
               <p class="mb-4">
@@ -166,15 +146,15 @@
               </p>
               <ul class="space-y-2">
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-link" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-link" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span><strong>连接性</strong>：中心节点和辐射连接线象征网络连接和内网穿透</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-users" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-users" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span><strong>联盟性</strong>：多个节点连接到中心，代表不同客户端的联合</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-sparkles" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-sparkles" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span><strong>创新性</strong>：动态效果和现代配色体现技术创新精神</span>
                 </li>
               </ul>
@@ -242,7 +222,7 @@
               </div>
             </div>
           </div>
-        </UCard>
+        </div>
       </div>
     </section>
   </div>

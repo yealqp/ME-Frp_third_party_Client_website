@@ -13,22 +13,17 @@
       </div>
 
       <!-- 项目介绍 -->
-      <UCard 
-        class="glass-card"
-        :ui="{
-          base: 'overflow-hidden',
-          background: 'bg-transparent',
-          ring: 'ring-0'
-        }"
+      <div 
+        class="glass-card rounded-xl overflow-hidden"
       >
-        <template #header>
+        <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
-            <UIcon name="i-heroicons-information-circle" class="w-6 h-6 text-primary-400" />
+            <UIcon name="i-lucide-info" class="size-6 text-primary-400" />
             <h2 class="text-2xl font-semibold text-white">项目介绍</h2>
           </div>
-        </template>
+        </div>
 
-        <div class="space-y-6 text-gray-300 leading-relaxed">
+        <div class="p-6 space-y-6 text-gray-300 leading-relaxed">
           <p class="text-lg">
             <strong class="text-primary-400">ME-Frp TPCA</strong> 
             (ME-Frp Third-Party Client Alliance) 是一个专注于 ME-Frp 第三方客户端开发的社区组织。
@@ -39,15 +34,15 @@
               <h3 class="text-lg font-semibold text-white mb-3">🎯 我们的目标</h3>
               <ul class="space-y-2 text-sm">
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>为用户提供更好的 ME-Frp 使用体验</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>开发多样化的第三方客户端</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-check-circle" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>促进开源社区的发展</span>
                 </li>
               </ul>
@@ -57,40 +52,35 @@
               <h3 class="text-lg font-semibold text-white mb-3">🚀 主要产品</h3>
               <ul class="space-y-2 text-sm">
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-cube" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-box" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>XL-ME-Frp-Launcher (Tauri)</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-cube" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-box" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>LX-ME-Frp-Launcher (易语言)</span>
                 </li>
                 <li class="flex items-start space-x-2">
-                  <UIcon name="i-heroicons-cube" class="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
+                  <UIcon name="i-lucide-box" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
                   <span>Plain ME Frp Launcher (.NET)</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </UCard>
+      </div>
 
       <!-- 快速开始 -->
-      <UCard 
-        class="glass-card"
-        :ui="{
-          base: 'overflow-hidden',
-          background: 'bg-transparent',
-          ring: 'ring-0'
-        }"
+      <div 
+        class="glass-card rounded-xl overflow-hidden"
       >
-        <template #header>
+        <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
-            <UIcon name="i-heroicons-rocket-launch" class="w-6 h-6 text-primary-400" />
+            <UIcon name="i-lucide-rocket" class="size-6 text-primary-400" />
             <h2 class="text-2xl font-semibold text-white">快速开始</h2>
           </div>
-        </template>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div 
             v-for="(step, index) in quickStartSteps" 
             :key="step.title"
@@ -105,25 +95,20 @@
             <p class="text-gray-300 text-sm">{{ step.description }}</p>
           </div>
         </div>
-      </UCard>
+      </div>
 
       <!-- 客户端文档链接 -->
-      <UCard 
-        class="glass-card"
-        :ui="{
-          base: 'overflow-hidden',
-          background: 'bg-transparent',
-          ring: 'ring-0'
-        }"
+      <div 
+        class="glass-card rounded-xl overflow-hidden"
       >
-        <template #header>
+        <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
-            <UIcon name="i-heroicons-document-text" class="w-6 h-6 text-primary-400" />
+            <UIcon name="i-lucide-file-text" class="size-6 text-primary-400" />
             <h2 class="text-2xl font-semibold text-white">客户端文档</h2>
           </div>
-        </template>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           <NuxtLink 
             v-for="client in clients" 
             :key="client.id"
@@ -137,29 +122,24 @@
             <p class="text-gray-300 text-sm mb-3">{{ client.description }}</p>
             <div class="flex items-center text-primary-400 text-sm">
               <span>查看文档</span>
-              <UIcon name="i-heroicons-arrow-right" class="w-4 h-4 ml-1" />
+              <UIcon name="i-lucide-arrow-right" class="size-4 ml-1" />
             </div>
           </NuxtLink>
         </div>
-      </UCard>
+      </div>
 
       <!-- 联系我们 -->
-      <UCard 
-        class="glass-card"
-        :ui="{
-          base: 'overflow-hidden',
-          background: 'bg-transparent',
-          ring: 'ring-0'
-        }"
+      <div 
+        class="glass-card rounded-xl overflow-hidden"
       >
-        <template #header>
+        <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
-            <UIcon name="i-heroicons-chat-bubble-left-right" class="w-6 h-6 text-primary-400" />
+            <UIcon name="i-lucide-message-circle" class="size-6 text-primary-400" />
             <h2 class="text-2xl font-semibold text-white">需要帮助？</h2>
           </div>
-        </template>
+        </div>
 
-        <div class="text-center space-y-4">
+        <div class="p-6 text-center space-y-4">
           <p class="text-gray-300">
             如果您在使用过程中遇到问题，或者有任何建议，欢迎通过以下方式联系我们
           </p>
@@ -172,7 +152,7 @@
               target="_blank"
               class="btn-glow cursor-pointer"
             >
-              <UIcon name="i-simple-icons-github" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-github" class="size-4 mr-2" />
               GitHub
             </UButton>
             
@@ -182,12 +162,12 @@
               to="/about"
               class="btn-glow cursor-pointer"
             >
-              <UIcon name="i-heroicons-information-circle" class="w-4 h-4 mr-2" />
+              <UIcon name="i-lucide-info" class="size-4 mr-2" />
               关于我们
             </UButton>
           </div>
         </div>
-      </UCard>
+      </div>
     </div>
   </div>
 </template>
