@@ -9,6 +9,26 @@
   
   body {
     @apply bg-gray-950 text-white;
+    overflow-x: hidden;
+  }
+
+  /* 自定义滚动条 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
   }
 }
 
@@ -146,12 +166,98 @@
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 从左侧滑入 */
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 从右侧滑入 */
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 缩放淡入 */
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 旋转淡入 */
+.scroll-animate-rotate {
+  opacity: 0;
+  transform: rotate(-5deg) translateY(20px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-rotate.visible {
+  opacity: 1;
+  transform: rotate(0) translateY(0);
+}
+
+/* 模糊淡入 */
+.scroll-animate-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-blur.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* 弹性效果 */
+.scroll-animate-bounce {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.scroll-animate-bounce.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D 翻转效果 */
+.scroll-animate-flip {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(-10deg) translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-flip.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0) translateY(0);
 }
 
 /* 慢速脉冲动画 - 用于背景光斑 */
@@ -187,16 +293,32 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .scroll-animate,
+  .scroll-animate-left,
+  .scroll-animate-right,
+  .scroll-animate-scale,
+  .scroll-animate-rotate,
+  .scroll-animate-blur,
+  .scroll-animate-bounce,
+  .scroll-animate-flip,
   .animate-pulse-slow {
     animation: none;
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 
-  .scroll-animate.visible {
+  .scroll-animate.visible,
+  .scroll-animate-left.visible,
+  .scroll-animate-right.visible,
+  .scroll-animate-scale.visible,
+  .scroll-animate-rotate.visible,
+  .scroll-animate-blur.visible,
+  .scroll-animate-bounce.visible,
+  .scroll-animate-flip.visible {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 
   /* 禁用所有过渡动画 */
@@ -207,4 +329,186 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* 视差滚动效果 */
+.parallax-slow {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* 滚动进度指示器 */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #14b8a6 0%, #2dd4bf 50%, #5eead4 100%);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+/* 浮动动画 */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* 闪烁光效 */
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 渐变边框动画 */
+.animate-border-gradient {
+  position: relative;
+  background: transparent;
+}
+
+.animate-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #3b82f6,
+    #8b5cf6,
+    #14b8a6
+  );
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGradient 4s linear infinite;
+}
+
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* 打字机效果 */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid #14b8a6;
+  white-space: nowrap;
+  animation: typing 3s steps(30) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* 波纹效果 */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 悬浮卡片效果 */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+              0 0 30px rgba(20, 184, 166, 0.2);
+}
+
+/* 倾斜悬浮效果 */
+.hover-tilt {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-tilt:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+}
+
+/* 光标跟随高亮 */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
 }

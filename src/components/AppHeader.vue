@@ -1,6 +1,12 @@
 <template>
   <!-- Header 增强毛玻璃效果 - Requirements 1.2 -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-gray-950/70 border-b border-white/10 shadow-lg shadow-black/20 transition-smooth">
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20 transition-all duration-300"
+    :class="isScrolled ? 'bg-gray-950/90' : 'bg-gray-950/70'"
+  >
+    <!-- 滚动进度条 -->
+    <ScrollProgress />
+    
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between h-16 px-4">
         <!-- Logo -->
@@ -69,6 +75,7 @@
 <script setup>
 const route = useRoute()
 const isMenuOpen = ref(false)
+const isScrolled = ref(false)
 
 const navigation = [
   { name: '首页', href: '/', icon: 'i-heroicons-home' },
@@ -77,6 +84,20 @@ const navigation = [
   { name: '文档', href: '/docs', icon: 'i-heroicons-document-text' }
   
 ]
+
+// 监听滚动
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 // 监听路由变化，关闭移动端菜单
 watch(() => route.path, () => {

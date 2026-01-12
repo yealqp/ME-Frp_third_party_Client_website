@@ -5,10 +5,22 @@
  */
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// 动画类型
+export type AnimationType = 
+  | 'default'      // 默认向上淡入
+  | 'left'         // 从左侧滑入
+  | 'right'        // 从右侧滑入
+  | 'scale'        // 缩放淡入
+  | 'rotate'       // 旋转淡入
+  | 'blur'         // 模糊淡入
+  | 'bounce'       // 弹性效果
+  | 'flip'         // 3D 翻转
+
 interface ScrollAnimationOptions {
   threshold?: number
   rootMargin?: string
   once?: boolean
+  animationType?: AnimationType
 }
 
 // 辅助函数：从 ref 获取实际的 DOM 元素
@@ -19,6 +31,21 @@ const getElement = (refValue: any): HTMLElement | null => {
   // 如果是 Vue 组件实例，获取其 $el
   if (refValue.$el) return refValue.$el instanceof HTMLElement ? refValue.$el : null
   return null
+}
+
+// 获取动画类名
+export const getAnimationClass = (type: AnimationType = 'default'): string => {
+  const classMap: Record<AnimationType, string> = {
+    default: 'scroll-animate',
+    left: 'scroll-animate-left',
+    right: 'scroll-animate-right',
+    scale: 'scroll-animate-scale',
+    rotate: 'scroll-animate-rotate',
+    blur: 'scroll-animate-blur',
+    bounce: 'scroll-animate-bounce',
+    flip: 'scroll-animate-flip'
+  }
+  return classMap[type] || 'scroll-animate'
 }
 
 export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
@@ -192,3 +219,83 @@ export function useScrollAnimationGroup(_count: number, options: ScrollAnimation
 }
 
 export default useScrollAnimation
+
+/**
+ * useScrollProgress composable
+ * 监听页面滚动进度
+ */
+export function useScrollProgress() {
+  const progress = ref(0)
+  
+  const updateProgress = () => {
+    if (import.meta.server) return
+    
+    const scrollTop = window.scrollY
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight
+    progress.value = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+  }
+
+  onMounted(() => {
+    if (import.meta.server) return
+    window.addEventListener('scroll', updateProgress, { passive: true })
+    updateProgress()
+  })
+
+  onUnmounted(() => {
+    if (import.meta.server) return
+    window.removeEventListener('scroll', updateProgress)
+  })
+
+  return { progress }
+}
+
+/**
+ * useParallax composable
+ * 视差滚动效果
+ */
+export function useParallax(speed: number = 0.5) {
+  const offset = ref(0)
+  
+  const updateParallax = () => {
+    if (import.meta.server) return
+    offset.value = window.scrollY * speed
+  }
+
+  onMounted(() => {
+    if (import.meta.server) return
+    window.addEventListener('scroll', updateParallax, { passive: true })
+  })
+
+  onUnmounted(() => {
+    if (import.meta.server) return
+    window.removeEventListener('scroll', updateParallax)
+  })
+
+  return { offset }
+}
+
+/**
+ * useMousePosition composable
+ * 鼠标位置追踪（用于光标跟随效果）
+ */
+export function useMousePosition() {
+  const x = ref(0)
+  const y = ref(0)
+
+  const updatePosition = (e: MouseEvent) => {
+    x.value = e.clientX
+    y.value = e.clientY
+  }
+
+  onMounted(() => {
+    if (import.meta.server) return
+    window.addEventListener('mousemove', updatePosition, { passive: true })
+  })
+
+  onUnmounted(() => {
+    if (import.meta.server) return
+    window.removeEventListener('mousemove', updatePosition)
+  })
+
+  return { x, y }
+}

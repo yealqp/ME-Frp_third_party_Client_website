@@ -23,7 +23,7 @@
         <UCard 
           v-for="(product, index) in products" 
           :key="product.id"
-          class="glass-card scroll-animate"
+          class="glass-card hover-lift scroll-animate-scale"
           :class="{ 'visible': gridVisible }"
           :style="{ transitionDelay: `${getItemDelay(index)}ms` }"
           :ui="{

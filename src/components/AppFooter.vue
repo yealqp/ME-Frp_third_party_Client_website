@@ -5,7 +5,7 @@
         <!-- 左侧信息 -->
         <div class="space-y-2">
           <p class="text-gray-400 text-sm">
-            Copyright © 2025 ME-Frp Third-Party Client Alliance.
+            Copyright © 2026 ME-Frp Third-Party Client Alliance.
           </p>
           <p class="text-gray-500 text-xs">
             我们已奋斗 {{ runtimeText }}

@@ -23,7 +23,7 @@
         <UCard 
           v-for="(member, index) in members" 
           :key="member.name"
-          class="glass-card text-center scroll-animate"
+          class="glass-card text-center hover-lift scroll-animate-bounce"
           :class="{ 'visible': membersGridVisible }"
           :style="{ transitionDelay: `${getMemberDelay(index)}ms` }"
           :ui="{
@@ -85,8 +85,8 @@
           <UCard 
             v-for="(sponsor, index) in sponsors" 
             :key="sponsor.name"
-            class="glass-card text-center scroll-animate"
-            :class="{ 'visible': sponsorsGridVisible, 'border-primary-500/50': sponsor.special }"
+            class="glass-card text-center hover-lift scroll-animate-flip"
+            :class="{ 'visible': sponsorsGridVisible, 'border-primary-500/50 animate-border-gradient': sponsor.special }"
             :style="{ transitionDelay: `${getSponsorDelay(index)}ms` }"
             :ui="{
               base: 'overflow-hidden',

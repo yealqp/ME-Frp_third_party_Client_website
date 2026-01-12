@@ -5,10 +5,19 @@
       <!-- 动态渐变背景 - Requirements 3.1 -->
       <div class="absolute inset-0">
         <div class="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-gray-950 to-blue-900/20"></div>
-        <!-- 动态光斑 -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"></div>
-        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-500"></div>
+        <!-- 动态光斑 - 添加浮动效果 -->
+        <div 
+          class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow animate-float"
+          :style="{ transform: `translateY(${parallaxOffset * 0.3}px)` }"
+        ></div>
+        <div 
+          class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-1000"
+          :style="{ transform: `translateY(${parallaxOffset * 0.2}px)` }"
+        ></div>
+        <div 
+          class="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow animation-delay-500"
+          :style="{ transform: `translateY(${parallaxOffset * 0.4}px)` }"
+        ></div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -51,7 +60,7 @@
               color="primary"
               variant="solid"
               to="/products"
-              class="px-8 py-4 text-lg font-semibold btn-glow cursor-pointer"
+              class="px-8 py-4 text-lg font-semibold btn-glow hover-lift cursor-pointer"
             >
               <UIcon name="i-heroicons-cube" class="w-5 h-5 mr-2" />
               探索产品
@@ -62,13 +71,18 @@
               color="gray"
               variant="outline"
               to="/about"
-              class="px-8 py-4 text-lg btn-glow cursor-pointer"
+              class="px-8 py-4 text-lg btn-glow hover-lift cursor-pointer"
             >
               <UIcon name="i-heroicons-users" class="w-5 h-5 mr-2" />
               了解更多
             </UButton>
           </div>
         </div>
+      </div>
+
+      <!-- 向下滚动提示 -->
+      <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
+        <UIcon name="i-heroicons-chevron-double-down" class="w-8 h-8 text-gray-400" />
       </div>
     </section>
 
@@ -84,6 +98,11 @@
 </template>
 
 <script setup>
+import { useParallax } from '~/composables/useScrollAnimation'
+
+// 视差效果
+const { offset: parallaxOffset } = useParallax(0.3)
+
 // 页面元数据
 useHead({
   title: '首页',
