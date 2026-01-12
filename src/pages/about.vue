@@ -1,7 +1,7 @@
 <template>
   <div class="pt-16">
     <!-- Hero Section -->
-    <section class="py-16 lg:py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #111827 50%, #0A0E27 100%);">
+    <section class="py-8 lg:py-12 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #111827 50%, #0A0E27 100%);">
       <!-- 动态光斑背景 -->
       <div class="absolute inset-0">
         <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -21,7 +21,7 @@
     </section>
 
     <!-- 我们是谁 -->
-    <section class="py-16 lg:py-24 relative" style="background: linear-gradient(180deg, #111827 0%, #0F172A 100%);">
+    <section class="py-8 lg:py-12 relative" style="background: linear-gradient(180deg, #111827 0%, #0F172A 100%);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="whoWeAreRef"
@@ -56,7 +56,7 @@
     </section>
 
     <!-- 发展历程 -->
-    <section class="py-16 lg:py-24 relative" style="background: #0F172A;">
+    <section class="py-8 lg:py-12 relative" style="background: #0F172A;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="timelineRef"
@@ -97,7 +97,7 @@
     </section>
 
     <!-- 核心价值 -->
-    <section class="py-16 lg:py-24 relative" style="background: linear-gradient(180deg, #0F172A 0%, #111827 100%);">
+    <section class="py-8 lg:py-12 relative" style="background: linear-gradient(180deg, #0F172A 0%, #111827 100%);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="valuesRef"
@@ -133,7 +133,7 @@
     </section>
 
     <!-- 联系我们 -->
-    <section class="py-16 lg:py-24 relative" style="background: #0F172A;">
+    <section class="py-8 lg:py-12 relative" style="background: #0F172A;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="contactRef"

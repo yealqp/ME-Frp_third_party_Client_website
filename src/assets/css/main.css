@@ -546,3 +546,27 @@ body {
 .spotlight:hover::before {
   opacity: 1;
 }
+
+/* 特殊链接样式 */
+.special-link {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.special-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.special-link:hover {
+  border-color: rgba(20, 184, 166, 0.6);
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
+}
+
+.special-link:hover::before {
+  transform: translateX(100%);
+}

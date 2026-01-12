@@ -97,16 +97,28 @@
                 </NuxtLink>
                 <NuxtLink
                   to="https://www.xianlin.cloud/"
-                  class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
+                  class="group flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 transition-all duration-200 relative overflow-hidden special-link"
                 >
                   <img
                     src="https://image.mefrp-tpca.yealqp.cn/image/xianlin.ico"
                     alt="仙林云计算"
-                    class="w-4 h-4 rounded"
+                    class="w-4 h-4 rounded group-hover:scale-110 transition-transform duration-200"
                   />
-                  <span class="text-sm">仙林云计算</span>
+                  <span class="text-sm bg-gradient-to-r from-primary-400 to-blue-400 bg-clip-text text-transparent font-medium">仙林云计算</span>
+                  <UIcon name="i-lucide-external-link" class="size-3 text-primary-400/60 group-hover:text-primary-400 transition-colors" />
                 </NuxtLink>
               </div>
+            </div>
+
+            <!-- 广告位 -->
+            <div class="mt-6 pt-4 border-t border-white/10">
+              <a
+                href="mailto:yealqp@163.com?subject=广告位购买咨询"
+                class="flex items-center justify-center space-x-2 px-3 py-2.5 rounded-lg text-amber-400 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 hover:border-amber-500/50 transition-all duration-200"
+              >
+                <UIcon name="i-lucide-megaphone" class="size-4" />
+                <span class="text-sm font-medium">购买广告位</span>
+              </a>
             </div>
           </nav>
         </div>

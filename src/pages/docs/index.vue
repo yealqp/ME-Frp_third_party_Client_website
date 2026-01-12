@@ -248,7 +248,7 @@ const clients = [
     id: 'lx',
     name: 'LX-ME-Frp-Launcher',
     path: '/docs/lx',
-    description: '使用易语言开发的 Windows 客户端，界面高仿官方风格',
+    description: '使用易语言开发的 Windows 客户端，界面高仿官方V4客户端风格',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/lx_icon.webp'
   },
   {

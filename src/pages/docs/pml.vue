@@ -98,8 +98,18 @@
             <div class="flex items-start space-x-3">
               <UIcon name="i-lucide-info" class="size-5 text-blue-400 mt-0.5 flex-shrink-0" />
               <div>
-                <h4 class="font-semibold text-blue-400">官网信息</h4>
-                <p class="text-gray-300 text-sm mt-1">查看官网https://rycb.mxj.pub/mefl/以获得最新消息。</p>
+                <h4 class="font-semibold text-blue-400">查看官网以获得最新消息</h4>
+                <UButton
+                  size="sm"
+                  color="info"
+                  variant="soft"
+                  to="https://rycb.mxj.pub/mefl/"
+                  target="_blank"
+                  class="cursor-pointer"
+                >
+                  <UIcon name="i-lucide-external-link" class="size-4 mr-1" />
+                  访问官网
+                </UButton>
               </div>
             </div>
           </div>
