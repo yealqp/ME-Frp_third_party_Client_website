@@ -25,11 +25,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="whoWeAreRef"
-          class="scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': whoWeAreVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
               <UIcon name="i-lucide-info" class="size-6 text-teal-400" />
               <h2 class="text-2xl font-bold text-white">我们是谁？</h2>
@@ -60,11 +59,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="timelineRef"
-          class="scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': timelineVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
               <UIcon name="i-lucide-clock" class="size-6 text-teal-400" />
               <h2 class="text-2xl font-bold text-white">发展历程</h2>
@@ -75,8 +73,7 @@
             <div 
               v-for="milestone in timeline" 
               :key="milestone.date"
-              class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg hover-lift"
-              style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.3);"
+              class="glass-card flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg hover-lift overflow-hidden"
             >
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center w-12 h-12 rounded-full" style="background: rgba(20, 184, 166, 0.2);">
@@ -101,11 +98,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="valuesRef"
-          class="scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': valuesVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
               <UIcon name="i-lucide-heart" class="size-6 text-teal-400" />
               <h2 class="text-2xl font-bold text-white">核心价值</h2>
@@ -116,8 +112,7 @@
             <div 
               v-for="value in values" 
               :key="value.title"
-              class="text-center space-y-4 p-6 rounded-lg hover-lift"
-              style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.3);"
+              class="glass-card text-center space-y-4 p-6 rounded-lg hover-lift overflow-hidden"
             >
               <div class="flex justify-center">
                 <div class="p-4 rounded-full" style="background: rgba(20, 184, 166, 0.2);">
@@ -137,11 +132,10 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div 
           ref="contactRef"
-          class="scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': contactVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <div class="flex items-center space-x-3">
               <UIcon name="i-lucide-phone" class="size-6 text-teal-400" />
               <h2 class="text-2xl font-bold text-white">联系我们</h2>

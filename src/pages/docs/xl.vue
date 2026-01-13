@@ -27,7 +27,7 @@
     <!-- 项目介绍 -->
     <div 
       ref="introRef"
-      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
       :class="{ 'visible': introVisible }"
     >
       <div class="p-6 border-b border-white/10">
@@ -101,7 +101,7 @@
     <!-- 预览图 -->
     <div 
       ref="previewRef"
-      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
       :class="{ 'visible': previewVisible }"
     >
       <div class="p-6 border-b border-white/10">
@@ -158,7 +158,7 @@
     <!-- 下载安装 -->
     <div 
       ref="downloadRef"
-      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
       :class="{ 'visible': downloadVisible }"
     >
       <div class="p-6 border-b border-white/10">
@@ -227,7 +227,7 @@
     <!-- 更新记录 -->
     <div 
       ref="updateRef"
-      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate"
+      class="mb-8 glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
       :class="{ 'visible': updateVisible }"
     >
       <div class="p-6 border-b border-white/10">

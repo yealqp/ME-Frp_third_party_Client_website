@@ -2,6 +2,15 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+/* 自定义字体 */
+@font-face {
+  font-family: 'HYWenHei';
+  src: url('https://image.mefrp-tpca.yealqp.cn/image/font/hywenhei-85w.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Tailwind CSS 4 主题配置 */
 @theme {
   /* 主色调 - teal */
@@ -16,6 +25,9 @@
   --color-primary-800: #115e59;
   --color-primary-900: #134e4a;
   --color-primary-950: #042f2e;
+  
+  /* 字体家族 */
+  --font-sans: 'HYWenHei', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* 基础样式 */
@@ -27,6 +39,7 @@ body {
   background-color: rgb(3 7 18); /* gray-950 */
   color: white;
   overflow-x: hidden;
+  font-family: 'HYWenHei', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* 自定义滚动条 */
@@ -54,7 +67,8 @@ body {
 }
 
 .card-hover {
-  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
@@ -89,18 +103,16 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
-  transition: background 0.15s ease-out,
-              border-color 0.15s ease-out,
-              box-shadow 0.2s ease-out,
-              transform 0.15s ease-out;
   cursor: pointer;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
   background: #1f2937; /* gray-800 - 悬停时稍微变亮 */
   border-color: rgba(20, 184, 166, 0.5);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-  transform: translateY(-2px);
 }
 
 /* 特别赞助卡片 */
@@ -111,9 +123,9 @@ body {
               inset 0 0 60px rgba(20, 184, 166, 0.05);
   position: relative;
   overflow: hidden;
-  transition: background 0.15s ease-out,
-              box-shadow 0.2s ease-out,
-              transform 0.15s ease-out;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .special-card::before {
@@ -147,7 +159,7 @@ body {
 
 /* 发光按钮 */
 .btn-glow {
-  transition: box-shadow 0.15s ease-out;
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-glow:hover {
@@ -172,7 +184,7 @@ body {
 
 /* 平滑过渡 */
 .transition-smooth {
-  transition: all 0.15s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 加载动画 */
@@ -248,7 +260,8 @@ body {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate.visible {
@@ -260,7 +273,8 @@ body {
 .scroll-animate-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-left.visible {
@@ -272,7 +286,8 @@ body {
 .scroll-animate-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-right.visible {
@@ -284,7 +299,8 @@ body {
 .scroll-animate-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-scale.visible {
@@ -296,7 +312,8 @@ body {
 .scroll-animate-rotate {
   opacity: 0;
   transform: rotate(-5deg) translateY(20px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-rotate.visible {
@@ -309,7 +326,9 @@ body {
   opacity: 0;
   filter: blur(10px);
   transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-blur.visible {
@@ -322,7 +341,8 @@ body {
 .scroll-animate-bounce {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .scroll-animate-bounce.visible {
@@ -334,7 +354,8 @@ body {
 .scroll-animate-flip {
   opacity: 0;
   transform: perspective(1000px) rotateX(-10deg) translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate-flip.visible {
@@ -503,8 +524,8 @@ body {
 
 /* 悬浮卡片效果 */
 .hover-lift {
-  transition: transform 0.15s ease-out, 
-              box-shadow 0.2s ease-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
@@ -515,7 +536,7 @@ body {
 
 /* 倾斜悬浮效果 */
 .hover-tilt {
-  transition: transform 0.15s ease-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
 }
 
