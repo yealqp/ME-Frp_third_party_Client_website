@@ -43,6 +43,7 @@
               class="text-gray-400 hover:text-teal-400 btn-glow cursor-pointer"
             >
               <UIcon name="i-lucide-github" class="size-5" />
+              Github
             </UButton>
           </div>
         </div>

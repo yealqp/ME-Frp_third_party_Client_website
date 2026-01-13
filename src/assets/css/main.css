@@ -54,7 +54,7 @@ body {
 }
 
 .card-hover {
-  transition: all 0.3s;
+  transition: transform 0.15s ease-out, box-shadow 0.2s ease-out;
 }
 
 .card-hover:hover {
@@ -89,7 +89,10 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
-  transition: all 0.3s;
+  transition: background 0.15s ease-out,
+              border-color 0.15s ease-out,
+              box-shadow 0.2s ease-out,
+              transform 0.15s ease-out;
   cursor: pointer;
 }
 
@@ -97,6 +100,7 @@ body {
   background: #1f2937; /* gray-800 - 悬停时稍微变亮 */
   border-color: rgba(20, 184, 166, 0.5);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
 }
 
 /* 特别赞助卡片 */
@@ -107,6 +111,9 @@ body {
               inset 0 0 60px rgba(20, 184, 166, 0.05);
   position: relative;
   overflow: hidden;
+  transition: background 0.15s ease-out,
+              box-shadow 0.2s ease-out,
+              transform 0.15s ease-out;
 }
 
 .special-card::before {
@@ -135,12 +142,12 @@ body {
   box-shadow: 0 0 40px rgba(20, 184, 166, 0.4),
               0 0 80px rgba(59, 130, 246, 0.2),
               inset 0 0 60px rgba(20, 184, 166, 0.1);
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-6px) scale(1.01);
 }
 
 /* 发光按钮 */
 .btn-glow {
-  transition: all 0.2s;
+  transition: box-shadow 0.15s ease-out;
 }
 
 .btn-glow:hover {
@@ -165,7 +172,7 @@ body {
 
 /* 平滑过渡 */
 .transition-smooth {
-  transition: all 0.2s ease-out;
+  transition: all 0.15s ease-out;
 }
 
 /* 加载动画 */
@@ -496,8 +503,8 @@ body {
 
 /* 悬浮卡片效果 */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.15s ease-out, 
+              box-shadow 0.2s ease-out;
 }
 
 .hover-lift:hover {
@@ -508,7 +515,7 @@ body {
 
 /* 倾斜悬浮效果 */
 .hover-tilt {
-  transition: transform 0.3s ease;
+  transition: transform 0.15s ease-out;
   transform-style: preserve-3d;
 }
 
@@ -538,4 +545,28 @@ body {
 
 .spotlight:hover::before {
   opacity: 1;
+}
+
+/* 特殊链接样式 */
+.special-link {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.special-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.special-link:hover {
+  border-color: rgba(20, 184, 166, 0.6);
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
+}
+
+.special-link:hover::before {
+  transform: translateX(100%);
 }

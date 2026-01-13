@@ -3,9 +3,14 @@
     <!-- 文档首页内容 -->
     <div class="space-y-8">
       <!-- 欢迎标题 -->
-      <div class="text-center">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
-          📚 文档中心
+      <div 
+        ref="titleRef"
+        class="text-center scroll-animate"
+        :class="{ 'visible': titleVisible }"
+      >
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+          <UIcon name="i-lucide-book-open" class="size-8 text-primary-400" />
+          文档中心
         </h1>
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
           欢迎来到 ME-Frp 第三方客户端联盟文档中心，这里有详细的使用指南和开发文档
@@ -14,7 +19,9 @@
 
       <!-- 项目介绍 -->
       <div 
-        class="glass-card rounded-xl overflow-hidden"
+        ref="introRef"
+        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        :class="{ 'visible': introVisible }"
       >
         <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
@@ -31,7 +38,10 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="text-lg font-semibold text-white mb-3">🎯 我们的目标</h3>
+              <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <UIcon name="i-lucide-target" class="size-5 text-primary-400" />
+                我们的目标
+              </h3>
               <ul class="space-y-2 text-sm">
                 <li class="flex items-start space-x-2">
                   <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -49,7 +59,10 @@
             </div>
 
             <div>
-              <h3 class="text-lg font-semibold text-white mb-3">🚀 主要产品</h3>
+              <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                <UIcon name="i-lucide-rocket" class="size-5 text-primary-400" />
+                主要产品
+              </h3>
               <ul class="space-y-2 text-sm">
                 <li class="flex items-start space-x-2">
                   <UIcon name="i-lucide-box" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -71,7 +84,9 @@
 
       <!-- 快速开始 -->
       <div 
-        class="glass-card rounded-xl overflow-hidden"
+        ref="quickStartRef"
+        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        :class="{ 'visible': quickStartVisible }"
       >
         <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
@@ -99,7 +114,9 @@
 
       <!-- 客户端文档链接 -->
       <div 
-        class="glass-card rounded-xl overflow-hidden"
+        ref="clientsRef"
+        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        :class="{ 'visible': clientsVisible }"
       >
         <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
@@ -130,7 +147,9 @@
 
       <!-- 联系我们 -->
       <div 
-        class="glass-card rounded-xl overflow-hidden"
+        ref="contactRef"
+        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        :class="{ 'visible': contactVisible }"
       >
         <div class="p-6 border-b border-white/10">
           <div class="flex items-center space-x-3">
@@ -178,6 +197,13 @@ definePageMeta({
   layout: 'docs'
 })
 
+// 滚动动画
+const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation()
+const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation()
+const { elementRef: quickStartRef, isVisible: quickStartVisible } = useScrollAnimation()
+const { elementRef: clientsRef, isVisible: clientsVisible } = useScrollAnimation()
+const { elementRef: contactRef, isVisible: contactVisible } = useScrollAnimation()
+
 // 页面元数据
 useHead({
   title: '文档中心',
@@ -222,7 +248,7 @@ const clients = [
     id: 'lx',
     name: 'LX-ME-Frp-Launcher',
     path: '/docs/lx',
-    description: '使用易语言开发的 Windows 客户端，界面高仿官方风格',
+    description: '使用易语言开发的 Windows 客户端，界面高仿官方V4客户端风格',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/lx_icon.webp'
   },
   {
