@@ -75,8 +75,8 @@
             <div 
               v-for="milestone in timeline" 
               :key="milestone.date"
-              class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg transition-all duration-300 cursor-pointer hover:scale-[1.02]"
-              style="background: rgba(15, 23, 42, 0.6);"
+              class="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6 p-6 rounded-lg hover-lift"
+              style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.3);"
             >
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center w-12 h-12 rounded-full" style="background: rgba(20, 184, 166, 0.2);">
@@ -116,8 +116,8 @@
             <div 
               v-for="value in values" 
               :key="value.title"
-              class="text-center space-y-4 p-6 rounded-lg transition-all duration-300 cursor-pointer hover:scale-105"
-              style="background: rgba(15, 23, 42, 0.6);"
+              class="text-center space-y-4 p-6 rounded-lg hover-lift"
+              style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.3);"
             >
               <div class="flex justify-center">
                 <div class="p-4 rounded-full" style="background: rgba(20, 184, 166, 0.2);">
