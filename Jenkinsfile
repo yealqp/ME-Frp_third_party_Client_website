@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('Setup Environment') {
+        stage('Setup & Build') {
             steps {
                 echo '🛠️ 正在配置 Node.js 环境...'
                 sh '''

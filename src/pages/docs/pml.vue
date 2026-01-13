@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full overflow-x-hidden">
     <!-- 页面标题 -->
     <div class="mb-8">
       <div class="flex items-center space-x-4 mb-4">
@@ -193,7 +193,7 @@
                 <h4 class="font-semibold text-blue-400">教程：如何在 Linux 上顺利运行本软件？</h4>
                 <ol class="space-y-2 text-sm text-gray-300 mt-2">
                   <li>1. 打开终端</li>
-                  <li>2. 输入 <code class="bg-gray-700 px-2 py-1 rounded text-xs">bash &lt;(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></li>
+                  <li>2. 输入 <code class="bg-gray-700 px-2 py-1 rounded text-xs break-all">bash &lt;(curl -sSL https://content.rycb.mxj.pub/files/mefl/install.sh)</code></li>
                   <li>3. 等待安装完成</li>
                   <li>4. 之后可直接输入 (2.1.0.0 以下) <code class="bg-gray-700 px-2 py-1 rounded text-xs">mefrplauncherx</code> 或 (2.1.0.0 及以上) <code class="bg-gray-700 px-2 py-1 rounded text-xs">pml-2</code> 启动</li>
                 </ol>
@@ -228,7 +228,7 @@
       <div class="p-6 space-y-6">
         <div class="text-center mb-6">
           <h3 class="text-lg font-semibold text-white mb-4">v2.1.0 下载地址</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <UButton 
               color="primary"
               to="https://alist.yealqp.cn/mefrp-desktop/ME-Frp%20PML2/mefrp"
@@ -405,8 +405,8 @@
             <p><strong class="text-yellow-400">原因：</strong>特定目录下需要管理员权限。</p>
             <p><strong class="text-green-400">解决方法：</strong></p>
             <ol class="space-y-2 ml-4">
-              <li>1. 打开安装目录（如 <code class="bg-gray-700 px-1 py-0.5 rounded">C:\Program Files\...</code>）</li>
-              <li>2. 右键 <code class="bg-gray-700 px-1 py-0.5 rounded">MEFrpLauncherX.exe</code> → 属性</li>
+              <li>1. 打开安装目录（如 <code class="bg-gray-700 px-1 py-0.5 rounded break-all">C:\Program Files\...</code>）</li>
+              <li>2. 右键 <code class="bg-gray-700 px-1 py-0.5 rounded break-all">MEFrpLauncherX.exe</code> → 属性</li>
               <li>3. 切换到"兼容性" → 点击"更改所有用户的设置"</li>
               <li>4. 勾选"以管理员身份运行此程序" → 确定</li>
               <li>5. 重新启动软件</li>
@@ -422,9 +422,9 @@
             <p><strong class="text-yellow-400">原因：</strong>权限不足。</p>
             <p><strong class="text-green-400">解决方法：</strong></p>
             <ol class="space-y-2 ml-4">
-              <li>1. (2.1.0.0 以下)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded">chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code></li>
-              <li>2. (2.1.0.0 及以上)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded">chmod -R a+r,a+w /opt/pml-2</code></li>
-              <li>3. 重新运行：(2.1.0.0 以下) <code class="bg-gray-700 px-1 py-0.5 rounded">mefrplauncherx</code> 或(2.1.0.0 及以上) <code class="bg-gray-700 px-1 py-0.5 rounded">pml-2</code></li>
+              <li>1. (2.1.0.0 以下)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded text-xs break-all">chmod -R a+r,a+w /usr/share/mefrplauncherx/*</code></li>
+              <li>2. (2.1.0.0 及以上)打开终端，执行：<code class="bg-gray-700 px-1 py-0.5 rounded text-xs break-all">chmod -R a+r,a+w /opt/pml-2</code></li>
+              <li>3. 重新运行：(2.1.0.0 以下) <code class="bg-gray-700 px-1 py-0.5 rounded text-xs">mefrplauncherx</code> 或(2.1.0.0 及以上) <code class="bg-gray-700 px-1 py-0.5 rounded text-xs">pml-2</code></li>
             </ol>
           </div>
         </div>
