@@ -20,7 +20,7 @@
       <!-- 项目介绍 -->
       <div 
         ref="introRef"
-        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        class="glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
         :class="{ 'visible': introVisible }"
       >
         <div class="p-6 border-b border-white/10">
@@ -85,7 +85,7 @@
       <!-- 快速开始 -->
       <div 
         ref="quickStartRef"
-        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        class="glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
         :class="{ 'visible': quickStartVisible }"
       >
         <div class="p-6 border-b border-white/10">
@@ -99,7 +99,7 @@
           <div 
             v-for="(step, index) in quickStartSteps" 
             :key="step.title"
-            class="text-center space-y-4 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth cursor-pointer"
+            class="glass-card text-center space-y-4 p-4 rounded-lg hover-lift overflow-hidden cursor-pointer"
           >
             <div class="flex justify-center">
               <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-500/20 text-primary-400 text-lg font-bold">
@@ -115,7 +115,7 @@
       <!-- 客户端文档链接 -->
       <div 
         ref="clientsRef"
-        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        class="glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
         :class="{ 'visible': clientsVisible }"
       >
         <div class="p-6 border-b border-white/10">
@@ -130,7 +130,7 @@
             v-for="client in clients" 
             :key="client.id"
             :to="client.path"
-            class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-smooth border border-white/10 hover:border-primary-500/50 cursor-pointer"
+            class="glass-card block p-4 rounded-lg hover-lift overflow-hidden cursor-pointer"
           >
             <div class="flex items-center space-x-3 mb-3">
               <img :src="client.icon" :alt="client.name" class="w-8 h-8 rounded" />
@@ -148,7 +148,7 @@
       <!-- 联系我们 -->
       <div 
         ref="contactRef"
-        class="glass-card rounded-xl overflow-hidden scroll-animate"
+        class="glass-card rounded-xl overflow-hidden scroll-animate hover-lift"
         :class="{ 'visible': contactVisible }"
       >
         <div class="p-6 border-b border-white/10">

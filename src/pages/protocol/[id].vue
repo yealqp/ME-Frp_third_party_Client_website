@@ -1,7 +1,7 @@
 <template>
   <div class="pt-16 min-h-screen bg-gray-950 flex items-center justify-center">
     <div class="container mx-auto px-4 max-w-4xl">
-      <div class="glass-card rounded-xl overflow-hidden">
+      <div class="glass-card rounded-xl overflow-hidden hover-lift">
         <div class="p-8 text-center space-y-8">
           <!-- 加载动画 -->
           <div class="space-y-4">
@@ -35,7 +35,7 @@
             <div 
               v-for="product in products" 
               :key="product.id"
-              class="glass-card rounded-xl overflow-hidden hover:border-primary-500/50 transition-colors"
+              class="glass-card rounded-xl overflow-hidden hover-lift transition-colors"
             >
               <div class="p-4 border-b border-white/10">
                 <div class="flex items-center space-x-3">

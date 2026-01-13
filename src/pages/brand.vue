@@ -26,18 +26,17 @@
         <!-- 主要 Logo -->
         <div 
           ref="mainLogoRef"
-          class="mb-12 scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card mb-12 scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': mainLogoVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">主要 Logo</h2>
           </div>
           
           <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- 完整版 Logo -->
             <div class="text-center space-y-4">
-              <div class="rounded-lg p-8 flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer" style="background: rgba(15, 23, 42, 0.6);">
+              <div class="glass-card rounded-lg p-8 flex items-center justify-center hover-lift overflow-hidden cursor-pointer">
                 <LogoIcon :size="128" :animated="true" />
               </div>
               <h3 class="text-lg font-semibold text-white">完整版 Logo</h3>
@@ -50,7 +49,7 @@
 
             <!-- 简化版 Logo -->
             <div class="text-center space-y-4">
-              <div class="rounded-lg p-8 flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer" style="background: rgba(15, 23, 42, 0.6);">
+              <div class="glass-card rounded-lg p-8 flex items-center justify-center hover-lift overflow-hidden cursor-pointer">
                 <LogoIcon :size="128" :animated="false" />
               </div>
               <h3 class="text-lg font-semibold text-white">简化版 Logo</h3>
@@ -66,16 +65,15 @@
         <!-- 文字版 Logo -->
         <div 
           ref="textLogoRef"
-          class="mb-12 scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card mb-12 scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': textLogoVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">文字版 Logo</h2>
           </div>
           
           <div class="p-6 text-center space-y-6">
-            <div class="rounded-lg p-8 flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer" style="background: rgba(15, 23, 42, 0.6);">
+            <div class="glass-card rounded-lg p-8 flex items-center justify-center hover-lift overflow-hidden cursor-pointer">
               <div class="flex items-center space-x-4">
                 <LogoIcon :size="60" :animated="false" />
                 <div class="text-left">
@@ -102,16 +100,15 @@
         <!-- Favicon -->
         <div 
           ref="faviconRef"
-          class="mb-12 scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card mb-12 scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': faviconVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">Favicon</h2>
           </div>
           
           <div class="p-6 text-center space-y-6">
-            <div class="rounded-lg p-8 flex items-center justify-center transition-all duration-300 hover:scale-105 cursor-pointer" style="background: rgba(15, 23, 42, 0.6);">
+            <div class="glass-card rounded-lg p-8 flex items-center justify-center hover-lift overflow-hidden cursor-pointer">
               <LogoIcon :size="64" :animated="false" />
             </div>
             <div>
@@ -134,11 +131,10 @@
         <!-- 使用指南 -->
         <div 
           ref="guideRef"
-          class="scroll-animate rounded-xl overflow-hidden"
-          style="background: rgba(17, 24, 39, 0.8); border: 1px solid rgba(51, 65, 85, 0.5);"
+          class="glass-card scroll-animate hover-lift rounded-xl overflow-hidden"
           :class="{ 'visible': guideVisible }"
         >
-          <div class="p-6 border-b" style="border-color: rgba(51, 65, 85, 0.5);">
+          <div class="p-6 border-b border-white/10">
             <h2 class="text-2xl font-bold text-white">使用指南</h2>
           </div>
           
@@ -165,7 +161,7 @@
             <div>
               <h3 class="text-lg font-semibold text-white mb-3">使用规范</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-4 rounded-lg" style="background: rgba(15, 23, 42, 0.6);">
+                <div class="glass-card p-4 rounded-lg overflow-hidden hover-lift">
                   <h4 class="font-semibold text-teal-400 mb-2">✅ 正确使用</h4>
                   <ul class="space-y-1 text-sm">
                     <li>• 保持 Logo 的完整性和比例</li>
@@ -174,7 +170,7 @@
                     <li>• 使用官方提供的文件格式</li>
                   </ul>
                 </div>
-                <div class="p-4 rounded-lg" style="background: rgba(15, 23, 42, 0.6);">
+                <div class="glass-card p-4 rounded-lg overflow-hidden hover-lift">
                   <h4 class="font-semibold text-red-400 mb-2">❌ 避免使用</h4>
                   <ul class="space-y-1 text-sm">
                     <li>• 不要拉伸或变形 Logo</li>
