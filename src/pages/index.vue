@@ -96,6 +96,9 @@ const parallaxOffset = ref(0)
 // 滚动状态
 const isScrolling = ref(false)
 
+// 检测是否为移动设备
+const isMobile = ref(false)
+
 // 平滑滚动到指定位置
 const smoothScrollTo = (targetPosition) => {
   if (isScrolling.value) return
@@ -128,6 +131,9 @@ const smoothScrollTo = (targetPosition) => {
 
 // 处理滚轮事件
 const handleWheel = (event) => {
+  // 移动设备上禁用滚动效果
+  if (isMobile.value) return
+  
   const heroHeight = window.innerHeight
   const scrollY = window.scrollY
   
@@ -164,10 +170,16 @@ const handleWheel = (event) => {
 let touchStartY = 0
 
 const handleTouchStart = (event) => {
+  // 移动设备上禁用滚动效果
+  if (isMobile.value) return
+  
   touchStartY = event.touches[0].clientY
 }
 
 const handleTouchMove = (event) => {
+  // 移动设备上禁用滚动效果
+  if (isMobile.value) return
+  
   const heroHeight = window.innerHeight
   const scrollY = window.scrollY
   
@@ -178,6 +190,9 @@ const handleTouchMove = (event) => {
 }
 
 const handleTouchEnd = (event) => {
+  // 移动设备上禁用滚动效果
+  if (isMobile.value) return
+  
   const heroHeight = window.innerHeight
   const scrollY = window.scrollY
   
@@ -212,6 +227,10 @@ const updateParallax = () => {
 
 onMounted(() => {
   if (import.meta.server) return
+  
+  // 检测是否为移动设备
+  isMobile.value = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768
+  
   window.addEventListener('scroll', updateParallax, { passive: true })
   window.addEventListener('wheel', handleWheel, { passive: false })
   window.addEventListener('touchstart', handleTouchStart, { passive: true })
