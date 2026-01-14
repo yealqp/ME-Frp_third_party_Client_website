@@ -175,7 +175,6 @@
             <UIcon name="i-lucide-download" class="size-5 mr-2" />
             蓝奏云下载
           </UButton>
-          <p class="text-gray-400 text-sm mt-2">当前版本: v2.3</p>
         </div>
         
         <div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">

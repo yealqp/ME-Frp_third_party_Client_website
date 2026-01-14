@@ -170,14 +170,13 @@
           <UButton 
             size="lg" 
             color="primary"
-            to="https://alist.yealqp.cn/"
+            to="https://alist.yealqp.cn/ME-Frp%20XL%20%E5%AE%A2%E6%88%B7%E7%AB%AF"
             target="_blank"
             class="btn-glow cursor-pointer"
           >
             <UIcon name="i-lucide-download" class="size-5 mr-2" />
             OpenList 下载
           </UButton>
-          <p class="text-gray-400 text-sm mt-2">当前版本: v1.5.5</p>
         </div>
         
         <div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
@@ -214,10 +213,6 @@
             <li class="flex items-start space-x-3">
               <span class="flex-shrink-0 w-6 h-6 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-sm font-bold">3</span>
               <span>启动程序，输入您的 ME-Frp 账户信息</span>
-            </li>
-            <li class="flex items-start space-x-3">
-              <span class="flex-shrink-0 w-6 h-6 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-sm font-bold">4</span>
-              <span>开始使用，享受便捷的内网穿透服务</span>
             </li>
           </ol>
         </div>
