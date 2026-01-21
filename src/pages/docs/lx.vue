@@ -324,7 +324,6 @@ const updateHistory = [
   {
     version: 'v2.3',
     date: '2025-10-6',
-    isLatest: true,
     changes: [
       '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">浅色窗口模式</code>，可在设置页面更换',
       '修复部分用户每十分钟一次的卡顿现象',
