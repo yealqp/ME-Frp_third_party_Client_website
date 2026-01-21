@@ -318,7 +318,7 @@ const updateHistory = [
       '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">VIP节点</code>提示',
       '修复隧道无法创建问题',
       '修复隧道创建界面显示问题'
-    ]
+    ],
     note: '当VIP节点过载时，优先提示过载，普通用户无法使用VIP节点创建隧道'
   },
   {
