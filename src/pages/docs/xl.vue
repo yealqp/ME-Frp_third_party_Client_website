@@ -312,8 +312,30 @@ const previewImages = [
 // 更新历史
 const updateHistory = [
   {
-    version: 'v1.5.5',
+    version: 'v1.5.7',
     isLatest: true,
+    changes: [
+      '修复公告卡片加载时会显示两个骨架加载卡片的问题',
+      '优化系统公告卡片的MarkDown渲染，更换渲染库',
+      '重构人机验证组件，更美观、轻量',
+      '调整设置页面的卡片顺序',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">每日签到</code>功能',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">CDK兑换</code>功能',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看CDK兑换历史</code>功能',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">系统状态显示</code>功能',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">用户中心页面</code>',
+      '检查更新模态框显示更新公告',
+    ]
+  },
+  {
+    version: 'v1.5.6',
+    changes: [
+      '对ME Frp API的请求添加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">User-Agent</code>请求头',
+      '修复同时开启多个隧道可能会阻塞其他异步线程导致程序卡死的问题'
+    ]
+  },
+  {
+    version: 'v1.5.5',
     changes: [
       '创建隧道页面节点卡片添加VIP节点样式和逻辑，删除了创建HTTP/S隧道功能（我才发现不能用，先扔着）。'
     ]
