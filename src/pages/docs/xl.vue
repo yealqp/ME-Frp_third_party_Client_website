@@ -57,7 +57,7 @@
               </li>
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
-                <span>提供官网没有的启停隧道功能</span>
+                <span>提供其他客户端没有的原生人机验证功能</span>
               </li>
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -325,6 +325,7 @@ const updateHistory = [
       '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">系统状态显示</code>功能',
       '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">用户中心页面</code>',
       '检查更新模态框显示更新公告',
+      '再次感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证工具类。'
     ]
   },
   {
@@ -367,7 +368,7 @@ const updateHistory = [
   {
     version: 'v1.5',
     changes: [
-      '添加登录时的人机验证功能，感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证逻辑。'
+      '添加登录时的人机验证功能，感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证工具类。'
     ]
   },
   {
