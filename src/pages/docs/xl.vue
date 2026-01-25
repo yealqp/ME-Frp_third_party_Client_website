@@ -312,8 +312,21 @@ const previewImages = [
 // 更新历史
 const updateHistory = [
   {
-    version: 'v1.5.7',
+    version: 'v1.5.8',
     isLatest: true,
+    changes: [
+      '更换<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">vue-router</code>路由',
+      '将CDK相关合并为一个卡片',
+      '优化冗余代码',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">一言功能</code>（关于面板）',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">隧道全下线功能</code>（用户中心）',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看历史流量功能</code>（用户中心）',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">重要公告弹窗功能</code>（面板主页）',
+      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">政策与条款卡片</code>（帮助中心）'
+    ]
+  },
+  {
+    version: 'v1.5.7',
     changes: [
       '修复公告卡片加载时会显示两个骨架加载卡片的问题',
       '优化系统公告卡片的MarkDown渲染，更换渲染库',
