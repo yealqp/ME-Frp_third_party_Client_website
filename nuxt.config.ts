@@ -61,8 +61,9 @@ export default defineNuxtConfig({
       script: [
         {
           defer: true,
-          src: 'http://umami.yealqp.cn/script.js',
-          'data-website-id': '2c44a45e-a4bb-40ea-ab3c-75936119e6a2'
+          src: 'https://umami.yealqp.cn/script.js',
+          'data-website-id': '2c44a45e-a4bb-40ea-ab3c-75936119e6a2',
+          async: true
         }
       ]
     }
