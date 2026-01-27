@@ -229,12 +229,36 @@
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </div>
       
-      <div class="p-6 space-y-6">
-        <div v-for="update in updateHistory" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
+      <!-- 加载状态 -->
+      <div v-if="loading" class="p-6 text-center py-8">
+        <UIcon name="i-lucide-loader-2" class="size-8 text-primary-400 animate-spin mx-auto mb-4" />
+        <p class="text-gray-400">正在加载更新日志...</p>
+      </div>
+
+      <!-- 错误状态 -->
+      <div v-else-if="error" class="p-6 text-center py-8">
+        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
+          <div class="flex items-start space-x-3">
+            <UIcon name="i-lucide-alert-circle" class="size-5 text-red-400 mt-0.5 flex-shrink-0" />
+            <div>
+              <h4 class="font-semibold text-red-400">获取更新日志失败</h4>
+              <p class="text-gray-300 text-sm mt-1">{{ error }}，请稍后重试或联系管理员。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 更新日志内容 -->
+      <div v-else class="p-6 space-y-6">
+        <div v-for="update in updates" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
           <div class="flex items-center space-x-2 mb-2">
             <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
             <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
           </div>
+          
+          <!-- 版本描述 -->
+          <p v-if="update.note" class="text-gray-400 text-sm mb-3 italic" v-html="update.note"></p>
+          
           <ul class="space-y-1 text-gray-300 text-sm">
             <li v-for="(change, index) in update.changes" :key="index" class="flex items-start space-x-2">
               <span class="text-primary-400 mt-1">•</span>
@@ -259,6 +283,12 @@ const { elementRef: introRef, isVisible: introVisible } = useScrollAnimation()
 const { elementRef: previewRef, isVisible: previewVisible } = useScrollAnimation()
 const { elementRef: downloadRef, isVisible: downloadVisible } = useScrollAnimation()
 const { elementRef: updateRef, isVisible: updateVisible } = useScrollAnimation()
+
+// 防止未使用警告
+void introRef
+void previewRef
+void downloadRef
+void updateRef
 
 // 页面元数据
 useHead({
@@ -309,112 +339,82 @@ const previewImages = [
   { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png', alt: '关于页面' }
 ]
 
-// 更新历史
-const updateHistory = [
-  {
-    version: 'v1.5.8',
-    isLatest: true,
-    changes: [
-      '更换<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">vue-router</code>路由',
-      '将CDK相关合并为一个卡片',
-      '优化冗余代码',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">一言功能</code>（关于面板）',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">隧道全下线功能</code>（用户中心）',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看历史流量功能</code>（用户中心）',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">重要公告弹窗功能</code>（面板主页）',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">政策与条款卡片</code>（帮助中心）'
-    ]
-  },
-  {
-    version: 'v1.5.7',
-    changes: [
-      '修复公告卡片加载时会显示两个骨架加载卡片的问题',
-      '优化系统公告卡片的MarkDown渲染，更换渲染库',
-      '重构人机验证组件，更美观、轻量',
-      '调整设置页面的卡片顺序',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">每日签到</code>功能',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">CDK兑换</code>功能',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看CDK兑换历史</code>功能',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">系统状态显示</code>功能',
-      '新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">用户中心页面</code>',
-      '检查更新模态框显示更新公告',
-      '再次感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证工具类。'
-    ]
-  },
-  {
-    version: 'v1.5.6',
-    changes: [
-      '对ME Frp API的请求添加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">User-Agent</code>请求头',
-      '修复同时开启多个隧道可能会阻塞其他异步线程导致程序卡死的问题'
-    ]
-  },
-  {
-    version: 'v1.5.5',
-    changes: [
-      '创建隧道页面节点卡片添加VIP节点样式和逻辑，删除了创建HTTP/S隧道功能（我才发现不能用，先扔着）。'
-    ]
-  },
-  {
-    version: 'v1.5.4',
-    changes: [
-      '添加Token登录功能，减少冗余代码，修复了自动检查更新时弹出的新版本下载地址不正确的问题，优化QQ群聊按钮，添加二群相关按钮，优化后端逻辑。'
-    ]
-  },
-  {
-    version: 'v1.5.3',
-    changes: [
-      '修改新版本下载地址，修改了仙林云官网地址，在帮助页面图形化反馈卡片中添加新版本下载页按钮。'
-    ]
-  },
-  {
-    version: 'v1.5.2',
-    changes: [
-      '将隧道管理页面的编辑按钮移到更多选项卡中，将更多选项卡中的复制远程地址和详情按钮移到原编辑按钮位置。'
-    ]
-  },
-  {
-    version: 'v1.5.1',
-    changes: [
-      '添加复制隧道远程地址功能。'
-    ]
-  },
-  {
-    version: 'v1.5',
-    changes: [
-      '添加登录时的人机验证功能，感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证工具类。'
-    ]
-  },
-  {
-    version: 'v1.4',
-    changes: [
-      '添加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">配置文件启动</code>功能，更新了软件内的新版本下载地址'
-    ]
-  },
-  {
-    version: 'v1.3',
-    changes: [
-      '修改<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">自启动隧道</code>逻辑，重构后端有关配置文件修改的部分'
-    ]
-  },
-  {
-    version: 'v1.2',
-    changes: [
-      '更新了软件内的新版本下载地址'
-    ]
-  },
-  {
-    version: 'v1.1',
-    changes: [
-      '修复了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">隧道启动</code>时，使用的二进制文件路径不正确的问题，添加了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">单实例启动</code>的功能'
-    ]
-  },
-  {
-    version: 'v1.0',
-    changes: [
-      '发布'
-    ]
+// 更新日志状态
+const loading = ref(false)
+const error = ref(null)
+const updates = ref([])
+
+// 从 API 获取更新日志
+const fetchChangelog = async () => {
+  try {
+    const response = await fetch('https://check.yealqp.cn/changelog.json')
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    return data
+  } catch (err) {
+    console.error('获取更新日志失败:', err)
+    throw err
   }
-]
+}
+
+// 版本号比较
+const compareVersions = (version1, version2) => {
+  const v1Parts = version1.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  const v2Parts = version2.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  
+  const maxLength = Math.max(v1Parts.length, v2Parts.length)
+  while (v1Parts.length < maxLength) v1Parts.push(0)
+  while (v2Parts.length < maxLength) v2Parts.push(0)
+  
+  for (let i = 0; i < maxLength; i++) {
+    if (v1Parts[i] > v2Parts[i]) return 1
+    if (v1Parts[i] < v2Parts[i]) return -1
+  }
+  return 0
+}
+
+// 转换 API 数据
+const transformApiData = (apiData) => {
+  if (!apiData.data) {
+    throw new Error('API 数据格式错误')
+  }
+  
+  const transformedData = []
+  const versions = Object.keys(apiData.data).sort((a, b) => compareVersions(b, a))
+  
+  versions.forEach((version, index) => {
+    const versionData = apiData.data[version]
+    // 适配新格式：versionData 是数组
+    const changes = Array.isArray(versionData) ? versionData : (versionData.changes || [])
+    
+    transformedData.push({
+      version: `v${version}`,
+      changes: changes,
+      note: '',
+      isLatest: index === 0
+    })
+  })
+  
+  return transformedData
+}
+
+// 初始化更新日志
+const initializeUpdates = async () => {
+  loading.value = true
+  error.value = null
+  
+  try {
+    const apiData = await fetchChangelog()
+    updates.value = transformApiData(apiData)
+  } catch (err) {
+    error.value = '获取更新日志失败'
+    updates.value = []
+  } finally {
+    loading.value = false
+  }
+}
 
 // 轮播图状态
 const currentImageIndex = ref(0)
@@ -432,4 +432,9 @@ const previousImage = () => {
 const openImageModal = (image) => {
   window.open(image.src, '_blank')
 }
+
+// 组件挂载时初始化
+onMounted(() => {
+  initializeUpdates()
+})
 </script>
