@@ -57,6 +57,13 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/apple-touch-icon.png' },
         { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn' }
+      ],
+      script: [
+        {
+          defer: true,
+          src: 'http://umami.yealqp.cn/script.js',
+          'data-website-id': '2c44a45e-a4bb-40ea-ab3c-75936119e6a2'
+        }
       ]
     }
   },
