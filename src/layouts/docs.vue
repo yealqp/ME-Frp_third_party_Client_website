@@ -96,7 +96,7 @@
                   <span class="text-sm">关于我们</span>
                 </NuxtLink>
                 <NuxtLink
-                  to="https://www.xianlin.cloud/"
+                  to="https://www.idcxl.cn/"
                   class="group flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 transition-all duration-200 relative overflow-hidden special-link"
                 >
                   <img
