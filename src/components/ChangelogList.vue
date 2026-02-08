@@ -21,12 +21,37 @@
 
     <!-- 更新日志内容 -->
     <div v-else class="p-6 space-y-6">
-      <!-- 显示的更新日志 - 使用懒加载 -->
-      <ChangelogCard
-        v-for="update in displayedUpdates"
-        :key="update.version"
-        :update="update"
-      />
+      <!-- 显示的更新日志 - 使用 lx.vue 优化样式 -->
+      <div 
+        v-for="update in displayedUpdates" 
+        :key="update.version" 
+        class="border-l-2 border-primary-500/30 pl-4"
+      >
+        <div class="flex items-center space-x-2 mb-2">
+          <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
+          <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
+          <a
+            v-if="update.codename"
+            :href="`https://api.rycb.mxj.pub/codename/${update.codename}`"
+            target="_blank"
+            class="px-2 py-0.5 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400 hover:bg-blue-500/30 transition-colors cursor-pointer"
+          >
+            {{ update.codename }}
+          </a>
+        </div>
+        <p v-if="update.date" class="text-sm text-gray-400 mb-2">更新日期：{{ update.date }}</p>
+        <p v-if="update.description" class="text-sm text-gray-300 mb-3 italic" v-html="update.description"></p>
+        <ul class="space-y-1 text-gray-300 text-sm mb-3">
+          <li v-for="(change, index) in (update.changes || update.notes || [])" :key="index" class="flex items-start space-x-2">
+            <span class="text-primary-400 mt-1">•</span>
+            <span v-html="change"></span>
+          </li>
+        </ul>
+        <div v-if="update.note" class="bg-gray-700/30 rounded-lg p-3 text-sm text-gray-300">
+          <span class="text-yellow-400 font-medium">注：</span>
+          <span v-html="update.note"></span>
+        </div>
+      </div>
 
       <!-- 加载更多按钮 -->
       <div v-if="hasMore" class="text-center pt-4">
@@ -112,10 +137,3 @@ watch(() => props.updates, () => {
   currentPage.value = 1
 }, { deep: false }) // 不需要深度监听
 </script>
-
-<style scoped>
-/* 优化容器性能 */
-.space-y-6 > * {
-  contain: layout style;
-}
-</style>

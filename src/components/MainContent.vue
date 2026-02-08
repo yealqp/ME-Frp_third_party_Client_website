@@ -16,16 +16,16 @@
       <!-- 产品网格 -->
       <div 
         ref="productGridRef"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 pt-2"
       >
         <div 
           v-for="(product, index) in products" 
           :key="product.id"
-          class="scroll-animate-scale"
+          class="scroll-animate-scale pt-2"
           :class="{ 'visible': productGridVisible }"
           :style="{ transitionDelay: `${getProductDelay(index)}ms` }"
         >
-          <div class="glass-card hover-lift overflow-hidden h-full">
+          <div class="glass-card hover-lift h-full relative rounded-xl">
             <div class="px-4 py-4 sm:px-6 border-b border-white/10">
               <div class="flex items-center space-x-4">
                 <img :src="product.icon" :alt="`${product.name} 图标`" class="w-12 h-12 rounded-lg" loading="lazy">
@@ -58,15 +58,15 @@
       </div>
 
       <!-- 成员网格 -->
-      <div ref="membersGridRef" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div ref="membersGridRef" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 pt-2">
         <div 
           v-for="(member, index) in members" 
           :key="member.name" 
-          class="scroll-animate-bounce" 
+          class="scroll-animate-bounce pt-2" 
           :class="{ 'visible': membersGridVisible }" 
           :style="{ transitionDelay: `${getMemberDelay(index)}ms` }"
         >
-          <div class="glass-card text-center hover-lift overflow-hidden h-full">
+          <div class="glass-card text-center hover-lift h-full rounded-xl">
             <div class="px-4 py-6 sm:px-6 space-y-4">
               <div class="flex justify-center">
                 <img :src="member.avatar" :alt="`${member.name} - ${member.role}`" class="w-20 h-20 rounded-full border-2 border-teal-500/50" loading="lazy" @error="handleImageError">
@@ -90,15 +90,15 @@
           <h3 class="text-2xl font-bold text-white mb-4">特别鸣谢</h3>
           <p class="text-gray-400">感谢以下个人和组织的支持</p>
         </div>
-        <div ref="sponsorsGridRef" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref="sponsorsGridRef" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
           <div 
             v-for="(sponsor, index) in sponsors" 
             :key="sponsor.name" 
-            class="scroll-animate-flip" 
+            class="scroll-animate-flip pt-2" 
             :class="{ 'visible': sponsorsGridVisible }" 
             :style="{ transitionDelay: `${getSponsorDelay(index)}ms` }"
           >
-            <div class="glass-card text-center hover-lift overflow-hidden h-full" :class="{ 'special-card': sponsor.special }">
+            <div class="glass-card text-center hover-lift overflow-hidden h-full relative" :class="{ 'special-card': sponsor.special }">
               <div class="px-4 py-6 sm:px-6 space-y-4">
                 <div class="flex justify-center">
                   <img :src="sponsor.avatar" :alt="`${sponsor.name} - ${sponsor.role}`" class="w-16 h-16 rounded-full" :class="{ 'ring-2 ring-teal-400 ring-offset-2 ring-offset-gray-900': sponsor.special }" loading="lazy" @error="handleImageError">
