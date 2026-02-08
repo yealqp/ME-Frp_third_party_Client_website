@@ -314,7 +314,7 @@ const previewImages = [
   { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/about.png', alt: '关于页面' }
 ]
 
-// 更新历史（只显示最近几个版本）
+// 更新历史（完整版本）
 const updateHistory = [
   {
     version: 'v2.4',
@@ -369,6 +369,115 @@ const updateHistory = [
       '完善隧道管理页面：新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">生成启动配置</code>功能，新增对<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">被封禁的隧道</code>的注释',
       '优化了日志页面，每个隧道的日志可单独查看',
       '对图形化占用内存进行了优化，尽可能减少卡顿/卡顿时长'
+    ]
+  },
+  {
+    version: 'v1.9',
+    date: '2025-7-26',
+    changes: [
+      '优化部分区域字体显示问题',
+      '优化节点监控 UI（调整了因负载值不同的进度条颜色）',
+      '重画了提示框 UI',
+      '更改设置界面的帮助支持，新增飞书群和官方文档两个方式，微信群依照官方的样子已删除',
+      '完善了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">编辑隧道功能</code>各协议皆可进行编辑 :)',
+      '设置界面新增功能：新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">自定义自启动隧道</code>功能（设置好后，下一次启动图形化将自动启动隧道）',
+      '优化创建隧道界面：选择节点处新加了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">未实名用户组才可创建的节点</code>注释，选择节点处新加了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">因节点过载无法创建隧道</code>提示',
+      '登录界面进行了调整：因人机验证问题，<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">注册账号</code>功能删除，增加了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">Token登录</code>的登录方式',
+      '更改了启动隧道写法，该版本已可以正常启动隧道',
+      '优化了启动隧道后的日志输出',
+      '修复了因图形化启动前开启隧道，导致图形化二次启动出现的问题',
+      '优化部分区域代码，尽量的减少了主界面的卡顿现象和图形化使用时的出错'
+    ],
+    note: '注：当使用<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">账密登录</code>错误导致无法正常使用图形化时，可以试试使用 Token 登录。特注：本次更改启动隧道写法主要是因为官方将部分<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">token</code>权限分离，所以以往的版本已经无法启动隧道了'
+  },
+  {
+    version: 'v1.8',
+    date: '2025-7-14',
+    changes: [
+      '调整主页的布局',
+      '更改了日志页面字体色',
+      '修改了隧道关闭写法，放弃了调用 api 关闭的写法',
+      '优化了签到功能（采用官方的方法进行签到）',
+      '修复了隧道关闭后会重启问题',
+      '修复了因频繁开关隧道导致出现数组错误问题',
+      '修复各页面刷新出现数组错误问题',
+      '优化因频繁刷新导致数组错误问题'
+    ],
+    note: '注：优化和修复皆为调整刷新间隔，若全局刷新时碰到数组错误，重启图形化即可。特注：<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">重置Token</code>功能和密码因官方的人机验证无法使用，如有需求请前往官网进行操作'
+  },
+  {
+    version: 'v1.7',
+    date: '2025-7-6',
+    changes: [
+      '优化部分区域 UI（主要为字体方面）',
+      '优化托盘菜单',
+      '优化设置界面的开机自启功能',
+      '优化设置界面的窗口置顶功能',
+      '修复了因为节点删除导致的隧道信息初始化失败问题',
+      '完全修复了登录时因数组错误导致图形化无法正常使用问题'
+    ]
+  },
+  {
+    version: 'v1.6',
+    date: '2025-6-15',
+    changes: [
+      '优化登录失败问题',
+      '修复查看隧道信息窗口退出按钮无法退出或退出错误问题',
+      '优化图形化部分区域 UI',
+      '节点监控页面新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">负载百分比</code>显示',
+      '修复了因为节点删除导致的隧道信息初始化失败问题',
+      '完全修复了登录时因数组错误导致图形化无法正常使用问题'
+    ],
+    note: '注：本次登录更换了访问函数，登录成功率提升，若您在之前的版本可以正常登录，而新版本却经常登录失败，可添加作者 QQ 进行反馈，我会尽快进行修改'
+  },
+  {
+    version: 'v1.5',
+    date: '2025-6-8',
+    changes: [
+      '完善<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看隧道信息</code>（已经支持查看协议 HTTP 和 HTTPS）',
+      '修复部分节点序号因编码导致出现 ?? 问题',
+      '修复部分区域字体问题',
+      '增加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">托盘菜单</code>'
+    ]
+  },
+  {
+    version: 'v1.4',
+    date: '2025-5-25',
+    changes: [
+      '增加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">查看隧道信息</code>（目前仅支持协议 TCP 和 UDP）',
+      '增加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">重置Token</code>功能'
+    ]
+  },
+  {
+    version: 'v1.3',
+    date: '2025-5-5',
+    changes: [
+      '增加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">版本更新</code>功能',
+      '个人页面新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">流量历史记录</code>',
+      '修复了登录时，数组错误导致图形化无法正常使用的问题之一',
+      '优化了图形化部分区域 UI'
+    ]
+  },
+  {
+    version: 'v1.2',
+    date: '2025-4-20',
+    changes: [
+      '更改节点监控页面 UI'
+    ]
+  },
+  {
+    version: 'v1.1',
+    date: '2025-4-8',
+    changes: [
+      '登录页面新增<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">注册账号</code>功能',
+      '增加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">节点监控</code>页面'
+    ]
+  },
+  {
+    version: 'v1.0',
+    date: '2025-3-5',
+    changes: [
+      '发布'
     ]
   }
 ]
