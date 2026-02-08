@@ -439,6 +439,39 @@ body {
   transition: transform 0.1s linear;
 }
 
+/* 性能优化 - 使用 contain 和 will-change */
+.glass-card,
+.hover-lift,
+.scroll-animate,
+.scroll-animate-scale,
+.scroll-animate-bounce {
+  contain: layout style paint;
+}
+
+.glass-card:hover,
+.hover-lift:hover {
+  will-change: transform, box-shadow;
+}
+
+/* 动画元素优化 */
+.animate-pulse-slow,
+.animate-float,
+.animate-shimmer {
+  will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+/* 图片容器优化 */
+img {
+  content-visibility: auto;
+}
+
+/* 卡片容器优化 */
+.card-container {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
 /* 滚动进度指示器 */
 .scroll-progress {
   position: fixed;

@@ -222,10 +222,11 @@ export default useScrollAnimation
 
 /**
  * useScrollProgress composable
- * 监听页面滚动进度
+ * 监听页面滚动进度（带节流优化）
  */
 export function useScrollProgress() {
   const progress = ref(0)
+  let rafId: number | null = null
   
   const updateProgress = () => {
     if (import.meta.server) return
@@ -235,15 +236,24 @@ export function useScrollProgress() {
     progress.value = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
   }
 
+  const handleScroll = () => {
+    if (rafId) return
+    rafId = requestAnimationFrame(() => {
+      updateProgress()
+      rafId = null
+    })
+  }
+
   onMounted(() => {
     if (import.meta.server) return
-    window.addEventListener('scroll', updateProgress, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
     updateProgress()
   })
 
   onUnmounted(() => {
     if (import.meta.server) return
-    window.removeEventListener('scroll', updateProgress)
+    window.removeEventListener('scroll', handleScroll)
+    if (rafId) cancelAnimationFrame(rafId)
   })
 
   return { progress }
@@ -251,24 +261,34 @@ export function useScrollProgress() {
 
 /**
  * useParallax composable
- * 视差滚动效果
+ * 视差滚动效果（带节流优化）
  */
 export function useParallax(speed: number = 0.5) {
   const offset = ref(0)
+  let rafId: number | null = null
   
   const updateParallax = () => {
     if (import.meta.server) return
     offset.value = window.scrollY * speed
   }
 
+  const handleScroll = () => {
+    if (rafId) return
+    rafId = requestAnimationFrame(() => {
+      updateParallax()
+      rafId = null
+    })
+  }
+
   onMounted(() => {
     if (import.meta.server) return
-    window.addEventListener('scroll', updateParallax, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
   })
 
   onUnmounted(() => {
     if (import.meta.server) return
-    window.removeEventListener('scroll', updateParallax)
+    window.removeEventListener('scroll', handleScroll)
+    if (rafId) cancelAnimationFrame(rafId)
   })
 
   return { offset }
@@ -276,25 +296,35 @@ export function useParallax(speed: number = 0.5) {
 
 /**
  * useMousePosition composable
- * 鼠标位置追踪（用于光标跟随效果）
+ * 鼠标位置追踪（用于光标跟随效果，带节流优化）
  */
 export function useMousePosition() {
   const x = ref(0)
   const y = ref(0)
+  let rafId: number | null = null
 
   const updatePosition = (e: MouseEvent) => {
     x.value = e.clientX
     y.value = e.clientY
   }
 
+  const handleMouseMove = (e: MouseEvent) => {
+    if (rafId) return
+    rafId = requestAnimationFrame(() => {
+      updatePosition(e)
+      rafId = null
+    })
+  }
+
   onMounted(() => {
     if (import.meta.server) return
-    window.addEventListener('mousemove', updatePosition, { passive: true })
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
   })
 
   onUnmounted(() => {
     if (import.meta.server) return
-    window.removeEventListener('mousemove', updatePosition)
+    window.removeEventListener('mousemove', handleMouseMove)
+    if (rafId) cancelAnimationFrame(rafId)
   })
 
   return { x, y }
