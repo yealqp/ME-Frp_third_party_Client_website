@@ -26,7 +26,6 @@ export default defineNuxtConfig({
   // 实验性功能 - 性能优化
   experimental: {
     payloadExtraction: true,
-    renderJsonPayloads: true,
     viewTransition: true
   },
 
@@ -37,8 +36,7 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            'vendor': ['vue', 'vue-router'],
-            'ui': ['@nuxt/ui']
+            'vendor': ['vue', 'vue-router']
           }
         }
       }
@@ -115,21 +113,17 @@ export default defineNuxtConfig({
       crawlLinks: true
     },
     // 压缩优化
-    compressPublicAssets: true,
-    // 静态资源缓存
-    routeRules: {
-      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
-      '/api/**': { cache: { maxAge: 60 * 5 } } // API 缓存 5 分钟
-    }
+    compressPublicAssets: true
   },
 
   // 路由规则 - SEO 优化和缓存
   routeRules: {
-    '/': { prerender: true, swr: 3600 },
-    '/about': { prerender: true, swr: 3600 },
-    '/brand': { prerender: true, swr: 3600 },
-    '/products': { prerender: true, swr: 3600 },
-    '/docs/**': { prerender: true, swr: 3600 }
+    '/': { prerender: true },
+    '/about': { prerender: true },
+    '/brand': { prerender: true },
+    '/products': { prerender: true },
+    '/docs/**': { prerender: true },
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
   },
 
   // 兼容性日期
