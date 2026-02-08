@@ -239,12 +239,16 @@ onMounted(() => {
   })
 })
 
-const products = ref([
+// 使用版本管理 composable
+const { versions, fetchAllVersions } = useProductVersions()
+
+// 产品列表（使用计算属性动态获取版本号）
+const products = computed(() => [
   {
     id: 'xl',
     name: 'XL-ME-Frp-Launcher',
     author: 'yealqp',
-    version: 'v1.5.5',
+    version: versions.value.xl,
     description: '由yealqp使用Tauri框架开发，界面高仿官网样式，可能是目前收录的三个客户端中最美观的一个，也可能也是包体最小的一个，亦或是bug最少的一个。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/xl_icon.webp',
     screenshot: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png',
@@ -261,7 +265,7 @@ const products = ref([
     id: 'lx',
     name: 'LX-ME-Frp-Launcher',
     author: '灵弦MuaMua',
-    version: 'v2.3.0',
+    version: versions.value.lx,
     description: '由灵弦MuaMua使用易语言&Exui开发，界面高仿官方图形化V4.0。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/lx_icon.webp',
     screenshot: 'https://image.mefrp-tpca.yealqp.cn/image/views/Lx_MuaMua/home.png',
@@ -278,7 +282,7 @@ const products = ref([
     id: 'pml',
     name: 'Plain ME Frp Launcher',
     author: 'RYCB工作室',
-    version: 'v2.1.0',
+    version: versions.value.pml,
     description: 'PML 2使用.NET提供了简单便捷的操作, 也是目前三个产品中唯一一个跨平台的软件。支持常见主流平台(Windows, Linux, MacOS, Android)。',
     icon: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp',
     screenshot: 'https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png',
@@ -292,6 +296,11 @@ const products = ref([
     ]
   }
 ])
+
+// 组件挂载时获取版本号
+onMounted(() => {
+  fetchAllVersions()
+})
 
 const openProtocol = (productId) => {
   // 尝试打开自定义协议

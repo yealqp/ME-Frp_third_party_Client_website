@@ -229,44 +229,13 @@
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </div>
       
-      <!-- 加载状态 -->
-      <div v-if="loading" class="p-6 text-center py-8">
-        <UIcon name="i-lucide-loader-2" class="size-8 text-primary-400 animate-spin mx-auto mb-4" />
-        <p class="text-gray-400">正在加载更新日志...</p>
-      </div>
-
-      <!-- 错误状态 -->
-      <div v-else-if="error" class="p-6 text-center py-8">
-        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
-          <div class="flex items-start space-x-3">
-            <UIcon name="i-lucide-alert-circle" class="size-5 text-red-400 mt-0.5 flex-shrink-0" />
-            <div>
-              <h4 class="font-semibold text-red-400">获取更新日志失败</h4>
-              <p class="text-gray-300 text-sm mt-1">{{ error }}，请稍后重试或联系管理员。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 更新日志内容 -->
-      <div v-else class="p-6 space-y-6">
-        <div v-for="update in updates" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
-          <div class="flex items-center space-x-2 mb-2">
-            <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
-            <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
-          </div>
-          
-          <!-- 版本描述 -->
-          <p v-if="update.note" class="text-gray-400 text-sm mb-3 italic" v-html="update.note"></p>
-          
-          <ul class="space-y-1 text-gray-300 text-sm">
-            <li v-for="(change, index) in update.changes" :key="index" class="flex items-start space-x-2">
-              <span class="text-primary-400 mt-1">•</span>
-              <span v-html="change"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <!-- 使用优化的 ChangelogList 组件 -->
+      <ChangelogList
+        :updates="updates"
+        :loading="loading"
+        :error="error"
+        :page-size="5"
+      />
     </div>
 
   </div>
@@ -290,6 +259,12 @@ void previewRef
 void downloadRef
 void updateRef
 
+// 使用版本管理 composable
+const { getVersion, fetchAllVersions } = useProductVersions()
+
+// 获取当前产品版本
+const currentVersion = computed(() => getVersion('xl'))
+
 // 页面元数据
 useHead({
   title: 'XL-ME-Frp-Launcher 文档',
@@ -299,13 +274,13 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
+      innerHTML: () => JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: 'XL-ME-Frp-Launcher',
         applicationCategory: 'NetworkApplication',
         operatingSystem: 'Windows 10, Windows 11, Windows Server',
-        softwareVersion: 'v1.5.5',
+        softwareVersion: currentVersion.value,
         description: '基于 Tauri 2 框架开发的 ME-Frp 第三方客户端，界面高仿官网样式，性能优异',
         author: { '@type': 'Person', name: 'yealqp' },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
@@ -386,13 +361,16 @@ const transformApiData = (apiData) => {
   
   versions.forEach((version, index) => {
     const versionData = apiData.data[version]
-    // 适配新格式：versionData 是数组
+    // 适配新格式：versionData 是数组或对象
     const changes = Array.isArray(versionData) ? versionData : (versionData.changes || [])
+    const date = Array.isArray(versionData) ? '' : (versionData.date || '')
+    const note = Array.isArray(versionData) ? '' : (versionData.note || '')
     
     transformedData.push({
       version: `v${version}`,
       changes: changes,
-      note: '',
+      date: date,
+      note: note,
       isLatest: index === 0
     })
   })
@@ -435,6 +413,7 @@ const openImageModal = (image) => {
 
 // 组件挂载时初始化
 onMounted(() => {
+  fetchAllVersions()
   initializeUpdates()
 })
 </script>

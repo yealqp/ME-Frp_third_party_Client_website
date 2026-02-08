@@ -258,6 +258,12 @@ const { elementRef: previewRef, isVisible: previewVisible } = useScrollAnimation
 const { elementRef: downloadRef, isVisible: downloadVisible } = useScrollAnimation()
 const { elementRef: updateRef, isVisible: updateVisible } = useScrollAnimation()
 
+// 使用版本管理 composable
+const { getVersion, fetchAllVersions } = useProductVersions()
+
+// 获取当前产品版本
+const currentVersion = computed(() => getVersion('lx'))
+
 // 页面元数据
 useHead({
   title: 'LX-ME-Frp-Launcher 文档',
@@ -267,13 +273,13 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
+      innerHTML: () => JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: 'LX-ME-Frp-Launcher',
         applicationCategory: 'NetworkApplication',
         operatingSystem: 'Windows',
-        softwareVersion: 'v2.3',
+        softwareVersion: currentVersion.value,
         description: '使用易语言 & Exui 开发的 ME-Frp 第三方客户端，界面高仿官方图形化 V4.0',
         author: { '@type': 'Person', name: '灵弦MuaMua' },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
@@ -383,4 +389,9 @@ const previousImage = () => {
 const openImageModal = (image) => {
   window.open(image.src, '_blank')
 }
+
+// 组件挂载时获取版本号
+onMounted(() => {
+  fetchAllVersions()
+})
 </script>
