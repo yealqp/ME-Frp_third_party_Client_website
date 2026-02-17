@@ -5,11 +5,11 @@
       <div class="flex items-center space-x-4 mb-4">
         <img
           src="https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp"
-          alt="Plain ME Frp Launcher"
+          alt="PML 2"
           class="w-12 h-12 rounded-lg"
         />
         <div>
-          <h1 class="text-3xl font-bold text-white">Plain ME Frp Launcher</h1>
+          <h1 class="text-3xl font-bold text-white">PML 2</h1>
           <p class="text-gray-400">基于 .NET 的跨平台客户端</p>
         </div>
       </div>
@@ -46,7 +46,7 @@
 
       <div class="p-6 space-y-4 text-gray-300">
         <p>
-          Plain ME Frp Launcher X (PML 2) 是由
+          PML 2 是由
           <strong class="text-primary-400">RYCB Studio</strong> 使用 .NET 10.0
           开发的 ME-Frp 第三方客户端。 该客户端是对 ME Frp (幻缘映射)
           的图形化实现，提供了简单便捷的操作，可以快速启动隧道，支持 Windows,
@@ -191,7 +191,7 @@
         <div class="relative h-96 flex items-center justify-center">
           <img
             :src="previewImages[currentImageIndex].src"
-            :alt="`${previewImages[currentImageIndex].alt} - Plain ME Frp Launcher 界面截图`"
+            :alt="`${previewImages[currentImageIndex].alt} - PML 2 界面截图`"
             class="max-w-full max-h-full object-contain cursor-pointer"
             loading="lazy"
             @click="openImageModal(previewImages[currentImageIndex])"
@@ -747,7 +747,7 @@ void updateRef;
 
 // 页面元数据
 useHead({
-  title: "Plain ME Frp Launcher 文档",
+  title: "PML 2 文档",
   link: [{ rel: "canonical", href: "https://mefrp-tpca.yealqp.cn/docs/pml" }],
   script: [
     {
@@ -755,7 +755,7 @@ useHead({
       innerHTML: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        name: "Plain ME Frp Launcher",
+        name: "PML 2",
         applicationCategory: "NetworkApplication",
         operatingSystem: "Windows, Linux, macOS, Android",
         softwareVersion: "v2.1.0",
@@ -770,12 +770,12 @@ useHead({
 
 // SEO 优化
 useSeoMeta({
-  title: "Plain ME Frp Launcher 文档 | ME-Frp 第三方客户端联盟",
-  ogTitle: "Plain ME Frp Launcher 文档 - ME-Frp 第三方客户端联盟",
+  title: "PML 2 文档 | ME-Frp 第三方客户端联盟",
+  ogTitle: "PML 2 文档 - ME-Frp 第三方客户端联盟",
   description:
-    "Plain ME Frp Launcher 详细使用文档，基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android，包含多平台安装、配置和使用指南。",
+    "PML 2 详细使用文档，基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android，包含多平台安装、配置和使用指南。",
   ogDescription:
-    "Plain ME Frp Launcher 详细使用文档，包含多平台安装、配置和使用指南",
+    "PML 2 详细使用文档，包含多平台安装、配置和使用指南",
   ogImage: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png",
   ogUrl: "https://mefrp-tpca.yealqp.cn/docs/pml",
   ogType: "article",
