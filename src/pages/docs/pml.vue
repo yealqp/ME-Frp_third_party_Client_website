@@ -4,12 +4,12 @@
     <div class="mb-8">
       <div class="flex items-center space-x-4 mb-4">
         <img
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/icon/pml_icon.webp"
-          alt="Plain ME Frp Launcher"
+          src="https://image.mefrp-tpca.yealqp.cn/images/views/icon/pml_icon.webp"
+          alt="PML 2"
           class="w-12 h-12 rounded-lg"
         />
         <div>
-          <h1 class="text-3xl font-bold text-white">Plain ME Frp Launcher</h1>
+          <h1 class="text-3xl font-bold text-white">PML 2</h1>
           <p class="text-gray-400">基于 .NET 的跨平台客户端</p>
         </div>
       </div>
@@ -46,7 +46,7 @@
 
       <div class="p-6 space-y-4 text-gray-300">
         <p>
-          Plain ME Frp Launcher X (PML 2) 是由
+          PML 2 是由
           <strong class="text-primary-400">RYCB Studio</strong> 使用 .NET 10.0
           开发的 ME-Frp 第三方客户端。 该客户端是对 ME Frp (幻缘映射)
           的图形化实现，提供了简单便捷的操作，可以快速启动隧道，支持 Windows,
@@ -191,7 +191,7 @@
         <div class="relative h-96 flex items-center justify-center">
           <img
             :src="previewImages[currentImageIndex].src"
-            :alt="`${previewImages[currentImageIndex].alt} - Plain ME Frp Launcher 界面截图`"
+            :alt="`${previewImages[currentImageIndex].alt} - PML 2 界面截图`"
             class="max-w-full max-h-full object-contain cursor-pointer"
             loading="lazy"
             @click="openImageModal(previewImages[currentImageIndex])"
@@ -654,7 +654,7 @@ const currentVersion = computed(() => getVersion('pml'))
 
 // 页面元数据
 useHead({
-  title: "Plain ME Frp Launcher 文档",
+  title: "PML 2 文档",
   link: [{ rel: "canonical", href: "https://mefrp-tpca.yealqp.cn/docs/pml" }],
   script: [
     {
@@ -662,7 +662,7 @@ useHead({
       innerHTML: () => JSON.stringify({
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        name: "Plain ME Frp Launcher",
+        name: "PML 2",
         applicationCategory: "NetworkApplication",
         operatingSystem: "Windows, Linux, macOS, Android",
         softwareVersion: currentVersion.value,
@@ -677,13 +677,13 @@ useHead({
 
 // SEO 优化
 useSeoMeta({
-  title: "Plain ME Frp Launcher 文档 | ME-Frp 第三方客户端联盟",
-  ogTitle: "Plain ME Frp Launcher 文档 - ME-Frp 第三方客户端联盟",
+  title: "PML 2 文档 | ME-Frp 第三方客户端联盟",
+  ogTitle: "PML 2 文档 - ME-Frp 第三方客户端联盟",
   description:
-    "Plain ME Frp Launcher 详细使用文档，基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android，包含多平台安装、配置和使用指南。",
+    "PML 2 详细使用文档，基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android，包含多平台安装、配置和使用指南。",
   ogDescription:
-    "Plain ME Frp Launcher 详细使用文档，包含多平台安装、配置和使用指南",
-  ogImage: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png",
+    "PML 2 详细使用文档，包含多平台安装、配置和使用指南",
+  ogImage: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/homex.png",
   ogUrl: "https://mefrp-tpca.yealqp.cn/docs/pml",
   ogType: "article",
   twitterCard: "summary_large_image",
@@ -692,32 +692,108 @@ useSeoMeta({
 // 预览图数据
 const previewImages = [
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/home2.png",
     alt: "主页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/createx.png",
-    alt: "创建隧道",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-1.png",
+    alt: "创建隧道-选择节点",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/managex.png",
-    alt: "隧道管理",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-2.png",
+    alt: "创建隧道-填写信息",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/monitorx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-2x.png",
+    alt: "创建隧道-填写额外信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2.png",
+    alt: "隧道管理 - 隧道列表",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-1.png",
+    alt: "隧道管理 - 查看隧道信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-2.png",
+    alt: "隧道管理 - 帮助",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-3.png",
+    alt: "隧道管理 - 编辑隧道",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/monitor2.png",
     alt: "节点监控",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/settingsx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-1.png",
+    alt: "用户中心 - 总览",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-2.png",
+    alt: "用户中心 - 账户信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-3.png",
+    alt: "用户中心 - 流量信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-4.png",
+    alt: "用户中心 - 流量历史",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/settings2.png",
     alt: "设置页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/aboutx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/update2.png",
+    alt: "更新页面",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/about2.png",
     alt: "关于页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/terminalx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/terminal2.png",
     alt: "终端界面",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/home2light.png",
+    alt: "主页面 (浅色模式 + 云母效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2light.png",
+    alt: "创建隧道-选择节点 (浅色模式 + 云母效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2light.png",
+    alt: "隧道管理 - 隧道列表 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/monitor2light.png",
+    alt: "节点监控 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2light-1.png",
+    alt: "用户中心 - 总览 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2light-2.png",
+    alt: "用户中心 - 流量信息 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/settings2light.png",
+    alt: "设置页面 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/about2light.png",
+    alt: "关于页面 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/terminal2light.png",
+    alt: "终端界面 (浅色模式 + 亚克力效果)",
   },
 ];
 

@@ -4,7 +4,7 @@
     <div class="mb-8">
       <div class="flex items-center space-x-4 mb-4">
         <img 
-          src="https://image.mefrp-tpca.yealqp.cn/image/views/icon/xl_icon.webp" 
+          src="https://image.mefrp-tpca.yealqp.cn/images/views/icon/xl_icon.webp" 
           alt="XL-ME-Frp-Launcher"
           class="w-12 h-12 rounded-lg"
         />
@@ -296,7 +296,7 @@ useSeoMeta({
   ogTitle: 'XL-ME-Frp-Launcher 文档 - ME-Frp 第三方客户端联盟',
   description: 'XL-ME-Frp-Launcher 详细使用文档，基于 Tauri 2 框架开发的 ME-Frp 第三方客户端，包含安装、配置和使用指南，支持 Windows 10/11 和 Windows Server。',
   ogDescription: 'XL-ME-Frp-Launcher 详细使用文档，包含安装、配置和使用指南',
-  ogImage: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png',
+  ogImage: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/home.png',
   ogUrl: 'https://mefrp-tpca.yealqp.cn/docs/xl',
   ogType: 'article',
   twitterCard: 'summary_large_image'
@@ -304,14 +304,14 @@ useSeoMeta({
 
 // 预览图数据
 const previewImages = [
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/login.png', alt: '登录界面' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/home.png', alt: '主页面' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/tunnel.png', alt: '隧道管理' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/node.png', alt: '节点选择' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/create.png', alt: '创建隧道' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/help.png', alt: '帮助页面' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/config.png', alt: '配置设置' },
-  { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png', alt: '关于页面' }
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/login.png', alt: '登录界面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/home.png', alt: '主页面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/tunnel.png', alt: '隧道管理' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/node.png', alt: '节点选择' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/create.png', alt: '创建隧道' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/help.png', alt: '帮助页面' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/config.png', alt: '配置设置' },
+  { src: 'https://image.mefrp-tpca.yealqp.cn/images/views/yealqp/about.png', alt: '关于页面' }
 ]
 
 // 更新日志状态
