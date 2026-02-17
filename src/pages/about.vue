@@ -150,7 +150,7 @@
               <UButton 
                 size="lg" 
                 color="primary"
-                to="https://github.com/yealqp/ME-Frp_third_party_Client_website"
+                to="https://github.com/yealqp/ME-Frp_TPCA_Website"
                 target="_blank"
                 class="btn-glow cursor-pointer"
               >

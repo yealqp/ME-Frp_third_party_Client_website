@@ -191,7 +191,7 @@
         <div class="relative h-96 flex items-center justify-center">
           <img
             :src="previewImages[currentImageIndex].src"
-            :alt="`${previewImages[currentImageIndex].alt} - PML 2 界面截图`"
+            :alt="previewImages[currentImageIndex].alt + ' - PML 2 界面截图'"
             class="max-w-full max-h-full object-contain cursor-pointer"
             loading="lazy"
             @click="openImageModal(previewImages[currentImageIndex])"

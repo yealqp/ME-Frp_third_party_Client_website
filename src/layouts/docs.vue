@@ -77,7 +77,7 @@
 
               <div class="space-y-1">
                 <a
-                  href="https://github.com/yealqp/ME-Frp_third_party_Client_website"
+                  href="https://github.com/yealqp/ME-Frp_TPCA_Website"
                   target="_blank"
                   class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                 >
