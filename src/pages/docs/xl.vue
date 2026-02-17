@@ -57,7 +57,7 @@
               </li>
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
-                <span>提供官网没有的启停隧道功能</span>
+                <span>提供其他客户端没有的原生人机验证功能</span>
               </li>
               <li class="flex items-start space-x-2">
                 <UIcon name="i-lucide-check-circle" class="size-4 text-primary-400 mt-0.5 flex-shrink-0" />
@@ -229,20 +229,13 @@
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </div>
       
-      <div class="p-6 space-y-6">
-        <div v-for="update in updateHistory" :key="update.version" class="border-l-2 border-primary-500/30 pl-4">
-          <div class="flex items-center space-x-2 mb-2">
-            <h3 class="text-lg font-semibold text-white">{{ update.version }}</h3>
-            <span v-if="update.isLatest" class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/20 text-green-400">最新</span>
-          </div>
-          <ul class="space-y-1 text-gray-300 text-sm">
-            <li v-for="(change, index) in update.changes" :key="index" class="flex items-start space-x-2">
-              <span class="text-primary-400 mt-1">•</span>
-              <span v-html="change"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <!-- 使用优化的 ChangelogList 组件 -->
+      <ChangelogList
+        :updates="updates"
+        :loading="loading"
+        :error="error"
+        :page-size="5"
+      />
     </div>
 
   </div>
@@ -260,6 +253,18 @@ const { elementRef: previewRef, isVisible: previewVisible } = useScrollAnimation
 const { elementRef: downloadRef, isVisible: downloadVisible } = useScrollAnimation()
 const { elementRef: updateRef, isVisible: updateVisible } = useScrollAnimation()
 
+// 防止未使用警告
+void introRef
+void previewRef
+void downloadRef
+void updateRef
+
+// 使用版本管理 composable
+const { getVersion, fetchAllVersions } = useProductVersions()
+
+// 获取当前产品版本
+const currentVersion = computed(() => getVersion('xl'))
+
 // 页面元数据
 useHead({
   title: 'XL-ME-Frp-Launcher 文档',
@@ -269,13 +274,13 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
+      innerHTML: () => JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: 'XL-ME-Frp-Launcher',
         applicationCategory: 'NetworkApplication',
         operatingSystem: 'Windows 10, Windows 11, Windows Server',
-        softwareVersion: 'v1.5.5',
+        softwareVersion: currentVersion.value,
         description: '基于 Tauri 2 框架开发的 ME-Frp 第三方客户端，界面高仿官网样式，性能优异',
         author: { '@type': 'Person', name: 'yealqp' },
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
@@ -309,76 +314,85 @@ const previewImages = [
   { src: 'https://image.mefrp-tpca.yealqp.cn/image/views/yealqp/about.png', alt: '关于页面' }
 ]
 
-// 更新历史
-const updateHistory = [
-  {
-    version: 'v1.5.5',
-    isLatest: true,
-    changes: [
-      '创建隧道页面节点卡片添加VIP节点样式和逻辑，删除了创建HTTP/S隧道功能（我才发现不能用，先扔着）。'
-    ]
-  },
-  {
-    version: 'v1.5.4',
-    changes: [
-      '添加Token登录功能，减少冗余代码，修复了自动检查更新时弹出的新版本下载地址不正确的问题，优化QQ群聊按钮，添加二群相关按钮，优化后端逻辑。'
-    ]
-  },
-  {
-    version: 'v1.5.3',
-    changes: [
-      '修改新版本下载地址，修改了仙林云官网地址，在帮助页面图形化反馈卡片中添加新版本下载页按钮。'
-    ]
-  },
-  {
-    version: 'v1.5.2',
-    changes: [
-      '将隧道管理页面的编辑按钮移到更多选项卡中，将更多选项卡中的复制远程地址和详情按钮移到原编辑按钮位置。'
-    ]
-  },
-  {
-    version: 'v1.5.1',
-    changes: [
-      '添加复制隧道远程地址功能。'
-    ]
-  },
-  {
-    version: 'v1.5',
-    changes: [
-      '添加登录时的人机验证功能，感谢 <a href="https://github.com/LxHTT" target="_blank" class="text-primary-400 hover:text-primary-300">落雪无痕LxHTT</a> 提供了官网使用的人机验证逻辑。'
-    ]
-  },
-  {
-    version: 'v1.4',
-    changes: [
-      '添加<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">配置文件启动</code>功能，更新了软件内的新版本下载地址'
-    ]
-  },
-  {
-    version: 'v1.3',
-    changes: [
-      '修改<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">自启动隧道</code>逻辑，重构后端有关配置文件修改的部分'
-    ]
-  },
-  {
-    version: 'v1.2',
-    changes: [
-      '更新了软件内的新版本下载地址'
-    ]
-  },
-  {
-    version: 'v1.1',
-    changes: [
-      '修复了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">隧道启动</code>时，使用的二进制文件路径不正确的问题，添加了<code class="bg-gray-700 px-1 py-0.5 rounded text-xs">单实例启动</code>的功能'
-    ]
-  },
-  {
-    version: 'v1.0',
-    changes: [
-      '发布'
-    ]
+// 更新日志状态
+const loading = ref(false)
+const error = ref(null)
+const updates = ref([])
+
+// 从 API 获取更新日志
+const fetchChangelog = async () => {
+  try {
+    const response = await fetch('https://check.yealqp.cn/changelog.json')
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const data = await response.json()
+    return data
+  } catch (err) {
+    console.error('获取更新日志失败:', err)
+    throw err
   }
-]
+}
+
+// 版本号比较
+const compareVersions = (version1, version2) => {
+  const v1Parts = version1.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  const v2Parts = version2.replace(/[^\d.]/g, '').split('.').map(num => parseInt(num) || 0)
+  
+  const maxLength = Math.max(v1Parts.length, v2Parts.length)
+  while (v1Parts.length < maxLength) v1Parts.push(0)
+  while (v2Parts.length < maxLength) v2Parts.push(0)
+  
+  for (let i = 0; i < maxLength; i++) {
+    if (v1Parts[i] > v2Parts[i]) return 1
+    if (v1Parts[i] < v2Parts[i]) return -1
+  }
+  return 0
+}
+
+// 转换 API 数据
+const transformApiData = (apiData) => {
+  if (!apiData.data) {
+    throw new Error('API 数据格式错误')
+  }
+  
+  const transformedData = []
+  const versions = Object.keys(apiData.data).sort((a, b) => compareVersions(b, a))
+  
+  versions.forEach((version, index) => {
+    const versionData = apiData.data[version]
+    // 适配新格式：versionData 是数组或对象
+    const changes = Array.isArray(versionData) ? versionData : (versionData.changes || [])
+    const date = Array.isArray(versionData) ? '' : (versionData.date || '')
+    const note = Array.isArray(versionData) ? '' : (versionData.note || '')
+    
+    transformedData.push({
+      version: `v${version}`,
+      changes: changes,
+      date: date,
+      note: note,
+      isLatest: index === 0
+    })
+  })
+  
+  return transformedData
+}
+
+// 初始化更新日志
+const initializeUpdates = async () => {
+  loading.value = true
+  error.value = null
+  
+  try {
+    const apiData = await fetchChangelog()
+    updates.value = transformApiData(apiData)
+  } catch (err) {
+    error.value = '获取更新日志失败'
+    updates.value = []
+  } finally {
+    loading.value = false
+  }
+}
 
 // 轮播图状态
 const currentImageIndex = ref(0)
@@ -396,4 +410,10 @@ const previousImage = () => {
 const openImageModal = (image) => {
   window.open(image.src, '_blank')
 }
+
+// 组件挂载时初始化
+onMounted(() => {
+  fetchAllVersions()
+  initializeUpdates()
+})
 </script>

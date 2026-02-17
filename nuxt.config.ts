@@ -23,6 +23,29 @@ export default defineNuxtConfig({
     provider: 'none'
   },
 
+  // 实验性功能 - 性能优化
+  experimental: {
+    payloadExtraction: true,
+    viewTransition: true
+  },
+
+  // Vite 构建优化
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor': ['vue', 'vue-router']
+          }
+        }
+      }
+    },
+    optimizeDeps: {
+      include: ['vue', 'vue-router']
+    }
+  },
+
   // 应用配置
   app: {
     head: {
@@ -56,7 +79,25 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://image.mefrp-tpca.yealqp.cn/image/views/icon/apple-touch-icon.png' },
-        { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn' }
+        { rel: 'canonical', href: 'https://mefrp-tpca.yealqp.cn' },
+        // DNS 预解析
+        { rel: 'dns-prefetch', href: 'https://image.mefrp-tpca.yealqp.cn' },
+        { rel: 'dns-prefetch', href: 'https://check.yealqp.cn' },
+        { rel: 'dns-prefetch', href: 'https://api.rycb.mxj.pub' },
+        { rel: 'dns-prefetch', href: 'https://umami.yealqp.cn' },
+        // 预连接关键域名
+        { rel: 'preconnect', href: 'https://image.mefrp-tpca.yealqp.cn', crossorigin: 'anonymous' },
+        { rel: 'preconnect', href: 'https://check.yealqp.cn', crossorigin: 'anonymous' },
+        // 预加载关键字体
+        { rel: 'preload', href: 'https://image.mefrp-tpca.yealqp.cn/image/font/hywenhei-85w.woff', as: 'font', type: 'font/woff', crossorigin: 'anonymous' }
+      ],
+      script: [
+        {
+          defer: true,
+          src: 'https://umami.yealqp.cn/script.js',
+          'data-website-id': '2c44a45e-a4bb-40ea-ab3c-75936119e6a2',
+          async: true
+        }
       ]
     }
   },
@@ -68,17 +109,21 @@ export default defineNuxtConfig({
       publicDir: 'dist'
     },
     prerender: {
-      routes: ['/', '/about', '/brand', '/products', '/docs', '/docs/xl', '/docs/lx', '/docs/pml']
-    }
+      routes: ['/', '/about', '/brand', '/products', '/docs', '/docs/xl', '/docs/lx', '/docs/pml'],
+      crawlLinks: true
+    },
+    // 压缩优化
+    compressPublicAssets: true
   },
 
-  // 路由规则 - SEO 优化
+  // 路由规则 - SEO 优化和缓存
   routeRules: {
     '/': { prerender: true },
     '/about': { prerender: true },
     '/brand': { prerender: true },
     '/products': { prerender: true },
-    '/docs/**': { prerender: true }
+    '/docs/**': { prerender: true },
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } }
   },
 
   // 兼容性日期

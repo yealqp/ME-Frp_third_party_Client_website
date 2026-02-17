@@ -610,112 +610,13 @@
         <h2 class="text-xl font-semibold text-white">更新记录</h2>
       </div>
 
-      <!-- 加载状态 -->
-      <div v-if="loading" class="p-6 text-center py-8">
-        <UIcon
-          name="i-lucide-loader-2"
-          class="size-8 text-primary-400 animate-spin mx-auto mb-4"
-        />
-        <p class="text-gray-400">正在加载更新日志...</p>
-      </div>
-
-      <!-- 错误状态 -->
-      <div v-else-if="error" class="p-6 text-center py-8">
-        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/20">
-          <div class="flex items-start space-x-3">
-            <UIcon
-              name="i-lucide-alert-circle"
-              class="size-5 text-red-400 mt-0.5 flex-shrink-0"
-            />
-            <div>
-              <h4 class="font-semibold text-red-400">获取更新日志失败</h4>
-              <p class="text-gray-300 text-sm mt-1">
-                {{ error }}，请稍后重试或联系管理员。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 更新日志内容 -->
-      <div v-else class="p-6 space-y-6">
-        <div
-          v-for="update in updates"
-          :key="update.version"
-          class="bg-white/5 rounded-lg p-5 hover:bg-white/10 transition-smooth border border-white/10"
-        >
-          <!-- 版本头部 -->
-          <div class="flex flex-wrap items-center gap-3 mb-3">
-            <h3 class="text-xl font-bold text-white">{{ update.version }}</h3>
-
-            <!-- 标签组 -->
-            <div class="flex flex-wrap items-center gap-2">
-              <span
-                v-if="update.isLatest"
-                class="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-500/20 text-green-400 border border-green-500/30"
-              >
-                <UIcon
-                  name="i-lucide-sparkles"
-                  class="size-3 inline-block mr-1"
-                />
-                最新版本
-              </span>
-
-              <span
-                v-if="update.codename"
-                class="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30"
-              >
-                <UIcon name="i-lucide-tag" class="size-3 inline-block mr-1" />
-                {{ update.codename }}
-              </span>
-
-              <span
-                v-if="update.date"
-                class="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-500/20 text-gray-400 border border-gray-500/30"
-              >
-                <UIcon
-                  name="i-lucide-calendar"
-                  class="size-3 inline-block mr-1"
-                />
-                {{ update.date }}
-              </span>
-            </div>
-          </div>
-
-          <!-- 版本描述 -->
-          <p
-            v-if="update.description"
-            class="text-gray-400 text-sm mb-4 italic"
-          >
-            {{ update.description }}
-          </p>
-
-          <!-- 更新内容 -->
-          <div class="space-y-2">
-            <h4
-              class="text-sm font-semibold text-gray-300 mb-2 flex items-center gap-2"
-            >
-              <UIcon name="i-lucide-list" class="size-4 text-primary-400" />
-              更新内容
-            </h4>
-            <ul class="space-y-2">
-              <li
-                v-for="(item, index) in update.notes"
-                :key="index"
-                class="flex items-start space-x-3 text-gray-300 text-sm group"
-              >
-                <span
-                  class="flex-shrink-0 w-1.5 h-1.5 bg-primary-400 rounded-full mt-2 group-hover:scale-125 transition-transform"
-                ></span>
-                <span
-                  class="flex-1 leading-relaxed"
-                  v-html="formatChangeItem(item)"
-                ></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <!-- 使用优化的 ChangelogList 组件 -->
+      <ChangelogList
+        :updates="updates"
+        :loading="loading"
+        :error="error"
+        :page-size="5"
+      />
     </div>
   </div>
 </template>
@@ -745,6 +646,12 @@ void downloadRef;
 void fixRef;
 void updateRef;
 
+// 使用版本管理 composable
+const { getVersion, fetchAllVersions } = useProductVersions()
+
+// 获取当前产品版本
+const currentVersion = computed(() => getVersion('pml'))
+
 // 页面元数据
 useHead({
   title: "PML 2 文档",
@@ -752,13 +659,13 @@ useHead({
   script: [
     {
       type: "application/ld+json",
-      innerHTML: JSON.stringify({
+      innerHTML: () => JSON.stringify({
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         name: "PML 2",
         applicationCategory: "NetworkApplication",
         operatingSystem: "Windows, Linux, macOS, Android",
-        softwareVersion: "v2.1.0",
+        softwareVersion: currentVersion.value,
         description:
           "基于 .NET 10.0 开发的跨平台 ME-Frp 第三方客户端，支持 Windows、Linux、macOS 和 Android",
         author: { "@type": "Organization", name: "RYCB Studio" },
@@ -958,13 +865,6 @@ const transformApiData = (apiData) => {
   return transformedData;
 };
 
-// 格式化更新项（处理换行和HTML）
-const formatChangeItem = (item) => {
-  if (!item) return "";
-  // 将 \n 转换为 <br>，保留原有的 HTML 标签
-  return item.replace(/\n/g, "<br>");
-};
-
 // 初始化更新日志
 const initializeUpdates = async () => {
   loading.value = true;
@@ -1004,6 +904,7 @@ const openImageModal = (image) => {
 
 // 组件挂载时初始化
 onMounted(() => {
+  fetchAllVersions();
   initializeUpdates();
 });
 </script>
