@@ -785,32 +785,108 @@ useSeoMeta({
 // 预览图数据
 const previewImages = [
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/homex.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/home2.png",
     alt: "主页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/createx.png",
-    alt: "创建隧道",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-1.png",
+    alt: "创建隧道-选择节点",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/managex.png",
-    alt: "隧道管理",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-2.png",
+    alt: "创建隧道-填写信息",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/monitorx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2-2x.png",
+    alt: "创建隧道-填写额外信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2.png",
+    alt: "隧道管理 - 隧道列表",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-1.png",
+    alt: "隧道管理 - 查看隧道信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-2.png",
+    alt: "隧道管理 - 帮助",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2-3.png",
+    alt: "隧道管理 - 编辑隧道",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/monitor2.png",
     alt: "节点监控",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/settingsx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-1.png",
+    alt: "用户中心 - 总览",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-2.png",
+    alt: "用户中心 - 账户信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-3.png",
+    alt: "用户中心 - 流量信息",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2-4.png",
+    alt: "用户中心 - 流量历史",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/settings2.png",
     alt: "设置页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/aboutx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/update2.png",
+    alt: "更新页面",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/about2.png",
     alt: "关于页面",
   },
   {
-    src: "https://image.mefrp-tpca.yealqp.cn/image/views/rycb/terminalx.png",
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/terminal2.png",
     alt: "终端界面",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/home2light.png",
+    alt: "主页面 (浅色模式 + 云母效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/create2light.png",
+    alt: "创建隧道-选择节点 (浅色模式 + 云母效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/manage2light.png",
+    alt: "隧道管理 - 隧道列表 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/monitor2light.png",
+    alt: "节点监控 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2light-1.png",
+    alt: "用户中心 - 总览 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/user2light-2.png",
+    alt: "用户中心 - 流量信息 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/settings2light.png",
+    alt: "设置页面 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/about2light.png",
+    alt: "关于页面 (浅色模式 + 亚克力效果)",
+  },
+  {
+    src: "https://image.mefrp-tpca.yealqp.cn/images/views/rycb/terminal2light.png",
+    alt: "终端界面 (浅色模式 + 亚克力效果)",
   },
 ];
 
