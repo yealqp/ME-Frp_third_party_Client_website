@@ -265,7 +265,7 @@ useHead({
         logo: 'https://image.mefrp-tpca.yealqp.cn/images/views/icon/favicon.ico',
         description: 'ME-Frp 第三方客户端联盟官方网站，专注于 ME-Frp 第三方客户端开发，提供多款优质内网穿透客户端',
         sameAs: [
-          'https://github.com/yealqp/ME-Frp_third_party_Client_website'
+          'https://github.com/yealqp/ME-Frp_TPCA_Website'
         ]
       })
     }
